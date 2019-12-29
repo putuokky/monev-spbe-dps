@@ -1,0 +1,10 @@
+- cek note di tiap folder lainnya jika ada
+- buat dokumentasinya yang lengkap agar orang lain bisa melakukan pengembangan
+++++++++++++++++++++++++++
+* User Super Admin
+user : denpasarkota
+password : dpskota2019
+
+* User Super Admin
+user : adminspbe
+password : admin
