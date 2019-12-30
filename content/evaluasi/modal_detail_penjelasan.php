@@ -8,19 +8,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table table-striped">
-          <!-- <thead>
-            <tr>
-              <th scope="col" colspan="2" class="align-middle">Username</th>
-            </tr>
-          </thead> -->
+        <table class="table table-striped table-bordered">
           <tbody>
             <tr>
               <th>Penjelasan Evaluasi</th>
+              <th>Penejelasan Level</th>
             </tr>
             <tr>
               <td>
                 <?= $penjelasan_evaluasi; ?>
+              </td>
+              <td>
+                <?= $penjelasan_level; ?>
               </td>
             </tr>
           </tbody>

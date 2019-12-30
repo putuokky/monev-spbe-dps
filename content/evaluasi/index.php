@@ -124,8 +124,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $tahun_evaluasi; ?></td>
                         <td><?= "Indikator " . $indikator . " : " . $namaindikator; ?></td>
                         <td><?= $pertanyaan; ?></td>
-                        <td><span data-toggle="tooltip" data-placement="top" title="<?= $penjelasan_level; ?>"><?= $namalevel; ?></span>
-                        </td>
+                        <td><?= $namalevel; ?></td>
                         <td><?php
                             if ($penjelasan_evaluasi == '') {
                               echo "-";
