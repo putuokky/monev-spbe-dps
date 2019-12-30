@@ -74,7 +74,7 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="nama_indikator" class="col-md-2 col-form-label">Nama Indikator</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="sel_depart" name="nama_indikator" onchange="getLevel();">
+                  <select class="form-control" id="nama_indikator" name="nama_indikator">
                     <option value="0">-</option>
                     <?php
                     $sqlIndikator = "SELECT * FROM tb_indikator";

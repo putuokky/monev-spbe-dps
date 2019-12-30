@@ -138,6 +138,37 @@
   });
 </script>
 
+<script>
+  $('select[id="nama_indikator"]').on('change', function() {
+    var id = $('#nama_indikator').val();
+    if (id == '') {
+      id = '0';
+    }
+
+    $('#loader1').show();
+    $("#nama_level").prop('disabled', true);
+    if (id != null) {
+      $.ajax({
+        type: 'GET',
+        url: 'api/data-indikator.php?id=' + id,
+        data: '',
+        success: function(result) {
+          $('select[id="nama_level"]').empty();
+          $('select[id="nama_level"]').append('<option value="-">-</option>');
+          $.each(JSON.parse(result), function(i, val) {
+            $('#nama_level').append($('<option></option>').attr('value', val.idlevel).text(val.namalevel));
+          });
+
+          $("#nama_level").prop('disabled', false);
+          $('#loader1').hide();
+        }
+      });
+    } else {
+      $('#loader1').hide();
+    }
+  });
+</script>
+
 </body>
 
 </html>
