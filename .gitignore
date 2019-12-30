@@ -1,4 +1,4 @@
 /assets/file/*
-*/config/koneksi.php
+!*/config/koneksi.php
 note.txt
 Readme.txt
