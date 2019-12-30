@@ -82,7 +82,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Sub Menu:</h6>
               <a class="collapse-item" href="?page=indeks" id="indeks">Indeks</a>
-              <a class="collapse-item" href="?page=domain" id="indeks">Domain</a>
+              <a class="collapse-item" href="?page=domain" id="domain">Domain</a>
               <a class="collapse-item" href="?page=aspek" id="aspek">Aspek</a>
               <a class="collapse-item" href="?page=indikator" id="indikator">Indikator</a>
               <a class="collapse-item" href="?page=pertanyaan" id="pertanyaan">Pertanyaan</a>
