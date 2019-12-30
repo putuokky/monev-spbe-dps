@@ -88,16 +88,9 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="nama_level" class="col-md-2 col-form-label">Nama Level</label>
                 <div class="col-md-10 ">
-                  <select class="form-control" id="nama_level" name="nama_level">
+                  <select class="form-control" id="nama_level" name="nama_level" disabled>
                     <option value="0">-</option>
-                    <?php
-                    $sqlLevel = "SELECT * FROM tb_level a 
-                                  LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan 
-                                  LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator";
-                    $resLevel = mysqli_query($conn, $sqlLevel);
-                    while ($rowLevel = mysqli_fetch_assoc($resLevel)) { ?>
-                      <option value="<?= $rowLevel['idlevel']; ?>"><?= $rowLevel['namalevel'] . " | Indikator" . $rowLevel['indikator']; ?></option>
-                    <?php } ?>
+                    
                   </select>
                 </div>
               </div>
@@ -111,7 +104,7 @@ if (isset($_POST['input'])) {
                                       LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator";
                     $resPertanyaan = mysqli_query($conn, $sqlPertanyaan);
                     while ($rowPertanyaan = mysqli_fetch_assoc($resPertanyaan)) { ?>
-                      <option value="<?= $rowPertanyaan['idpertanyaan']; ?>">Indikator <?= $rowPertanyaan['indikator'] . " | " . $rowPertanyaan['pertanyaan']; ?></option>
+                      <option value="<?= $rowPertanyaan['idpertanyaan']; ?>"><?= $rowPertanyaan['pertanyaan']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
