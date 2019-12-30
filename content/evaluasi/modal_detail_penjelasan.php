@@ -12,14 +12,14 @@
           <tbody>
             <tr>
               <th>Penjelasan Evaluasi</th>
-              <th>Penejelasan Level</th>
+              <th>Penjelasan Level</th>
             </tr>
             <tr>
               <td>
                 <?= $penjelasan_evaluasi; ?>
               </td>
               <td>
-                <?= $penjelasan_level; ?>
+              <?= $namalevel." - ".$penjelasan_level; ?>
               </td>
             </tr>
           </tbody>

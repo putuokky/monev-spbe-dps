@@ -3,7 +3,7 @@ class tagline
 {
     function sidetitle()
     {
-        echo 'Monev Indeks SPBE';
+        echo 'Monev SPBE';
     }
 
     function kota()
