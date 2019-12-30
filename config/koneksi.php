@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_spbe";
+$username = "indeksdp_user_indeks";
+$password = "!s7Jl3856+zM";
+$dbname = "indeksdp_db_indeks";
 
 
 // Create connection
