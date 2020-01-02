@@ -60,11 +60,11 @@
         </div>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesSound" aria-expanded="true" aria-controls="collapsePagesSound">
+          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMaster" aria-expanded="true" aria-controls="collapsePagesMaster">
             <i class="fas fa-fw fa-archway"></i>
             <span>Master</span>
           </a>
-          <div id="collapsePagesSound" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div id="collapsePagesMaster" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Sub Menu:</h6>
               <a class="collapse-item" href="?page=indeks" id="indeks">Indeks</a>
