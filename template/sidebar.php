@@ -47,20 +47,6 @@
           <span>Penilaian Kematangan</span></a>
       </li>
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider"> -->
-
-      <!-- Heading -->
-      <!-- <div class="sidebar-heading">
-        Evaluasi IKCI
-      </div> -->
-      <!-- Nav Item -->
-      <!-- <li class="nav-item pb-0" id="">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-bell"></i>
-          <span>baru</span></a>
-      </li> -->
-
       <?php
       // grupuser user admin
       if ($_SESSION['groupuser'] == 1) { ?>
