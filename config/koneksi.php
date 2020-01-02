@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "db_indeks";
+$dbname = "db_spbe";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
