@@ -60,7 +60,7 @@
         </div>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMaster" aria-expanded="true" aria-controls="collapsePagesMaster">
+          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMaster" aria-expanded="true" aria-controls="collapsePagesMaster" id="master">
             <i class="fas fa-fw fa-archway"></i>
             <span>Master</span>
           </a>
