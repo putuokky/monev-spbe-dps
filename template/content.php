@@ -55,4 +55,7 @@ switch ($page) {
   case "homeikci":
     include 'content/homeikci/index.php';
     break;
+  case "nilai-indikator":
+    include 'content/indikatornilai/index.php';
+    break;
 }
