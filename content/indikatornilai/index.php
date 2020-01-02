@@ -10,7 +10,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else if (isset($_GET['act']) && $_GET['act'] == "addjelas") {
   include 'formjelas.php';
 } else {
-
   ?>
 
 
@@ -33,14 +32,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
     <div class="row">
 
       <div class="col-xl-12 col-lg-12">
-
-        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=indikator&act=tambah">
-          <span class="icon">
-            <i class="fas fa-fw fa-plus"></i>
-          </span>
-          <span class="text">Tambah</span>
-        </a>
-
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -70,26 +61,22 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                 <?php
-                  $sql = "SELECT * FROM tb_domain a 
+                  $sqlDomain = "SELECT * FROM tb_domain a 
                         LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks 
                         WHERE b.nama_indeks = 'SPBE'
                         ORDER BY a.urutan_domain ASC";
-                  $result = mysqli_query($conn, $sql);
+                  $resultDomain = mysqli_query($conn, $sqlDomain);
 
-                  if (mysqli_num_rows($result) > 0) {
-                    $no = 1;
+                  if (mysqli_num_rows($resultDomain) > 0) {
                     // output data of each row
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      $id_domain = $row['iddomain'];
-                      $nilai_indeks_domain = $row['nilai_indeks_domain'];
-                      $namadomain = $row['namadomain'];
-                      $bobot = $row['bobot'];
-                      $tahun_domain = $row['tahun_domain'];
-                      $nama_indeks = $row['nama_indeks'];
+                    while ($rowDomain = mysqli_fetch_assoc($resultDomain)) {
+                      $id_domain = $rowDomain['iddomain'];
+                      $namadomain = $rowDomain['namadomain'];
+                      $urutan_domain = $rowDomain['urutan_domain'];
                       ?>
 
-                      <tr>
-                        <td><?= "Domain ".$no; ?></td>
+                      <tr style="background-color:#79e5cb;">
+                        <td><?= "Domain ".$urutan_domain; ?></td>
                         <td><?= $namadomain; ?></td>
                         <td>Bobot utk domain</td>
                         <td>bobot aspek utk domain</td>
@@ -97,50 +84,73 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td>Indeks Akhir utk domain</td>
                       </tr>
                       <?php
-                      $no++;
 
-                      
+                      // open aspek
+                      $sqlAspek = "SELECT * FROM tb_aspek a 
+                            LEFT JOIN tb_domain b ON a.iddomain = b.iddomain 
+                            WHERE a.iddomain = '$id_domain'
+                            ORDER BY a.urutan_aspek ASC";
+                      $resultAspek = mysqli_query($conn, $sqlAspek);
+
+                      if (mysqli_num_rows($resultAspek) > 0) {
+                        // output data of each row
+                        while ($rowAspek = mysqli_fetch_assoc($resultAspek)) {
+                          $id_aspek = $rowAspek['idaspek'];
+                          $nama_aspek = $rowAspek['nama_aspek'];
+                          $urutan_aspek = $rowAspek['urutan_aspek'];
+                          ?>
+
+                          <tr style="background-color:#efefef;">
+                            <td><?= "Aspek ".$urutan_aspek; ?></td>
+                            <td><?= $nama_aspek; ?></td>
+                            <td>Bobot utk aspek</td>
+                            <td>bobot aspek utk aspek</td>
+                            <td>TK Final Adj utk aspek</td>
+                            <td>Indeks Akhir utk aspek</td>
+                          </tr>
+                          <?php
+
+                          // open indikator
+                            $sql = "SELECT * FROM tb_indikator a 
+                                  LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
+                                  LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail
+                                  WHERE b.idaspek = '$id_aspek'";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+                              // output data of each row
+                              while ($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['idindikator'];
+                                $namaindikator = $row['namaindikator'];
+                                $indikator = $row['indikator'];
+                                $penjelasanindikator = $row['penjelasanindikator'];
+                                $bobot_indikator = $row['bobot_indikator'];
+                                $nama_aspek = $row['nama_aspek'];
+                                $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
+                                $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
+                                $penjelasan_indikator_tambahan = $row['penjelasan_indikator_tambahan'];
+                                ?>
+
+                              <tr>
+                                <td><?= "Indikator ".$indikator; ?></td>
+                                <td><?= $namaindikator; ?></td>
+                                <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
+                                <td>bobot aspek</td>
+                                <td>final</td>
+                                <td>indek akhir</td>
+                              </tr>
+                          <?php
+                              }
+                            }
+                            // end indikator
+
+                        }
+                      }
+                      // end aspek    
+                                        
                     }
                   }
                   ?>
-
-                  <!-- open indikator -->
-                  <?php
-
-                    $sql = "SELECT * FROM tb_indikator a 
-                          LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
-                          LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail
-                          WHERE b.idaspek = '$id_aspek'";
-                    $result = mysqli_query($conn, $sql);
-
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['idindikator'];
-                        $namaindikator = $row['namaindikator'];
-                        $indikator = $row['indikator'];
-                        $penjelasanindikator = $row['penjelasanindikator'];
-                        $bobot_indikator = $row['bobot_indikator'];
-                        $nama_aspek = $row['nama_aspek'];
-                        $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
-                        $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
-                        $penjelasan_indikator_tambahan = $row['penjelasan_indikator_tambahan'];
-                        ?>
-
-                      <tr>
-                        <td><?= "Indikator ".$indikator; ?></td>
-                        <td><?= $namaindikator; ?></td>
-                        <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
-                        <td>bobot aspek</td>
-                        <td>final</td>
-                        <td>indek akhir</td>
-                      </tr>
-                  <?php
-                        $no++;
-                      }
-                    }
-                    ?>
                 </tbody>
               </table>
             </div>
