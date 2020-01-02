@@ -55,4 +55,7 @@ switch ($page) {
   case "homeikci":
     echo "Dashboard IKCI";
     break;
+  case "nilai-indikator":
+    echo "Nilai Indikator";
+    break;
 }
