@@ -48,32 +48,69 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Action</th>
-                    <th>Nama Aspek</th>
-                    <th>Indikator</th>
-                    <th>Nama Indikator</th>
-                    <th>Penjelasan Indikator</th>
+                    <th>Domain/Aspek/Indikator</th>
+                    <th>Deskripsi</th>
+                    <th>Bobot (%)</th>
+                    <th>Bobot Aspek (%)</th>
+                    <th>TK Final Adj</th>
+                    <th>Indeks Akhir</th>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>No</th>
-                    <th>Action</th>
-                    <th>Nama Aspek</th>
-                    <th>Indikator</th>
-                    <th>Nama Indikator</th>
-                    <th>Penjelasan Indikator</th>
+                    <th>Domain/Aspek/Indikator</th>
+                    <th>Deskripsi</th>
+                    <th>Bobot (%)</th>
+                    <th>Bobot Aspek (%)</th>
+                    <th>TK Final Adj</th>
+                    <th>Indeks Akhir</th>
                   </tr>
                 </tfoot>
                 <tbody>
+                <?php
+                  $sql = "SELECT * FROM tb_domain a 
+                        LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks 
+                        WHERE b.nama_indeks = 'SPBE'
+                        ORDER BY a.urutan_domain ASC";
+                  $result = mysqli_query($conn, $sql);
+
+                  if (mysqli_num_rows($result) > 0) {
+                    $no = 1;
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $id_domain = $row['iddomain'];
+                      $nilai_indeks_domain = $row['nilai_indeks_domain'];
+                      $namadomain = $row['namadomain'];
+                      $bobot = $row['bobot'];
+                      $tahun_domain = $row['tahun_domain'];
+                      $nama_indeks = $row['nama_indeks'];
+                      ?>
+
+                      <tr>
+                        <td><?= "Domain ".$no; ?></td>
+                        <td><?= $namadomain; ?></td>
+                        <td>Bobot utk domain</td>
+                        <td>bobot aspek utk domain</td>
+                        <td>TK Final Adj utk domain</td>
+                        <td>Indeks Akhir utk domain</td>
+                      </tr>
+                      <?php
+                      $no++;
+
+                      
+                    }
+                  }
+                  ?>
+
+                  <!-- open indikator -->
                   <?php
 
                     $sql = "SELECT * FROM tb_indikator a 
-                        LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek
-                        LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail";
+                          LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
+                          LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail
+                          WHERE b.idaspek = '$id_aspek'";
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) > 0) {
@@ -84,6 +121,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         $namaindikator = $row['namaindikator'];
                         $indikator = $row['indikator'];
                         $penjelasanindikator = $row['penjelasanindikator'];
+                        $bobot_indikator = $row['bobot_indikator'];
                         $nama_aspek = $row['nama_aspek'];
                         $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
                         $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
@@ -91,37 +129,17 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         ?>
 
                       <tr>
-                        <td><?= $no; ?></td>
-                        <td>
-                          <!-- <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
-                          <a class="btn btn-warning" title="Edit" href="?page=indikator&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
-                          <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
-
-                          <!-- Modal Detail -->
-                          <?php include 'modal_detail.php'; ?>
-                          <!-- End Modal Detail -->
-
-                          <!-- Modal Hapus -->
-                          <?php include 'modal_hapus.php'; ?>
-                          <!-- Modal Hapus -->
-
-                        </td>
-                        <td><?= $nama_aspek; ?></td>
-                        <td><?= $indikator; ?></td>
+                        <td><?= "Indikator ".$indikator; ?></td>
                         <td><?= $namaindikator; ?></td>
-                        <td>
-                          <?php if (empty($penjelasanindikator)) : ?>
-                            <a class="btn btn-primary" title="Tambah Penjelasan" href="?page=indikator&act=addjelas&id=<?= $id; ?>"><i class="fas fa-fw fa-plus"></i></a>
-                          <?php else : ?>
-                            <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
-                          <?php endif; ?>
-                        </td>
+                        <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
+                        <td>bobot aspek</td>
+                        <td>final</td>
+                        <td>indek akhir</td>
                       </tr>
                   <?php
                         $no++;
                       }
                     }
-                    mysqli_close($conn);
                     ?>
                 </tbody>
               </table>

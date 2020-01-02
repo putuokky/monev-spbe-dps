@@ -56,6 +56,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Nama Aspek</th>
                     <th>Indikator</th>
                     <th>Nama Indikator</th>
+                    <th>Bobot (%)</th>
                     <th>Penjelasan Indikator</th>
                 </thead>
                 <tfoot>
@@ -65,6 +66,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Nama Aspek</th>
                     <th>Indikator</th>
                     <th>Nama Indikator</th>
+                    <th>Bobot (%)</th>
                     <th>Penjelasan Indikator</th>
                   </tr>
                 </tfoot>
@@ -84,6 +86,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         $namaindikator = $row['namaindikator'];
                         $indikator = $row['indikator'];
                         $penjelasanindikator = $row['penjelasanindikator'];
+                        $bobot_indikator = $row['bobot_indikator'];
                         $nama_aspek = $row['nama_aspek'];
                         $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
                         $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
@@ -109,6 +112,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $nama_aspek; ?></td>
                         <td><?= $indikator; ?></td>
                         <td><?= $namaindikator; ?></td>
+                        <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
                         <td>
                           <?php if (empty($penjelasanindikator)) : ?>
                             <a class="btn btn-primary" title="Tambah Penjelasan" href="?page=indikator&act=addjelas&id=<?= $id; ?>"><i class="fas fa-fw fa-plus"></i></a>

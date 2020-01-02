@@ -71,7 +71,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-
                   $sql = "SELECT * FROM tb_domain a 
                         LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks";
                   $result = mysqli_query($conn, $sql);
