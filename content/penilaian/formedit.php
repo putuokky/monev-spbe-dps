@@ -142,9 +142,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     <option value="-">-</option>
                     <?php
                     $sqlLevel = "SELECT * FROM tb_level a 
-                    LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan
-                    LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator 
-                    WHERE b.idindikator = '" . $data['idindikator'] . "'";
+                                LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan
+                                LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator 
+                                WHERE b.idindikator = '" . $data['idindikator'] . "'";
                     $resLevel = mysqli_query($conn, $sqlLevel);
                     while ($rowLevel = mysqli_fetch_assoc($resLevel)) {
                       if ($rowLevel['idlevel'] == $data['nilaikematangan']) { ?>

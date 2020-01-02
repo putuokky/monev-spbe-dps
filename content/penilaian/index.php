@@ -168,8 +168,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               echo '-';
                             }
                             ?></td>
-                        <td><?php if ($nilaikematangan != '-') {
-                              echo $namalevel;
+                        <td><?php 
+                            $sqlNilaiMatang = "SELECT * FROM tb_level
+                                    WHERE idlevel = '$nilaikematangan'";
+                            $resultNilaiMatang = mysqli_query($conn, $sqlNilaiMatang); 
+                            $rowNilaiMatang = mysqli_fetch_assoc($resultNilaiMatang);
+                            
+                            if ($nilaikematangan != '-') {
+                              echo $rowNilaiMatang['namalevel'];
                             } else {
                               echo '-';
                             }
