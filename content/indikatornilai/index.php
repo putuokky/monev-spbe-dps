@@ -103,7 +103,19 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <tr style="background-color:#efefef;">
                             <td><?= "Aspek ".$urutan_aspek; ?></td>
                             <td><?= $nama_aspek; ?></td>
-                            <td>Bobot utk aspek</td>
+                            <td>
+                            <?php
+                            $sqlBotAspek = "SELECT SUM(a.bobot_indikator) AS bobot_indi 
+                                      FROM tb_indikator a 
+                                      LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
+                                      LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail 
+                                      WHERE b.idaspek = '$id_aspek'";
+                            $resultBotAspek = mysqli_query($conn, $sqlBotAspek);
+                            $rowBotAspek = mysqli_fetch_assoc($resultBotAspek);
+
+                            echo number_format($rowBotAspek['bobot_indi'], 1, ",", ".");
+                            ?>
+                            </td>
                             <td>bobot aspek utk aspek</td>
                             <td>TK Final Adj utk aspek</td>
                             <td>Indeks Akhir utk aspek</td>
