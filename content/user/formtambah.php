@@ -7,12 +7,13 @@ if (isset($_POST['input'])) {
   $email      = $_POST['email'];
   $unit       = $_POST['unit'];
   $grupuser   = $_POST['grupuser'];
+  $indekss    = $_POST['indekss'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO  tb_user (userid, nama_user, password, email, opd, groupuser, is_active)
-      VALUES ('$username', '$nama', '$passw', '$email', '$unit', '$grupuser', '1')";
+    $sql = "INSERT INTO  tb_user (userid, nama_user, password, email, opd, groupuser, grupindeks, is_active)
+      VALUES ('$username', '$nama', '$passw', '$email', '$unit', '$grupuser', '$indekss', '1')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -126,15 +127,26 @@ if (isset($_POST['input'])) {
                     <?php } ?>
                   </select> </div>
               </div>
-              <!-- <div class="form-group row">
-                <label for="aktifan" class="col-md-2 col-form-label">Status Aktif</label>
+              <div class="form-group row">
+                <label for="aktifan" class="col-md-2 col-form-label">Grup Indeks</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="aktifan" name="aktifan">
-                    <option value="0">-</option>
-                    <option value="1">Aktif</option>
-                    <option value="2">Tidak Aktif</option>
-                  </select> </div>
-              </div> -->
+                <?php
+                  $sqlIndeks = "SELECT * FROM tb_indeks";
+                  $resultIndeks = mysqli_query($conn, $sqlIndeks);
+
+                  while ($rowIndeks = mysqli_fetch_assoc($resultIndeks)) {
+                    $id_indeks = $rowIndeks['id_indeks'];
+                    $nama_indeks = $rowIndeks['nama_indeks'];
+                    $nilai_indeks = $rowIndeks['nilai_indeks'];
+                    $tahun_indeks = $rowIndeks['tahun_indeks'];
+                ?>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="<?= $id_indeks; ?>">
+                    <label class="form-check-label" for="inlineRadio1"><?= $nama_indeks; ?></label>
+                  </div>
+                <?php } ?>
+                </div>
+              </div>
               <div class="form-group">
                 <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=user">
                   <span class="text">Kembali</span>

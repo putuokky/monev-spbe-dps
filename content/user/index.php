@@ -63,6 +63,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Email</th>
                     <th>OPD</th>
                     <th>Groupuser</th>
+                    <th>Grup Indeks</th>
                     <th>Aktif</th>
                   </tr>
                 </thead>
@@ -75,6 +76,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Email</th>
                     <th>OPD</th>
                     <th>Groupuser</th>
+                    <th>Grup Indeks</th>
                     <th>Aktif</th>
                   </tr>
                 </tfoot>
@@ -82,14 +84,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   <?php
                     // grup user admin OPD atau Operator OPD
                     if ($_SESSION['groupuser'] == 2 || $_SESSION['groupuser'] == 3) {
-                      $sql = "SELECT * FROM tb_user a 
-                              LEFT JOIN tb_opd b ON a.opd = b.idopd 
-                              LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser
-                              WHERE a.opd = '$_SESSION[opd]'";
+                      $sql = "SELECT * FROM tb_user a LEFT JOIN tb_opd b ON a.opd = b.idopd 
+                            LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser 
+                            LEFT JOIN tb_indeks d ON d.id_indeks = a.grupindeks
+                            WHERE a.opd = '$_SESSION[opd]'";
                     } else {
-                      $sql = "SELECT * FROM tb_user a 
-                              LEFT JOIN tb_opd b ON a.opd = b.idopd 
-                              LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser";
+                      $sql = "SELECT * FROM tb_user a LEFT JOIN tb_opd b ON a.opd = b.idopd 
+                            LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser 
+                            LEFT JOIN tb_indeks d ON d.id_indeks = a.grupindeks";
                     }
                     $result = mysqli_query($conn, $sql);
 
@@ -102,6 +104,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         $email = $row['email'];
                         $unit = $row['namaopd'];
                         $groupuser = $row['keterangan'];
+                        $nama_indeks = $row['nama_indeks'];
                         $is_active = $row['is_active'];
                         ?>
 
@@ -154,6 +157,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                     echo "-";
                                   } ?></td>
                         <td><?= $groupuser; ?></td>
+                        <td><?php if ($nama_indeks != '') {
+                                    echo $nama_indeks;
+                                  } else {
+                                    echo "-";
+                                  } ?></td>
                         <td><?php if ($is_active == 1) {
                                     echo '<span class="btn btn-success btn-sm">Ya</span>';
                                   } else {
