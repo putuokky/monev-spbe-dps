@@ -67,9 +67,20 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-
-                    $sql = "SELECT * FROM tb_indeks";
-                    $result = mysqli_query($conn, $sql);
+                    // SPBE
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sql = "SELECT * FROM tb_indeks
+                            WHERE id_indeks  = $_SESSION[grupindeks]";
+                      $result = mysqli_query($conn, $sql);
+                    // IKCI
+                    } else if($_SESSION['grupindeks'] == 2) {
+                      $sql = "SELECT * FROM tb_indeks
+                            WHERE id_indeks  = $_SESSION[grupindeks]";
+                      $result = mysqli_query($conn, $sql);
+                    } else {
+                      $sql = "SELECT * FROM tb_indeks";
+                      $result = mysqli_query($conn, $sql);
+                    }
 
                     if (mysqli_num_rows($result) > 0) {
                       $no = 1;
