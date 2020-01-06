@@ -26,6 +26,7 @@ if (isset($_POST['login'])) {
     $_SESSION['email']        = $dataUser['email'];
     $_SESSION['opd']          = $dataUser['opd'];
     $_SESSION['groupuser']    = $dataUser['groupuser'];
+    $_SESSION['grupindeks']   = $dataUser['grupindeks'];
     $_SESSION['is_active']    = $dataUser['is_active'];
 
     if ($_SESSION['groupuser'] == 1) {

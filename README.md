@@ -10,6 +10,9 @@ PHP
 CSS
 - bootstrap Versi 4.3
 
+Fontawesome
+- Versi 5.12.0
+
 Framework
 - No Framework
 

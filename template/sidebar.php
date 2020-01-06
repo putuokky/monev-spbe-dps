@@ -3,9 +3,9 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-        <!-- <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div> -->
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-tv"></i>
+        </div>
         <div class="sidebar-brand-text mx-3"><?= $tagline->sidetitle(); ?></div>
       </a>
 
@@ -13,6 +13,15 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
+      <?php
+      // SPBE
+      if ($_SESSION['grupindeks'] == 1) { ?>
+        <li class="nav-item" id="dashboard">
+          <a class="nav-link" href="?page=home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard SPBE</span></a>
+        </li>
+      <?php } else { ?>
       <li class="nav-item" id="dashboard">
         <a class="nav-link" href="?page=home">
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -23,6 +32,7 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard IKCI</span></a>
       </li>
+      <?php } ?>
 
       <!-- Divider -->
       <hr class="sidebar-divider">

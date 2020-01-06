@@ -1,2 +1,2 @@
-- di tabel indikator nambah field baru bobot indikator
+
 - form tambah dan edit belum nambah form kolom baru untuk bobot indikator
