@@ -11,7 +11,7 @@
           <label for="caritahun" class="col-lg-2 col-form-label">Tahun</label>
           <div class="col-lg-2">
             <select class="form-control" id="caritahun" name="caritahun">
-              <option value="0">-</option>
+              <option value="0">Pilih Tahun</option>
               <?php
               $thnskrg = date('Y');
               for ($i = 2018; $i <= $thnskrg; $i++) { ?>
