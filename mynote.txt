@@ -1,0 +1,1 @@
+- di tabel indikator nambah field baru bobot indikator
