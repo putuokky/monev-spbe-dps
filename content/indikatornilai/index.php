@@ -82,8 +82,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= "Domain ".$urutan_domain; ?></td>
                         <td><?= $namadomain; ?></td>
                         <td>Bobot utk domain</td>
-                        <td>bobot aspek utk domain</td>
-                        <td>TK Final Adj utk domain</td>
+                        <td></td>
+                        <td></td>
                         <td>Indeks Akhir utk domain</td>
                       </tr>
                       <?php
