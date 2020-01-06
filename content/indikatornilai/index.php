@@ -34,7 +34,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
       <div class="col-xl-12 col-lg-12">
 
       <?php include 'formpencarian.php'; ?>
-      
+
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -140,10 +140,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                 $indikator = $row['indikator'];
                                 $penjelasanindikator = $row['penjelasanindikator'];
                                 $bobot_indikator = $row['bobot_indikator'];
-                                $nama_aspek = $row['nama_aspek'];
-                                $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
-                                $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
-                                $penjelasan_indikator_tambahan = $row['penjelasan_indikator_tambahan'];
                                 ?>
 
                               <tr>
@@ -151,7 +147,27 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                 <td><?= $namaindikator; ?></td>
                                 <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
                                 <td>bobot aspek</td>
-                                <td>final</td>
+                                <td>
+                                  <?php
+                                  if (isset($_POST['cari'])) {
+                                    $caritahun = $_POST['caritahun'];
+                                    $sqlNilai = "SELECT * FROM tb_penilaian a 
+                                                LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
+                                                LEFT JOIN tb_level c ON c.idlevel = a.penilaianmandiri
+                                                WHERE a.idindikator = $id && a.tahun_penilaian  LIKE '%" . $caritahun . "%'";
+                                    $resultNilai = mysqli_query($conn, $sqlNilai);
+                                    if (mysqli_num_rows($resultNilai) > 0) {
+                                      while ($rowNilai = mysqli_fetch_assoc($resultNilai)) {
+                                        echo $rowNilai['nilaimadiri'];
+                                      }
+                                    } else {
+                                      echo "-";
+                                    }  
+                                  } else {
+                                    echo "-";
+                                  }                                
+                                  ?>
+                                </td>
                                 <td>indek akhir</td>
                               </tr>
                           <?php
