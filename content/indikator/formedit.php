@@ -12,6 +12,7 @@ if (isset($_POST['update'])) {
   $namaaspek            = $_POST['namaaspek'];
   $namaindikator        = $_POST['namaindikator'];
   $indikator            = $_POST['indikator'];
+  $bobotindikator       = $_POST['bobotindikator'];
   $id_detail_indikator  = $_POST['id_detail_indikator'];
   $jelas_indi_list      = $_POST['jelas_indi_list'];
   $jelas_indi_lvl       = $_POST['jelas_indi_lvl'];
@@ -23,7 +24,8 @@ if (isset($_POST['update'])) {
     $sql = "UPDATE tb_indikator 
             SET idaspek = '$namaaspek',
             namaindikator = '$namaindikator',
-            indikator = '$indikator'
+            indikator = '$indikator',
+            bobot_indikator = '$bobotindikator'
             WHERE idindikator = '$id'";
 
     $sql2 = "UPDATE tb_detail_indikator 
@@ -111,6 +113,12 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="namaindikator" class="col-md-2 col-form-label">Nama Indikator</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="namaindikator" id="namaindikator" placeholder="Enter Nama Indikator" autocomplete="off" value="<?= $data['namaindikator']; ?>">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="bobotindikator" class="col-md-2 col-form-label">Bobot (%)</label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" name="bobotindikator" id="bobotindikator" placeholder="Enter Bobot Indikator" autocomplete="off" value="<?= $data['bobot_indikator']; ?>">
                 </div>
               </div>
               <div class="form-group row">
