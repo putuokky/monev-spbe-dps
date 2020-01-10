@@ -1,2 +1,0 @@
-
-- form tambah dan edit belum nambah form kolom baru untuk bobot indikator pada fitur indikator
