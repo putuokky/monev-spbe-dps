@@ -172,6 +172,17 @@ $data = mysqli_fetch_assoc($resUbah);
                       </div>
                      <?php } ?>
                 <?php } ?>
+                    <?php if ($data['grupindeks'] == 0) { ?>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0" checked>
+                        <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
+                      </div>
+                    <?php } else { ?>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
+                        <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
+                      </div>
+                     <?php } ?>
                 </div>
               </div>
               <div class="form-group">
