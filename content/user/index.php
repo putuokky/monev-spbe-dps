@@ -157,10 +157,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                     echo "-";
                                   } ?></td>
                         <td><?= $groupuser; ?></td>
-                        <td><?php if ($nama_indeks != '') {
+                        <td><?php if ($nama_indeks) {
                                     echo $nama_indeks;
                                   } else {
-                                    echo "-";
+                                    echo "Semua Indeks";
                                   } ?></td>
                         <td><?php if ($is_active == 1) {
                                     echo '<span class="btn btn-success btn-sm">Ya</span>';

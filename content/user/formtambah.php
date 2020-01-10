@@ -144,7 +144,11 @@ if (isset($_POST['input'])) {
                     <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="<?= $id_indeks; ?>">
                     <label class="form-check-label" for="inlineRadio1"><?= $nama_indeks; ?></label>
                   </div>
-                <?php } ?>
+                <?php } ?>                
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
+                    <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
