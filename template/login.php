@@ -33,6 +33,8 @@ if (isset($_POST['login'])) {
       header("location:t.php?page=home");
     } else if ($_SESSION['groupuser'] == 2 || $_SESSION['groupuser'] == 3) {
       header("location:t.php?page=nilaikematangan");
+    } else if ($_SESSION['groupuser'] == 4) {
+      header("location:t.php?page=home");
     }
   } else {
     header("location:?msg=no");

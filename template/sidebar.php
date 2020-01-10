@@ -36,6 +36,18 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+      <?php
+      // SPBE
+      if ($_SESSION['grupindeks'] == 4) { ?>
+      <li class="nav-item" id="">
+        <a class="nav-link" href="">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Evaluasi SPBE</span></a>
+      </li>
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+      <?php } ?>
 
       <!-- Heading -->
       <div class="sidebar-heading">
