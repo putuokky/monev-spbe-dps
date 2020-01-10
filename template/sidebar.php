@@ -21,6 +21,12 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard SPBE</span></a>
         </li>
+      <?php } else if ($_SESSION['grupindeks'] == 2) { ?>
+        <li class="nav-item" id="dashboardikci">
+          <a class="nav-link" href="?page=homeikci">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard IKCI</span></a>
+        </li>
       <?php } else { ?>
       <li class="nav-item" id="dashboard">
         <a class="nav-link" href="?page=home">
@@ -36,40 +42,41 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+
       <?php
       // SPBE
-      if ($_SESSION['grupindeks'] == 4) { ?>
+      if ($_SESSION['groupuser'] == 4) { ?>
       <li class="nav-item" id="">
         <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Evaluasi SPBE</span></a>
       </li>
-      
-      <!-- Divider -->
-      <hr class="sidebar-divider">
       <?php } ?>
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Evaluasi SPBE
-      </div>
-      <!-- Nav Item -->
-      <?php if ($_SESSION['groupuser'] == 1) { ?>
-        <li class="nav-item pb-0" id="evaluasi">
-          <a class="nav-link" href="?page=evaluasi">
-            <i class="fas fa-fw fa-paste"></i>
-            <span>Hasil Evaluasi</span></a>
+      <?php
+      // SPBE
+      if ($_SESSION['groupuser'] != 4) { ?>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Evaluasi SPBE
+        </div>
+        <!-- Nav Item -->
+        <?php if ($_SESSION['groupuser'] == 1) { ?>
+          <li class="nav-item pb-0" id="evaluasi">
+            <a class="nav-link" href="?page=evaluasi">
+              <i class="fas fa-fw fa-paste"></i>
+              <span>Hasil Evaluasi</span></a>
+          </li>
+        <?php } ?>
+
+        <!-- Nav Item -->
+        <li class="nav-item pb-0" id="nilaikematangan">
+          <a class="nav-link" href="?page=nilaikematangan">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Penilaian Kematangan</span></a>
         </li>
-      <?php } ?>
 
-      <!-- Nav Item -->
-      <li class="nav-item pb-0" id="nilaikematangan">
-        <a class="nav-link" href="?page=nilaikematangan">
-          <i class="fas fa-fw fa-clipboard-list"></i>
-          <span>Penilaian Kematangan</span></a>
-      </li>
-
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesPenilaian" aria-expanded="true" aria-controls="collapsePagesPenilaian" id="penilaian">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Penilaian</span>
@@ -81,6 +88,9 @@
             </div>
           </div>
         </li>
+      <?php } else {
+        echo "";
+      } ?>
 
       <?php
       // grupuser user admin
@@ -119,13 +129,16 @@
       ?>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
 
       <?php
-      if ($_SESSION['groupuser'] == 3) {
+      if ($_SESSION['groupuser'] == 3 || $_SESSION['groupuser'] == 4) {
         echo '';
       } else {
       ?>
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -160,10 +173,12 @@
             <span>User</span></a>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        
 
       <?php } ?>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
       <!-- Nav Item -->
       <li class="nav-item mb-0">
