@@ -46,9 +46,9 @@
       <?php
       // SPBE
       if ($_SESSION['groupuser'] == 4) { ?>
-      <li class="nav-item" id="">
-        <a class="nav-link" href="">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+      <li class="nav-item" id="alleva">
+        <a class="nav-link" href="?page=all-evaluasi">
+          <i class="fas fa-fw fa-clipboard-list"></i>
           <span>Evaluasi SPBE</span></a>
       </li>
       <?php } ?>
