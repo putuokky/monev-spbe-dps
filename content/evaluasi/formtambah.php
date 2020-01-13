@@ -97,15 +97,8 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="pertanyaan" class="col-md-2 col-form-label">Pertanyaan</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="pertanyaan" name="pertanyaan">
+                  <select class="form-control" id="fpertanyaan" name="pertanyaan" disabled>
                     <option value="0">-</option>
-                    <?php
-                    $sqlPertanyaan = "SELECT * FROM tb_pertanyaan a
-                                      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator";
-                    $resPertanyaan = mysqli_query($conn, $sqlPertanyaan);
-                    while ($rowPertanyaan = mysqli_fetch_assoc($resPertanyaan)) { ?>
-                      <option value="<?= $rowPertanyaan['idpertanyaan']; ?>"><?= $rowPertanyaan['pertanyaan']; ?></option>
-                    <?php } ?>
                   </select>
                 </div>
               </div>

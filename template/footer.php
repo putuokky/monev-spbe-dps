@@ -168,6 +168,38 @@
       $('#loader1').hide();
     }
   });
+  
+  // ------------------------------------------
+
+  $('select[id="nama_level"]').on('change', function() {
+    var id = $('#nama_level').val();
+    if (id == '') {
+      id = '0';
+    }
+
+    $('#loader2').show();
+    $("#fpertanyaan").prop('disabled', true);
+    if (id != null) {
+
+      
+      $.ajax({
+        type: 'GET',
+        url: 'api/data-pertanyaan.php?id=' + id,
+        data: '',
+        success: function(result) {
+          $('select[id="fpertanyaan"]').empty();
+          $.each(JSON.parse(result), function(i, val) {
+            $('#fpertanyaan').append($('<option></option>').attr('value', val.idpertanyaan).text(val.pertanyaan));
+          });
+
+          $("#fpertanyaan").prop('disabled', false);
+          $('#loader2').hide();
+        }
+      });
+    } else {
+      $('#loader2').hide();
+    }
+  });
 </script>
 
 </body>
