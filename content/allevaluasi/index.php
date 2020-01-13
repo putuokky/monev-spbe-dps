@@ -88,19 +88,27 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               $no = 1;
                               // output data of each row
                               while ($rowDua = mysqli_fetch_assoc($resultDua)) {
-                                $id = $rowDua['id_indeks'];
-                                $nama_indeks = $rowDua['nama_indeks'];
-                                $nilai_indeks = $rowDua['nilai_indeks'];
-                                $tahun_indeks = $rowDua['tahun_indeks'];
+                                $id = $rowDua['idpenilaian'];
+                                $tahun_penilaian = $rowDua['tahun_penilaian'];
+                                $nilaikematangan = $rowDua['nilaikematangan'];
+                                $penilaianmandiri = $rowDua['penilaianmandiri'];
+                                $tindaklanjut = $rowDua['tindaklanjut'];
+                                $target_waktu = $rowDua['target_waktu'];
+                                $indikator = $rowDua['indikator'];
+                                $namaindikator = $rowDua['namaindikator'];
+                                $rekomendasi = $rowDua['rekomendasi'];
+                                $namaopd = $rowDua['namaopd'];
+                                $nama_pendek_opd = $rowDua['nama_pendek_opd'];
+                                $namalevel = $rowDua['namalevel'];
                                 ?>
 
                               <tr>
                                 <td><?= $no; ?></td>
-                                <td><?= $nama_indeks; ?></td>
-                                <td><?= number_format($nilai_indeks, 2, ",", "."); ?></td>
-                                <td><?= $tahun_indeks; ?></td>
-                                <td><?= $tahun_indeks; ?></td>
-                                <td><?= $tahun_indeks; ?></td>
+                                <td><?= $tahun_penilaian; ?></td>
+                                <td><?= $tahun_penilaian; ?></td>
+                                <td><?= $namalevel; ?></td>
+                                <td><?= $namalevel; ?></td>
+                                <td><?= $namalevel; ?></td>
                               </tr>
                           <?php
                                 $no++;
