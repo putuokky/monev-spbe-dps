@@ -138,6 +138,7 @@
   });
 </script>
 
+<!-- untuk menu hasil evaluasi -->
 <script>
   $('select[id="nama_indikator"]').on('change', function() {
     var id = $('#nama_indikator').val();
