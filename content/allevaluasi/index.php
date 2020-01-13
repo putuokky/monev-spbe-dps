@@ -44,7 +44,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <div class="accordion" id="accordionExample">
             <?php
               $var = 0;
-              $sql = "SELECT * FROM tb_indikator";
+              $sql = "SELECT * FROM tb_eksekutif_opd
+                      WHERE opd_terkait = $_SESSION[opd]";
               $result = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
