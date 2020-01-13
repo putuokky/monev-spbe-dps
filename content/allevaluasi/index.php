@@ -32,36 +32,32 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
     <div class="row">
 
       <div class="col-xl-12 col-lg-12">
+        <?php include 'formpencarian.php'; ?>
 
-        <!-- <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=indeks&act=tambah">
-          <span class="icon">
-            <i class="fas fa-fw fa-plus"></i>
-          </span>
-          <span class="text">Tambah</span>
-        </a> -->
-
+        <?php if (isset($_POST['cari'])) { ?>
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Data <?php include 'template/title.php'; ?></h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data <?php include 'template/title.php'; ?> <?= $_POST['thnevaluasi']; ?></h6>
           </div>
           <div class="card-body">
             <div class="accordion" id="accordionExample">
             <?php
-              $sql = "SELECT * FROM tb_indeks";
+              $var = 0;
+              $sql = "SELECT * FROM tb_indikator";
               $result = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
-                      <?= $row['nama_indeks']; ?>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?php echo $var; ?>">
+                      <?= "Indikator ". $row['indikator']; ?>
                     </button>
                   </h2>
                 </div>
 
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapse<?php echo $var; ?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -80,17 +76,22 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         </thead>
                         <tbody>
                           <?php
-                            $sql = "SELECT * FROM tb_indeks";
-                            $result = mysqli_query($conn, $sql);
+                            $sqlDua = "SELECT * FROM tb_penilaian a 
+                            LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
+                            LEFT JOIN tb_level c ON c.idlevel = a.penilaianmandiri 
+                            LEFT JOIN tb_opdterkait d ON d.idpenilaian = a.idpenilaian 
+                            LEFT JOIN tb_opd e ON e.idopd = d.idopd
+                            WHERE a.idindikator = $row[idindikator]";
+                            $resultDua = mysqli_query($conn, $sqlDua);
 
-                            if (mysqli_num_rows($result) > 0) {
+                            if (mysqli_num_rows($resultDua) > 0) {
                               $no = 1;
                               // output data of each row
-                              while ($row = mysqli_fetch_assoc($result)) {
-                                $id = $row['id_indeks'];
-                                $nama_indeks = $row['nama_indeks'];
-                                $nilai_indeks = $row['nilai_indeks'];
-                                $tahun_indeks = $row['tahun_indeks'];
+                              while ($rowDua = mysqli_fetch_assoc($resultDua)) {
+                                $id = $rowDua['id_indeks'];
+                                $nama_indeks = $rowDua['nama_indeks'];
+                                $nilai_indeks = $rowDua['nilai_indeks'];
+                                $tahun_indeks = $rowDua['tahun_indeks'];
                                 ?>
 
                               <tr>
@@ -105,7 +106,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                 $no++;
                               }
                             }
-                            mysqli_close($conn);
                             ?>
                         </tbody>
                       </table>
@@ -113,10 +113,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   </div>
                 </div>
               </div>
-            <?php } ?>
+            <?php $var++; } ?>
             </div>
           </div>
         </div>
+        <?php } ?>
       </div>
 
     </div>
