@@ -63,7 +63,65 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
-                   isian ke - 1
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <thead align="center" >
+                          <tr>
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Nilai Pusat</th>
+                            <th rowspan="2">Tahapan Yang Harus dipenuhi OPD untuk menaikkan nilai SPBE</th>
+                            <th rowspan="2">OPD Terkait</th>
+                            <th colspan="2">Data Pendukung</th>
+                          </tr>
+                          <tr>
+                            <th>Telah dimiliki</th>
+                            <th>Belum dimiliki</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                            // SPBE
+                            if ($_SESSION['grupindeks'] == 1) {
+                              $sql = "SELECT * FROM tb_indeks
+                                    WHERE id_indeks  = $_SESSION[grupindeks]";
+                              $result = mysqli_query($conn, $sql);
+                            // IKCI
+                            } else if($_SESSION['grupindeks'] == 2) {
+                              $sql = "SELECT * FROM tb_indeks
+                                    WHERE id_indeks  = $_SESSION[grupindeks]";
+                              $result = mysqli_query($conn, $sql);
+                            } else {
+                              $sql = "SELECT * FROM tb_indeks";
+                              $result = mysqli_query($conn, $sql);
+                            }
+
+                            if (mysqli_num_rows($result) > 0) {
+                              $no = 1;
+                              // output data of each row
+                              while ($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['id_indeks'];
+                                $nama_indeks = $row['nama_indeks'];
+                                $nilai_indeks = $row['nilai_indeks'];
+                                $tahun_indeks = $row['tahun_indeks'];
+                                ?>
+
+                              <tr>
+                                <td><?= $no; ?></td>
+                                <td><?= $nama_indeks; ?></td>
+                                <td><?= number_format($nilai_indeks, 2, ",", "."); ?></td>
+                                <td><?= $tahun_indeks; ?></td>
+                                <td><?= $tahun_indeks; ?></td>
+                                <td><?= $tahun_indeks; ?></td>
+                              </tr>
+                          <?php
+                                $no++;
+                              }
+                            }
+                            mysqli_close($conn);
+                            ?>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
