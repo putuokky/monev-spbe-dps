@@ -58,4 +58,7 @@ switch ($page) {
   case "nilai-indikator":
     include 'content/indikatornilai/index.php';
     break;
+  case "all-evaluasi":
+    include 'content/allevaluasi/index.php';
+    break;
 }

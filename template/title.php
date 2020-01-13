@@ -58,4 +58,7 @@ switch ($page) {
   case "nilai-indikator":
     echo "Nilai Indikator";
     break;
+  case "all-evaluasi":
+    echo "All Evaluasi";
+    break;
 }
