@@ -30,7 +30,7 @@ if (isset($_POST['input'])) {
 
 <!-- agar menu sidebar saat di klik active -->
 <script type="text/javascript">
-  document.getElementById('indeks').classList.add('active');
+  document.getElementById('alleva').classList.add('active');
 </script>
 
 <!-- isi konten -->

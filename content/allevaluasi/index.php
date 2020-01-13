@@ -15,7 +15,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
   <!-- agar menu sidebar saat di klik active -->
   <script type="text/javascript">
-    document.getElementById('indeks').classList.add('active');
+    document.getElementById('alleva').classList.add('active');
   </script>
 
 
