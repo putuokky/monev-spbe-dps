@@ -33,89 +33,41 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
       <div class="col-xl-12 col-lg-12">
 
-        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=indeks&act=tambah">
+        <!-- <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=indeks&act=tambah">
           <span class="icon">
             <i class="fas fa-fw fa-plus"></i>
           </span>
           <span class="text">Tambah</span>
-        </a>
+        </a> -->
 
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Tabel <?php include 'template/title.php'; ?></h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data <?php include 'template/title.php'; ?></h6>
           </div>
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Action</th>
-                    <th>Nama Indeks</th>
-                    <th>Nilai Indeks</th>
-                    <th>Tahun</th>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>No</th>
-                    <th>Action</th>
-                    <th>Nama Indeks</th>
-                    <th>Nilai Indeks</th>
-                    <th>Tahun</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <?php
-                    // SPBE
-                    if ($_SESSION['grupindeks'] == 1) {
-                      $sql = "SELECT * FROM tb_indeks
-                            WHERE id_indeks  = $_SESSION[grupindeks]";
-                      $result = mysqli_query($conn, $sql);
-                    // IKCI
-                    } else if($_SESSION['grupindeks'] == 2) {
-                      $sql = "SELECT * FROM tb_indeks
-                            WHERE id_indeks  = $_SESSION[grupindeks]";
-                      $result = mysqli_query($conn, $sql);
-                    } else {
-                      $sql = "SELECT * FROM tb_indeks";
-                      $result = mysqli_query($conn, $sql);
-                    }
+            <div class="accordion" id="accordionExample">
+            <?php
+              $sql = "SELECT * FROM tb_indeks";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
+                      <?= $row['nama_indeks']; ?>
+                    </button>
+                  </h2>
+                </div>
 
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id_indeks'];
-                        $nama_indeks = $row['nama_indeks'];
-                        $nilai_indeks = $row['nilai_indeks'];
-                        $tahun_indeks = $row['tahun_indeks'];
-                        ?>
-
-                      <tr>
-                        <td><?= $no; ?></td>
-                        <td>
-                          <!-- <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
-                          <a class="btn btn-warning" title="Edit" href="?page=indeks&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
-                          <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
-
-                          <!-- Modal Hapus -->
-                          <?php include 'modal_hapus.php'; ?>
-                          <!-- Modal Hapus -->
-
-                        </td>
-                        <td><?= $nama_indeks; ?></td>
-                        <td><?= number_format($nilai_indeks, 2, ",", "."); ?></td>
-                        <td><?= $tahun_indeks; ?></td>
-                      </tr>
-                  <?php
-                        $no++;
-                      }
-                    }
-                    mysqli_close($conn);
-                    ?>
-                </tbody>
-              </table>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                   isian ke - 1
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
             </div>
           </div>
         </div>
