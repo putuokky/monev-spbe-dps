@@ -61,4 +61,7 @@ switch ($page) {
   case "all-evaluasi":
     include 'content/allevaluasi/index.php';
     break;
+  case "rekap-tingkat":
+    include 'content/allevaluasi/rekap.php';
+    break;
 }

@@ -45,7 +45,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <?php
               $var = 0;
               $sql = "SELECT * FROM tb_eksekutif_opd a 
-                    LEFT JOIN tb_indikator b ON b.idindikator = a.indikator 
+                    LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
                     LEFT JOIN tb_opd c ON c.idopd = a.opd_terkait 
                     WHERE a.opd_terkait = $_SESSION[opd] && a.tahun_eksekutif_opd = $_POST[thnevaluasi]";
               $result = mysqli_query($conn, $sql);

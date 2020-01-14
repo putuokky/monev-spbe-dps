@@ -75,18 +75,19 @@
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Penilaian Kematangan</span></a>
         </li>
+        
+        <!-- Nav Item -->
+        <li class="nav-item pb-0" id="indikatornilai">
+          <a class="nav-link" href="?page=nilai-indikator">
+            <i class="fas fa-fw fa-clipboard"></i>
+            <span>Penilaian Indikator</span></a>
+        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesPenilaian" aria-expanded="true" aria-controls="collapsePagesPenilaian" id="penilaian">
-            <i class="fas fa-fw fa-clipboard-check"></i>
-            <span>Penilaian</span>
-          </a>
-          <div id="collapsePagesPenilaian" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Sub Menu:</h6>
-              <a class="collapse-item" href="?page=nilai-indikator" id="indikatornilai">Nilai Indikator</a>
-            </div>
-          </div>
+        <!-- Nav Item -->
+        <li class="nav-item pb-0" id="rekaptingkat">
+          <a class="nav-link" href="?page=rekap-tingkat">
+            <i class="fas fa-fw fa-clipboard"></i>
+            <span>Rekap Peningkatan</span></a>
         </li>
       <?php } else {
         echo "";

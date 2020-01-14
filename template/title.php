@@ -61,4 +61,7 @@ switch ($page) {
   case "all-evaluasi":
     echo "All Evaluasi";
     break;
+  case "rekap-tingkat":
+    echo "Rekap Peningkatan Indeks";
+    break;
 }
