@@ -16,12 +16,12 @@ if (isset($_POST['input'])) {
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
             alert("Data Indeks Berhasil Ditambah");
-            window.location.href="t.php?page=indeks";
+            window.location.href="t.php?page=rekap-tingkat";
             </script>';
     } else {
       echo '<script type="text/javascript">
             alert("Data Indeks Gagal Ditambah");
-            window.location.href="t.php?page=indeks&act=tambah";
+            window.location.href="t.php?page=rekap-tingkat&act=tambah";
             </script>';
     }
   }
@@ -30,7 +30,7 @@ if (isset($_POST['input'])) {
 
 <!-- agar menu sidebar saat di klik active -->
 <script type="text/javascript">
-  document.getElementById('alleva').classList.add('active');
+  document.getElementById('rekaptingkat').classList.add('active');
 </script>
 
 <!-- isi konten -->
@@ -86,7 +86,7 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group">
-                <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=indeks">
+                <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=rekap-tingkat">
                   <span class="text">Kembali</span>
                 </a>
                 <button type="submit" class="btn btn-primary" name="input">Simpan</button>
