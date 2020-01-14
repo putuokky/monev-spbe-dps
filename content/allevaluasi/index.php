@@ -46,24 +46,27 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
               $var = 0;
               $sql = "SELECT * FROM tb_eksekutif_opd a 
                     LEFT JOIN tb_indikator b ON b.idindikator = a.indikator 
+                    LEFT JOIN tb_opd c ON c.idopd = a.opd_terkait 
                     WHERE a.opd_terkait = $_SESSION[opd] && a.tahun_eksekutif_opd = $_POST[thnevaluasi]";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                   $id = $row['id_eksekutif_opd'];
                   $indikator = $row['indikator'];
-                  $nilai_pusat = $row['nilai_pusat'];
+                  $nilai_pusat = $row['nilai_pusat'];                  
                   $tahap_opd = explode(";", $row['tahapan_yg_harus_dipenuhi_opd']);
-                  $telah_miliki = $row['telah_miliki'];
+                  $telah_miliki = explode(";", $row['telah_miliki']);
                   $belum_miliki = $row['belum_miliki'];
-                  $opd_terkait = $row['opd_terkait'];
                   $tahun_eksekutif_opd = $row['tahun_eksekutif_opd'];
+                  $namaindikator = $row['namaindikator'];
+                  $namaopd = $row['namaopd'];
+                  $nama_pendek_opd = $row['nama_pendek_opd'];
             ?>
                 <div class="card">
                   <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?= $var; ?>">
-                        <?= "Indikator ". $row['indikator']; ?>
+                        <?= "Indikator ". $indikator; ?>
                       </button>
                     </h2>
                   </div>
@@ -74,12 +77,36 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                           <tbody>
                             <tr>
+                              <th>Indikator</th>
+                              <td><?= "Indikator ".$indikator." - ".$namaindikator; ?></td>
+                            </tr>
+                            <tr>
                               <th>Nilai Pusat</th>
                               <td><?= $nilai_pusat; ?></td>
                             </tr>
                             <tr>
                               <th>Tahap Yang Harus dipenuhi OPD</th>
-                              <td>ASD</td>
+                              <td><ol>
+                              <?php for ($i=0; $i < count($tahap_opd); $i++) { ?>
+                                <li><?= $tahap_opd[$i]; ?></li>
+                              <?php } ?>
+                              </ol></td>
+                            </tr>
+                            <tr>
+                              <th>Yang Telah dimiliki</th>
+                              <td><ol>
+                              <?php for ($j=0; $j < count($telah_miliki); $j++) { ?>
+                                <li><?= $telah_miliki[$j]; ?></li>
+                              <?php } ?>
+                              </ol></td>
+                            </tr>
+                            <tr>
+                              <th>Yang Belum dimiliki</th>
+                              <td><?= $belum_miliki; ?></td>
+                            </tr>
+                            <tr>
+                              <th>OPD Terkait</th>
+                              <td><?= $namaopd; ?></td>
                             </tr>
                           </tbody>
                         </table>
