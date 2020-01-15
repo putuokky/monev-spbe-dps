@@ -1,26 +1,28 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $namaindeks   = $_POST['namaindeks'];
-  $nilaindeks   = $_POST['nilaindeks'];
-  $nilaindeks   = str_replace(",", ".", $nilaindeks);
   $tahun        = $_POST['tahun'];
-  $urutanindeks = $_POST['urutanindeks'];
+  $nama_indikator   = $_POST['nama_indikator'];
+  $nilaipusat   = $_POST['nilaipusat'];
+  $tahapopd   = $_POST['tahapopd'];
+  $telahdimiliki = $_POST['telahdimiliki'];
+  $belumdimiliki = $_POST['belumdimiliki'];
+  $unit = $_POST['unit'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_indeks (nama_indeks, nilai_indeks, tahun_indeks, urutan_indeks)
-      VALUES ('$namaindeks', '$nilaindeks', '$tahun', '$urutanindeks')";
+    $sql = "INSERT INTO tb_eksekutif_opd (idindikator, nilai_pusat, tahapan_yg_harus_dipenuhi_opd, telah_miliki, belum_miliki, opd_terkait, tahun_eksekutif_opd)
+      VALUES ('$nama_indikator', '$nilaipusat', '$tahapopd', '$telahdimiliki', '$belumdimiliki', '$unit', '$tahun')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
-            alert("Data Indeks Berhasil Ditambah");
+            alert("Data Rekap Peningkatan Indeks Berhasil Ditambah");
             window.location.href="t.php?page=rekap-tingkat";
             </script>';
     } else {
       echo '<script type="text/javascript">
-            alert("Data Indeks Gagal Ditambah");
+            alert("Data Rekap Peningkatan Indeks Gagal Ditambah");
             window.location.href="t.php?page=rekap-tingkat&act=tambah";
             </script>';
     }
@@ -55,34 +57,74 @@ if (isset($_POST['input'])) {
           <div>
             <form method="post">
               <div class="form-group row">
-                <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
-                <div class="col-md-10">
-                  <input type="text" class="form-control" name="namaindeks" id="namaindeks" placeholder="Enter Nama Indeks" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="nilaindeks" class="col-md-2 col-form-label">Nilai Indeks</label>
-                <div class="col-md-10">
-                  <input type="text" class="form-control" name="nilaindeks" id="nilaindeks" placeholder="Enter Nilai Indeks" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-group row">
                 <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-10">
+                <div class="col-md-2">
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
                     $thnnow = date('Y');
-                    for ($i = 2010; $i <= $thnnow; $i++) { ?>
+                    for ($i = 2015; $i <= $thnnow; $i++) { ?>
                       <option value="<?= $i; ?>"><?= $i; ?></option>
                     <?php } ?>
                   </select>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="urutanindeks" class="col-md-2 col-form-label">Urutan</label>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" name="urutanindeks" id="urutanindeks" placeholder="Enter Urutan" autocomplete="off">
+                <label for="nama_indikator" class="col-md-2 col-form-label">Indikator</label>
+                <div class="col-md-10">
+                  <select class="form-control" id="nama_indikator" name="nama_indikator">
+                    <option value="0">-</option>
+                    <?php
+                    $sqlIndikator = "SELECT * FROM tb_indikator";
+                    $resIndikator = mysqli_query($conn, $sqlIndikator);
+                    while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) { ?>
+                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nilaipusat" class="col-md-2 col-form-label">Nilai Pusat</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="nilaipusat" id="nilaipusat" placeholder="Enter Nilai Pusat" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tahapopd" class="col-md-2 col-form-label">Tahapan yang harus dipenuhi OPD untuk menaikkan nilai SPBE</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="tahapopd" name="tahapopd" rows="5" placeholder="Enter Tahapan yang harus dipenuhi OPD untuk menaikkan nilai SPBE"></textarea>
+                  <label for="" class="col-md-10 col-form-label font-italic">*Gunakan simbol titik koma(;) untuk memisahkan kalimat lainnya</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="telahdimiliki" class="col-md-2 col-form-label">Data Dukung Telah Dimiliki</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="telahdimiliki" name="telahdimiliki" rows="3" placeholder="Enter Data Dukung Telah Dimiliki"></textarea>
+                  <label for="" class="col-md-10 col-form-label font-italic">*Gunakan simbol titik koma(;) untuk memisahkan kalimat lainnya</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="belumdimiliki" class="col-md-2 col-form-label">Data Dukung Belum Dimiliki</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="belumdimiliki" name="belumdimiliki" rows="3" placeholder="Enter Data Dukung Belum Dimiliki"></textarea>
+                  <label for="" class="col-md-10 col-form-label font-italic">*Gunakan simbol titik koma(;) untuk memisahkan kalimat lainnya</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="unit" class="col-md-2 col-form-label">OPD Terkait</label>
+                <div class="col-md-10">
+                  <select class="form-control" id="unit" name="unit">
+                    <option value="0">-</option>
+                    <?php
+                    $sqlUnit = "SELECT * FROM tb_opd
+                              WHERE LENGTH(idopd) = 6
+                              ORDER BY namaopd ASC";
+
+                    $resUnit = mysqli_query($conn, $sqlUnit);
+                    while ($rowUnit = mysqli_fetch_assoc($resUnit)) { ?>
+                      <option value="<?= $rowUnit['idopd']; ?>"><?= $rowUnit['namaopd']; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <div class="form-group">

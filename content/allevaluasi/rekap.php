@@ -52,25 +52,25 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   <tr>
                     <th>No</th>
                     <th>Action</th>
+                    <th>Tahun</th>
                     <th>Indikator</th>
                     <th>Nilai Pusat</th>
                     <th>Tahapan yang harus dipenuhi OPD untuk menaikkan nilai SPBE</th>
                     <th>Data Dukung Telah dimiliki</th>
                     <th>Data Dukung Belum dimiliki</th>
                     <th>OPD Terkait</th>
-                    <th>Tahun</th>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>No</th>
                     <th>Action</th>
+                    <th>Tahun</th>
                     <th>Indikator</th>
                     <th>Nilai Pusat</th>
                     <th>Tahapan yang harus dipenuhi OPD untuk menaikkan nilai SPBE</th>
                     <th>Data Dukung Telah dimiliki</th>
                     <th>Data Dukung Belum dimiliki</th>
                     <th>OPD Terkait</th>
-                    <th>Tahun</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -108,13 +108,13 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <!-- Modal Hapus -->
 
                         </td>
+                        <td><?= $tahun_eksekutif_opd; ?></td>
                         <td><?= "Indikator ".$idindikator; ?></td>
                         <td><?= $nilai_pusat; ?></td>
                         <td><?= $tahap_opd; ?></td>
                         <td><?= $telah_miliki; ?></td>
                         <td><?= $belum_miliki; ?></td>
                         <td><?= $opd_terkait; ?></td>
-                        <td><?= $tahun_eksekutif_opd; ?></td>
                       </tr>
                       <?php
                       $no++;
