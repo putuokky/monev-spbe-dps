@@ -116,7 +116,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             $resultBotAspek = mysqli_query($conn, $sqlBotAspek);
                             $rowBotAspek = mysqli_fetch_assoc($resultBotAspek);
 
-                            echo number_format($rowBotAspek['bobot_indi'], 1, ",", ".");
+                            echo number_format($rowBotAspek['bobot_indi'], 1, ",", ".")."%";
                             ?>
                             </td>
                             <td>bobot aspek utk aspek</td>
@@ -145,8 +145,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               <tr>
                                 <td><?= "Indikator ".$indikator; ?></td>
                                 <td><?= $namaindikator; ?></td>
-                                <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
-                                <td>bobot aspek</td>
+                                <td><?= number_format($bobot_indikator, 1, ",", ".")."%"; ?></td>
+                                <td><?php 
+                                    $bobot_aspek_for_indi = $bobot_indikator/($rowBotAspek['bobot_indi'])*100; 
+                                    echo round($bobot_aspek_for_indi,1)."%";
+                                    ?></td>
                                 <td>
                                   <?php
                                   if (isset($_POST['cari'])) {

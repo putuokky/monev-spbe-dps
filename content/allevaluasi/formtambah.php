@@ -59,7 +59,7 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                      $sqlGroupNilai = "SELECT * FROM tb_penilaian GROUP BY tahun_penilaian";
+                      $sqlGroupNilai = "SELECT tahun_penilaian FROM tb_penilaian GROUP BY tahun_penilaian";
                       $resultGroupNilai = mysqli_query($conn, $sqlGroupNilai);
                       while ($rowGroupNilai = mysqli_fetch_assoc($resultGroupNilai)) { ?>
                         <option value="<?= $rowGroupNilai['tahun_penilaian']; ?>"><?= $rowGroupNilai['tahun_penilaian']; ?></option>
