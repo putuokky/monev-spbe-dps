@@ -70,16 +70,10 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="nama_indikator" class="col-md-2 col-form-label">Indikator</label>
+                <label for="id_nilai" class="col-md-2 col-form-label">Penilaian</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="nama_indikator" name="nama_indikator">
+                  <select class="form-control" id="id_nilai" name="id_nilai" disabled> 
                     <option value="0">-</option>
-                    <?php
-                    $sqlIndikator = "SELECT * FROM tb_indikator";
-                    $resIndikator = mysqli_query($conn, $sqlIndikator);
-                    while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) { ?>
-                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
-                    <?php } ?>
                   </select>
                 </div>
               </div>
