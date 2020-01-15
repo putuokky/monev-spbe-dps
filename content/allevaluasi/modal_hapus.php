@@ -7,10 +7,10 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= $nama_indeks; ?></b> ini.</div>
+      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= "Indikator ".$indikator." - ".$namaindikator; ?></b> ini.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger" href="?page=indeks&act=hapus&id=<?= $id; ?>">Hapus</a>
+        <a class="btn btn-danger" href="?page=rekap-tingkat&act=hapus&id=<?= $id; ?>">Hapus</a>
       </div>
     </div>
   </div>

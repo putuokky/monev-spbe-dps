@@ -9,31 +9,30 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
-  $namaindeks   = $_POST['namaindeks'];
-  $nilaindeks   = $_POST['nilaindeks'];
-  $nilaindeks   = str_replace(",", ".", $nilaindeks);
-  $tahun        = $_POST['tahun'];
-  $urutanindeks = $_POST['urutanindeks'];
-
+  $id_nilai        = $_POST['id_nilai'];
+  $tahapopd   = $_POST['tahapopd'];
+  $telahdimiliki = $_POST['telahdimiliki'];
+  $belumdimiliki = $_POST['belumdimiliki'];
+  
   $res = true;
 
   if ($res) {
-    $sql = "UPDATE tb_indeks 
-        SET nama_indeks = '$namaindeks',
-        tahun_indeks = '$tahun',
-        urutan_indeks = '$urutanindeks',
-        nilai_indeks = '$nilaindeks'
-        WHERE id_indeks = '$id'";
+    $sql = "UPDATE tb_eksekutif_opd 
+        SET idpenilaian = '$id_nilai',
+        tahapan_yg_harus_dipenuhi_opd = '$tahapopd',
+        telah_miliki = '$telahdimiliki',
+        belum_miliki = '$belumdimiliki'
+        WHERE id_eksekutif_opd = '$id'";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
-            alert("Data Indeks Berhasil Diedit");
-            window.location.href="t.php?page=indeks";
+            alert("Data Rekap Peningkatan Indeks Berhasil Diedit");
+            window.location.href="t.php?page=rekap-tingkat";
             </script>';
     } else {
       echo '<script type="text/javascript">
-            alert("Data Indeks Gagal Diedit");
-            window.location.href="t.php?page=indeks&act=ubah&id=$id";
+      alert("Data Rekap Peningkatan Indeks Gagal Diedit");
+            window.location.href="t.php?page=rekap-tingkat";
             </script>';
     }
   }
@@ -103,14 +102,15 @@ $data = mysqli_fetch_assoc($resUbah);
                     <option value="0">-</option>
                     <?php
                       $sqlPenilaian = "SELECT * FROM tb_penilaian a 
-                                      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator WHERE a.tahun_penilaian = $data[tahun_penilaian] 
+                                      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator
+                                      WHERE a.tahun_penilaian = $data[tahun_penilaian]
                                       ORDER BY a.idindikator ASC";
                       $resultPenilaian = mysqli_query($conn, $sqlPenilaian);
                       while ($rowPenilaian = mysqli_fetch_assoc($resultPenilaian)) {
-                        if ($data['id_penilaian'] == $rowPenilaian['id_penilaian']) { ?>
-                          <option value="<?= $rowPenilaian['id_penilaian']; ?>" selected><?= "Indikator ".$rowPenilaian['idindikator']; ?></option>
+                        if ($data['idpenilaian'] == $rowPenilaian['idpenilaian']) { ?>
+                          <option value="<?= $rowPenilaian['idpenilaian']; ?>" selected><?= "Indikator ".$rowPenilaian['indikator']." - ".$rowPenilaian['namaindikator']; ?></option>
                         <?php } else { ?>
-                          <option value="<?= $rowPenilaian['id_penilaian']; ?>"><?= "Indikator ".$rowPenilaian['idindikator']; ?></option>
+                          <option value="<?= $rowPenilaian['idpenilaian']; ?>"><?= "Indikator ".$rowPenilaian['indikator']." - ".$rowPenilaian['namaindikator']; ?></option>
                         <?php } ?>                        
                     <?php } ?>
                   </select>
