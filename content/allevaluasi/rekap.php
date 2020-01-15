@@ -75,11 +75,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  // $sql = "SELECT * FROM tb_eksekutif_opd a 
-                  //       LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
-                  //       LEFT JOIN tb_opd c ON c.idopd = a.opd_terkait";
                   $sql = "SELECT * FROM tb_eksekutif_opd a 
-                        LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator";
+                        LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                        LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                        LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                        LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                        LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan";
                   $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -87,13 +88,15 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                       $id = $row['id_eksekutif_opd'];
-                      $idindikator = $row['idindikator'];
-                      $nilai_pusat = $row['nilai_pusat'];                  
+                      $nilaimadiri = $row['nilaimadiri'];                  
                       $tahap_opd = $row['tahapan_yg_harus_dipenuhi_opd'];
                       $telah_miliki = $row['telah_miliki'];
                       $belum_miliki = $row['belum_miliki'];
-                      $opd_terkait = $row['opd_terkait'];
-                      $tahun_eksekutif_opd = $row['tahun_eksekutif_opd'];
+                      $indikator = $row['indikator'];
+                      $namaindikator = $row['namaindikator'];
+                      $namaopd = $row['namaopd'];
+                      $nama_pendek_opd = $row['nama_pendek_opd'];
+                      $tahun_penilaian = $row['tahun_penilaian'];
                       ?>
 
                       <tr>
@@ -108,13 +111,18 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <!-- Modal Hapus -->
 
                         </td>
-                        <td><?= $tahun_eksekutif_opd; ?></td>
-                        <td><?= "Indikator ".$idindikator; ?></td>
-                        <td><?= $nilai_pusat; ?></td>
+                        <td><?= $tahun_penilaian; ?></td>
+                        <td><?= "Indikator ".$indikator." - ".$namaindikator; ?></td>
+                        <td><?= $nilaimadiri; ?></td>
                         <td><?= $tahap_opd; ?></td>
                         <td><?= $telah_miliki; ?></td>
                         <td><?= $belum_miliki; ?></td>
-                        <td><?= $opd_terkait; ?></td>
+                        <td><?php if (empty($nama_pendek_opd)) {
+                              echo $namaopd;
+                            } else {
+                              echo $nama_pendek_opd;
+                            }
+                            ?></td>
                       </tr>
                       <?php
                       $no++;

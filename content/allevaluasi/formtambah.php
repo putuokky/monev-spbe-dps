@@ -1,19 +1,16 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $tahun        = $_POST['tahun'];
-  $nama_indikator   = $_POST['nama_indikator'];
-  $nilaipusat   = $_POST['nilaipusat'];
+  $id_nilai        = $_POST['id_nilai'];
   $tahapopd   = $_POST['tahapopd'];
   $telahdimiliki = $_POST['telahdimiliki'];
   $belumdimiliki = $_POST['belumdimiliki'];
-  $unit = $_POST['unit'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_eksekutif_opd (idindikator, nilai_pusat, tahapan_yg_harus_dipenuhi_opd, telah_miliki, belum_miliki, opd_terkait, tahun_eksekutif_opd)
-      VALUES ('$nama_indikator', '$nilaipusat', '$tahapopd', '$telahdimiliki', '$belumdimiliki', '$unit', '$tahun')";
+    $sql = "INSERT INTO tb_eksekutif_opd (idpenilaian, tahapan_yg_harus_dipenuhi_opd, telah_miliki, belum_miliki)
+      VALUES ('$id_nilai', '$tahapopd', '$telahdimiliki', '$belumdimiliki')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
