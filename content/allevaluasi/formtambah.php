@@ -62,9 +62,10 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2015; $i <= $thnnow; $i++) { ?>
-                      <option value="<?= $i; ?>"><?= $i; ?></option>
+                      $sqlGroupNilai = "SELECT * FROM tb_penilaian GROUP BY tahun_penilaian";
+                      $resultGroupNilai = mysqli_query($conn, $sqlGroupNilai);
+                      while ($rowGroupNilai = mysqli_fetch_assoc($resultGroupNilai)) { ?>
+                        <option value="<?= $rowGroupNilai['tahun_penilaian']; ?>"><?= $rowGroupNilai['tahun_penilaian']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -74,13 +75,8 @@ if (isset($_POST['input'])) {
                 <div class="col-md-10">
                   <select class="form-control" id="id_nilai" name="id_nilai" disabled> 
                     <option value="0">-</option>
+
                   </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="nilaipusat" class="col-md-2 col-form-label">Nilai Pusat</label>
-                <div class="col-md-10">
-                  <input type="text" class="form-control" name="nilaipusat" id="nilaipusat" placeholder="Enter Nilai Pusat" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">
@@ -102,23 +98,6 @@ if (isset($_POST['input'])) {
                 <div class="col-md-10">
                   <textarea class="form-control" id="belumdimiliki" name="belumdimiliki" rows="3" placeholder="Enter Data Dukung Belum Dimiliki"></textarea>
                   <label for="" class="col-md-10 col-form-label font-italic">*Gunakan simbol titik koma(;) untuk memisahkan kalimat lainnya</label>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="unit" class="col-md-2 col-form-label">OPD Terkait</label>
-                <div class="col-md-10">
-                  <select class="form-control" id="unit" name="unit">
-                    <option value="0">-</option>
-                    <?php
-                    $sqlUnit = "SELECT * FROM tb_opd
-                              WHERE LENGTH(idopd) = 6
-                              ORDER BY namaopd ASC";
-
-                    $resUnit = mysqli_query($conn, $sqlUnit);
-                    while ($rowUnit = mysqli_fetch_assoc($resUnit)) { ?>
-                      <option value="<?= $rowUnit['idopd']; ?>"><?= $rowUnit['namaopd']; ?></option>
-                    <?php } ?>
-                  </select>
                 </div>
               </div>
               <div class="form-group">

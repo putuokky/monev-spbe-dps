@@ -202,6 +202,37 @@
   });
 </script>
 
+<script>
+  $('select[id="tahun"]').on('change', function() {
+    var id = $('#tahun').val();
+    if (id == '') {
+      id = '0';
+    }
+
+    $('#loader3').show();
+    $("#id_nilai").prop('disabled', true);
+    if (id != null) {
+      $.ajax({
+        type: 'GET',
+        url: 'api/data-penilaian.php?id=' + id,
+        data: '',
+        success: function(result) {
+          $('select[id="id_nilai"]').empty();
+          $('select[id="id_nilai"]').append('<option value="-">-</option>');
+          $.each(JSON.parse(result), function(i, val) {
+            $('#id_nilai').append($('<option></option>').attr('value', val.idpenilaian).text('Indikator '+val.indikator+' - '+val.namaindikator));
+          });
+
+          $("#id_nilai").prop('disabled', false);
+          $('#loader3').hide();
+        }
+      });
+    } else {
+      $('#loader3').hide();
+    }
+  });
+</script>
+
 </body>
 
 </html>
