@@ -86,7 +86,7 @@
         <!-- Nav Item -->
         <li class="nav-item pb-0" id="rekaptingkat">
           <a class="nav-link" href="?page=rekap-tingkat">
-            <i class="fas fa-fw fa-clipboard"></i>
+            <i class="fab fa-fw fa-flipboard"></i>
             <span>Rekap Peningkatan</span></a>
         </li>
       <?php } else {
