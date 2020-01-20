@@ -45,19 +45,22 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <?php
               $var = 0;
               $sql = "SELECT * FROM tb_eksekutif_opd a 
-                    LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
-                    LEFT JOIN tb_opd c ON c.idopd = a.opd_terkait 
-                    WHERE a.opd_terkait = $_SESSION[opd] && a.tahun_eksekutif_opd = $_POST[thnevaluasi]";
+                    LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian 
+                    LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian 
+                    LEFT JOIN tb_opd d ON d.idopd = c.idopd 
+                    LEFT JOIN tb_indikator e ON e.idindikator = b.idindikator 
+                    LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                    WHERE d.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                   $id = $row['id_eksekutif_opd'];
                   $indikator = $row['indikator'];
-                  $nilai_pusat = $row['nilai_pusat'];                  
+                  $nilaimadiri = $row['nilaimadiri'];                  
                   $tahap_opd = explode(";", $row['tahapan_yg_harus_dipenuhi_opd']);
                   $telah_miliki = explode(";", $row['telah_miliki']);
                   $belum_miliki = $row['belum_miliki'];
-                  $tahun_eksekutif_opd = $row['tahun_eksekutif_opd'];
+                  $tahun_penilaian = $row['tahun_penilaian'];
                   $namaindikator = $row['namaindikator'];
                   $namaopd = $row['namaopd'];
                   $nama_pendek_opd = $row['nama_pendek_opd'];
@@ -82,7 +85,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             </tr>
                             <tr>
                               <th>Nilai Pusat</th>
-                              <td><?= $nilai_pusat; ?></td>
+                              <td><?= $nilaimadiri; ?></td>
                             </tr>
                             <tr>
                               <th>Tahap Yang Harus dipenuhi OPD</th>
