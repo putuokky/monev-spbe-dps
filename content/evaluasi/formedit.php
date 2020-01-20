@@ -92,7 +92,7 @@ $data = mysqli_fetch_assoc($resUbah);
               <div class="form-group row">
                 <label for="nama_indikator" class="col-md-2 col-form-label">Nama Indikator</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="sel_depart" name="nama_indikator">
+                  <select class="form-control" id="nama_indikator" name="nama_indikator">
                     <option value="0">-</option>
                     <?php
                     $sqlIndikator = "SELECT * FROM tb_indikator";
@@ -112,29 +112,31 @@ $data = mysqli_fetch_assoc($resUbah);
                 <div class="col-md-10 ">
                   <select class="form-control" id="nama_level" name="nama_level">
                     <option value="0">-</option>
-                    <?php
-                    $sqlLevel = "SELECT * FROM tb_level a 
+                      <?php
+                      $sqlLevel = "SELECT * FROM tb_level a 
                                   LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan 
-                                  LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator";
-                    $resLevel = mysqli_query($conn, $sqlLevel);
-                    while ($rowLevel = mysqli_fetch_assoc($resLevel)) {
-                      if ($rowLevel['idlevel'] == $data['idlevel']) : ?>
-                        <option value="<?= $rowLevel['idlevel']; ?>" selected><?= $rowLevel['namalevel'] . " | Indikator" . $rowLevel['indikator']; ?></option>
-                      <?php else : ?>
-                        <option value="<?= $rowLevel['idlevel']; ?>"><?= $rowLevel['namalevel'] . " | Indikator" . $rowLevel['indikator']; ?></option>
-                      <?php endif; ?>
-                    <?php } ?>
+                                  LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator
+                                  WHERE c.idindikator = $data[idindikator]";
+                      $resLevel = mysqli_query($conn, $sqlLevel);
+                      while ($rowLevel = mysqli_fetch_assoc($resLevel)) {
+                        if ($rowLevel['idlevel'] == $data['idlevel']) : ?>
+                          <option value="<?= $rowLevel['idlevel']; ?>" selected><?= $rowLevel['namalevel']; ?></option>
+                        <?php else : ?>
+                          <option value="<?= $rowLevel['idlevel']; ?>"><?= $rowLevel['namalevel']; ?></option>
+                        <?php endif; ?>
+                      <?php } ?>
                   </select>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="pertanyaan" class="col-md-2 col-form-label">Pertanyaan</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="pertanyaan" name="pertanyaan">
+                  <select class="form-control" id="fpertanyaan" name="pertanyaan" disabled>
                     <option value="0">-</option>
                     <?php
                     $sqlPertanyaan = "SELECT * FROM tb_pertanyaan a
-                                      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator";
+                                      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator
+                                      WHERE a.idpertanyaan = $data[idpertanyaan]";
                     $resPertanyaan = mysqli_query($conn, $sqlPertanyaan);
                     while ($rowPertanyaan = mysqli_fetch_assoc($resPertanyaan)) {
                       if ($rowPertanyaan['idpertanyaan'] == $data['idpertanyaan']) : ?>

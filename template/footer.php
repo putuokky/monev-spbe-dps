@@ -188,6 +188,7 @@
         data: '',
         success: function(result) {
           $('select[id="fpertanyaan"]').empty();
+          $('select[id="fpertanyaan"]').append('<option value="-">-</option>');
           $.each(JSON.parse(result), function(i, val) {
             $('#fpertanyaan').append($('<option></option>').attr('value', val.idpertanyaan).text(val.pertanyaan));
           });
