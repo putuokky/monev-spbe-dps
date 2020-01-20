@@ -148,7 +148,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                 <td><?= number_format($bobot_indikator, 1, ",", ".")."%"; ?></td>
                                 <td><?php 
                                     $bobot_aspek_for_indi = $bobot_indikator/($rowBotAspek['bobot_indi'])*100; 
-                                    echo round($bobot_aspek_for_indi,1)."%";
+                                    echo number_format(round($bobot_aspek_for_indi,1),1, ",",".")."%";
                                     ?></td>
                                 <td>
                                   <?php
