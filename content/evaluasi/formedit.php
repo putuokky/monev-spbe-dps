@@ -140,9 +140,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resPertanyaan = mysqli_query($conn, $sqlPertanyaan);
                     while ($rowPertanyaan = mysqli_fetch_assoc($resPertanyaan)) {
                       if ($rowPertanyaan['idpertanyaan'] == $data['idpertanyaan']) : ?>
-                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>" selected>Indikator <?= $rowPertanyaan['indikator'] . " | " . $rowPertanyaan['pertanyaan']; ?></option>
+                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>" selected><?= $rowPertanyaan['pertanyaan']; ?></option>
                       <?php else : ?>
-                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>">Indikator <?= $rowPertanyaan['indikator'] . " | " . $rowPertanyaan['pertanyaan']; ?></option>
+                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>"><?= $rowPertanyaan['pertanyaan']; ?></option>
                       <?php endif; ?>
                     <?php } ?>
                   </select>
