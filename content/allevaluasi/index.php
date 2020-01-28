@@ -44,7 +44,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <div class="accordion" id="accordionExample">
             <?php
               $var = 0;
-              $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, f.nilaimadiri AS nilaipenmandiri 
+              $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, f.nilaimadiri AS nilaipenmandiri  
                       FROM tb_eksekutif_opd a 
                       LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian 
                       LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian 
@@ -52,17 +52,18 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       LEFT JOIN tb_opd e ON e.idopd = c.idopd 
                       LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan 
                       LEFT JOIN tb_level g ON g.idlevel = b.nilaikematangan
-                    WHERE d.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]";
+                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                   $id = $row['id_eksekutif_opd'];
                   $nilaikematanganpusat = $row['nilaikematanganpusat'];                  
                   $nilaipenmandiri = $row['nilaipenmandiri'];                  
-                  $tahap_opd = $row['tahapan_yg_harus_dipenuhi_opd'];
+                  $tahap_opd = explode(";", $row['tahapan_yg_harus_dipenuhi_opd']);
                   $telah_miliki = explode(";", $row['telah_miliki']);
                   $belum_miliki = $row['belum_miliki'];
                   $tahun_penilaian = $row['tahun_penilaian'];
+                  $indikator = $row['indikator'];
                   $namaindikator = $row['namaindikator'];
                   $namaopd = $row['namaopd'];
                   $nama_pendek_opd = $row['nama_pendek_opd'];

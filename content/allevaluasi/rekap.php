@@ -77,7 +77,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, f.nilaimadiri AS nilaipenmandiri 
+                  $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, f.nilaimadiri AS nilaipenmandiri 
                   FROM tb_eksekutif_opd a 
                   LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian 
                   LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian 
