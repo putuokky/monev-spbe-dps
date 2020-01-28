@@ -10,6 +10,7 @@ function __autoload($tagline)
   require_once 'template/' . $tagline . '.php';
 }
 $tagline = new tagline();
+// end manggil class
 
 if (empty($_SESSION['userid'])) {
   header('location: index.php');

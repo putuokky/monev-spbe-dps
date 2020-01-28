@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 02, 2020 at 07:38 AM
+-- Generation Time: Jan 28, 2020 at 11:18 AM
 -- Server version: 5.7.27
 -- PHP Version: 7.3.6
 
@@ -217,6 +217,63 @@ INSERT INTO `tb_domain` (`iddomain`, `id_indeks`, `nilai_indeks_domain`, `namado
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_eksekutif_opd`
+--
+
+CREATE TABLE `tb_eksekutif_opd` (
+  `id_eksekutif_opd` int(11) NOT NULL,
+  `idpenilaian` int(11) NOT NULL,
+  `tahapan_yg_harus_dipenuhi_opd` text NOT NULL,
+  `telah_miliki` text NOT NULL,
+  `belum_miliki` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_eksekutif_opd`
+--
+
+INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_harus_dipenuhi_opd`, `telah_miliki`, `belum_miliki`) VALUES
+(1, 42, 'Kebijakan Tim Pengarah SPBE  memuat pengaturan tugas-tugas yang mendukung penerapan SPBE  yang terpadu pada semua unit kerja.\r\n;Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala.', 'SK Walikota Denpasar No. 188.45/1195/HK/2019 tentang Tim Pengarah SPBE', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
+(2, 43, 'Kebijakan Proses Bisnis Integrasi  memuat pengaturan tersusunnya proses bisnis yang terintegrasi antar unit kerja.\r\n;Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK Walikota Denpasar Nomor 188.45/1689/HK/2019 tentang Peta Proses Bisnis Pemerintah Kota Denpasar', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(3, 44, 'Kebijakan Rencana Induk Blue Print eGov,  dengan memuat pengaturan tersusunnya rencana induk yang mencakup secara lengkap visi, misi, strategi, sasaran, arsitektur, dan peta rencana SPBE.\r\n;Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK Walikota Denpasar Nomor 188.45 / 1612 / HK / 2019 tentang Rencana Induk Pengembangan Teknologi Informasi Komunikasi Terpadu (Cetak Biru eGovernment).', 'Hasil monitoring dan evaluasi terhadap kebijakan yang telah dibuat yang dimiliki.'),
+(4, 45, 'Kebijakan Anggaran dan  Belanja TIK,  memuat pengaturan terkait penyelarasan dengan rencana induk SPBE, pengendalian rencana dan anggaran TIK yang terpadu di dalam Instansi Pusat/Pemerintah Daerah, dan mendukung penerapan SPBE yang terpadu.\r\n;Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'PERDA Kota Denpasar No 6 Tahun 2018 Tentang APBD Tahun Anggaran 2019', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(5, 46, '1.  Kebijakan agar memuat pengaturan pengoperasian dan pemanfaatan pusat data bagi semua unit kerja. \r\n;2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali No 35 Tahun 2014, Tentang Penyelenggaraan Sistem Elektronik (e-Government) di Lingkungan Pemerintah Kota Denpasar, Bab VI Pasal 20', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(6, 47, '1. Kebijakan agar memuat pengaturan integrasi sistem aplikasi sesuai dengan Arsitektur SPBE. ;2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali No 35 Tahun 2014, Tentang Penyelenggaraan Sistem Elektronik (e-Government) di Lingkungan Pemerintah Kota Denpasar, Pasal 14 ayat 6', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(7, 48, '1. Kebijakan aplikasi monitoring dan evaluasi (Simonev) Karma Simanis,  memuat pengaturan integrasi dengan layanan SPBE lain yang telah tersedia. ;2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Surat Keputusan Walikota Denpasar No 188.45 /1279/HK/2019', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(8, 49, '1. Kebijakan Layanan Naskah Dinas memuat pengaturan kebutuhan dan penggunaan layanan naskah dinas secara elektronik pada semua unit kerja. 2. Kebijakan nantinya harus dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali Denpasar Nomor 23 Tahun 2011 tentang Pedoman Tata Naskah Dinas, SK Walikota No 188.45 / 1186 / HK / 2017.', 'Kebijakan Layanan Naskah Dinas Elektronik.\r\n\r\nHasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.\r\n'),
+(9, 50, '1. Kebijakan Layanan Manajemen Kepegawaian (Simak di Hati),  memuat pengaturan kebutuhan dan penggunaan layanan manajemen pegawai secara elektronik pada semua unit kerja serta integrasi dengan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK Walikota Denpasar, Nomor 188.45/1126/HK/2019, tentang Penetapan Sistem Informasi Manajemen Administrasi Kepegawaian Untuk Database yang Handal, Akurat, Tertib dan Informatif dalam Pelayanan Informasi Data Kepegawaian.', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(10, 51, '1. Kebijakan memuat pengaturan kebutuhan dan penggunaan layanan manajemen perencanaan dan penganggaran secara elektronik pada semua unit kerja dan integrasi dengan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK Walikota Denpasar Nomor 188.45 / 1589 / HK / 2019 tentang Penetapan Pelaksanaan Sistem Informasi Perencanaan Pembangunan Daerah Berbasis Elektronik / e-Planning di Kota Denpasar.', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(11, 52, '1. Membuat Kebijakan Layanan Manajemen Keuangan, yang memuat pengaturan kebutuhan dan penggunaan layanan manajemen keuangan secara elektronik pada semua unit kerja dan integrasi dengan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK Walikota Denpasar Nomor 188.45/1006/HK/2015, tentang Pembentukan Tim Koordinasi Percepatan Implementasi dan Pengembangan Sistem Informasi Pengelolaan Keuangan Daerah', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(12, 53, '1. Kebijakan Layanan Manajemen Kinerja,  memuat pengaturan kebutuhan dan penggunaan layanan manajemen keuangan secara elektronik pada semua unit kerja serta dapat diintegrasikan dengan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Peraturan Walikota Denpasar No 38 Tahun 2017, tentang Sistem Informasi Manajemen Kinerja', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(13, 54, '1. Kebijakan Layanan Pengadaan dibuat tahun 2008, harus direvisi karena sudah 10 tahun lebih. Kebijakan juga memuat pengaturan integrasi dengan layanan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali No 2 Tahun 2008 Tentang Pedoman Pelaksanaan Pengadaan Barang/Jasa Secara Elektronik Di Pemerintah Kota Denpasar.', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(14, 55, '1. Kebijakan Layanan Pengaduan Publik,  memuat pengaturan kebutuhan dan penggunaan layanan pengaduan secara elektronik pada semua unit kerja serta dapat diintegrasikan dengan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali No 45 Tahun 2013 tentang Pelayanan Penanganan Pengaduan Masyarakat di Lingkungan Pemerintah Kota Denpasar.', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(15, 56, '1. Membuat Kebijakan Layanan JDIH,  dengan memuat pengaturan kebutuhan dan penggunaan layanan dokumentasi dan informasi hukum secara elektronik pada semua unit kerja serta dapat diintegrasi dengan SPBE lainnya. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK NO 826 TAHUN 2019 tentang Pembentukan Tim Pengelola Jaringan Dokumentasi dan Informasi Hukum', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(16, 57, '1. Membuat atau Revisi Kebijakan Layanan WBS,  memuat pengaturan kebutuhan integrasi layanan WBS secara elektronik dengan layanan SPBE lain. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali No 45 Tahun 2013 tentang Pelayanan Penanganan Pengaduan Masyarakat di Lingkungan Pemerintah Kota Denpasar', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(17, 58, '1. Kebijakan Layanan Perijinan,  memuat pengaturan kebutuhan integrasi layanan publik secara elektronik dengan layanan SPBE lain. 2. Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali No 39 Tahun 2019 tentang Penyelenggaraan Perizinan dan Non Perizinan.', 'Hasil monitoring dan evaluasi terhadap kebijakan  yang dimiliki.'),
+(18, 59, '1. Tim Pengarah SPBE menjalankan tugas dan fungsinya secara menyeluruh sesuai dengan kebijakan internal yang telah ditetapkan. 2. Melakukan monitoring dan evaluasi terhadap tugas dan fungsi Tim pengarah SPBE sesuai Kebijakan, serta dibuatkan dokumentasi sebagai data pendukung.', 'SK Walikota Denpasar Nomor 188.45/1195/HK/2019 tentang Pembentukan Tim Pengarah Sistem Pemerintah Berbasis Elektronik.', 'Hasil monitoring dan evaluasi terhadap tugas dan fungsi Tim Pengarah SPBE.'),
+(19, 60, '1. Penerapan proses bisnis yang terintegrasi dengan sistem elektronik. 2. Proses bisnis terintegrasi dapat diukur, dipantau, dan dievaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pemerintah Kota Denpasar memiliki Peta Proses Bisnis yang diterapkan pada seluruh OPD dan dievaluasi secara berkala.', 'Hasil monitoring dan evaluasi terhadap pelaksanaan Proses Bisnis Terintegrasi'),
+(20, 61, '1. Membuat Rencana Induk SPBE,  mencakup visi, misi, strategi, sasaran, arsitektur, dan peta rencana SPBE sesuai dengan kebijakan internal yang telah ditetapkan. 2. Dilakukan monitoring dan evaluasi secara berkala terhadap Rencana Induk yang dibuat, serta dibuatkan dokumentasi sebagai data pendukung.', 'Rencana Induk Pengembangan e-Government Pemerintah Kota Denpasar Tahun 2016-2020', 'Hasil monitoring dan evaluasi terhadap penerapan Rencana Induk SPBE'),
+(21, 62, '1. Perencanaan dan penganggaran Anggaran dan Belanja TIK OPD tertuang dalam rencana kerja tahunan telah terintegrasi dan dapat dikendalikan di unit pengelola TIK. 2. Perencanaan dan penganggaran  Anggaran dan Belanja TIK dapat diukur, dipantau dan dievaluasi berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perencanaan dan Penganggaran TIK  terdapat dalam APBD Belanja Langsung di masing-masing OPD.', 'Hasil evaluasi perencanaan dan penganggaran TIK  yang terintegrasi, ditindaklanjuti sebagai masukan perbaikan penyusunan anggaran tahun berikutnya.'),
+(22, 63, '1. Pengembangan Data Center, pengendalian dan pemantauan layanan dari satu atau beberapa pusat data (data center) sebaiknya dapat dilakukan secara berkala dan terpusat. 2. Dilakukan monitoring dan evaluasi pengoperasian pusat data secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pengembangan dilakukan secara bertahap. Monitoring rutin terhadap aktivitas Data Center. Dilakukan kajian untuk evaluasi pengembangan Data Center yang lebih baik.', 'Hasil monitoring dan evaluasi terhadap pengoperasian pusat data'),
+(23, 64, '1. Integrasi sistem aplikasi sebaiknya diterapkan secara menyeluruh berdasarkan pada arsitektur dan peta rencana induk SPBE. 2. Dilakukan monitoring dan evaluasi secara berkala terhadap integrasi sistem aplikasi, serta dibuatkan dokumentasi sebagai data pendukung.', 'Integrasi sistem dari perencanaan, penganggaran, keuangan dan monitoring evaluasi (karma simanis)', 'Hasil monitoring dan evaluasi terhadap Integrasi sistem aplikasi Instansi'),
+(24, 65, '1. Penerapan  eMonev yang terintegrasi dari perencanaan, penganggaran, hingga realisasi fisik serta keuangan dan kepegawaian. 2. Dilakukan monitoring dan evaluasi secara berkala terhadap aplikasi umum berbagi pakai, serta dibuatkan dokumentasi sebagai data pendukung.', 'Salah satu aplikasi umum berbagi pakai yang diterapkan di PemKot Denpasar adalah eMonev https://simonev.denpasarkota.go.id.', 'Hasil monitoring dan evaluasi terhadap penggunaan aplikasi umum berbagi pakai'),
+(25, 66, '1. Optimalisasi Penerapan Layanan Naskah Dinas secara elektronik. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem Tata Naskah Dinas Elektronik (TNDE) website http://aplikasi.denpasarkota.go.id:8084/tnde', 'Hasil monitoring dan evaluasi terhadap layanan naskah dinas'),
+(26, 67, '1. Optimalisasi  Penerapan dan Pengembangan Layanan manajemen kepegawaian dilaksanakan secara otomasi seperti transaksi persetujuan dan verifikasi terhadap transaksi kenaikan pangkat, pengajuan cuti, dan sebagainya. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Aplikasi SIMPEG https://simpeg.denpasarkota.go.id', 'Hasil monitoring dan evaluasi terhadap layanan manajemen kepegawaian'),
+(27, 68, '1. Penerapan Layanan Manajemen Perencanaan,  dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahan-perubahan internal dan eksternal di Instansi Pusat. 2. Dilakukan monitoring dan evaluasi secara berkala', 'Pemerintah Kota Denpasar menggunakan sistem manajemen perencanaan yaitu e-Planning, yang digunakan oleh seluruh OPD. Pengembangan yang dilakukan adalah terintegrasinya e-Planning dengan SIPKD.', 'Hasil monitoring dan evaluasi terhadap layanan manajemen perencanaan'),
+(28, 69, '1. Penerapan Layanan Manajemen Penganggaran,  dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahan-perubahan internal dan eksternal di Instansi Pusat. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pemerintah Kota Denpasar menggunakan aplikasi e-Planning dan SIPKD untuk sistem manajemen penganggaran, penatausahaan dan pertanggung jawaban.', 'Hasil monitoring dan evaluasi terhadap layanan manajemen penganggaran'),
+(29, 70, '1. Penerapan Layanan Manajemen Keuangan,  dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahan-perubahan internal dan eksternal di Instansi Pusat. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pemerintah Kota Denpasar menggunakan aplikasi SIPKD untuk sistem manajemen penganggaran, penatausahaan dan pertanggung jawaban.', 'Hasil monitoring dan evaluasi terhadap layanan manajemen keuangan'),
+(30, 71, '1. Penerapan dan Pengembangan Layanan Manajemen Kinerja,  ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pemerintah Kota Denpasar memiliki sistem manajemen kinerja (e-Kinerja) yang digunakan oleh seluruh pegawai', 'Hasil monitoring dan evaluasi terhadap layanan manajemen kinerja'),
+(31, 72, '1. Penerapan Layanan Pengadaan,  ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pemerintah Kota Denpasar menggunakan SPSE dari LKPP dengan alamat website http://eproc.denpasarkota.go.id dan terintegrasi dari SIRUP ke EPROC.', 'Hasil monitoring dan evaluasi terhadap layanan pengadaan'),
+(32, 73, '1. Penerapan dan Pengembangan Layanan Pengaduan Publik,  ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem layanan pengaduan publik yaitu PRO Denpasar dengan website http://pengaduan.denpasarkota.go.id', 'Hasil monitoring dan evaluasi terhadap layanan pengaduan publik'),
+(33, 74, '1. Penerapan dan Pengembangan Layanan JDIH dengan melakukan Integrasi JDIH dengan Sidandaniti serta layanan SPBE lainnya. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem jaringan dan informasi hukum (JDIH) , https://jdih.denpasarkota.go.id.          Sistem informasi perundang-undanganhttps://sidandaniti.denpasarkota.go.id', 'Hasil monitoring dan evaluasi terhadap layanan JDIH'),
+(34, 75, '1. Optimalisasi  Penerapan dan Pengembangan Layanan WBS, apakah Layanan WBS tetap berada di dalam PRO Denpasar atau berdiri sendiri? Dan dapat diintegrasikan dengan SPBE lainnya. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Whistle Blowing System di Pemerintah Kota Denpasar, saat ini termasuk di dalam sistem layanan pengaduan publik yaitu PRO Denpasar dengan website http://pengaduan.denpasarkota.go.id', 'Hasil monitoring dan evaluasi terhadap layanan WBS'),
+(35, 76, '1. Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain. 2. Membuat Kebijakan Internal Layanan Perpajakan serta memuat pengaturan terintegrasi dengan SPBE lainnya. 3. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem integrasi PHR dengan Perijinan. Sistem integrasi PBB dengan Perijinan. Sistem integrasi BPHTB denganKantor BPN tujuannya (Perwali No 17 Tahun 2016). E-SPTPD  Sistem pelaporan pajak secara online (Perwali No. 16 Tahun 2016). I-PBB (informasi pelayanan Pajak Bumi dan Bangunan). Aplikasi integrasi Kasda online Penerimaan PAD Kota Denpasar', 'Hasil monitoring dan evaluasi terhadap layanan pajak'),
+(36, 77, '1. Optimalisasi Penerapan dan Pengembangan Layanan Bursa Kerja,  diintegrasikan dengan layanan SPBE lain. ;2. Revisi Kebijakan Internal Layanan Bursa Kerja Online karena dibuat tahun 2011, serta dapat terintegrasi dengan SPBE lainnya. ;3. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali Denpasar No 31/2011 Tentang Tata Cara dan Persyaratan Pelaksanaan Bursa Kerja Online Kota Denpasar. ;Sudah terintegrasi dengan data kependudukan saat melakukan registrasi dengan mengekitkan NIK Kota Denpasar, otomatis data akan muncul.', 'Hasil monitoring dan evaluasi terhadap layanan bursa kerja online'),
+(37, 78, '1. Optimalisasi Penerapan dan Pengembangan Layanan Perijinan,  diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem Informasi Perijinan Online http://perijinan.denpasarkota.go.id. ;Proses integrasi dengan OSS (BKPM) dan Sicantik Cloud (Kemenkominfo). ;Berkolaborasi dengan BSSN menggunakan tanda tangan digital. Perwali No 39 Tahun 2019 tentang Penyelenggaraan Perizinan dan Non Perizinan', 'Hasil monitoring dan evaluasi terhadap layanan perijinan online');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_evaluasi`
 --
 
@@ -299,84 +356,84 @@ INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_f
 (7, 46, 'Perwali Kota Denpasar Nomor 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik (E-Government) di Lingkungan Pemerintah Kota Denpasar', 'indikator5.pdf', 'DKIS', '2019-12-26 15:28:00'),
 (8, 55, 'Perwali Kota Denpasar Nomor 45 Tahun 2013 Tentang Pelayanan Penanganan Pengaduan Masyarakat di Lingkungan Pemerintah Kota Denpasar', 'indikator14a.pdf', 'DKIS', '2019-12-31 13:55:00'),
 (9, 55, 'SK Walikota Denpasar Nomor 188.45/206/HK/2013 Tentang Penunjukan Dinas Komunikasi dan Informatika Kota Denpasar Sebagai Pelaksana Penanganan Pengaduan Masyarakat di Kota Denpasar', 'indikator14b.pdf', 'DKIS', '2019-12-31 13:58:00'),
-(10, 59, '', 'indikator18b.pdf', 'DKIS', '2019-12-16 14:24:00'),
-(11, 60, '', 'indikator19.pdf', 'DKIS', '2019-12-16 14:27:00'),
-(12, 63, '', 'indikator22a.pdf', 'DKIS', '2019-12-16 14:29:00'),
-(13, 63, '', 'indikator22c.pdf', 'DKIS', '2019-12-16 14:30:00'),
-(14, 63, '', 'indikator22d.pdf', 'DKIS', '2019-12-16 14:34:00'),
-(15, 73, '', 'indikator32c.pdf', 'DKIS', '2019-12-16 15:07:00'),
-(16, 76, '', 'indikator35-1a.pdf', 'DKIS', '2019-12-16 15:09:00'),
-(17, 76, '', 'indikator35-1b.pdf', 'DKIS', '2019-12-16 15:09:00'),
-(18, 76, '', 'indikator35-1c.pdf', 'DKIS', '2019-12-16 15:09:00'),
-(19, 76, '', 'indikator35-1d.pdf', 'DKIS', '2019-12-16 15:10:00'),
-(20, 76, '', 'indikator35-1e.pdf', 'DKIS', '2019-12-16 15:10:00'),
+(10, 59, 'Monev Peningkatan Indeks SPBE 2019', 'indikator18b.pdf', 'DKIS', '2020-01-02 08:45:00'),
+(11, 60, 'Peta Proses Bisnis Pemerintah Kota Denpasar', 'indikator19.pdf', 'DKIS', '2020-01-02 08:49:00'),
+(12, 63, 'SOP Penetapan Tata Cara Layanan Data Center', 'indikator22a.pdf', 'DKIS', '2020-01-02 10:13:00'),
+(13, 63, 'Laporan Akhir Kajian Physical Security Kota Denpasar', 'indikator22c.pdf', 'DKIS', '2020-01-02 11:11:00'),
+(14, 63, 'Gambar Penambahan Perangkat Pada Ruangan Server', 'indikator22d.pdf', 'DKIS', '2020-01-02 11:12:00'),
+(15, 73, 'Tampilan Daftar user yang memenuhi persyaratan pendaftaran lengkap dengan NIK KTP', 'indikator32c.pdf', 'DKIS', '2020-01-02 13:55:00'),
+(16, 76, 'Tampilan View Data BPN', 'indikator35-1a.pdf', 'DKIS', '2020-01-02 14:12:00'),
+(17, 76, 'Tampilan Aplikasi Validasi Piutang Pajak dan Integrasi Data Perijinan Antara Bapenda Dengan DPMPTSP', 'indikator35-1b.pdf', 'DKIS', '2020-01-02 14:13:00'),
+(18, 76, 'Perwali Kota Denpasar Nomor 16 Tahun 2016 Tentang Tata Cara Penerbitan dan Pengisian Surat Pemberitahuan Pajak Hotel, Pajak Restoran dan Pajak Hiburan Secara Online', 'indikator35-1c.pdf', 'DKIS', '2020-01-02 14:20:00'),
+(19, 76, 'Tampilan Arsitektur Sistem Online', 'indikator35-1d.pdf', 'DKIS', '2020-01-02 14:21:00'),
+(20, 76, 'Panduan Aplikasi Informasi Pelayanan PBB (I-PBB)', 'indikator35-1e.pdf', 'DKIS', '2020-01-02 14:22:00'),
 (23, 43, 'SK Walikota Denpasar Nomor 188.45/1689/HK/2019 Tentang Peta Proses Bisnis Pemerintah Kota Denpasar', 'indikator2a.pdf', 'DKIS', '2019-12-26 14:41:00'),
 (24, 43, 'Lampiran Peta Proses Bisnis Pemerintah Kota Denpasar', 'indikator2b.pdf', 'DKIS', '2019-12-26 14:42:00'),
-(25, 61, '', 'indikator20a.pdf', 'DKIS', '2019-12-18 09:07:00'),
-(26, 61, '', 'indikator20b.pdf', 'DKIS', '2019-12-18 09:07:00'),
-(27, 61, '', 'indikator20c.pdf', 'DKIS', '2019-12-18 09:07:00'),
-(28, 61, '', 'indikator20d.pdf', 'DKIS', '2019-12-18 09:07:00'),
-(29, 61, '', 'indikator20e.pdf', 'DKIS', '2019-12-18 09:08:00'),
-(30, 61, '', 'indikator20f.pdf', 'DKIS', '2019-12-18 09:08:00'),
-(31, 61, '', 'indikator20g.pdf', 'DKIS', '2019-12-18 09:08:00'),
-(32, 61, '', 'indikator20h.pdf', 'DKIS', '2019-12-18 09:08:00'),
-(33, 65, '', 'indikator24.pdf', 'DKIS', '2019-12-18 09:09:00'),
-(34, 59, '', 'indikator18a.jpg', 'DKIS', '2019-12-18 09:14:00'),
-(35, 63, '', 'indikator22b.jpg', 'DKIS', '2019-12-18 09:15:00'),
-(36, 63, '', 'indikator22e.jpg', 'DKIS', '2019-12-18 09:15:00'),
-(37, 64, '', 'indikator23.jpg', 'DKIS', '2019-12-18 09:17:00'),
-(38, 73, '', 'indikator32a.jpg', 'DKIS', '2019-12-18 09:17:00'),
-(39, 73, '', 'indikator32b.jpg', 'DKIS', '2019-12-18 09:18:00'),
-(40, 75, '', 'indikator34.jpg', 'DKIS', '2019-12-18 09:18:00'),
+(25, 61, 'Bab I Pendahuluan', 'indikator20a.pdf', 'DKIS', '2020-01-02 09:59:00'),
+(26, 61, 'Bab II Gambaran Umum Kota Denpasar', 'indikator20b.pdf', 'DKIS', '2020-01-02 09:58:00'),
+(27, 61, 'Bab III Smart City', 'indikator20c.pdf', 'DKIS', '2020-01-02 09:59:00'),
+(28, 61, 'Bab IV E-Government Kota Denpasar', 'indikator20d.pdf', 'DKIS', '2020-01-02 10:01:00'),
+(29, 61, 'Bab V Analisa Kondisi E-Government di Kota Denpasar', 'indikator20e.pdf', 'DKIS', '2020-01-02 10:02:00'),
+(30, 61, 'Bab VI Perencanaan Strategis', 'indikator20f.pdf', 'DKIS', '2020-01-02 10:03:00'),
+(31, 61, 'Bab VII Cetak Biru Pengembangan E-Government', 'indikator20g.pdf', 'DKIS', '2020-01-02 10:04:00'),
+(32, 61, 'Bab VIII Penutup', 'indikator20h.pdf', 'DKIS', '2020-01-02 10:05:00'),
+(33, 65, 'Spesifikasi Software dan Petunjuk Teknis', 'indikator24.pdf', 'DKIS', '2020-01-02 11:17:00'),
+(34, 59, 'Lampiran Menindaklanjuti Indikator Sesuai Rekomendasi Kemenpan R&B', 'indikator18a.jpg', 'DKIS', '2020-01-02 08:43:00'),
+(35, 63, 'Penataan Ruangan Server', 'indikator22b.jpg', 'DKIS', '2020-01-02 11:09:00'),
+(36, 63, 'Data Replay IP Pada Setiap Server', 'indikator22e.jpg', 'DKIS', '2020-01-02 11:13:00'),
+(37, 64, 'Planning-Budgeting-Monitoring-Integrated System', 'indikator23.jpg', 'DKIS', '2020-01-02 11:15:00'),
+(38, 73, 'Tampilan Website Pro Denpasar', 'indikator32a.jpg', 'DKIS', '2020-01-02 13:53:00'),
+(39, 73, 'Tampilan Registrasi Pada Website Pro Denpasar', 'indikator32b.jpg', 'DKIS', '2020-01-02 13:54:00'),
+(40, 75, 'Tampilan Website Pro Denpasar', 'indikator34.jpg', 'DKIS', '2020-01-02 14:09:00'),
 (46, 57, 'Perwali Kota Denpasar Nomor 45 Tahun 2013 Tentang Pelayanan Penanganan Pengaduan Masyarakat di Lingkungan Pemerintah Kota Denpasar', 'indikator16a.pdf', 'DKIS', '2020-01-02 08:18:00'),
 (48, 51, 'SK Walikota Denpasar Nomor 188.45/1589/HK/2019 Tentang Penetapan Pelaksanaan Sistem Informasi Perencanaan Pembangunan Daerah Berbasis Elektronik / E-Planning di Kota Denpasar', 'indikator10.pdf', 'adminbappeda', '2019-12-31 13:35:00'),
-(49, 62, '', 'indikator21.pdf', 'adminbappeda', '2019-12-18 09:54:00'),
-(50, 68, '', 'indikator27.jpg', 'adminbappeda', '2019-12-18 09:55:00'),
-(51, 69, '', 'indikator28.pdf', 'adminbappeda', '2019-12-18 09:55:00'),
+(49, 62, 'Ringkasan APBD Menurut Organisasi dan Urusan Pemerintah Daerah Tahun Anggaran 2019', 'indikator21.pdf', 'adminbappeda', '2020-01-02 10:07:00'),
+(50, 68, 'Tampilan Website Denpasar Plan', 'indikator27.jpg', 'adminbappeda', '2020-01-02 11:42:00'),
+(51, 69, 'Modul Penggunaan Website Sistem Informasi Pengelola Keuangan dan Aset Daerah (SIPKD)', 'indikator28.pdf', 'adminbappeda', '2020-01-02 11:44:00'),
 (52, 47, 'Perwali Kota Denpasar Nomer 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik (E-Government) di Lingkungan Pemerintah Kota Denpasar', 'indikator6.pdf', 'bagianorganisasi', '2019-12-31 12:51:00'),
-(53, 66, '', 'indikator25.jpg', 'bagianorganisasi', '2019-12-18 10:01:00'),
+(53, 66, 'Draft Surat Masuk Pada TNDE Kota Denpasar', 'indikator25.jpg', 'bagianorganisasi', '2020-01-02 11:19:00'),
 (54, 49, 'SK Walikota Denpasar Nomor 188.45/1186/HK/2017 Tentang Pembentukan Panitia Penyelenggara, Penunjukan Instruktur, dan Penetapan Petugas Pada Organisasi Perangkat Daerah (OPD) Pengembangan Sistem Informasi Kearsipan (Smart Arsip) Kota Denpasar Tahun 2017', 'indikator8c.pdf', 'bagianorganisasi', '2019-12-31 13:20:00'),
 (55, 48, 'Perwali Kota Denpasar Nomor 188.45/1279/HK/2019 Tentang Pembentukan Tim Sewaka Dharma Sistem Monitoring Administrasi Pembangunan (Karma Simanis) Kota Denpasar', 'indikator7.pdf', 'DKIS', '2019-12-31 13:11:00'),
 (56, 50, 'SK Walikota Denpasar Nomor 188.45/1126/HK/2019 Tentang Penetapan Sistem Informasi Manajemen Administrasi Kepegawaian Untuk Database yang Handal,Akurat,Tertib, dan Informatif Dalam Pelayanan Informasi Data Kepegawaian.', 'indikator9.PDF', 'bkpsdm', '2019-12-31 13:30:00'),
 (57, 53, 'Perwali Kota Denpasar Nomor 38 Tahun 2017 Tentang Kriteria dan Besaran Tambahan Penghasilan Berdasarkan Prestasi Kerja Kepada Pegawai Negeri Sipil ', 'indikator12.pdf', 'bkpsdm', '2019-12-31 13:40:00'),
-(58, 67, '', 'indikator26a.pdf', 'bkpsdm', '2019-12-18 10:11:00'),
-(59, 67, '', 'indikator26b.PDF', 'bkpsdm', '2019-12-18 10:12:00'),
-(60, 71, '', 'indikator30a.jpg', 'bkpsdm', '2019-12-18 10:12:00'),
-(61, 71, '', 'indikator30b.jpg', 'bkpsdm', '2019-12-18 10:12:00'),
-(62, 71, '', 'indikator30c.jpg', 'bkpsdm', '2019-12-18 10:13:00'),
-(63, 71, '', 'indikator30d.jpg', 'bkpsdm', '2019-12-18 10:13:00'),
-(64, 71, '', 'indikator30e.pdf', 'bkpsdm', '2019-12-18 10:13:00'),
+(58, 67, 'Modul Penggunaan Aplikasi Simak Di Hati', 'indikator26a.pdf', 'bkpsdm', '2020-01-02 11:38:00'),
+(59, 67, 'SOP Prosedur Verifikasi Data ASN Pada Aplikasi Simpeg', 'indikator26b.PDF', 'bkpsdm', '2020-01-02 11:39:00'),
+(60, 71, 'Tampilan pada proses inputan kegiatan harian', 'indikator30a.jpg', 'bkpsdm', '2020-01-02 11:51:00'),
+(61, 71, 'Tampilan pada tunjangan kinerja', 'indikator30b.jpg', 'bkpsdm', '2020-01-02 11:51:00'),
+(62, 71, 'Tampilan pada histori absen dan rekap absen', 'indikator30c.jpg', 'bkpsdm', '2020-01-02 11:52:00'),
+(63, 71, 'Tampilan pada realisasi rencana kegiatan', 'indikator30d.jpg', 'bkpsdm', '2020-01-02 11:53:00'),
+(64, 71, 'SOP Perbaikan Data Pada Aplikasi E-Kinerja', 'indikator30e.pdf', 'bkpsdm', '2020-01-02 11:54:00'),
 (65, 52, 'SK Walikota Denpasar Nomor 188.45/1006/HK/2015 Tentang Pembentukan Tim Koordinasi Percepatan Implementasi dan Pengembangan Sistem Informasi Pengelolaan Keuangan Daerah', 'indikator11.pdf', 'bpkad', '2019-12-31 13:38:00'),
-(66, 70, '', 'indikator29.pdf', 'bpkad', '2019-12-18 10:32:00'),
-(67, 72, '', 'indikator31.jpg', 'pengadaanbarangdanjasa', '2019-12-18 10:35:00'),
+(66, 70, 'Modul Penggunaan Website Sistem Informasi Pengelola Keuangan dan Aset Daerah (SIPKD)', 'indikator29.pdf', 'bpkad', '2020-01-02 11:46:00'),
+(67, 72, 'Tampilan Website LPSE (Layanan Pengadaan Secara Elektronik) Kota Denpasar', 'indikator31.jpg', 'pengadaanbarangdanjasa', '2020-01-02 13:50:00'),
 (68, 56, 'SK Walikota Denpasar Nomor 188.45/826/HK/2019 Tentang Pembentukan Tim Pengelola Jaringan Dokumentasi dan Informasi Hukum', 'indikator15.pdf', 'bagianhukum', '2019-12-31 14:00:00'),
-(69, 74, '', 'indikator33a.jpg', 'bagianhukum', '2019-12-18 10:37:00'),
-(70, 74, '', 'indikator33b.jpg', 'bagianhukum', '2019-12-18 10:38:00'),
+(69, 74, 'Tampilan Website JDIH (Jaringan Dokumentasi Informasi Hukum) Kota Denpasar', 'indikator33a.jpg', 'bagianhukum', '2020-01-02 13:56:00'),
+(70, 74, 'Tampilan Pada Input Peraturan Baru', 'indikator33b.jpg', 'bagianhukum', '2020-01-02 13:58:00'),
 (71, 58, 'SK Walikota Denpasar Nomor 188.45/283/HK/2016 Tentang Pelaksanaan Pelayanan Sistem Informasi Perijinan Online Pada Badan Pelayanan Perijinan Terpadu Satu Pintu dan Penanaman Modal Kota Denpasar', 'indikator17b.pdf', 'perijinan', '2020-01-02 08:29:00'),
-(72, 78, '', 'indikator35-3a.jpg', 'perijinan', '2019-12-18 11:14:00'),
-(73, 78, '', 'indikator35-3b.jpg', 'perijinan', '2019-12-18 11:14:00'),
-(74, 78, '', 'indikator35-3c.jpg', 'perijinan', '2019-12-18 11:14:00'),
-(75, 77, '', 'indikator35-2a.jpg', 'disnaker', '2019-12-18 11:25:00'),
-(76, 77, '', 'indikator35-2b.pdf', 'disnaker', '2019-12-18 11:25:00'),
-(77, 77, '', 'indikator35-2c.pdf', 'disnaker', '2019-12-18 11:26:00'),
-(78, 77, '', 'indikator35-2d.jpg', 'disnaker', '2019-12-18 11:26:00'),
+(72, 78, 'Tampilan Website Kantor Perijinan', 'indikator35-3a.jpg', 'perijinan', '2020-01-02 14:50:00'),
+(73, 78, 'Tampilan Tanda Tangan Digital', 'indikator35-3b.jpg', 'perijinan', '2020-01-02 14:51:00'),
+(74, 78, 'Tampilan Website Single Filing', 'indikator35-3c.jpg', 'perijinan', '2020-01-02 14:52:00'),
+(75, 77, 'Tampilan Website Bursa Kerja Online', 'indikator35-2a.jpg', 'disnaker', '2020-01-02 14:42:00'),
+(76, 77, 'Perwali Kota Denpasar Nomor 31 Tahun 2011 Tentang Tata Cara dan Persyaratan Pelayanan Bursa Kerja Online di Kota Denpasar', 'indikator35-2b.pdf', 'disnaker', '2020-01-02 14:44:00'),
+(77, 77, 'SOP Bidang Penempatan Tenaga Kerja', 'indikator35-2c.pdf', 'disnaker', '2020-01-02 14:45:00'),
+(78, 77, 'Tampilan pada Registrasi Pencari Kerja ', 'indikator35-2d.jpg', 'disnaker', '2020-01-02 14:46:00'),
 (79, 58, 'Perwali Kota Denpasar Nomor 39 Tahun 2019 Tentang Penyelenggaraan Pelayanan Perizinan dan Non Perizinan', 'indikator17a.pdf', 'perijinan', '2020-01-02 08:24:00'),
 (80, 54, 'Perwali Kota Denpasar Nomor 2 Tahun 2008 Tentang Pedoman Pelaksanaan Pengadaan Barang/Jasa Secara Elektronik Di Pemerintah Kota Denpasar', 'indikator13.pdf', 'pengadaanbarangdanjasa', '2019-12-31 13:50:00'),
 (81, 49, 'Perwali Kota Denpasar Nomor 23 Tahun 2011 Tentang Pedoman Tata Naskah Dinas di Lingkungan Pemerintah Kota Denpasar', 'indikator8a.pdf', 'bagianorganisasi', '2019-12-31 13:14:00'),
 (82, 49, 'Perda Kota Denpasar Nomor 14 Tahun 2015 Tentang Penyelenggaraan Kearsipan', 'indikator8b.pdf', 'bagianorganisasi', '2019-12-31 13:16:00'),
-(83, 1, '', 'indikator1.pdf', 'adminspbe', '2019-12-23 15:41:00'),
-(84, 2, '', 'indikator2.pdf', 'adminspbe', '2019-12-23 15:45:00'),
-(85, 3, '', 'indikator3.pdf', 'adminspbe', '2019-12-23 15:46:00'),
-(86, 4, '', 'indikator4.pdf', 'adminspbe', '2019-12-23 15:47:00'),
-(87, 5, '', 'indikator5.pdf', 'adminspbe', '2019-12-24 14:03:00'),
-(88, 6, '', 'indikator6.pdf', 'adminspbe', '2019-12-24 14:03:00'),
-(89, 7, '', 'indikator7.pdf', 'adminspbe', '2019-12-24 14:04:00'),
-(90, 8, '', 'indikator8a.pdf', 'adminspbe', '2019-12-24 14:04:00'),
-(91, 8, '', 'indikator8b.pdf', 'adminspbe', '2019-12-24 14:04:00'),
-(92, 8, '', 'indikator8c.pdf', 'adminspbe', '2019-12-24 14:04:00'),
-(93, 8, '', 'indikator8d.pdf', 'adminspbe', '2019-12-24 14:04:00'),
-(94, 9, '', 'indikator9a.jpg', 'adminspbe', '2019-12-24 14:05:00'),
-(95, 9, '', 'indikator9b.pdf', 'adminspbe', '2019-12-24 14:05:00'),
+(83, 1, 'SK Walikota Denpasar Tahun 2017 Tentang Pembentukan Tim Tata Kelola Teknologi Informasi dan Komunikasi di Lingkungan Pemerintah Kota Denpasar', 'indikator1.pdf', 'adminspbe', '2020-01-06 08:13:00'),
+(84, 2, 'Perwali Kota Denpasar Nomor 13 Tahun 2018 Tentang Standar Operasional Prosedur Administrasi Pemerintahan di Lingkungan Pemerintah Kota Denpasar', 'indikator2.pdf', 'adminspbe', '2020-01-06 08:29:00'),
+(85, 3, 'Perwali Kota Denpasar Tentang Rencana Induk Pengembangan Teknologi Informasi Komunikasi Terpadu (Cetak Biru E-Government)', 'indikator3.pdf', 'adminspbe', '2020-01-06 08:38:00'),
+(86, 4, 'Perda Kota Denpasar Nomor 4 Tahun 2017 Tentang Perubahan Atas Peraturan Daerah Kota Denpasar Nomor 9 Tahun 2016 Tentang Anggaran Pendapatan dan Belanja Daerah Kota Denpasar Tahun Anggaran 2017', 'indikator4.pdf', 'adminspbe', '2020-01-07 09:39:00'),
+(87, 5, 'Perwali Kota Denpasar Nomor 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik (E-Goverment) di Lingkungan Pemerintah Kota Denpasar', 'indikator5.pdf', 'adminspbe', '2020-01-07 09:45:00'),
+(88, 6, 'Perwali Kota Denpasar Nomor 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik (E-Government) di Lingkungan Pemerintah Kota Denpasar', 'indikator6.pdf', 'adminspbe', '2020-01-07 09:52:00'),
+(89, 7, 'Perwali Kota Denpasar Nomor 45 Tahun 2013 Tentang Pelayanan Penanganan Pengaduan Masyarakat di Lingkungan Pemerintah Kota Denpasar', 'indikator7.pdf', 'adminspbe', '2020-01-08 08:25:00'),
+(90, 8, 'Arsip Nasional Republik Indonesia Nomor 15 Tahun 2012 Tentang Petunjuk Pelaksanaan Pengelolaan Surat Elektronik  di Pencipta Arsip', 'indikator8a.pdf', 'adminspbe', '2020-01-08 08:28:00'),
+(91, 8, 'Perda Kota Denpasar Nomor 14 Tahun 2015 Tentang Penyelenggaraan Kearsipan', 'indikator8b.pdf', 'adminspbe', '2020-01-08 08:51:00'),
+(92, 8, 'SK Walikota Denpasar Nomor 188.45 / 1186 / HK / 2017 Tentang Pembentukan Panitia Penyelenggara, Penunjukan Instruktur, dan Penetapan Petugas Pada Organisasi Perangkat Daerah (OPD) Pengembangan Sistem Informasi Kearsipan. (SMART ARSIP) Kota Denpasar Tahun 2017', 'indikator8c.pdf', 'adminspbe', '2020-01-08 09:01:00'),
+(93, 8, 'Review Hasil Monitoring dan Evaluasi Pengelolaan Kearsipan Kota Denpasar Tahun 2018', 'indikator8d.pdf', 'adminspbe', '2020-01-08 09:53:00'),
+(94, 9, 'Tampilan Website Sistem Informasi Manajemen Kepegawaian Pemerintah Kota Denpasar', 'indikator9a.jpg', 'adminspbe', '2020-01-08 09:57:00'),
+(95, 9, 'Keputusan Menteri Dalam Negeri Nomor 17 Tahun 2000 Tentang Sistem Informasi Manajemen Kepegawaian Departemen Dalam Negeri dan Pemerintah Daerah ', 'indikator9b.pdf', 'adminspbe', '2020-01-08 10:00:00'),
 (96, 10, '', 'indikator10.pdf', 'adminspbe', '2019-12-24 14:06:00'),
 (97, 11, '', 'indikator11.pdf', 'adminspbe', '2019-12-24 14:06:00'),
 (98, 12, '', 'indikator12.pdf', 'adminspbe', '2019-12-24 14:07:00'),
@@ -435,7 +492,9 @@ INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_f
 (151, 38, '', 'indikator35-2c.pdf', 'adminspbe', '2019-12-24 14:37:00'),
 (152, 39, '', 'indikator35-3a.jpg', 'adminspbe', '2019-12-24 14:38:00'),
 (153, 39, '', 'indikator35-3b.pdf', 'adminspbe', '2019-12-24 14:38:00'),
-(154, 39, '', 'indikator35-3c.pdf', 'adminspbe', '2019-12-24 14:38:00');
+(154, 39, '', 'indikator35-3c.pdf', 'adminspbe', '2019-12-24 14:38:00'),
+(155, 42, 'SK Walikota Denpasar Nomor 188.45/1586/HK/2019 Tentang Perubahan Atas Keputusan Walikota Nomor 188.45/1195/HK/2019 Tentang Pembentukan TIM Pengarah Sistem Pemerintahan Berbasis Elektronik', 'SK PERUBAHAN SPBE.pdf', 'adminspbe', '2020-01-07 15:43:00'),
+(156, 1, 'SK Walikota Denpasar Nomor 188.45/1586/HK/2019 Tentang Perubahan Atas Keputusan Walikota Nomor 188.45/1195/HK/2019 Tentang Pembentukan TIM Pengarah Sistem Pemerintahan Berbasis Elektronik', 'SK PERUBAHAN SPBE.pdf', 'adminspbe', '2020-01-07 15:43:00');
 
 -- --------------------------------------------------------
 
@@ -456,7 +515,8 @@ CREATE TABLE `tb_groupuser` (
 INSERT INTO `tb_groupuser` (`id_groupuser`, `nama_groupuser`, `keterangan`) VALUES
 (1, 'sadmin', 'Super Admin'),
 (2, 'admin', 'Administrator OPD'),
-(3, 'operator', 'Operator');
+(3, 'operator', 'Operator'),
+(4, 'eksekutifopd', 'Eksekutif OPD');
 
 -- --------------------------------------------------------
 
@@ -491,51 +551,52 @@ CREATE TABLE `tb_indikator` (
   `idaspek` int(11) NOT NULL,
   `namaindikator` varchar(100) NOT NULL,
   `indikator` varchar(11) NOT NULL,
-  `penjelasanindikator` int(11) DEFAULT NULL
+  `penjelasanindikator` int(11) DEFAULT NULL,
+  `bobot_indikator` decimal(10,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_indikator`
 --
 
-INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`) VALUES
-(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1),
-(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2),
-(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3),
-(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4),
-(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5),
-(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6),
-(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7),
-(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8),
-(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9),
-(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10),
-(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11),
-(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12),
-(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13),
-(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14),
-(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15),
-(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16),
-(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17),
-(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18),
-(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19),
-(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20),
-(21, 4, 'Anggaran dan Belanja TIK', '21', 21),
-(22, 5, 'Pengoperasian Pusat Data', '22', 22),
-(23, 5, 'Integrasi Sistem Aplikasi', '23', 23),
-(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24),
-(25, 6, 'Layanan Naskah Dinas', '25', 25),
-(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26),
-(27, 6, 'Layanan Manajemen Perencanaan', '27', 27),
-(28, 6, 'Layanan Manajemen Penganggaran', '28', 28),
-(29, 6, 'Layanan Manajemen Keuangan', '29', 29),
-(30, 6, 'Layanan Manajemen Kinerja', '30', 30),
-(31, 6, 'Layanan Pengadaan', '31', 31),
-(32, 7, 'Layanan Pengaduan Publik', '32', 32),
-(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33),
-(34, 7, 'Layanan Whistle-Blowing System', '34', 34),
-(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35),
-(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36),
-(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37);
+INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`, `bobot_indikator`) VALUES
+(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, 1.0),
+(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, 1.0),
+(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, 1.0),
+(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, 1.0),
+(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, 1.0),
+(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, 1.0),
+(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, 1.0),
+(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, 1.0),
+(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, 1.0),
+(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, 1.0),
+(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, 1.0),
+(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, 1.0),
+(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, 1.0),
+(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, 1.0),
+(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, 1.0),
+(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, 1.0),
+(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, 1.0),
+(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, 4.0),
+(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, 4.0),
+(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, 4.0),
+(21, 4, 'Anggaran dan Belanja TIK', '21', 21, 4.0),
+(22, 5, 'Pengoperasian Pusat Data', '22', 22, 4.0),
+(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, 4.0),
+(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, 4.0),
+(25, 6, 'Layanan Naskah Dinas', '25', 25, 5.0),
+(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, 5.0),
+(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, 5.0),
+(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, 5.0),
+(29, 6, 'Layanan Manajemen Keuangan', '29', 29, 5.0),
+(30, 6, 'Layanan Manajemen Kinerja', '30', 30, 5.0),
+(31, 6, 'Layanan Pengadaan', '31', 31, 5.0),
+(32, 7, 'Layanan Pengaduan Publik', '32', 32, 3.3),
+(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, 3.3),
+(34, 7, 'Layanan Whistle-Blowing System', '34', 34, 3.3),
+(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, 3.3),
+(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, 3.3),
+(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, 3.3);
 
 -- --------------------------------------------------------
 
@@ -935,7 +996,7 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 (4, '040201', 4),
 (5, '030801', 5),
 (6, '030801', 6),
-(7, '030801', 7),
+(7, '012001', 7),
 (8, '011301', 8),
 (9, '040301', 9),
 (10, '040201', 10),
@@ -963,7 +1024,7 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 (35, '030801', 34),
 (36, '011201', 35),
 (37, '040101', 36),
-(38, '030801', 37),
+(38, '031601', 37),
 (39, '030901', 38),
 (40, '140018', 39),
 (41, '030801', 40),
@@ -974,7 +1035,7 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 (46, '040201', 45),
 (47, '030801', 46),
 (48, '030801', 47),
-(49, '030801', 48),
+(49, '012001', 48),
 (50, '011301', 49),
 (51, '040301', 50),
 (52, '040201', 51),
@@ -1002,7 +1063,7 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 (74, '030801', 73),
 (75, '011201', 74),
 (76, '040101', 75),
-(77, '030801', 76),
+(77, '031601', 76),
 (78, '030901', 77),
 (79, '140018', 78),
 (80, '040101', 128);
@@ -1035,7 +1096,7 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (4, 4, 'Kebijakan internal rencana dan anggaran TIK sebaiknya dilengkapi dengan memuat pengaturan terkait penyelarasan dengan rencana induk SPBE, pengendalian rencana dan anggaran TIK yang terpadu di dalam Instansi Pusat/Pemerintah Daerah, dan mendukung penerapan SPBE yang terpadu tidak hanya di dalam Instansi Pusat/Pemerintah Daerah, tetapi juga antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '21', '22', 'Membuat Kebijakan Anggaran dan  Belanja TIK', '2019', '2018'),
 (5, 5, 'Kebijakan internal pengoperasian pusat data sebaiknya dilengkapi dengan memuat pengaturan pengoperasian dan pernanfaatan pusat data bagi semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '27', '28', 'Revisi Perwali eGov  atau Arsitektur SPBE (Pusat Data)', '2019', '2018'),
 (6, 6, 'Kebijakan internal integrasi sistem aplikasi sebaiknya dilengkapi dengan memuat pengaturan integrasi sistem aplikasi antar Instansi Pusat/Pemerintah Daerah yang didasarkan pada integrasi proses bisnis antar Instansi Pusat/Pemerintah Daerah', '34', '34', 'Revisi Perwali eGov  atau Arsitektur SPBE (Integrasi Sistem)', '2019', '2018'),
-(7, 7, 'Kebijakan internal penggunaan aplikasi umum berbagi pakai sebaiknya dilengkapi dengan memuat pengaturan integrasi dengan layanan SPBE lain yang telah tersedia di Instansi Pusat/Pemerintah Daerah', '3', '3', 'Revisi Perwali eGov  atau Arsitektur SPBE (Aplikasi Umum Berbagi Pakai)', '2019', '2018'),
+(7, 7, 'Kebijakan internal penggunaan aplikasi umum berbagi pakai sebaiknya dilengkapi dengan memuat pengaturan integrasi dengan layanan SPBE lain yang telah tersedia di Instansi Pusat/Pemerintah Daerah', '-', '-', 'Revisi Perwali eGov  atau Arsitektur SPBE (Aplikasi Umum Berbagi Pakai)', '2019', '2018'),
 (8, 8, 'Kebijakan internal layanan naskah dinas sebaiknya dilengkapi dengan memuat pengaturan kebutuhan dan penggunaan layanan naskah dinas secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '2', '3', 'Membuat Kebijakan Layanan Naskah Dinas', '2019', '2018'),
 (9, 9, 'Kebijakan Internal Layanan Manajemen Kepegawaian sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen pegawai secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '1', '0', 'Membuat Kebijakan Layanan Manajemen Kepegawaian', '2019', '2018'),
 (10, 10, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen perencanaan dan penganggaran secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '1', '0', 'Membuat Kebijakan  Layanan Manajemen Perencanaaan dan Penganggaran', '2019', '2018'),
@@ -1062,8 +1123,8 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (34, 32, 'Layanan pengadaan yang terintegrasi sebaiknya ditingkatkan menjadi layanan optimalisasi dimana dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahan-perubahan internal dan eksternal di Instansi Pusat/Pemerintah Daerah, dan penerapan manajemen perubahan', '3', '5', 'Optimalisasi Layanan Pengaduan Publik dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (35, 33, 'Layanan pengaduan publik ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '2', '2', 'Optimalisasi Layanan Dokumentasi dan Informasi Hukum agar proses layanan dari awal pengajuan hingga akhir berbasis  online ', '2019', '2018'),
 (36, 34, 'Layanan jaringan dokumentasi dan informasi hukum (JDIH) sebaiknya ditingkatkan menjadi layanan transaksi dimana proses-proses pada layanan dokumendasi dan informasi hukum dilaksanakan secara otomasi seperti mengunduh atau mengunggah informasi terkait dokumentasi clan informasi hukum, melakukan pengajuan penambahan informasi dokumentasi hukum baru, proses validasi serta persetujuan dokumentasi informasi hukum baru yang diajukan, dan pencarian informasi hukum berbasis kecerdasan', '3', '5', 'Optimalisasi Layanan Whistle Blowing System dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
-(37, 35, 'Layanan whistle blowing system (WBS) sebaiknya ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '1', '5', 'Yang diinputkan sebaiknya Layanan Publik yang belum dinilai pada indikator sebelumnya', '2019', '2018'),
-(38, 36, 'Layanan publik sebaiknya ditingkatkan menjadi layanan transaksi dimana pengguna dapat dengan mudah mendapatkan layanan dan sistem dapat menjalankan otomasi proses bisnis layanan dan menerapkan transaksi layanan ke dalam basis data secara daring (on-line)', '3', '5', 'Optimalisasi Layanan Bursa Kerja dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
+(37, 35, '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya', '-', '-', '-	Sistem integrasi PHR dengan Perijinan\r\n-	Sistem integrasi PBB dengan Perijinan\r\n-	Sistem integrasi BPHTB denganKantor BPN tujuannya (Perwali No 17 Tahun 2016)\r\n-	E-SPTPD  Sistem pelaporan pajak secara online (Perwali No. 16 Tahun 2016)\r\n-	I-PBB (informasi pelayanan Pajak Bumi dan Bangunan)\r\n-	Aplikasi integrasi Kasda online Penerimaan PAD Kota Denpasar', '2019', '2018'),
+(38, 36, 'Layanan publik sebaiknya ditingkatkan menjadi layanan transaksi dimana pengguna dapat dengan mudah mendapatkan layanan dan sistem dapat menjalankan otomasi proses bisnis layanan dan menerapkan transaksi layanan ke dalam basis data secara daring (on-line)', '214', '215', 'Optimalisasi Layanan Bursa Kerja dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (39, 37, 'Layanan publik sebaiknya ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '3', '5', 'Optimalisasi Layanan Perijinan dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (42, 1, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Tim Pengarah SPBE \r\n-	Monev Kebijakan', '2020', '2019'),
 (43, 2, 'Masih Menunggu Hasil Kemenpan 2019', '-', '2', '-	Kebijakan Proses Bisnis Integrasi\r\n-	Monev Kebijakan', '2020', '2019'),
@@ -1071,7 +1132,7 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (45, 4, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Anggaran dan  Belanja TIK\r\n-	Monev Kebijakan', '2020', '2019'),
 (46, 5, 'Masih Menunggu Hasil Kemenpan 2019', '-', '2', '-	Revisi Perwali eGov  atau Rencana Induk SPBE (Pusat Data)\r\n-	Monev Kebijakan', '2020', '2019'),
 (47, 6, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Revisi Perwali eGov  atau Rencana Induk  SPBE (Integrasi Sistem)\r\n-	Monev Kebijakan', '2020', '2019'),
-(48, 7, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan aplikasi monitoring dan evaluasi (Simonev) Karma Simanis\r\n-	Monev Kebijakan', '2020', '2019'),
+(48, 7, 'Masih Menunggu Hasil Kemenpan 2019', '-', '-', '-	Kebijakan aplikasi monitoring dan evaluasi (Simonev) Karma Simanis\r\n-	Monev Kebijakan', '2020', '2019'),
 (49, 8, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Naskah Dinas\r\n-	Monev Kebijakan', '2020', '2019'),
 (50, 9, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Manajemen Kepegawaian (Simak di Hati)\r\n-	Monev Kebijakan', '2020', '2019'),
 (51, 10, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Manajemen Perencanaaan dan Penganggaran\r\n-	Monev Kebijakan', '2020', '2019'),
@@ -1099,7 +1160,7 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (73, 32, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Pengaduan Publik\r\n-	Monev Berkala', '2020', '2019'),
 (74, 33, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Dokumentasi dan Informasi Hukum\r\n-	Monev Berkala', '2020', '2019'),
 (75, 34, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan dan Pengembangan Layanan WBS\r\n-	Monev Berkala', '2020', '2019'),
-(76, 35, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Layanan dan Kebijakan secara Berkala', '2020', '2019'),
+(76, 35, 'Masih Menunggu Hasil Kemenpan 2019', '-', '-', '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Layanan dan Kebijakan secara Berkala', '2020', '2019'),
 (77, 36, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi Penerapan dan Pengembangan Layanan Bursa Kerja \r\n-	Revisi Kebijakan Internal Layanan Bursa Kerja Online serta dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Berkala', '2020', '2019'),
 (78, 37, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi Penerpan dan Pengembangan Layanan Perijinan\r\n-	Monev Berkala', '2020', '2019'),
 (128, 16, 'Kebijakan Internal Layanan Whistle Blowing System (WBS) sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan WBS secara elektronik dengan layanan SPBE lain yang sudah tersedia cli Instansi Pusat/Pemerintah Daerah atau integrasi layanan WBS secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah.', '3', '5', 'Revisi Perwali No 45 Tahun 2014 Tentang Pengaduan Publik (Integrasi dengan Layanan SPBE lainnya).\r\nAtau membuat Kebijakan khusus WBS.\r\n', '2019', '2018');
@@ -1172,6 +1233,7 @@ CREATE TABLE `tb_user` (
   `email` varchar(100) DEFAULT NULL,
   `opd` varchar(11) DEFAULT NULL,
   `groupuser` int(11) NOT NULL,
+  `grupindeks` int(11) NOT NULL,
   `is_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1179,23 +1241,37 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `groupuser`, `is_active`) VALUES
-('adminkominfo', 'Dinas Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', 'kominfo@denpasarkota.go.id', '030801', 2, 1),
-('adminspbe', 'Super Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', NULL, 1, 1),
-('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', NULL, '011201', 2, 1),
-('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', NULL, '011301', 2, 1),
-('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', NULL, '013301', 2, 1),
-('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', 2, 1),
-('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', NULL, '040301', 2, 1),
-('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', NULL, '300005', 2, 1),
-('denpasarkota', 'Denpasar Kota', 'a16ceb6d9cc146de1a264d4edac2f2e7', 'kominfo@denpasarkota.go.id', '000000', 1, 1),
-('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', NULL, '030901', 2, 1),
-('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', NULL, '030801', 2, 1),
-('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', NULL, '030601', 2, 1),
-('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', NULL, '040101', 2, 1),
-('kominfo', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', NULL, '030801', 2, 1),
-('opkominfo', 'Operator Kominfo', 'f6fa6c72881573370a2f61f1e0e6c11b', 'opkominfo@kominfo.com', '030801', 3, 1),
-('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', NULL, '140018', 2, 1);
+INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `groupuser`, `grupindeks`, `is_active`) VALUES
+('Adbang', 'Bagian Administrasi Pembangunan', '3c69c0ffe7026314919b56c9448563fd', '', '012001', 2, 1, 1),
+('adminkominfo', 'Dinas Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', 'kominfo@denpasarkota.go.id', '030801', 2, 0, 1),
+('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '0', 1, 1, 1),
+('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', '', '011201', 2, 1, 1),
+('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', '', '011301', 2, 1, 1),
+('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', '', '013301', 2, 1, 1),
+('Bapenda', 'Badan Pendapatan Daerah', '1503ff71ca16d26a7e4f16b24e0eb984', '', '031601', 2, 1, 1),
+('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', 2, 1, 1),
+('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', '', '040301', 2, 1, 1),
+('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', '', '300005', 2, 1, 1),
+('denpasarkota', 'Denpasar Kota', 'a16ceb6d9cc146de1a264d4edac2f2e7', 'kominfo@denpasarkota.go.id', '000000', 1, 0, 1),
+('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', '', '030901', 2, 1, 1),
+('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', '', '030801', 2, 1, 1),
+('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', NULL, '030601', 2, 0, 1),
+('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', '', '040101', 2, 1, 1),
+('kominfo', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', NULL, '030801', 2, 0, 1),
+('opkominfo', 'Operator Kominfo', 'f6fa6c72881573370a2f61f1e0e6c11b', 'opkominfo@kominfo.com', '030801', 3, 0, 1),
+('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', '', '140018', 2, 1, 1),
+('PimpinanDKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', 4, 1, 0),
+('Pimpinan_adbang', 'Bagian Administrasi Pembangunan (Asisten II)', 'b4ae4d8cf01a692897356c7167f10565', '', '012001', 4, 1, 1),
+('Pimpinan_bapenda', 'Badan Pendapatan Daerah', '2a14fbccc46372e127492c153703ea31', '', '031601', 4, 1, 1),
+('Pimpinan_bkpsdm', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', '0ccb609865eab19115534b2130eb2922', '', '040301', 4, 1, 1),
+('Pimpinan_bpkad', 'Badan Pengelola Keuangan dan Aset Daerah', '8a7b37ac7e5d37ff06b1268ac9afffe4', '', '300005', 4, 1, 1),
+('Pimpinan_disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'afb9879105b166ef56d62cc9962307d5', '', '030901', 4, 1, 1),
+('Pimpinan_DKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', 4, 1, 1),
+('Pimpinan_hukum', 'Bagian Hukum Setda Kota Denpasar', '011d10ad3167248d207c5e5b77a8cd32', '', '011201', 4, 1, 1),
+('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', 4, 1, 1),
+('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', 4, 1, 1),
+('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', 4, 1, 1),
+('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', 4, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -1335,13 +1411,13 @@ ALTER TABLE `tb_evaluasi`
 -- AUTO_INCREMENT for table `tb_feedback`
 --
 ALTER TABLE `tb_feedback`
-  MODIFY `idfeedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `idfeedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `tb_groupuser`
 --
 ALTER TABLE `tb_groupuser`
-  MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_indeks`
