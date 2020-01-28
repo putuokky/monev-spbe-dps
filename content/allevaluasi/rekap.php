@@ -77,14 +77,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian,  b.nilaikematangan AS nilaikematanganpusat, b.penilaianmandiri AS nilaipenmandiri, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd
-                  FROM tb_eksekutif_opd a 
-                  LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian 
-                  LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian 
-                  LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator 
-                  LEFT JOIN tb_opd e ON e.idopd = c.idopd 
-                  LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan 
-                  LEFT JOIN tb_level g ON g.idlevel = b.nilaikematangan";
+                  $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri
+                  FROM tb_eksekutif_opd a
+                  LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                  LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                  LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                  LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                  LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                  LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri";
                   $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
