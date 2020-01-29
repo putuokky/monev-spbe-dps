@@ -52,24 +52,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>TK Final Adj</th>
                     <th>Indeks Akhir</th>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Domain/Aspek/Indikator</th>
-                    <th>Deskripsi</th>
-                    <th>Bobot (%)</th>
-                    <th>Bobot Aspek (%)</th>
-                    <th>TK Final Adj</th>
-                    <th>Indeks Akhir</th>
-                  </tr>
-                </tfoot>
                 <tbody>
                 <?php
-                  // $sqlDomain = "SELECT * FROM tb_domain a 
-                  //       LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks 
-                  //       WHERE b.nama_indeks = 'SPBE'
-                  //       ORDER BY a.urutan_domain ASC";
-                  // $resultDomain = mysqli_query($conn, $sqlDomain);
-                  $model_domain->all();
+                  $total_hasil_domain = 0;
+                  $resultDomain = $model_domain->all();
 
                   if (mysqli_num_rows($resultDomain) > 0) {
                     // output data of each row
@@ -82,19 +68,15 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       <tr style="background-color:#79e5cb;">
                         <td><?= "Domain ".$urutan_domain; ?></td>
                         <td><?= $namadomain; ?></td>
-                        <td>Bobot utk domain</td>
+                        <td>
+                        <?php $total_hasil_domain += $model_indikator->jumlahBobotDomain($id_domain);
+                        echo number_format($model_indikator->jumlahBobotDomain($id_domain),0, ",", "."). "%"; ?></td>
                         <td></td>
                         <td></td>
                         <td>Indeks Akhir utk domain</td>
                       </tr>
                       <?php
-
-                      // open aspek
-                      $sqlAspek = "SELECT * FROM tb_aspek a 
-                            LEFT JOIN tb_domain b ON a.iddomain = b.iddomain 
-                            WHERE a.iddomain = '$id_domain'
-                            ORDER BY a.urutan_aspek ASC";
-                      $resultAspek = mysqli_query($conn, $sqlAspek);
+                      $resultAspek = $model_indikator->tampilDataAspek($id_domain);
 
                       if (mysqli_num_rows($resultAspek) > 0) {
                         // output data of each row
@@ -107,31 +89,19 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <tr style="background-color:#efefef;">
                             <td><?= "Aspek ".$urutan_aspek; ?></td>
                             <td><?= $nama_aspek; ?></td>
+                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek),1, ",", "."). "%";?>
+                            </td>
+                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek)/$model_indikator->jumlahBobotDomain($id_domain)*100,2, ",", "."); ?>%</td>
                             <td>
                             <?php
-                            $sqlBotAspek = "SELECT SUM(a.bobot_indikator) AS bobot_indi 
-                                      FROM tb_indikator a 
-                                      LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
-                                      LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail 
-                                      WHERE b.idaspek = '$id_aspek'";
-                            $resultBotAspek = mysqli_query($conn, $sqlBotAspek);
-                            $rowBotAspek = mysqli_fetch_assoc($resultBotAspek);
-
-                            echo number_format($rowBotAspek['bobot_indi'], 1, ",", ".")."%";
-                            ?>
-                            </td>
-                            <td>bobot aspek utk aspek</td>
-                            <td>TK Final Adj utk aspek</td>
+                            if (isset($_POST['cari'])) {
+                              echo $model_indikator->totalAdj($_POST['caritahun'], $id_aspek);
+                            }
+                            ?> </td>
                             <td>Indeks Akhir utk aspek</td>
                           </tr>
                           <?php
-
-                          // open indikator
-                            $sql = "SELECT * FROM tb_indikator a 
-                                  LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
-                                  LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail
-                                  WHERE b.idaspek = '$id_aspek'";
-                            $result = mysqli_query($conn, $sql);
+                            $result = $model_indikator->all($id_aspek);
 
                             if (mysqli_num_rows($result) > 0) {
                               // output data of each row
@@ -148,12 +118,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                 <td><?= $namaindikator; ?></td>
                                 <td><?= number_format($bobot_indikator, 1, ",", ".")."%"; ?></td>
                                 <td><?php 
-                                    $bobot_aspek_for_indi = $bobot_indikator/($rowBotAspek['bobot_indi'])*100; 
+                                    $bobot_aspek_for_indi = $bobot_indikator/($model_indikator->jumlahBobotIndikator($id_aspek))*100; 
                                     echo number_format(round($bobot_aspek_for_indi,1),1, ",",".")."%";
                                     ?></td>
                                 <td>
                                   <?php
                                   if (isset($_POST['cari'])) {
+                                    $adj = 0;
+
                                     $caritahun = $_POST['caritahun'];
                                     $sqlNilai = "SELECT * FROM tb_penilaian a 
                                                 LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
@@ -162,7 +134,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                     $resultNilai = mysqli_query($conn, $sqlNilai);
                                     if (mysqli_num_rows($resultNilai) > 0) {
                                       while ($rowNilai = mysqli_fetch_assoc($resultNilai)) {
-                                        echo $rowNilai['nilaimadiri'];
+                                        echo $adj = $rowNilai['nilaimadiri'];
                                       }
                                     } else {
                                       echo "-";
@@ -172,7 +144,17 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                   }                                
                                   ?>
                                 </td>
-                                <td>indek akhir</td>
+                                <td>
+                                <?php
+                                if (isset($_POST['cari'])) {
+                                  $ba_for_indi_indeks = $bobot_indikator/($model_indikator->jumlahBobotIndikator($id_aspek));
+                                  echo number_format($ba_for_indi_indeks*$adj,2,",", ".");
+                                } else {
+                                  echo "-";
+                                }
+                                ?>
+                                
+                                </td>
                               </tr>
                           <?php
                               }
@@ -187,6 +169,16 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   }
                   ?>
                 </tbody>
+                <tfoot>
+                  <tr style="background-color:#efefef;">
+                    <th>Indeks SPBE</th>
+                    <th></th>
+                    <th><?= $total_hasil_domain. "%"; ?></th>
+                    <th></th>
+                    <th></th>
+                    <th>Nilai indeks spbe</th>
+                  </tr>
+                </tfoot>
               </table>
             </div>
           </div>
