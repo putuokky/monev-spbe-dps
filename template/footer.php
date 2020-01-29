@@ -204,8 +204,8 @@
 </script>
 
 <script>
-  $('select[id="tahun"]').on('change', function() {
-    var id = $('#tahun').val();
+  $('select[id="tahun-alleva"]').on('change', function() {
+    var id = $('#tahun-alleva').val();
     if (id == '') {
       id = '0';
     }

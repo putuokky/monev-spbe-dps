@@ -56,7 +56,7 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
                 <div class="col-md-2">
-                  <select class="form-control" id="tahun" name="tahun">
+                  <select class="form-control" id="tahun-alleva" name="tahun">
                     <option value="0">-</option>
                     <?php
                       $sqlGroupNilai = "SELECT tahun_penilaian FROM tb_penilaian GROUP BY tahun_penilaian";
