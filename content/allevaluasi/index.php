@@ -44,7 +44,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <div class="accordion" id="accordionExample">
             <?php
               $var = 0;
-              $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri
+              $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri, h.files_feedback
               FROM tb_eksekutif_opd a
               LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
               LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
@@ -52,6 +52,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
               LEFT JOIN tb_opd e ON e.idopd = c.idopd
               LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
               LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
+              LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
                     WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
@@ -67,6 +68,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   $namaindikator = $row['namaindikator'];
                   $namaopd = $row['namaopd'];
                   $nama_pendek_opd = $row['nama_pendek_opd'];
+                  $files_feedback = $row['files_feedback'];
                 ?>
                 <div class="card">
                   <div class="card-header" id="headingOne">
@@ -118,7 +120,9 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               <?php for ($j=0; $j < count($telah_miliki); $j++) { ?>
                                 <li><?= $telah_miliki[$j]; ?></li>
                               <?php } ?>
-                              </ol></td>
+                              </ol>
+                              File Pendukung : <a href="assets/file/feedback/<?= $files_feedback; ?>" target="_blank"><?= $files_feedback; ?></a>
+                              </td>
                             </tr>
                             <tr>
                               <th>Yang Belum dimiliki</th>
