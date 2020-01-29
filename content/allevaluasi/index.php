@@ -53,7 +53,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
               LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
               LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
               LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
-                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]";
+                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]
+              ORDER BY d.indikator ASC";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
