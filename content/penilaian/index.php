@@ -138,7 +138,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       $rekomendasi = $row['rekomendasi'];
                       $namaopd = $row['namaopd'];
                       $nama_pendek_opd = $row['nama_pendek_opd'];
-                      $namalevel = $row['namalevel'];
+                      $nilaimadiri = $row['nilaimadiri'];
                   ?>
 
                       <tr>
@@ -175,12 +175,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             $rowNilaiMatang = mysqli_fetch_assoc($resultNilaiMatang);
                             
                             if ($nilaikematangan != '-') {
-                              echo $rowNilaiMatang['namalevel'];
+                              echo $rowNilaiMatang['nilaimadiri'];
                             } else {
                               echo '-';
                             }
                             ?></td>
-                        <td><?= $namalevel; ?></td>
+                        <td><?= $nilaimadiri; ?></td>
                         <td><?php if (!empty($tindaklanjut)) {
                               echo $tindaklanjut;
                             } else {

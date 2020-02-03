@@ -45,16 +45,16 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <?php
               $var = 0;
               $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri, h.files_feedback
-              FROM tb_eksekutif_opd a
-              LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
-              LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
-              LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
-              LEFT JOIN tb_opd e ON e.idopd = c.idopd
-              LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
-              LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
-              LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
+                    FROM tb_eksekutif_opd a
+                    LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                    LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                    LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                    LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                    LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                    LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
+                    LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
                     WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]
-              ORDER BY d.indikator ASC";
+                    GROUP BY a.id_eksekutif_opd";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {

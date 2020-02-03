@@ -69,7 +69,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= "Domain ".$urutan_domain; ?></td>
                         <td><?= $namadomain; ?></td>
                         <td>
-                        <?php $total_hasil_domain += $model_indikator->jumlahBobotDomain($id_domain);
+                        <?php $total_hasil_domain += ceil($model_indikator->jumlahBobotDomain($id_domain));
                         echo number_format($model_indikator->jumlahBobotDomain($id_domain),0, ",", "."). "%"; ?></td>
                         <td></td>
                         <td></td>
@@ -163,8 +163,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                         }
                       }
-                      // end aspek    
-                                        
+                      // end aspek                   
                     }
                   }
                   ?>
@@ -173,7 +172,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   <tr style="background-color:#efefef;">
                     <th>Indeks SPBE</th>
                     <th></th>
-                    <th><?= $total_hasil_domain. "%"; ?></th>
+                    <th><?= $total_hasil_domain; ?>%</th>
                     <th></th>
                     <th></th>
                     <th>Nilai indeks spbe</th>
