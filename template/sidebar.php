@@ -39,6 +39,11 @@
             <span>Dashboard IKCI</span></a>
         </li>
       <?php } ?>
+      <li class="nav-item" id="dashboardapp">
+        <a class="nav-link" href="?page=homeapp">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard Aplikasi</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">

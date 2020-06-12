@@ -64,4 +64,7 @@ switch ($page) {
   case "rekap-tingkat":
     echo "Rekap Peningkatan Indeks";
     break;
+  case "app":
+    echo "Aplikasi";
+    break;
 }
