@@ -52,33 +52,50 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   <tr>
                     <th>No</th>
                     <th>Action</th>
-                    <th>Kode</th>
-                    <th>Nama OPD</th>
-                    <th>Nama Pendek OPD</th>
+                    <th>Judul</th>
+                    <th>Platform</th>
+                    <th>Sifat Klasifikasi</th>
+                    <th>Kategori</th>
+                    <th>OPD Pengelola</th>
+                    <th>OPD Pengguna</th>
+                    <th>Tahun Pembuatan</th>
+                    <th>Status</th>
+                    <th>User/DLU</th>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>No</th>
                     <th>Action</th>
-                    <th>Kode</th>
-                    <th>Nama OPD</th>
-                    <th>Nama Pendek OPD</th>
+                    <th>Judul</th>
+                    <th>Platform</th>
+                    <th>Sifat Klasifikasi</th>
+                    <th>Kategori</th>
+                    <th>OPD Pengelola</th>
+                    <th>OPD Pengguna</th>
+                    <th>Tahun Pembuatan</th>
+                    <th>Status</th>
+                    <th>User/DLU</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
+                  $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.fungsi,a.input,a.output,a.info,a.files,a.dasarhukum, a.db,a.pemrograman,a.media,a.link,a.pict,a.dash_internal,a.unit,a.unit_pengguna,a.sts_aktif,a.integrasi,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app,e.kat_aplikasi,f.namaopd as unitpengguna 
+                  FROM aplikasi a 
+                  LEFT JOIN kategori_media b ON b.id_media = a.media 
+                  LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                  LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                  LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                  LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna";
 
-                  $sql = "SELECT * FROM tb_opd 
-                            WHERE LENGTH(idopd) = 6 ORDER BY namaopd";
+                  $sql = $sql . " ORDER BY a.id_app DESC";
+
                   $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $id = $row['idopd'];
-                      $namaopd = $row['namaopd'];
-                      $nama_pendek_opd = $row['nama_pendek_opd'];
+                      $id = $row['id_app'];
                   ?>
 
                       <tr>
@@ -96,9 +113,20 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <!-- Modal Hapus -->
 
                         </td>
-                        <td><?= $id; ?></td>
-                        <td><?= $namaopd; ?></td>
-                        <td><?= $nama_pendek_opd; ?></td>
+                        <td><?= $row['judul']; ?></td>
+                        <td><?= $row['nama_kat_media']; ?></td>
+                        <td><?= $row['nama_klasifikasi_app']; ?></td>
+                        <td><?= $row['kat_aplikasi']; ?></td>
+                        <td><?= $row['namaopd']; ?></td>
+                        <td><?= $row['unitpengguna']; ?></td>
+                        <td><?= $row['thn_pembuatan']; ?></td>
+                        <td><?php if ($row['sts_aktif'] == 'aktif') {
+                              echo '<span class="badge badge-success">Aktif</span>';
+                            } else {
+                              echo '<span class="badge badge-danger">Tidak Aktif</span>';
+                            } ?>
+                        </td>
+                        <td><?= $row['usr']; ?><br><?= $row['dlu']; ?></td>
                       </tr>
                   <?php
                       $no++;

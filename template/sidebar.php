@@ -120,7 +120,7 @@
       <li class="nav-item pb-0" id="lapormasalah">
         <a class="nav-link" href="?page=lapormasalah">
           <i class="fas fa-fw fa-file-signature"></i>
-          <span>Laporan Permasalahan</span></a>
+          <span>Lapor Permasalahan</span></a>
       </li>
 
       <?php
