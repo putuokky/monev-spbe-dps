@@ -79,9 +79,9 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.fungsi,a.input,a.output,a.info,a.files,a.dasarhukum, a.db,a.pemrograman,a.media,a.link,a.pict,a.dash_internal,a.unit,a.unit_pengguna,a.sts_aktif,a.integrasi,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app,e.kat_aplikasi,f.namaopd as unitpengguna 
+                  $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.dash_internal,a.unit,a.unit_pengguna,a.sts_aktif, a.integrasi,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna 
                   FROM aplikasi a 
-                  LEFT JOIN kategori_media b ON b.id_media = a.media 
+                  LEFT JOIN kategori_media b ON b.id_media = a.media
                   LEFT JOIN tb_opd c ON c.idopd = a.unit 
                   LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
                   LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
