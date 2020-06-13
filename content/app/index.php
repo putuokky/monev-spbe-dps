@@ -33,7 +33,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
       <div class="col-xl-12 col-lg-12">
 
-        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=opd&act=tambah">
+        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=app&act=tambah">
           <span class="icon">
             <i class="fas fa-fw fa-plus"></i>
           </span>
