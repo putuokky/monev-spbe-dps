@@ -7,17 +7,17 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formtambah.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "upicon") {
+  include 'upload_icon.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "upfile") {
+  include 'upload_file.php';
 } else {
-
-
 ?>
-
 
   <!-- agar menu sidebar saat di klik active -->
   <script type="text/javascript">
     document.getElementById('app').classList.add('active');
   </script>
-
 
   <!-- isi konten -->
   <div class="container-fluid">
@@ -98,8 +98,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     WHERE c.idopd = $_SESSION[opd]";
                   }
 
-
-
                   $sql = $sql . " ORDER BY a.id_app DESC";
 
                   $result = mysqli_query($conn, $sql);
@@ -113,9 +111,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                       <tr>
                         <td><?= $no; ?></td>
-                        <td><button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
-                          <a class="btn btn-warning" title="Edit" href="?page=app&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
-                          <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
+                        <td><button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
+                          <a class="btn btn-info btn-sm" title="Upload Gambar Icon" href="?page=app&act=upicon&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
+                          <a class="btn btn-secondary btn-sm" title="Upload File Dasar Hukum" href="?page=app&act=upfile&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
+                          <a class="btn btn-warning btn-sm" title="Edit" href="?page=app&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                          <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
                           <!-- Modal Detail -->
                           <?php include 'modal_detail.php'; ?>

@@ -9,25 +9,50 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
-  $namaopd   = $_POST['namaopd'];
-  $ketopd   = $_POST['ketopd'];
+  $judul            = $_POST['judul'];
+  $klasifikasi      = $_POST['klasifikasi'];
+  $katapp           = $_POST['katapp'];
+  $infofungsi       = $_POST['infofungsi'];
+  $platform         = $_POST['platform'];
+  $alamaturl        = $_POST['alamaturl'];
+  $opdpengelolaaapp = $_POST['opdpengelolaaapp'];
+  $opdpenggunaapp   = $_POST['opdpenggunaapp'];
+  $status           = $_POST['status'];
+  $thnbuat          = $_POST['thnbuat'];
+
+  if (isset($_POST['dashinternal'])) {
+    $dashinternal = $_POST['dashinternal'];
+  } else {
+    $dashinternal = 0;
+  }
 
   $res = true;
 
   if ($res) {
-    $sql = "UPDATE tb_opd 
-        SET namaopd = '$namaopd',
-        nama_pendek_opd = '$ketopd'
-        WHERE idopd = '$id'";
+    $sql = "UPDATE aplikasi 
+        SET judul = '$judul',
+        klasifikasi_aplikasi = '$klasifikasi',
+        kategori_aplikasi = '$katapp',
+        infofungsi = '$infofungsi',
+        media = '$platform',
+        link = '$alamaturl',
+        dash_internal = '$dashinternal',
+        unit = '$opdpengelolaaapp',
+        unit_pengguna = '$opdpenggunaapp',
+        sts_aktif = '$status',
+        thn_pembuatan = '$thnbuat',
+        usr = '$_SESSION[userid]',
+        dlu = '$datenow2'
+        WHERE id_app = '$id'";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
-            alert("Data Unit OPD Berhasil Diedit");
+            alert("Data Aplikasi Berhasil Diedit");
             window.location.href="t.php?page=app";
             </script>';
     } else {
       echo '<script type="text/javascript">
-            alert("Data Unit OPD Gagal Diedit");
+            alert("Data Aplikasi Gagal Diedit");
             window.location.href="t.php?page=app&act=ubah&id=$id";
             </script>';
     }
@@ -38,7 +63,6 @@ if (isset($_POST['update'])) {
 $sqlUbah = "SELECT * FROM aplikasi WHERE id_app = '$id'";
 $resUbah = mysqli_query($conn, $sqlUbah);
 $data = mysqli_fetch_assoc($resUbah);
-
 ?>
 
 <!-- agar menu sidebar saat di klik active -->
@@ -62,7 +86,7 @@ $data = mysqli_fetch_assoc($resUbah);
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Form Ubah <?php include 'template/title.php'; ?></h6>
+          <h6 class="m-0 font-weight-bold text-primary">Form Edit <?php include 'template/title.php'; ?></h6>
         </div>
         <div class="card-body">
           <div>
