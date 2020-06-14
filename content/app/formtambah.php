@@ -7,39 +7,39 @@ if (isset($_POST['input'])) {
   $infofungsi       = $_POST['infofungsi'];
   $platform         = $_POST['platform'];
   $alamaturl        = $_POST['alamaturl'];
-  $dashinternal     = $_POST['dashinternal'];
   $opdpengelolaaapp = $_POST['opdpengelolaaapp'];
   $opdpenggunaapp   = $_POST['opdpenggunaapp'];
   $status           = $_POST['status'];
   $thnbuat          = $_POST['thnbuat'];
 
-  // variabel untuk upload file
-  $dasarhukum = $_FILES['dasarhukum']['name'];
-  $ukuran_file = $_FILES['dasarhukum']['size'];
-  $tipe_file = $_FILES['dasarhukum']['type'];
-  $tmp_file = $_FILES['dasarhukum']['tmp_name'];
-
-  // variabel untuk upload file
-  $gambar = $_FILES['gambar']['name'];
-  $ukuran_file = $_FILES['gambar']['size'];
-  $tipe_file = $_FILES['gambar']['type'];
-  $tmp_file = $_FILES['gambar']['tmp_name'];
+  if (isset($_POST['dashinternal'])) {
+    $dashinternal = $_POST['dashinternal'];
+  } else {
+    $dashinternal = 0;
+  }
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_opd (idopd, namaopd, nama_pendek_opd)
-      VALUES ('$kode', '$namaopd','$ketopd')";
+    if (!empty($judul) && !empty($opdpengelolaaapp) && !empty($opdpenggunaapp)) {
+      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,dash_internal,unit,unit_pengguna,sts_aktif,integrasi,thn_pembuatan,usr,dlu)
+    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$dashinternal','$opdpengelolaaapp','$opdpenggunaapp','$status','belum','$thnbuat','$_SESSION[userid]','$datenow2')";
 
-    if (mysqli_query($conn, $sql)) {
-      echo '<script type="text/javascript">
-            alert("Data Unit OPD Berhasil Ditambah");
-            window.location.href="t.php?page=opd";
-            </script>';
+      if (mysqli_query($conn, $sql)) {
+        echo '<script type="text/javascript">
+              alert("Data Aplikasi Berhasil Ditambah");
+              window.location.href="t.php?page=app";
+              </script>';
+      } else {
+        echo '<script type="text/javascript">
+              alert("Data Aplikasi Gagal Ditambah");
+              window.location.href="t.php?page=app&act=tambah";
+              </script>';
+      }
     } else {
       echo '<script type="text/javascript">
-            alert("Data Unit OPD Gagal Ditambah");
-            window.location.href="t.php?page=opd&act=tambah";
+            alert("Data Ada Yang Kosong");
+            window.location.href="t.php?page=app&act=tambah";
             </script>';
     }
   }
@@ -75,7 +75,7 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="judul" class="col-md-2 col-form-label">Judul</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="Judul" id="judul" placeholder="Enter Judul" autocomplete="off">
+                  <input type="text" class="form-control" name="judul" id="judul" placeholder="Enter Judul" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">
@@ -112,12 +112,12 @@ if (isset($_POST['input'])) {
                   <textarea class="form-control" id="infofungsi" name="infofungsi" rows="5" placeholder="Enter Info / Fungsi"></textarea>
                 </div>
               </div>
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <label for="namakatapp" class="col-md-2 col-form-label">Dasar Hukum</label>
                 <div class="col-md-10">
-                  <div class="custom-file">
-                    <!-- upload cek footer -->
-                    <input type="file" class="custom-file-input" id="dasarhukum" name="dasarhukum">
+                  <div class="custom-file"> -->
+              <!-- upload cek footer -->
+              <!-- <input type="file" class="custom-file-input" id="dasarhukum" name="dasarhukum">
                     <label class="custom-file-label" for="dasarhukum">Choose file</label>
                   </div>
                 </div>
@@ -125,9 +125,9 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="namakatapp" class="col-md-2 col-form-label"></label>
                 <div class="col-md-10">
-                  Anda dapat mengupload format <b>JPG, JPEG, PNG</b>. Maximum file size <b>5 MB</b>. <br>Ukuran gambar tampilan terbaik <b>100px X 100px</b>.
+                  Anda dapat mengupload format <b>PDF</b>. Maximum file size <b>5 MB</b>.
                 </div>
-              </div>
+              </div> -->
               <div class="form-group row">
                 <label for="platform" class="col-md-2 col-form-label">Platform</label>
                 <div class="col-md-2">
@@ -151,37 +151,28 @@ if (isset($_POST['input'])) {
                   * Khusus Platform Website
                 </div>
               </div>
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <label for="namakatapp" class="col-md-2 col-form-label">Gambar Icon</label>
                 <div class="col-md-10">
-                  <div class="custom-file">
-                    <!-- upload cek footer -->
-                    <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                  <div class="custom-file"> -->
+              <!-- upload cek footer -->
+              <!-- <input type="file" class="custom-file-input" id="gambar" name="gambar">
                     <label class="custom-file-label" for="gambar">Choose file</label>
                   </div>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="dashinternal" class="col-md-2 col-form-label">Dashboard Internal</label>
+                <label for="namakatapp" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                  Anda dapat mengupload format <b>JPG, JPEG, PNG</b>. Maximum file size <b>5 MB</b>. <br>Ukuran gambar tampilan terbaik <b>100px X 100px</b>.
+                </div>
+              </div> -->
+              <div class="form-group row">
+                <label for="dashinternal" class="col-md-2 col-form-label">Dashboard</label>
                 <div class="col-md-10">
                   <div class="form-check form-check-inline">
-                    <?php
-                    $sqlInternal = "SELECT * FROM aplikasi a 
-                            LEFT JOIN kategori_media b ON b.id_media = a.media 
-                            LEFT JOIN tb_opd c ON c.idopd = a.unit 
-                            LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
-                            LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
-                            LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
-                            ORDER BY a.id_app DESC";
-                    $resultInternal = mysqli_query($conn, $sqlInternal);
-                    $rowInternal = mysqli_fetch_assoc($resultInternal);
-                    if ($rowInternal['dash_internal'] == '1') { ?>
-                      <input class="form-check-input" type="checkbox" id="dashinternal" name="dashinternal" value="1" checked>
-                      <label class="form-check-label" for="dashinternal">Centang Jika Masuk Daftar Dashboard Internal</label>
-                    <?php } else { ?>
-                      <input class="form-check-input" type="checkbox" id="dashinternal" name="dashinternal" value="1">
-                      <label class="form-check-label" for="dashinternal">Centang Jika Masuk Daftar Dashboard Internal</label>
-                    <?php } ?>
+                    <input class="form-check-input" type="checkbox" id="dashinternal" name="dashinternal" value="1">
+                    <label class="form-check-label" for="dashinternal">Centang Jika Masuk Daftar Dashboard</label>
                   </div>
                 </div>
               </div>
