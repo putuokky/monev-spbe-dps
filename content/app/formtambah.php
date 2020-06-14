@@ -220,11 +220,9 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="thnbuat" name="thnbuat">
                     <option>-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2007; $i <= $thnnow; $i++) { ?>
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) { ?>
                       <option value="<?= $i; ?>"><?= $i; ?></option>
-                    <?php }
-                    ?>
+                    <?php } ?>
                   </select>
                 </div>
               </div>

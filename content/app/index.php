@@ -114,7 +114,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       <tr>
                         <td><?= $no; ?></td>
                         <td><button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
-                          <a class="btn btn-warning" title="Edit" href="?page=opd&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                          <a class="btn btn-warning" title="Edit" href="?page=app&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
                           <!-- Modal Detail -->
