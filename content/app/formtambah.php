@@ -1,9 +1,29 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $kode       = $_POST['kode'];
-  $namaopd   = $_POST['namaopd'];
-  $ketopd   = $_POST['ketopd'];
+  $judul            = $_POST['judul'];
+  $klasifikasi      = $_POST['klasifikasi'];
+  $katapp           = $_POST['katapp'];
+  $infofungsi       = $_POST['infofungsi'];
+  $platform         = $_POST['platform'];
+  $alamaturl        = $_POST['alamaturl'];
+  $dashinternal     = $_POST['dashinternal'];
+  $opdpengelolaaapp = $_POST['opdpengelolaaapp'];
+  $opdpenggunaapp   = $_POST['opdpenggunaapp'];
+  $status           = $_POST['status'];
+  $thnbuat          = $_POST['thnbuat'];
+
+  // variabel untuk upload file
+  $dasarhukum = $_FILES['dasarhukum']['name'];
+  $ukuran_file = $_FILES['dasarhukum']['size'];
+  $tipe_file = $_FILES['dasarhukum']['type'];
+  $tmp_file = $_FILES['dasarhukum']['tmp_name'];
+
+  // variabel untuk upload file
+  $gambar = $_FILES['gambar']['name'];
+  $ukuran_file = $_FILES['gambar']['size'];
+  $tipe_file = $_FILES['gambar']['type'];
+  $tmp_file = $_FILES['gambar']['tmp_name'];
 
   $res = true;
 
