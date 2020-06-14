@@ -67,4 +67,7 @@ switch ($page) {
   case "app":
     echo "Aplikasi";
     break;
+  case "homeapp":
+    echo "Dashboard Aplikasi";
+    break;
 }

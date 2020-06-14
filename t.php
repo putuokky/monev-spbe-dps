@@ -3,8 +3,7 @@ session_start();
 
 include 'autoload/autoload.php';
 include 'config/config.php';
-include 'model/model_domain.php';
-include 'model/model_indikator.php';
+include 'model/model.php';
 
 // manggil class
 function __autoload($tagline)
@@ -12,14 +11,12 @@ function __autoload($tagline)
   require_once 'template/' . $tagline . '.php';
 }
 $tagline = new tagline();
-$model_domain = new model_domain();
-$model_indikator = new model_indikator();
 // end manggil class
 
 if (empty($_SESSION['userid'])) {
   header('location: index.php');
 } else {
-  ?>
+?>
 
   <!-- header -->
   <?php include 'template/header.php'; ?>

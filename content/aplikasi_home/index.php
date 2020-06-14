@@ -1,6 +1,6 @@
 <!-- agar menu sidebar saat di klik active -->
 <script type="text/javascript">
-  document.getElementById('apphome').classList.add('active');
+  document.getElementById('dashboardapp').classList.add('active');
 </script>
 
 <!-- isi konten -->
@@ -32,7 +32,7 @@
   </div>
 
   <div class="row">
-    <div class="col-xl-6 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-4 mb-4">
       <div class="card border-left-success shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-6 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-4 mb-4">
       <div class="card border-left-danger shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -62,10 +62,7 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xl-6 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-4 mb-4">
       <div class="card border-left-info shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -75,21 +72,6 @@
             </div>
             <div class="col-auto">
               <i class="fas fa-globe fa-2x text-info"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-6 col-md-6 mb-4">
-      <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Non Terintegrasi</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-900"><?= $rowAppNonIntegrasi['jml_app_non_intergrasi']; ?></div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-globe fa-2x text-warning"></i>
             </div>
           </div>
         </div>
@@ -127,6 +109,6 @@
       </div>
     </div>
 
-  </div>
+    </>
 
-</div>
+  </div>
