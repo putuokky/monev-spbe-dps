@@ -149,7 +149,26 @@ if (isset($_POST['input'])) {
                   <li class="breadcrumb-item active" aria-current="page">Informasi Software</li>
                 </ol>
               </nav>
-
+              <div class="form-group row">
+                <label for="db" class="col-md-2 col-form-label">Database</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="db" name="db">
+                    <option>-</option>
+                    <?php
+                    $sqlDb = "SELECT * FROM kategori_database";
+                    $resDb = mysqli_query($conn, $sqlDb);
+                    while ($rowDb = mysqli_fetch_assoc($resDb)) { ?>
+                      <option value="<?= $rowDb['id_kat_database']; ?>"><?= $rowDb['nama_kat_database']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="bhsprogram" class="col-md-2 col-form-label">Bahasa Pemrograman</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="bhsprogram" id="bhsprogram" placeholder="Enter Bahasa Pemrograman" autocomplete="off">
+                </div>
+              </div>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">Kebutuhan Server Fisik</li>
