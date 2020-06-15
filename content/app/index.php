@@ -11,6 +11,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'upload_icon.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "upfile") {
   include 'upload_file.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "detail") {
+  include 'detail.php';
 } else {
 ?>
 
@@ -111,15 +113,13 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                       <tr>
                         <td><?= $no; ?></td>
-                        <td><button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
+                        <td>
+                          <!-- <a class="btn btn-dark btn-sm" title="Info" href="?page=app&act=info&id=<?= $id; ?>"><i class="fas fa-fw fa-info"></i></a> -->
+                          <a class="btn btn-primary btn-sm" title="Detail" href="?page=app&act=detail&id=<?= $id; ?>"><i class="fas fa-fw fa-file"></i></a>
                           <a class="btn btn-info btn-sm" title="Upload Gambar Icon" href="?page=app&act=upicon&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
                           <a class="btn btn-secondary btn-sm" title="Upload File Dasar Hukum" href="?page=app&act=upfile&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
                           <a class="btn btn-warning btn-sm" title="Edit" href="?page=app&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
-
-                          <!-- Modal Detail -->
-                          <?php include 'modal_detail.php'; ?>
-                          <!-- End Modal Detail -->
 
                           <!-- Modal Hapus -->
                           <?php include 'modal_hapus.php'; ?>
