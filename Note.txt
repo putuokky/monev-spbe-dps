@@ -1,5 +1,6 @@
-- table 
+- table belum dibuat di aplikasi/sistem, yaitu :
     - table kategori_aplikasi
     - table kategori_database
     - table kategori_media
     - table klasifikasi_aplikasi
+    - table tbl_kategori_monev
