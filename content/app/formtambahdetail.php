@@ -14,46 +14,45 @@ $data = mysqli_fetch_assoc($resTampil);
 $idx = $data['id_app'];
 
 // query tambah
-if (isset($_POST['input'])) {
-  $judul            = $_POST['judul'];
-  $klasifikasi      = $_POST['klasifikasi'];
-  $katapp           = $_POST['katapp'];
-  $infofungsi       = $_POST['infofungsi'];
-  $platform         = $_POST['platform'];
-  $alamaturl        = $_POST['alamaturl'];
-  $opdpengelolaaapp = $_POST['opdpengelolaaapp'];
-  $opdpenggunaapp   = $_POST['opdpenggunaapp'];
-  $status           = $_POST['status'];
-  $thnbuat          = $_POST['thnbuat'];
-
-  if (isset($_POST['dashinternal'])) {
-    $dashinternal = $_POST['dashinternal'];
-  } else {
-    $dashinternal = 0;
-  }
+if (isset($_POST['inputdetail'])) {
+  $judul              = $_POST['judul'];
+  $version            = $_POST['version'];
+  $thnkembang         = $_POST['thnkembang'];
+  $input              = $_POST['input'];
+  $output             = $_POST['output'];
+  $integrasi          = $_POST['integrasi'];
+  $infointegrasi      = $_POST['infointegrasi'];
+  $db                 = $_POST['db'];
+  $bhsprogram         = $_POST['bhsprogram'];
+  $cpu                = $_POST['cpu'];
+  $ram                = $_POST['ram'];
+  $harddisk           = $_POST['harddisk'];
+  $osserver           = $_POST['osserver'];
+  $bhsprogramserver   = $_POST['bhsprogramserver'];
+  $webserver          = $_POST['webserver'];
+  $dbserver           = $_POST['dbserver'];
+  $bhspendukunglain   = $_POST['bhspendukunglain'];
+  $judulspk           = $_POST['judulspk'];
+  $sumberdana         = $_POST['sumberdana'];
+  $nilaispk           = $_POST['nilaispk'];
+  $vendor             = $_POST['vendor'];
+  $kontakvendor       = $_POST['kontakvendor'];
 
   $res = true;
 
   if ($res) {
-    if (!empty($judul) && !empty($opdpengelolaaapp) && !empty($opdpenggunaapp)) {
-      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,dash_internal,unit,unit_pengguna,sts_aktif,integrasi,thn_pembuatan,usr,dlu)
-    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$dashinternal','$opdpengelolaaapp','$opdpenggunaapp','$status','belum','$thnbuat','$_SESSION[userid]','$datenow2')";
+    $sql = "INSERT INTO detail_aplikasi (id_aplikasi,input,output,version,db,pemrograman,integrasi,info_integrasi,thn_pengembangan,cpu_server,ram_server,harddisk_server,os_server,bp_server,web_server,database_server,bplain_server,judul_spk,nilai_spk,sumberdana_spk,vendor,kontak_vendor,usr,dlu)
+          VALUES ('$judul','$input','$output','$version','$db','$bhsprogram','$integrasi','$infointegrasi','$thnkembang','$cpu','$ram','$harddisk','$osserver','$bhsprogramserver','$webserver','$dbserver','$bhspendukunglain','$judulspk','$nilaispk','$sumberdana','$vendor','$kontakvendor','$_SESSION[userid]','$datenow2')";
 
-      if (mysqli_query($conn, $sql)) {
-        echo '<script type="text/javascript">
-              alert("Data Aplikasi Berhasil Ditambah");
-              window.location.href="t.php?page=app";
-              </script>';
-      } else {
-        echo '<script type="text/javascript">
-              alert("Data Aplikasi Gagal Ditambah");
-              window.location.href="t.php?page=app&act=tambah";
-              </script>';
-      }
+    if (mysqli_query($conn, $sql)) {
+      echo '<script type="text/javascript">
+            alert("Data Detail Aplikasi Berhasil Ditambah");
+            window.location.href="t.php?page=app&act=detail&id=' . $id . '";
+            </script>';
     } else {
       echo '<script type="text/javascript">
-            alert("Data Ada Yang Kosong");
-            window.location.href="t.php?page=app&act=tambah";
+            alert("Data Detail Aplikasi Gagal Ditambah");
+            window.location.href="t.php?page=app&act=detail&id=' . $id . '&aksi=tambahdetail";
             </script>';
     }
   }
@@ -94,7 +93,9 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="judul" class="col-md-2 col-form-label">Judul</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="judul" id="judul" placeholder="Enter Judul" autocomplete="off" value="asd" readonly>
+                  <select class="form-control" id="judul" name="judul">
+                    <option value="<?= $idx; ?>"><?= $data['judul']; ?></option>
+                  </select>
                 </div>
               </div>
               <div class="form-group row">
@@ -266,7 +267,7 @@ if (isset($_POST['input'])) {
                 <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=app&act=detail&id=<?= $idx; ?>">
                   <span class="text">Kembali</span>
                 </a>
-                <button type="submit" class="btn btn-primary" name="input">Simpan</button>
+                <button type="submit" class="btn btn-primary" name="inputdetail">Simpan</button>
               </div>
             </form>
           </div>

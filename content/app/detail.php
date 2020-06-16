@@ -87,15 +87,15 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
                 <tbody>
                   <?php
                   if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] == 0) {
-                    $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.link,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk, a.tahun_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
-                  FROM detail_aplikasi a 
-                  LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
-                  LEFT JOIN kategori_database c ON c.id_kat_database = a.db";
+                    $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
+                    FROM detail_aplikasi a 
+                    LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
+                    LEFT JOIN kategori_database c ON c.id_kat_database = a.db";
                   } else {
-                    $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.link,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk, a.tahun_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
-                  FROM detail_aplikasi a 
-                  LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
-                  LEFT JOIN kategori_database c ON c.id_kat_database = a.db
+                    $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
+                    FROM detail_aplikasi a 
+                    LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
+                    LEFT JOIN kategori_database c ON c.id_kat_database = a.db
                   WHERE b.unit = $_SESSION[opd]";
                   }
 
