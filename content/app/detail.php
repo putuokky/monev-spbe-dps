@@ -14,12 +14,12 @@ $data = mysqli_fetch_assoc($resTampil);
 $idx = $data['id_app'];
 
 // link ke file yang dituju melalui include
-if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
-  include '';
+if (isset($_GET['aksi']) && $_GET['aksi'] == "hapusdetail") {
+  include 'deletedetail.php';
 } else if (isset($_GET['aksi']) && $_GET['aksi'] == "tambahdetail") {
   include 'formtambahdetail.php';
-} else if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
-  include '';
+} else if (isset($_GET['aksi']) && $_GET['aksi'] == "editdetail") {
+  include 'formeditdetail.php';
 } else {
 ?>
 
@@ -48,6 +48,9 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
           </span>
           <span class="text">Tambah</span>
         </a>
+        <a class="btn btn-dark btn-icon-split h3 mb-4" title="Kembali" href="?page=app">
+          <span class="text">Kembali</span>
+        </a>
 
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
@@ -61,6 +64,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
                   <tr>
                     <th>No</th>
                     <th>Action</th>
+                    <th>Judul</th>
                     <th>Version</th>
                     <th>Integrasi</th>
                     <th>Tahun Pengembangan</th>
@@ -74,6 +78,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
                   <tr>
                     <th>No</th>
                     <th>Action</th>
+                    <th>Judul</th>
                     <th>Version</th>
                     <th>Integrasi</th>
                     <th>Tahun Pengembangan</th>
@@ -90,13 +95,14 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
                     $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
                     FROM detail_aplikasi a 
                     LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
-                    LEFT JOIN kategori_database c ON c.id_kat_database = a.db";
+                    LEFT JOIN kategori_database c ON c.id_kat_database = a.db 
+                    WHERE a.id_aplikasi = $id";
                   } else {
                     $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
                     FROM detail_aplikasi a 
                     LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
-                    LEFT JOIN kategori_database c ON c.id_kat_database = a.db
-                  WHERE b.unit = $_SESSION[opd]";
+                    LEFT JOIN kategori_database c ON c.id_kat_database = a.db 
+                    WHERE a.id_aplikasi = $id && b.unit = $_SESSION[opd]";
                   }
 
                   $sql = $sql . " ORDER BY a.id_detail_aplikasi DESC";
@@ -114,14 +120,15 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "") {
                         <td><?= $no; ?></td>
                         <td>
                           <!-- <a class="btn btn-dark btn-sm" title="Info" href="?page=app&act=info&id=<?= $id; ?>"><i class="fas fa-fw fa-info"></i></a> -->
-                          <a class="btn btn-warning btn-sm" title="Edit" href="?page=app&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                          <a class="btn btn-warning btn-sm" title="Edit" href="?page=app&act=detail&id=<?= $idx; ?>&aksi=editdetail&idx=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
                           <!-- Modal Hapus -->
-                          <?php include 'modal_hapus.php'; ?>
+                          <?php include 'modal_hapusdetail.php'; ?>
                           <!-- Modal Hapus -->
 
                         </td>
+                        <td><?= $row['judul']; ?></td>
                         <td><?= $row['version']; ?></td>
                         <td><?= $row['integrasi']; ?></td>
                         <td><?= $row['thn_pengembangan']; ?></td>

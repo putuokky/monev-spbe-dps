@@ -281,8 +281,7 @@ $data = mysqli_fetch_assoc($resUbah);
                       <?php else : ?>
                         <option value="<?= $i; ?>"><?= $i; ?></option>
                       <?php endif; ?>
-                    <?php }
-                    ?>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
