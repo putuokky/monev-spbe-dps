@@ -8,13 +8,13 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
 } else {
+
 ?>
 
   <!-- agar menu sidebar saat di klik active -->
   <script type="text/javascript">
-    document.getElementById('monevapp').classList.add('active');
+    document.getElementById('lapormasalah').classList.add('active');
   </script>
-
 
   <!-- isi konten -->
   <div class="container-fluid">
@@ -30,7 +30,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
       <div class="col-xl-12 col-lg-12">
 
-        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=monevapp&act=tambah">
+        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=lapormasalah&act=tambah">
           <span class="icon">
             <i class="fas fa-fw fa-plus"></i>
           </span>
@@ -50,45 +50,39 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>No</th>
                     <th>Action</th>
                     <th>Tanggal</th>
-                    <th>Kategori Monev</th>
-                    <th>Nama Aplikasi</th>
+                    <th>Jenis Lapor</th>
+                    <th>Aplikasi</th>
                     <th>Permasalahan</th>
-                    <th>Solusi/Pengembangan</th>
                     <th>Status</th>
-                    <th>User</th>
+                    <th>Usr</th>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>No</th>
                     <th>Action</th>
                     <th>Tanggal</th>
-                    <th>Kategori Monev</th>
-                    <th>Nama Aplikasi</th>
+                    <th>Jenis Lapor</th>
+                    <th>Aplikasi</th>
                     <th>Permasalahan</th>
-                    <th>Solusi/Pengembangan</th>
                     <th>Status</th>
-                    <th>User</th>
+                    <th>Usr</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
                   if ($_SESSION['groupuser'] == 1) {
-                    $sql = "SELECT a.id_monev_app, a.masalah, a.bukti_dukung, a.solusi_pengembang, a.nama_team, a.status_monev, a.dlu_monev, a.respon_koor, a.nama_koor, a.dlu_respon_koor, b.nama_user, c.judul, d.nama_kategori_monev 
-                    FROM tbl_monev_app a 
-                    LEFT JOIN tb_user b ON b.userid = a.nama_team 
-                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app 
-                    LEFT JOIN tbl_kategori_monev d ON d.id_kat_monev = a.kategori_monev 
-                    LEFT JOIN tb_user e ON e.userid = a.nama_koor";
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl,a.respon_lapor,a.bukti_dukung_selesai,a.dlu,b.nama_jenis_laporan,c.judul 
+                    FROM tbl_lapormasalah a 
+                    LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
+                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app";
                   } else {
-                    $sql = "SELECT a.id_monev_app, a.masalah, a.bukti_dukung, a.solusi_pengembang, a.nama_team, a.status_monev, a.dlu_monev, a.respon_koor, a.nama_koor, a.dlu_respon_koor, b.nama_user, c.judul, d.nama_kategori_monev 
-                    FROM tbl_monev_app a 
-                    LEFT JOIN tb_user b ON b.userid = a.nama_team 
-                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app 
-                    LEFT JOIN tbl_kategori_monev d ON d.id_kat_monev = a.kategori_monev 
-                    LEFT JOIN tb_user e ON e.userid = a.nama_koor";
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl,a.respon_lapor,a.bukti_dukung_selesai,a.dlu,b.nama_jenis_laporan,c.judul 
+                    FROM tbl_lapormasalah a 
+                    LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
+                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app";
                   }
 
-                  $sql = $sql . " ORDER BY a.id_monev_app DESC";
+                  $sql = $sql . " ORDER BY a.id_lapormasalah DESC";
 
                   $result = mysqli_query($conn, $sql);
 
@@ -97,30 +91,33 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                   ?>
+
                       <tr>
                         <td><?= $no; ?></td>
-                        <td>
-                          <!-- <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
-                          <a class="btn btn-warning" title="Edit" href="?page=monevapp&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                        <td><button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
+                          <a class="btn btn-warning" title="Edit" href="?page=lapormasalah&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
+
+                          <!-- Modal Detail -->
+                          <?php include 'modal_detail.php'; ?>
+                          <!-- End Modal Detail -->
 
                           <!-- Modal Hapus -->
                           <?php include 'modal_hapus.php'; ?>
                           <!-- Modal Hapus -->
 
                         </td>
-                        <td><?= date('d-m-Y', strtotime($row['dlu_monev'])); ?></td>
-                        <td><?= $row['nama_kategori_monev']; ?></td>
+                        <td><?= date('d-m-Y', strtotime($row['dlu'])); ?></td>
+                        <td><?= $row['nama_jenis_laporan']; ?></td>
                         <td><?= $row['judul']; ?></td>
-                        <td><?= $row['masalah']; ?></td>
-                        <td><?= $row['solusi_pengembang']; ?></td>
-                        <td><?php if ($row['status_monev'] == '1') {
+                        <td><?= $row['permasalahan']; ?></td>
+                        <td><?php if ($row['status_lapor'] == '1') {
                               echo '<span class="badge badge-primary">Baru</span>';
                             } else {
                               echo '<span class="badge badge-success">Respon</span>';
                             } ?>
                         </td>
-                        <td><?= $row['nama_user']; ?></td>
+                        <td><?= $row['nama_input']; ?></td>
                       </tr>
                   <?php
                       $no++;

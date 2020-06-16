@@ -73,4 +73,7 @@ switch ($page) {
   case "monevapp":
     echo "Monitoring Aplikasi";
     break;
+  case "lapormasalah":
+    echo "Lapor Permasalahan";
+    break;
 }

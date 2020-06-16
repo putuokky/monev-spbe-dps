@@ -73,4 +73,7 @@ switch ($page) {
   case "monevapp":
     include 'content/monevapp/index.php';
     break;
+  case "lapormasalah":
+    include 'content/lapormasalah/index.php';
+    break;
 }
