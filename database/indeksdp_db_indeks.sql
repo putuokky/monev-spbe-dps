@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 28, 2020 at 11:18 AM
--- Server version: 5.7.27
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1
+-- Generation Time: Jun 16, 2020 at 06:09 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,449 @@ SET time_zone = "+00:00";
 --
 -- Database: `indeksdp_db_indeks`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aplikasi`
+--
+
+CREATE TABLE `aplikasi` (
+  `id_app` int(11) NOT NULL,
+  `judul` varchar(500) NOT NULL,
+  `klasifikasi_aplikasi` int(2) NOT NULL,
+  `kategori_aplikasi` int(2) NOT NULL,
+  `infofungsi` text NOT NULL,
+  `dasarhukum` text NOT NULL,
+  `media` int(2) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `pict` text NOT NULL,
+  `dash_internal` int(1) NOT NULL,
+  `unit` varchar(20) NOT NULL,
+  `unit_pengguna` varchar(20) NOT NULL,
+  `sts_aktif` varchar(10) NOT NULL,
+  `thn_pembuatan` varchar(6) NOT NULL,
+  `usr` text NOT NULL,
+  `dlu` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `aplikasi`
+--
+
+INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_aplikasi`, `infofungsi`, `dasarhukum`, `media`, `link`, `pict`, `dash_internal`, `unit`, `unit_pengguna`, `sts_aktif`, `thn_pembuatan`, `usr`, `dlu`) VALUES
+(1, 'Arcview GIS 3.2', 2, 2, 'Memberikan informasi terkait data perikanan ', '', 1, '', '1.', 0, '031101', '031101', 'aktif', '-', 'adm', '2019-04-29 11:00:07'),
+(2, 'ATCS DENPASAR', 2, 2, 'Untuk memberikan info terkait arus lalu lintas di Kota Denpasar', '', 1, '', '1.', 0, '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:56:20'),
+(3, 'ATCS_CLIENT', 1, 2, 'Untuk pengaturan traffic light kota denpasar', '', 1, '', '1.', 0, '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:56:42'),
+(4, 'Penilaian Kesehatan Koperasi Online', 1, 2, 'Melakukan penilaian kesehatan usaha koperasi secara online (intranet).', '', 1, '', '1.', 0, '031501', '031501', 'aktif', '-', 'adm', '2019-04-29 10:50:05'),
+(5, 'Bank Data', 2, 2, 'Meningkatkan kecepatan proses perubahan data dan informasi yang dinamis, meningkatkan volume data informasi yang dapat diakses dan meningkatkan kualitas dan kuantitas pengolahan informasi. Meningkatkan pelayanan kepada masyarakat/publik secara lebih professional dan modern. Pemeliharaan dokumen, data dan informasi yang berkaitan dengan perbankan secara memadai, media komunikasi, interaksi dan informasi dengan masyarakat/publik dengan dua arah agar bisa mendengar dan berbicara secara efektif. memberikan informasi resmi dan terbaru tentang aktifitas dari Pemerintah Kota Denpasar, baik mengenai informasi layanan perizinan, pengaduan masyarakat, transparansi anggaran, informasi publik, informasi layanan publik dan informasi kepada publik.', '', 1, 'https://bankdata.denpasarkota.go.id/', '1.', 0, '030801', '170004', 'aktif', '2016', 'adm', '2020-06-10 10:43:19'),
+(6, 'Prodeskel', 1, 1, 'Memantau Profil Potensi dan perkembangan Desa/ Kelurahan.', '', 1, 'prodeskel.binapemdes.kemendagri.go.id', '1.', 0, '040501', '040501', 'aktif', '', 'adm', '2019-03-28 14:03:17'),
+(7, 'Basis data terpadu / SLRT', 1, 1, 'Sistem informasi basis data terpadu pendataan PMKS dan PSKS Kota Denpasar', '', 1, 'jendela.denpasarkota.go.id/bdt', '1.', 0, '300004', '300004', 'naktif', '-', 'adm', '2019-04-29 11:04:44'),
+(8, 'Rajakol (Rekomendasi Jasa Konstruksi Online)', 1, 2, 'Pelayanan publik pengajuan dan penerbitan rekomendasi teknis (IUJK) Ijin Usaha Jasa Konstruksi online.', '', 1, 'damamandala.denpasarkota.go.id', '1.', 0, '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:51:59'),
+(9, 'RFID Bus Sekolah', 1, 2, 'Digunakan untuk Tap Penumpang saat siswa akan naik bus.', '', 2, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:57:13'),
+(10, 'RPKAM ', 1, 1, 'Monitoring e-rpkam.', '', 1, 'www.kesling.kesmas.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-28 14:15:23'),
+(11, 'Rujukan Online', 1, 2, 'Menerima, mengolah dan menyimpan rujukan dari faskes pertama.', '', 1, 'rujukanonline.denpasarkota.go.id', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:10'),
+(12, 'Rumah Belanja Denpasar', 1, 2, 'Membantu IKM dalam mempromosikan produknya melalui media digital (website Kota Denpasar).', '', 1, 'balidenpasartrading.com', '1.', 0, '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:01:22'),
+(13, 'SI BUSED', 2, 2, 'Aplikasi pendukung layanan Bus Sekolah Denpasar yang digunakan untuk memantau posisi bus terkini dan memudahkan orang tua untuk memonitoring anak saat di dalam kendaraan.', '', 2, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:57:30'),
+(14, 'SIDAB (Sistem Informasi Distribusi Air Bersih)', 2, 2, 'Membantu pelayanan informasi kepada pelanggan terait dengan sistem jaringan perpipaan dan data pelanggan.', '', 1, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:08:33'),
+(15, 'Sidandaniti (Sistem Informasi Peraturan Perundnag-undangan)', 1, 2, 'Sebagai bentuk layanan internal kepada OPD di Lingkungan Pemerintah Kota Denpasar dalam Pembuatan Produk Hukum (khususnya SK) .', '', 1, 'http://sidandaniti.denpasarkota.go.id', '1.', 0, '011201', '011201', 'aktif', '-', 'adm', '2019-04-29 10:35:18'),
+(16, 'SIDASI (Sistem Informasi Drainase dan Irigasi)', 1, 2, 'Tersedianya peta dan database drainase dan irigasi di kta denpasar.', '', 1, 'damamandala.denpasarkota.go.idsidasi', '1.', 0, '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:52:34'),
+(17, 'SIDI', 1, 2, 'Mendata persebaran industri di Kota Denpasar', '', 1, 'sidi.denpasarkota.go.id', '1.', 0, '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:01:36'),
+(18, 'SIFA/Fixed Asset (Sistem Informasi Fixed Asset)', 1, 2, 'Membantu mebuat proyeksi dan perhitungan penyusutan aset.', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:10:02'),
+(19, 'SIGAPE (Sistem Informasi Gaji dan Pegawai)', 1, 2, 'Membantu pengelolaan data administrasi pegawai dan gaji.', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:10:30'),
+(20, 'SIHA (sistem informasi HIV dan AIDS)', 1, 1, 'Untuk mendapatkan analisa dan validasi data program HIV/AIDS dan PIMS.', '', 1, 'www.siha.depkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-28 14:42:51'),
+(21, 'SIJALAK (Sistem Informasi Jalan Kota)', 1, 2, 'Tersedianya peta dan database jalan di Kota Denpasar.', '', 1, 'damamandala.denpasarkota.go.id', '1.', 0, '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:53:06'),
+(22, 'SIKDA Generik', 1, 1, 'Melaporkan data kesehatan ke kemkes RI.', '', 1, '', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-28 14:47:35'),
+(23, 'SIKEKAL (Sistem Informasi Desa Kesiman Kertalangu)', 1, 1, 'Mengolah data, mencatat dan melayani', '', 1, 'http://kertalangu.simade.co.id', '1.', 0, '170001', '170001', 'aktif', '', 'adm', '2019-03-28 14:49:02'),
+(24, 'SIKS-ng', 1, 1, 'Sistemuntuk pengumpulan, pengolahan, penyajian, dan penyimpanan data kesejahteraan sosial yang dilaksanakan secara berjenjang dan berkesinambungan.', '', 1, 'siks.kemsos.go.id', '1.', 0, '300004', '300004', 'aktif', '', 'adm', '2019-03-28 14:50:26'),
+(25, 'SIM HP (sistem Informasi Manajemen Hasil Pemeriksa)', 1, 2, 'Mengolah, menyimpan dan menginventarisir temuan pemeriksaan', '', 3, '', '1.', 0, '040101', '040101', 'aktif', '-', 'adm', '2019-04-29 11:05:23'),
+(26, 'SIM PBB', 1, 2, 'Mengelola data wajib pajak bumi dan bangunan', '', 3, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:29:04'),
+(27, 'SIM Perijinan', 1, 2, 'Mengelola proses pelayanan perijinan secara elektronik.', '', 1, '', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:53:25'),
+(28, 'SIMADE (Sistem Informasi Kelurahan Dangin Puri)', 1, 2, 'Mengolah data, mencatat dan melayani', '', 1, 'http://dangri.simade.co.id/', '1.', 0, '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:05:40'),
+(29, 'SIMADE (Sistem Informasi Kelurahan Sumerta)', 1, 2, 'Mengolah data, mencatat dan melayani.', '', 1, 'http://sumerta.simade.co.id/', '1.', 0, '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:05:55'),
+(30, 'SIMADE (Sistem Pemantauan Krama Bendega)', 1, 2, 'Memberikan informasi kepada pihak terkait untuk meningkatkan tingkat keselamatan nelayan saat pergi melaut.', '', 1, 'smartcity.denpasarkota.go.id/nelayan', '1.', 0, '031101', '031101', 'aktif', '-', 'adm', '2019-04-29 11:00:42'),
+(31, 'SIMADU (Sistem Kesiman Terpadu)', 1, 2, 'Mengolah data, mencatat dan melayani.', '', 1, 'http://kesiman.simade.co.id/', '1.', 0, '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:06:17'),
+(32, 'SIMDA Barang', 1, 1, 'Pengelolaan data aset pemerintah daerah.', '', 3, '', '1.', 0, '300005', '000000', 'aktif', '', 'adm', '2019-03-29 08:19:30'),
+(33, 'SIMFONI PPA (Sistem Informasi Online Perlindungan Perempuan dan Anak)', 1, 1, 'Mencatat, mengolah, menyimpan, dan mengirim laporan kasus kekerasan perempuan dan anak langsung ke Kementrian PPPA.', '', 1, 'www.kekerasan.kemempan.go.id', '1.', 0, '040901', '040901', 'aktif', '', 'adm', '2019-03-29 08:21:02'),
+(34, 'SIMPADA PARKIR', 1, 2, 'Mengelola data wajib pajak parkir.', '', 3, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:29:20'),
+(35, 'SIMPADA PHR', 1, 2, 'Mengelola data wajib pajak hotel, restoran dan hiburan.', '', 3, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:29:36'),
+(36, 'SIMPADA Reklame', 1, 2, 'Mengelola data wajib pajak reklame.', '', 3, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:30:01'),
+(37, 'SIMPATI (Sistem informasi Denpasar Timur)', 1, 2, 'Mengolah data, mencatat dan melayani.', '', 1, 'http://dentim.simade.co.id/', '1.', 0, '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:06:39'),
+(38, 'Simpeg PTT', 1, 1, 'Administrasi PTT kemkes untuk perpanjangan penempatan dan pengangkatan kembali', '', 1, 'https://simpeg.kemkes.go.id/', 'simpeg.png', 1, '030201', '030201', 'aktif', '-', 'adm', '2019-05-16 09:07:41'),
+(39, 'SIMPEL (Sistem Informasi Pelayanan Pelanggan)', 1, 2, 'Membantu pengelolaan data pengaduan pelanggan serta tindak lanjut penangananya.', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:10:49'),
+(40, 'Simponi', 1, 1, 'Membuat kode jenis setoran billing non anggaran menjadi billing penerimaan negara lainnya.', '', 1, 'simponi.kemenkeu.go.id', '1.', 0, '300004', '300004', 'aktif', '', 'adm', '2019-03-29 08:32:46'),
+(41, 'Simponi Denpasar', 2, 2, 'Monitoring (pengawasan) dan evaluasi Koperasi Simpan Pinjam, Usaha Kecil dan Menengah Seluruh Kota Denpasar', '', 1, 'http://simponi.denpasarkota.go.id', '1.', 0, '031501', '031501', 'aktif', '-', 'adm', '2019-10-14 14:57:21'),
+(42, 'SINGGAN (Sistem Informasi Pelanggan)', 1, 2, 'Membantu melaksanakan kegiatan admistrasi yang berakitan degan data calon pelanggan dan pelanggan.', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:11:15'),
+(43, 'SINGGAR (Sistem Informasi Anggaran)', 1, 2, 'Membantu pengelolaan anggaran dan realisasinya.', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:11:29'),
+(44, 'SINTORY (Sistem Informasi Inventory)', 1, 2, 'Membantu administrasi barang inventory gudang dan inventarisasi aset.', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:11:45'),
+(45, 'SIPD (Sistem Informasi Pembangunan Daerah)', 1, 1, 'Penyediaan data dan informasi.', '', 1, 'sipd.kemendagri.go.id', '1.', 0, '040201', '000000', 'aktif', '', 'adm', '2019-03-29 08:40:29'),
+(46, 'SIPENA (Sistem Informasi Penatih)', 1, 2, 'Mengolah data, mencatat dan melayani.', '', 1, 'http://penatih.simade.co.id/', '1.', 0, '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:06:54'),
+(47, 'SIPKD Keuangan', 1, 1, 'Mengolah, mencatat, dan menyimpan data keuangan OPD.', '', 1, '', '1.', 0, '300005', '000000', 'aktif', '', 'adm', '2019-03-29 08:43:48'),
+(48, 'SIRAB (Sistem informasi rencana anggaran biaya)', 1, 2, 'Membantu melaksanakan kegiatan administrasi RAB Sambungan Rumah (SR)', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:01'),
+(49, 'SIRAWAT (Sistem Informasi Perawatan)', 1, 2, 'Membantu melaksanakan kegiatan administrasi yang berkaitan dengan pelaksanaan pemasangan SR, Penyambungan kembali, rekonstruksi, pemindahan lokasi WM, Perubahan inci WM, Pergantian WM, Segel, Pencabutan dan pembaruan WM', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:20'),
+(50, 'SIREKON (Sistem Rekomendasi Online)', 1, 2, 'Untuk mempermudah akses pelayanan perekomendasian oleh masyarakat di Badan Kesbangpol.', '', 1, 'sirekon.denpasarkota.go.id', '1.', 0, '040601', '040601', 'aktif', '-', 'adm', '2019-04-29 10:24:42'),
+(51, 'SIRUP', 1, 1, 'Sarana/ alat untuk mengumumkan rencana umum pengadaan.', '', 1, 'http://sirup.lkpp.go.id/sirup', '1.', 0, '012001', '000000', 'aktif', '', 'adm', '2019-03-29 08:54:43'),
+(52, 'SISKA (Sistem Informasi Keuangan)', 1, 2, 'Membantu operasional pelayanan pembayaran rekening air dan non air serta membuat laporan laporan guna kepentingan manajemen', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:37'),
+(53, 'Bed Management', 1, 2, 'Mencatat dan memonitoring status ketersediaan dan penggunaan tempat tidur di RSUD Wangaya', '', 1, 'www.wangayahospital.com', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:25'),
+(54, 'BILLING (Sistem Informasi Billing)', 1, 2, 'Membantu operasional pembacaan meter air sampai dengan rekening air tersebut bisa dibayar serta membuat laporan laporan guna kepentingan manajemen', '', 1, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:55'),
+(55, 'Bima Sakti', 1, 2, 'Membaca, menghitung pemakaian air tanah', '', 1, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:30:19'),
+(56, 'Bursa Kerja Online', 1, 2, 'Pelayanan bagi pencari kerja dan penyedia kerja', '', 1, 'http://bursakerja.denpasarkota.go.id/', '1.', 0, '030901', '030901', 'aktif', '-', 'adm', '2020-03-19 11:22:01'),
+(57, 'siskohatkes (sistem informasi dan komputerisasi haji)', 1, 1, 'mendata calon jemaah haji\r\n', '', 1, 'http://srskohatkes.kemkes.go.id', '1.', 0, '030201', '030201', 'naktif', '', 'adm', '2019-03-31 10:13:31'),
+(58, 'Sismadak', 1, 2, 'Sebagai sarana untuk menyimpan dan mencari kembali dokumen berdasarkan elemen penilaian yang berhubungan dengan akreditasi rumah sakit\r\n', '', 1, '', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:40'),
+(59, 'Sistem Denda Piutang', 1, 2, 'Mengelola piutang dan denda retribusi\r\n', '', 1, 'perijinan.denpasarkota.go.id/dendapiutang', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:53:44'),
+(60, 'Sistem Informasi Coorporate Social Responsibilities (CSR)', 1, 2, 'Mengelola informasi data CSR\r\n', '', 1, 'http://csrkotadenpasar.com/', '1.', 0, '013401', '013401', 'aktif', '-', 'adm', '2019-04-29 10:36:24'),
+(61, 'Sistem Informasi Graha Sewaka Dharma (Dashboard Internal Denpasar)', 1, 2, 'Sebagai media informasi untuk permohonan peminjaman Gedung atau ruang rapat yang ada di Kota Denpasar, Peminjaman sound system, Peminjaman Videotron dan informasi terkait aplikasi yang dimiliki oleh pemerintah Kota Denpasar.', 'Belum ada', 1, 'http://aplikasi.denpasarkota.go.id:8086/internal/', 'group-icon.png', 1, '030801', '030801', 'aktif', '2015', 'adm', '2020-06-10 10:42:03'),
+(62, 'Sistem Informasi Manajemen Gaji (SIMGAJI)', 1, 2, 'Untuk menyajikan informasi gaji PNSD dan untuk mengolah mencatat dan menyimpan data PNSD.\r\n', '', 1, '192.100.100.93', '1.', 0, '300005', '300005', 'aktif', '-', 'adm', '2019-04-29 10:33:41'),
+(63, 'SISTEM INFORMASI TAGIHAN REKENING AIR MINUM', 2, 2, 'Membantu mendapatkan infomasi mengenai tagihan rekening air minum\r\n', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:13:20'),
+(64, 'Sistem Manajemen Informasi Program Keluarga Harapan (PHK) Online', 1, 1, 'Pemutakhiran Data Keluarga Penerima Manfaat (KPM) Program Keluarga Harapan (PKH) meliputi perubahaan komponen dari ibu hamil ke nifas, anak balita ke prasekolah, anak sd ke smp, kemudian sma/smk, lansia dan disabilitas berat yang menentukan masih berhak atau tidak KPM tersebut mendapatkan bantuan PKH, Perubahan status KPM, Perubahan data KPM seperti data KYC (knowing your customer), penginputan data pendidikan dan fasilitas kesehatan yang digunakan masing masing anggota rumah tangga setiap KPM dalam hadir disekolah dan rutin periksa ke fasilitas kesehatan\r\n', '', 4, '192.168.100.225', '1.', 0, '300004', '300004', 'aktif', '', 'adm', '2019-03-31 10:25:44'),
+(65, 'Sistem Monitoring Pengendalian Pelaksanaan Penanaman Modal', 1, 2, 'Pengelolaan Data pelaku Usaha PMDN dan PMA\r\n', '', 1, 'pelayanan.denpasarkota.go.id/dalak', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:54:11'),
+(66, 'Sistem Pencatatan Transaksi', 1, 2, 'Mengelola transaksi pembayaran berbasis Acrual\r\n', '', 1, 'perijinan.denpasarkota.go.id/piutang', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:54:28'),
+(67, 'Sistem Pengelolaan Barang Habis Pakai', 1, 2, '-', '', 4, '', '1.', 0, '030801', '030801', 'naktif', '2015', 'adm', '2019-05-16 11:10:58'),
+(68, 'Sistem Pengukur Ketinggian Air', 1, 2, 'Memberi informasi ketinggian air sungai\r\n', '', 1, 'localhost/deteksi.banjir/index.php', '1.', 0, '040801', '040801', 'aktif', '-', 'adm', '2019-04-29 10:28:31'),
+(69, 'SITT (sistem informasi tubercolosis terpadu)', 1, 1, 'Untuk merekap penerimaan kasus baru, konversi, kesembuhan, DO, meninggal, pindah, gagal pasien TB dan PX TB -HIV\r\n', '', 1, 'sitt.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-31 10:33:47'),
+(70, 'SLRT', 1, 1, 'Membantu mengidentifikasi kebutuhan masyarakat miskin dan rentan miskin, kemudian menghubungkan mereka dengan program dan layanan yang dikelola oleh pemerintah (Pusat, Provinsi dan Kabupaten/Kota) dan non Pemerintah sesuai dengan kebutuhan mereka. SLRT juga membantu mengidentifikasi keluhan masyarakat miskin dan rentan miskin, melakukan rujukan, dan memantau penanganan keluhan untuk memastikan keluhan-keluhan tsb ditangani dengan baik.\r\n', '', 1, 'http://slrt.kemsos.go.id/v2/webslrt/login', '1.', 0, '300004', '300004', 'naktif', '', 'adm', '2019-03-31 10:34:56'),
+(71, 'Aplikasi Kegawatdaruratan 112', 1, 2, 'Aplikasi Kegawatdaruratan 112 berfungsi sebagai layanan panggilan kegawatdaruratan', '', 1, 'http://182.253.196.220/com/dashboard/auth', 'gambar 1121.jpg', 0, '030801', '040801', 'aktif', '2018', 'adm', '2019-09-26 08:54:07'),
+(72, 'Damakesmas', 1, 2, 'Sistem informasi denpasar mantap kesehatan masyarakat.', 'SK Kebijakan Damakesmas.pdf', 1, 'https://damakesmas.denpasarkota.go.id/', '1.', 0, '030801', '030201', 'aktif', '2017', 'adm', '2019-05-22 15:30:58'),
+(73, 'e-Kinerja', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '-', 'adm', '2019-05-09 14:06:15'),
+(74, 'TNDE', 1, 2, '-', '', 4, 'http://aplikasi.denpasarkota.go.id:8084/tnde/', 'tnde.png', 1, '030801', '030801', 'aktif', '-', 'adm', '2019-05-16 09:06:31'),
+(75, 'SIPENJAR', 1, 2, 'Mengelola pengaduan jaringan', '', 1, 'http://infrastruktur.denpasarkota.go.id/index.php/', '1.', 0, '030801', '030801', 'aktif', '2017', 'adm', '2019-05-22 15:37:35'),
+(76, 'PPID', 1, 2, '-', '', 4, 'https://ppid.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '2017', 'adm', '2019-05-17 11:45:52'),
+(77, 'Simonev', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2018', 'adm', '2019-05-16 11:16:23'),
+(78, 'Portal Disabilitas (Diaspora)', 1, 2, '-', '', 4, 'http://diaspora.denpasarkota.go.id/', '1.', 0, '030801', '300004', 'aktif', '2018', 'adm', '2019-05-17 11:49:12'),
+(79, 'Website Disdikpora Kota Denpasar', 1, 2, 'Memberikan informasi kegiatan pendidikan kepada masyarakat\r\n', '', 1, 'http://www.pendidikan.denpasarkota.go.id', '1.', 0, '030101', '030101', 'aktif', '-', 'adm', '2019-04-29 10:55:23'),
+(80, 'Website Bus Sekolah', 2, 2, 'Digunakan untuk memantau posisi bus dan rute bus sekolah\r\n', '', 3, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:57:49'),
+(81, 'web PPTM ', 1, 1, 'penyebar luasan informasi PTM\r\n', '', 1, 'www.p2ptm.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-31 10:49:50'),
+(82, 'WEB GIS', 1, 2, 'Mengelola, mencatat, menyimpan dan laporan tanah\r\n', '', 4, '', '1.', 0, '300005', '300005', 'naktif', '-', 'adm', '2019-04-29 10:34:01'),
+(83, 'Smart Arsip', 1, 2, 'Mengolah, mencatat, mendistribusikan, dan menyimpan data arsip surat\r\n', '', 1, 'smartarsip.denpasarkota.go.id', '1.', 0, '040701', '040701', 'aktif', '-', 'adm', '2019-04-29 11:03:37'),
+(84, 'Smart Parkir (Sistem Parkir Berbasis IT Dan Keuangan Terintegrasi)', 1, 2, 'Meningkatkan layanan  parkir,serta memberikan/ menampilkan laporan keuangan yang transparan dan akuntabel\r\n', '', 4, '', '1.', 0, '300002', '300002', 'aktif', '-', 'adm', '2019-04-29 11:07:42'),
+(85, 'SMS Gateway', 1, 2, 'Memberikan informasi terkait pajak hotel, restoran dan hiburan\r\n', '', 1, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:31:06'),
+(86, 'SMS Gateway', 1, 2, 'Automasi pengiriman info perijinan via sms\r\n', '', 4, '', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:54:53'),
+(87, 'SMS Gateway', 1, 2, 'Mencatat dan meneruskan pesan teks pada pendaftaran pasien dan permintaan informasi biaya perawatan pasien via sms\r\n', '', 4, '', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:15:03'),
+(88, 'software imuniasasi', 1, 1, 'Untuk memudahkan dan mengetahui cakupan dengan cepat disertai grafik\r\n', '', 4, '', '1.', 0, '030201', '030201', 'naktif', '', 'adm', '2019-03-31 10:58:26'),
+(89, 'SPSE (Sistem Pengadaan Secara Elektronik)', 1, 1, 'Untuk melakukan proses pelelangan pengadaan barang/ jasa\r\n', '', 4, 'www.eproc.denpasarkota.go.id', '1.', 0, '040201', '012001', 'aktif', '-', 'adm', '2019-04-29 10:34:33'),
+(90, 'Sse Pajak', 1, 1, 'Membuat kode e-billing dalam keperluan pembayaran pajak\r\n', '', 4, 'https://sse3.pajak.go.id/', '1.', 0, '300004', '300004', 'aktif', '', 'adm', '2019-03-31 11:00:44'),
+(91, 'Telkom SIAP PPDB Online', 1, 1, 'Mengolah penerimaan peserta didik baru\r\n', '', 4, 'www.siap-ppdb.com', '1.', 0, '030101', '030101', 'aktif', '', 'adm', '2019-03-31 11:01:51'),
+(92, 'TEPRA', 1, 1, 'Untuk menginformasikan kemajuan fisik dan keuangan pelaksanaan APBD setiap bulannya\r\n', '', 4, 'monev.lkpp.go.id', '1.', 0, '012001', '012001', 'aktif', '', 'adm', '2019-03-31 11:03:19'),
+(93, 'UKM Binaan Dinas Koperasi Kota Denpasar', 1, 2, 'Mencatat data UMKM by name by address\r\n', '', 1, 'http://ukmdiskop.denpasarkota.go.id/', '1.', 0, '031501', '031501', 'aktif', '-', 'adm', '2019-04-29 10:50:55'),
+(94, 'VMS APP', 1, 2, 'Untuk mengupload informasi multi media berbentuk text dan gambar/logo di VMS\r\n', '', 3, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:58:07'),
+(95, 'Warning Receiver System BMKG', 1, 1, 'Memberikan informasi gempa bumi BMKG\r\n', '', 1, 'url:file://D/Data/Wrsdient, psn/web/inatews/indet.html', '1.', 0, '040801', '040801', 'naktif', '', 'adm', '2019-03-31 11:07:19'),
+(96, 'Cyberschool Kota Denpasar', 1, 2, 'Memberikan informasi pendidikan kepada masyarakat, menampilkan vidio Edukasi', '', 1, 'http://www.cyberschooldps.net', '1.', 0, '030101', '030101', 'aktif', '-', 'adm', '2019-04-29 10:55:50'),
+(97, 'Data Perijinan dan Rekomendasi Medis', 1, 1, 'SIM Perijinan bertandatangan digital, pengelolaan pelayanan perijian bertandatangan digital khusus tenaga praktek kesehatan', '', 1, 'pelayanan.denpasarkota.go.id', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-22 08:58:04'),
+(98, 'Data Pokok Pendidikan Anak Usia Dini dan Pendidikan Masyarakat', 1, 1, 'Untuk pemetaan data seluruh lembaga pendidikan PAUD dan PM, Untuk megeluarkan NISN, Untuk alokasi bantuan sarana dan prasarana bagi sekolah yang fasilitasnya belum memadai', '', 1, 'http://www.dapo.paud-dikmas.kemdikbud.go.id', '1.', 0, '030101', '030101', 'aktif', '', 'adm', '2019-04-01 08:05:13'),
+(99, 'Data Pokok Pendidikan Dasar dan Menengah', 1, 1, 'Untuk pemetaan data seluruh lembaga pendidikan SD dan SMP, Untuk mengeluarkan NISN, Untuk alokasi bantuan sarana dan prasarana bagi sekolah yang fasilitasnya belum memadai', '', 1, 'www.dapo.dikdasmen.kemdikbud.go.id', '1.', 0, '030101', '030101', 'aktif', '', 'adm', '2019-04-01 08:06:14'),
+(100, 'Denpasar Plan', 1, 2, 'Penyedia Data Pembangunan Kota Denpasar', '', 1, 'http://32.32.32.4', '1.', 0, '031601', '000000', 'aktif', '-', 'adm', '2019-04-29 10:31:31'),
+(101, 'DETEKTOR STATISTIK', 1, 2, 'Untuk menampilkan volume kendaraan di persimpangan', '', 1, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:58:27'),
+(102, 'DIGITAL WALLDISPLAY', 1, 2, 'Untuk menampilkan video arus lalin di persimpangan', '', 1, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:58:50'),
+(103, 'DIGITAL WALLMAP', 1, 2, 'Untuk Menampilkan Peta Traffic Light dan Kondisi perangkat di lapangan', '', 1, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:59:15'),
+(104, 'e monev stbm (sanitasi total berbasis masyarakat)', 1, 1, 'monitoring hasil monev yang diinput oleh puskesmas', '', 1, 'stbm.org.indonesia.go.id', '1.', 0, '030201', '030201', 'naktif', '', 'adm', '2019-04-01 08:11:53'),
+(105, 'e-BPHTB', 1, 2, 'Mengelola data wajib pajak PBPHTP', '', 1, 'e-pajak.denpasarkota.go.id', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:31:59'),
+(106, 'eCommerce', 1, 2, 'Membantu IKM dalam mempromosikan produknya melalui media digital (website Kota Denpasar)', '', 1, 'balidenpasartrading.com', '1.', 0, '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:01:54'),
+(107, 'E-Form Hortikultura', 1, 1, 'Menginput data Horti Bulanan, Triwulan', '', 1, '', '1.', 0, '031001', '031001', 'aktif', '-', 'adm', '2019-04-29 11:03:57'),
+(108, 'EMR', 1, 2, 'Mengintegrasikan data dari berbagai sumber, mengumpulkan data pada titik pelayanan, mencatat histori rekam medis pasien, mendukung pemberi pelayanan dalam pengambilan keputusan', '', 1, '', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:15:18'),
+(109, 'E-Renggar', 1, 1, 'Perencanaan dan Informasi Kinerja Anggaran untuk DAK fisik dan non fisik', '', 1, 'http://e-renggar.kemkes.go.id/index.php/', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-04-01 08:19:20'),
+(110, 'e-RTLH (ertlh.denpasarkota.go.id)', 2, 2, 'Untuk menyampaikan informasi tentang rumah tidak layak huni yang ada di Kota Denpasar Kepada seluruh masyarakat Kota Denpasar', '', 1, '', '1.', 0, '030401', '030401', 'aktif', '2017', 'adm', '2019-10-14 15:04:40'),
+(111, 'e-SAKIP REVIEW (Sistem Akuntabilitas Kinerja Instansi Pemerintah)', 1, 1, 'e-SAKIP REVIU adalah sistem aplikasi yang dibangun oleh Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi sebagai upaya peningkatan kualitas pelaksanaan akuntabilitas kinerja di lingkungan instansi pemerintah untuk meningkatkan efektivitas dan efisiensi penggunaan anggaran.\r\nSistem ini bertujuan sebagai sarana pembinaan interaktif pelaksanaan Akuntabilitas kerja instansi pemerintah dan sarana penyampaian laporan kinerja secara online.', '', 1, 'www.esr.menpan.go.id', '1.', 0, '040201', '000000', 'aktif', '-', 'adm', '2019-04-22 15:17:46'),
+(112, 'Esewaka Dharma', 1, 2, 'e-Sewaka Dharma berfungsi sebagai aplikasi pelayanan public kantor camat Denpasar Utara', '', 1, 'https://esewakadharma.denpasarkota.go.id/', 'logo-sewaka-dharma.png', 1, '030801', '170004', 'aktif', '2017', 'adm', '2020-03-09 09:05:35'),
+(113, 'e-SPTPD', 1, 2, 'Pelaporan pajak hotel , restoran dan hiburan secara online', '', 1, 'e-pajak.denpasarkota.go.id/esptpd', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:32:31'),
+(114, 'Ewars', 1, 1, 'Untuk laporan mingguan kewaspadaan dini penyakit', '', 1, 'www.surveilans.org', '1.', 0, '030201', '030201', 'naktif', '', 'adm', '2019-04-01 08:25:40'),
+(115, 'G Sinjab', 1, 1, 'Menginput data Analisis Jabatan dan Analisis beban keja dari perangkat daerah/ unit', '', 1, '', '1.', 0, '011301', '000000', 'aktif', '-', 'adm', '2019-04-29 10:37:15'),
+(116, 'Geo Portal', 1, 2, 'Sebagai sarana berbagi pakai data/informasi geo spasial', '', 1, 'geoportal.denpasarkota.go.id', '1.', 0, '031601', '000000', 'aktif', '', 'adm', '2019-04-01 08:40:32'),
+(117, 'GL (General Ledger)', 1, 2, 'Membantu pengelolaan data akutansi dan keuangan', '', 1, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:13:42'),
+(118, 'Harga Pasar', 1, 2, 'Memberikan informasi harga terkait kebutuhan pokok pada pasar-pasar di Kota Denpasar', '', 1, 'hargapasar.denpasarkota.go.id', '1.', 0, '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:03:17'),
+(119, 'infopasar.Denpasarkota.go.id', 1, 2, 'Memberikan informasi harga kebutuhan bahan pokok makanan kepada masyarakat', '', 1, '', '1.', 0, '300003', '300003', 'aktif', '-', 'adm', '2019-04-29 11:08:05'),
+(120, 'InventorX', 1, 1, 'Penatausahaan barang persediaan ', '', 1, 'http://192.166.172.2', '1.', 0, '300005', '000000', 'naktif', '', 'adm', '2019-04-01 08:44:36'),
+(121, 'Jaringan Dokumentasi Informasi Hukum (JDIH)', 1, 1, 'sebagai bentuk layanan penyediaan Informasi Hukum khususnya kepada masyarakat kota Denpasar dan seluruh rakyat Indonesia pada umumnya.', '', 1, 'http://jdih.denpasarkota.go.id/', '1.', 0, '011201', '011201', 'aktif', '-', 'adm', '2019-04-29 10:35:54'),
+(122, 'Komdat Siknas online', 1, 1, 'melaporkan sarana prasarana di puskesmas, data bulanan penyakit, KIA, gizi, imunisasi, data triwulan TB dan kesling, data tahunan (farmasi, imunisasi, penyakit, kesling, SDM kes, promkes, yankes RS, Sapras), laporan standar pelayanan minimal (SPM)', '', 1, 'www.komdat.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-04-01 08:46:41'),
+(123, 'KRISNA (Kolaborasi Perencanaan dan Informasi Kinerja Anggaran)', 1, 1, 'Sebagai pengusulan Dana Alokasi Khusus (DAK)', '', 1, '', '1.', 0, '031601', '031601', 'aktif', '', 'adm', '2019-04-01 08:47:43'),
+(124, 'Lapor KDRT PA', 1, 1, 'Menerima, mencatat, mengolah, menyimpan, dan menindaklanjuti laporan kasus kekerasan perempuan dan anak', '', 1, 'www.kekerasan.kemempan.go.id  ', '1.', 0, '040901', '040901', 'naktif', '', 'adm', '2019-04-01 08:48:41'),
+(125, 'LIVE STREAMING ATCS', 2, 2, 'Untuk memantau arus lalin di persimpangan secara real - time', '', 1, 'atcs.denpasarkota.go.id', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:59:34'),
+(126, 'My Hospital X', 1, 2, 'Mencatat, mengolah, dan menyimpan serta mengintegrasikan data-data yang digunakan untuk kebutuhan accounting, HRD, Farmasi, Billing keperawatan, Aset. Inventory, sistem rekam medis', '', 1, '', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:15:34'),
+(138, 'Simonev', 1, 2, 'Sat gas narkoba', '', 4, '', '1.', 0, '041101', '041101', 'naktif', '-', 'adm', '2019-04-18 08:03:54'),
+(139, 'Sistem Antrian', 1, 2, 'Pengelolaan antrian pelayanan permohonan perijinan', '', 3, '', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-18 08:08:31'),
+(128, 'NOTIFIKASI', 1, 2, 'Untuk pemberitahuan informasi terkini', '', 1, '', '1.', 0, '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:59:51'),
+(129, 'NTPD 112 Denpasar', 1, 1, 'Menerima panggilan darurat', '', 1, 'https://202.146.132.go/index.php', '1.', 0, '040801', '040801', 'naktif', '', 'adm', '2019-04-01 08:53:27'),
+(130, 'Pelaporan e-monev katalog', 1, 1, 'untuk mengetahui kebutuhan obat semua faskes yang bekerja sama dengan bpas', '', 1, 'monevkatalogobat.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-04-01 08:54:14'),
+(131, 'pelaporan e-monev kesling', 1, 1, 'untuk memonotoring laporane-monev', '', 1, 'www.kesling.kesmas.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-04-01 08:55:25'),
+(132, 'Pelaporan Realisasi Pajak Daerah', 1, 2, 'Mengetahui realisasi pajak daerah secara realtime', '', 1, '', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:33:15'),
+(133, 'Pelaporan sipnap (sistem informasi narkotika dan psikotropika)', 1, 1, 'aplikasi yang digunakan untuk pengguna fasyankes untuk melaporkan pemakaian psiko dan narkotika', '', 1, 'http://sipnap.kemkes.go.id/', '1.', 0, '030201', '030201', 'aktif', '-', 'adm', '2019-04-18 10:20:17'),
+(134, 'Sistem Distribusi Obat UPT Farmasi', 1, 2, '-', '', 4, '', '1.', 0, '030201', '030201', 'aktif', '-', 'adm', '2019-04-29 10:37:56'),
+(135, 'Sistem Implementasi Terintegrasi versi 1,0 DLHK Kota Denpasar', 1, 2, 'Sistem pembuat dan pendataan tenaga kontrak di DLHK\r\n', '', 4, '', '1.', 0, '030501', '030501', 'naktif', '-', 'adm', '2019-04-29 11:35:10'),
+(136, 'Siskeudes', 1, 1, 'Mengolah, mencatat, dan menyimpan data keuangan desa\r\n', '', 3, '', '1.', 0, '040501', '100000', 'naktif', '', 'adm', '2019-04-04 08:16:00'),
+(137, 'NIK Koperasi', 1, 1, 'Untuk mendaftarkan koperasi binaan Kota Denpasar memperoleh sertifikat NIK Koperasi', '', 1, '', '1.', 0, '031501', '031501', 'aktif', '-', 'adm', '2019-04-16 09:44:13'),
+(140, 'Website Subdomain (web OPD)', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '-', 'adm', '2019-05-09 14:04:26'),
+(141, 'Antrian Online MPP', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2018', 'adm', '2019-05-16 11:19:53'),
+(142, 'Safe City', 2, 2, 'Safe City berfungsi sebagai sumber informasi mengenai  tingkat kerawanan, baik rawan bencana, kriminal, maupun kecelakaan suatu wilayah di Kota Denpasar.', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2017', 'adm', '2019-05-17 11:47:04'),
+(143, 'Simyandu', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2015', 'adm', '2019-05-16 11:21:46'),
+(144, 'Website Aksara Bali', 1, 2, '-', '', 1, '', '1.', 0, '030801', '030801', 'aktif', '2015', 'adm', '2019-05-16 12:52:43'),
+(145, 'PRO Denpasar Mobile Android', 2, 2, 'PRO Denpasar berfungsi sebagai alat bantu untuk melakukan monitoring dan verifikasi program pembangunan, serta pengaduan masyarakat di Kota Denpasar.', '', 2, 'https://pengaduan.denpasarkota.go.id/', 'logo-prodenpasar.png', 0, '030801', '000000', 'aktif', '2016', 'adm', '2019-05-17 11:43:25'),
+(146, 'SIDOK', 2, 2, '-', '', 1, 'https://sidok.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '2017', 'adm', '2019-05-17 11:47:22'),
+(147, 'Software Aplikasi buku elektronik (e-Book Perpustakaan Kominfo)', 1, 2, '-', '', 1, 'http://widyasastra.denpasarkota.go.id/', '1.', 0, '030801', '030801', 'aktif', '2016', 'adm', '2019-07-05 11:52:24'),
+(148, 'Rujukan Online (Dinas Kominfo)', 1, 2, '-', '', 1, 'http://rujukanonline.denpasarkota.go.id/', '1.', 0, '030801', '030801', 'aktif', '2015', 'adm', '2019-05-16 13:03:19'),
+(149, 'GPS Tracking', 1, 2, 'Diharapkan dapat memantau kendaraan operasional sehingga mengurangi penyimpangan terhadap tugas pengguna armada sesuai dengan ketentuan yang berlaku, dismaping itu tujuan sistem ini digunakan untuk memaksimalkan kinerja dan armada kegawatdaruratan.', '', 1, '', 'map-icon-silicon-beach-la-map-icon-1.png', 1, '030801', '030801', 'aktif', '2016', 'adm', '2019-05-17 11:44:17'),
+(150, 'GIS Berbasis Android', 1, 2, '-', '', 2, '', '1.', 0, '030801', '030801', 'naktif', '2016', 'adm', '2019-05-17 11:44:48'),
+(151, 'Software Monitoring ATCS', 1, 2, 'Software Monitoring ATCS berfungsi sebagai monitoring pengendalian lalu lintas berbasis teknologi informasi pada suatu kawasan yang bertujuan untuk mengoptimalkan kinerja jaringan jalan.', '', 1, '', '1.', 0, '030801', '030801', 'aktif', '2017', 'adm', '2019-05-16 13:08:15'),
+(154, 'Pusat Data Kota Denpasar', 1, 2, 'Meningkatkan kecepatan proses perubahan data dan informasi yang dinamis, meningkatkan volume data informasi yang dapat diakses dan meningkatkan kualitas dan kuantitas pengolahan informasi. Meningkatkan pelayanan kepada masyarakat/publik secara lebih professional dan modern. Pemeliharaan dokumen, data dan informasi yang berkaitan dengan perbankan secara memadai, media komunikasi, interaksi dan informasi dengan masyarakat/publik dengan dua arah agar bisa mendengar dan berbicara secara efektif. memberikan informasi resmi dan terbaru tentang aktifitas dari Pemerintah Kota Denpasar, baik mengenai informasi layanan perizinan, pengaduan masyarakat, transparansi anggaran, informasi publik, informasi layanan publik dan informasi kepada publik.', '', 1, 'https://pusatdata.denpasarkota.go.id/', '1.', 0, '030801', '030801', 'aktif', '2016', 'adm', '2019-05-17 11:45:12'),
+(155, 'Smart City', 1, 2, '-', '', 1, 'http://smartcity.denpasarkota.go.id/', '1.', 0, '030801', '030801', 'aktif', '2015', 'adm', '2019-05-16 13:14:37'),
+(156, 'Web Portal Kota Denpasar', 1, 2, 'Web Portal Kota Denpasar berfungsi sebagai pelayanan pemberian informasi secara cepat kepada masyarakat.', '', 1, '-', '1.', 0, '030801', '030801', 'aktif', '-', 'adm', '2019-05-16 13:15:59'),
+(158, 'PRO Denpasar Website', 2, 2, '-', '', 1, 'https://pengaduan.denpasarkota.go.id/', 'logo-prodenpasar1.png', 1, '030801', '000000', 'aktif', '2016', 'adm', '2019-05-17 11:43:06'),
+(159, 'E-Project Planing', 1, 2, '-', '', 4, '', '1.', 0, '030801', '030801', 'aktif', '2013', 'adm', '2020-03-10 08:40:29'),
+(160, 'Sistem Antrian Terpadu (PATEN)', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2015', 'adm', '2020-03-10 08:40:12'),
+(161, 'SSPK', 1, 2, '-', '', 4, '', '1.', 0, '030801', '030801', 'aktif', '2014', 'adm', '2020-03-10 08:39:39'),
+(162, 'SME', 1, 2, '-', '', 4, '', '1.', 0, '030801', '030801', 'aktif', '2014', 'adm', '2020-03-10 08:38:13'),
+(163, 'Pro Denpasar IOS', 2, 2, '-', '', 2, '', '1.', 0, '030801', '000000', 'aktif', '2017', 'adm', '2019-05-17 10:00:38'),
+(164, 'emonalisa (Hibah Elektronik)', 1, 2, '-', '', 1, '', '1.', 0, '012301', '012301', 'aktif', '-', 'adm', '2019-05-21 14:20:13'),
+(165, 'Antrian Online (Akuwaras)', 1, 2, 'Antrian online di Dinas Kependudukan Dan Pencatatan Sipil', '', 1, '', '1.', 0, '030601', '030601', 'aktif', '-', 'adm', '2019-05-21 14:22:04'),
+(166, 'Sistem Informasi Administrasi Kependudukan (SIAK)', 1, 2, '-', '', 4, '', '1.', 0, '030601', '030601', 'aktif', '-', 'adm', '2019-05-21 14:24:42'),
+(167, 'Simyandes', 1, 2, 'Aplikasi untuk mendounload formulir pelayanan', '', 4, '', '1.', 0, '030601', '030601', 'aktif', '-', 'adm', '2020-03-10 08:37:52'),
+(168, 'Bali Denpasar Tourism', 1, 2, '-', '', 4, '', '1.', 0, '031301', '031301', 'aktif', '-', 'adm', '2020-03-09 15:49:21'),
+(169, 'Web Denpasar Tourism', 1, 2, '-', '', 1, '', '1.', 0, '031301', '031301', 'aktif', '-', 'adm', '2019-05-21 14:28:43'),
+(170, 'Web Bekraf', 1, 2, '-', 'laporan-dengan-crystal-report.pdf', 1, '', '1.', 0, '031301', '031301', 'aktif', '-', 'adm', '2019-05-21 14:29:32'),
+(171, 'Sidarling', 1, 2, 'sdsbjdjabdja<br />\r\n<br />\r\nsdknakldnaslkndlkasnd', 'SURAT PERNYATAAN.pdf', 1, 'https://sidarling.denpasarkota.go.id/', '1.', 0, '030501', '030501', 'aktif', '2019', 'adm', '2019-10-14 14:58:20'),
+(172, 'SIMAK DIHATI', 2, 2, '-', '-', 1, 'https://simpeg.denpasarkota.go.id', '', 0, '040301', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:04:10'),
+(173, 'Kota Tangguh Sosial', 2, 2, '-', '-', 1, 'https://kotatangguh.denpasarkota.go.id/', '', 0, '300004', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:08:51'),
+(174, 'Pemantauan Kualitas Udara', 2, 1, 'Aplikasi utk pemantauan kualitas udara', '-', 1, 'http://202.73.26.177/bar/stasiun2.php?id=denpasar#', '', 0, '030501', '000000', 'aktif', '-', 'adm', '2019-10-24 14:56:56'),
+(175, 'Mobile Esewaka Dharma', 2, 2, 'Sebagai aplikasi layanan publik bagi seluruh masyarakat dalam melakukan administrasi kependudukan.', '-', 2, '', '', 0, '030801', '100000', 'aktif', '2020', 'adm', '2020-03-09 08:48:32'),
+(176, 'Buku tamu damamaya', 1, 2, 'Sebagai aplikasi pencatatan tamu yang hadir ke ruang damamaya.', '-', 1, '', '', 0, '030801', '030801', 'aktif', '2019', 'adm', '2020-02-13 11:02:14'),
+(177, 'Karma simanis', 2, 2, '-', '-', 1, 'https://simonev.denpasarkota.go.id/', '', 0, '012001', '000000', 'aktif', '2019', 'adm', '2020-02-13 11:25:07'),
+(178, 'Sipoint', 2, 2, 'Sebagai dashboard internal aplikasi yang ada di Kota Denpasar, yang mana didalamnya terdapat aplikasi SIMPARSA, EParuman dan lain-lain.', '-', 1, 'https://sipoint.denpasarkota.go.id/', '', 0, '030801', '-', 'aktif', '2019', 'adm', '2020-02-13 11:34:42'),
+(179, 'Sijuna', 2, 2, 'Sebuah aplikasi untuk pendaftaran kunjungan ke OPD yang ada di Kota Denpasar.', '', 1, 'http://sijuna.denpasarkota.go.id/', '', 0, '000000', '000000', 'aktif', '2020', 'adm', '2020-03-09 08:44:39'),
+(181, 'Divos', 2, 2, '-', '-', 1, 'https://divos.denpasarkota.go.id/', '', 0, '030801', '000000', 'aktif', '2020', 'adm', '2020-03-09 09:14:30'),
+(182, 'Cekas', 1, 2, '-', '-', 1, 'http://rkas.denpasarkota.go.id/index.php/login', '', 0, '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:38:44'),
+(183, 'midep', 1, 2, '-', '-', 1, 'http://midep.denpasarkota.go.id/admin/login', '', 0, '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:40:26'),
+(184, 'Dapodik', 1, 1, '-', '-', 1, 'http://simdik.denpasarkota.go.id/index.php/home', '', 0, '030101', '030101', 'aktif', '2020', 'adm', '2020-06-12 10:34:00'),
+(185, 'Sinkrondapodik', 1, 2, '-', '-', 1, 'http://sinkrondapodik.denpasarkota.go.id/', '', 0, '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:44:04'),
+(186, 'e cheking', 1, 2, '-', '-', 1, '', '', 0, '031501', '031501', 'aktif', '2020', 'adm', '2020-03-10 15:46:04'),
+(187, 'Sicantik Cloud', 1, 1, '-', '-', 1, '', '', 0, '140018', '140018', 'aktif', '2020', 'adm', '2020-06-12 10:33:31'),
+(188, 'CS2', 1, 2, '-', '-', 1, '', '', 0, '013401', '013401', 'aktif', '2020', 'adm', '2020-03-10 15:49:18'),
+(194, 'wwww', 1, 2, 'qweqe', '', 2, 'www', '', 1, '011401', '011401', 'aktif', '2019', 'putuokky', '2020-06-15 10:11:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_aplikasi`
+--
+
+CREATE TABLE `detail_aplikasi` (
+  `id_detail_aplikasi` int(11) NOT NULL,
+  `id_aplikasi` int(11) NOT NULL,
+  `input` text NOT NULL,
+  `output` text NOT NULL,
+  `version` varchar(50) NOT NULL,
+  `db` int(11) NOT NULL,
+  `pemrograman` varchar(255) NOT NULL,
+  `integrasi` varchar(10) NOT NULL,
+  `info_integrasi` text NOT NULL,
+  `thn_pengembangan` varchar(6) NOT NULL,
+  `cpu_server` varchar(100) NOT NULL,
+  `ram_server` varchar(100) NOT NULL,
+  `harddisk_server` varchar(100) NOT NULL,
+  `os_server` varchar(100) NOT NULL,
+  `bp_server` varchar(100) NOT NULL,
+  `web_server` varchar(100) NOT NULL,
+  `database_server` varchar(100) NOT NULL,
+  `bplain_server` varchar(100) NOT NULL,
+  `judul_spk` varchar(50) NOT NULL,
+  `nilai_spk` int(11) NOT NULL,
+  `sumberdana_spk` varchar(20) NOT NULL,
+  `vendor` varchar(100) NOT NULL,
+  `kontak_vendor` varchar(100) NOT NULL,
+  `usr` text NOT NULL,
+  `dlu` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `detail_aplikasi`
+--
+
+INSERT INTO `detail_aplikasi` (`id_detail_aplikasi`, `id_aplikasi`, `input`, `output`, `version`, `db`, `pemrograman`, `integrasi`, `info_integrasi`, `thn_pengembangan`, `cpu_server`, `ram_server`, `harddisk_server`, `os_server`, `bp_server`, `web_server`, `database_server`, `bplain_server`, `judul_spk`, `nilai_spk`, `sumberdana_spk`, `vendor`, `kontak_vendor`, `usr`, `dlu`) VALUES
+(1, 194, 'qqq', 'ww1', '1.6.20', 1, 'PHP, Framework CI, Laravel, YII', 'sudah', '', '2020', 'www', 'eee', 'rrr', 'tt', 'yyy', 'uuuu', 'iiii', 'jjjj', 'hhhh', 111, 'gg', 'kkk', '222', 'putuokky', '2020-06-16 17:57:35');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori_aplikasi`
+--
+
+CREATE TABLE `kategori_aplikasi` (
+  `id_kat_aplikasi` int(11) NOT NULL,
+  `kat_aplikasi` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori_aplikasi`
+--
+
+INSERT INTO `kategori_aplikasi` (`id_kat_aplikasi`, `kat_aplikasi`) VALUES
+(1, 'Pusat'),
+(2, 'Lokal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori_database`
+--
+
+CREATE TABLE `kategori_database` (
+  `id_kat_database` int(11) NOT NULL,
+  `nama_kat_database` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori_database`
+--
+
+INSERT INTO `kategori_database` (`id_kat_database`, `nama_kat_database`) VALUES
+(1, 'MySQL'),
+(2, 'SQL Server'),
+(3, 'Oracle'),
+(4, 'Access');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori_media`
+--
+
+CREATE TABLE `kategori_media` (
+  `id_media` int(11) NOT NULL,
+  `nama_kat_media` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori_media`
+--
+
+INSERT INTO `kategori_media` (`id_media`, `nama_kat_media`) VALUES
+(1, 'Website'),
+(2, 'Mobile'),
+(3, 'Dekstop'),
+(4, 'Lainnya');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `klasifikasi_aplikasi`
+--
+
+CREATE TABLE `klasifikasi_aplikasi` (
+  `id_klasifikasi_app` int(11) NOT NULL,
+  `nama_klasifikasi_app` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `klasifikasi_aplikasi`
+--
+
+INSERT INTO `klasifikasi_aplikasi` (`id_klasifikasi_app`, `nama_klasifikasi_app`) VALUES
+(1, 'Khusus'),
+(2, 'Umum');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_jenis_laporan`
+--
+
+CREATE TABLE `tbl_jenis_laporan` (
+  `id_jenis_laporan` int(11) NOT NULL,
+  `nama_jenis_laporan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_jenis_laporan`
+--
+
+INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`) VALUES
+(1, 'Server'),
+(2, 'Aplikasi'),
+(3, 'Jaringan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_kategori_monev`
+--
+
+CREATE TABLE `tbl_kategori_monev` (
+  `id_kat_monev` int(11) NOT NULL,
+  `nama_kategori_monev` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_kategori_monev`
+--
+
+INSERT INTO `tbl_kategori_monev` (`id_kat_monev`, `nama_kategori_monev`) VALUES
+(1, 'Database'),
+(2, 'Jaringan'),
+(3, 'Server'),
+(4, 'Desain'),
+(5, 'Fitur'),
+(6, 'Lain - Lain');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_lapormasalah`
+--
+
+CREATE TABLE `tbl_lapormasalah` (
+  `id_lapormasalah` int(11) NOT NULL,
+  `jns_laporan` int(11) NOT NULL,
+  `nama_app` int(11) NOT NULL,
+  `permasalahan` text NOT NULL,
+  `bukti_lapor` text NOT NULL,
+  `nama_input` varchar(100) NOT NULL,
+  `status_lapor` int(11) NOT NULL,
+  `kat_tl` int(11) DEFAULT NULL,
+  `respon_lapor` text DEFAULT NULL,
+  `bukti_dukung_selesai` text DEFAULT NULL,
+  `dlu` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_lapormasalah`
+--
+
+INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `permasalahan`, `bukti_lapor`, `nama_input`, `status_lapor`, `kat_tl`, `respon_lapor`, `bukti_dukung_selesai`, `dlu`) VALUES
+(1, 1, 194, 'asdasd', 'ssss', 'putuokky', 1, NULL, NULL, NULL, '2020-06-16 20:47:23'),
+(2, 0, 4, 'yyy', 'bali.pdf', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 00:04:40'),
+(3, 2, 1, 'qqqq', 'Panduan Penggunaan Sistem esewakadharma Rev1.pdf', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 00:05:45'),
+(4, 3, 6, 'gak isi filee', '', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 00:06:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_monev_app`
+--
+
+CREATE TABLE `tbl_monev_app` (
+  `id_monev_app` int(11) NOT NULL,
+  `nama_app` int(11) NOT NULL,
+  `kategori_monev` int(11) NOT NULL,
+  `masalah` mediumtext NOT NULL,
+  `bukti_dukung` mediumtext NOT NULL,
+  `solusi_pengembang` mediumtext NOT NULL,
+  `nama_team` varchar(50) NOT NULL,
+  `status_monev` int(11) NOT NULL,
+  `dlu_monev` datetime NOT NULL,
+  `respon_koor` mediumtext DEFAULT NULL,
+  `nama_koor` varchar(50) DEFAULT NULL,
+  `dlu_respon_koor` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_monev_app`
+--
+
+INSERT INTO `tbl_monev_app` (`id_monev_app`, `nama_app`, `kategori_monev`, `masalah`, `bukti_dukung`, `solusi_pengembang`, `nama_team`, `status_monev`, `dlu_monev`, `respon_koor`, `nama_koor`, `dlu_respon_koor`) VALUES
+(5, 5, 1, 'mau donk', 'tte-000020-SRT-062020.pdf', 'harus bisa ', 'putuokky', 2, '2020-06-06 17:49:15', 'Tes', '198404062009031006', '2020-06-06 18:16:06'),
+(6, 73, 2, 'Eror koneksi', 'Eksport_Rekap_Surat_Request_.pdf', 'Tes', 'veriandriawan', 2, '2020-06-06 18:07:44', 'Kembangkan aplikasi', '198404062009031006', '2020-06-06 18:14:34'),
+(7, 75, 3, 'T', '', 'Yyy', 'veriandriawan', 1, '2020-06-06 18:26:49', NULL, NULL, NULL),
+(8, 72, 1, 'Ttt', 'laporan pekerja informal 31 mei 2020.pdf', 'Ttjvxxcv', 'veriandriawan', 1, '2020-06-06 18:29:25', NULL, NULL, NULL),
+(9, 145, 5, 'ha ahahahaha', 'jadwal FGD SC.pdf', 'wkwkwkwkwk', 'putuokky', 1, '2020-06-06 18:32:52', NULL, NULL, NULL),
+(10, 73, 5, 'Lapar', '', 'Makan', 'agungpriambada', 1, '2020-06-06 20:31:31', NULL, NULL, NULL),
+(11, 163, 5, 'Tampilan kurang responsif', 'Buku Panduan - SIM Kependudukan (tanpa KAK).pdf', 'Bangun baru', 'putuokky', 1, '2020-06-08 09:52:35', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -44,31 +486,31 @@ CREATE TABLE `tb_aspek` (
 --
 
 INSERT INTO `tb_aspek` (`idaspek`, `nilai_indeks_aspek`, `iddomain`, `nama_aspek`, `bobot_aspek`, `target`, `tahun_aspek`, `urutan_aspek`) VALUES
-(1, 2.00, 1, 'Kebijakan Tata Kelola SPBE', 7.00, 3, '2018', 1),
-(2, 2.10, 1, 'Kebijakan Layanan SPBE', 10.00, 3, '2018', 2),
-(3, 2.00, 2, 'Kelembagaan', 8.00, 3, '2018', 3),
-(4, 2.50, 2, 'Strategi dan Perencanaan', 8.00, 3, '2018', 4),
-(5, 2.33, 2, 'Teknologi Informasi dan Komunikasi', 12.00, 3, '2018', 5),
-(6, 3.29, 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', 35.00, 3, '2018', 6),
-(7, 2.50, 3, 'Layanan Publik Berbasis Elektronik', 20.00, 3, '2018', 7),
-(8, 0.83, 4, 'Bangunan Cerdas Cerdas', 0.08, 0, '2018', 1),
-(9, 2.88, 4, 'Manajemen Sumber Daya', 0.29, 0, '2018', 2),
-(10, 6.29, 4, 'Perencanaan Berkelanjutan', 0.63, 0, '2018', 3),
-(11, 2.67, 5, 'Transportasi yang Efisien', 0.36, 0, '2018', 1),
-(12, 2.99, 5, 'Akses Multi Moda', 0.40, 0, '2018', 2),
-(13, 1.84, 5, 'Infrastruktur Teknologi', 0.25, 0, '2018', 3),
-(14, 2.91, 6, 'Layanan Daring', 0.32, 0, '2018', 1),
-(15, 2.57, 6, 'Infrastruktur Pendukung Sistem', 0.28, 0, '2018', 2),
-(16, 3.57, 6, 'Keterbukaan Data Pemerintahan', 0.39, 0, '2018', 3),
-(17, 2.56, 7, 'Kewirausahaan dan Inovasi', 0.37, 0, '2018', 1),
-(18, 1.84, 7, 'Produktivitas', 0.27, 0, '2018', 2),
-(19, 2.49, 7, 'Jaringan Bisnis Dalam dan Luar Negeri', 0.36, 0, '2018', 3),
-(20, 2.58, 8, 'Inklusivitas Sosial', 0.25, 0, '2018', 1),
-(21, 2.13, 8, 'Pendidikan', 0.20, 0, '2018', 2),
-(22, 5.79, 8, 'Kreativitas', 0.55, 0, '2018', 3),
-(23, 3.17, 9, 'Budaya dan Kesejahteraan', 0.30, 0, '2018', 1),
-(24, 2.51, 9, 'Keamanan', 0.24, 0, '2018', 2),
-(25, 4.77, 9, 'Kesehatan', 0.46, 0, '2018', 3);
+(1, '2.00', 1, 'Kebijakan Tata Kelola SPBE', '7.00', 3, '2018', 1),
+(2, '2.10', 1, 'Kebijakan Layanan SPBE', '10.00', 3, '2018', 2),
+(3, '2.00', 2, 'Kelembagaan', '8.00', 3, '2018', 3),
+(4, '2.50', 2, 'Strategi dan Perencanaan', '8.00', 3, '2018', 4),
+(5, '2.33', 2, 'Teknologi Informasi dan Komunikasi', '12.00', 3, '2018', 5),
+(6, '3.29', 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', '35.00', 3, '2018', 6),
+(7, '2.50', 3, 'Layanan Publik Berbasis Elektronik', '20.00', 3, '2018', 7),
+(8, '0.83', 4, 'Bangunan Cerdas Cerdas', '0.08', 0, '2018', 1),
+(9, '2.88', 4, 'Manajemen Sumber Daya', '0.29', 0, '2018', 2),
+(10, '6.29', 4, 'Perencanaan Berkelanjutan', '0.63', 0, '2018', 3),
+(11, '2.67', 5, 'Transportasi yang Efisien', '0.36', 0, '2018', 1),
+(12, '2.99', 5, 'Akses Multi Moda', '0.40', 0, '2018', 2),
+(13, '1.84', 5, 'Infrastruktur Teknologi', '0.25', 0, '2018', 3),
+(14, '2.91', 6, 'Layanan Daring', '0.32', 0, '2018', 1),
+(15, '2.57', 6, 'Infrastruktur Pendukung Sistem', '0.28', 0, '2018', 2),
+(16, '3.57', 6, 'Keterbukaan Data Pemerintahan', '0.39', 0, '2018', 3),
+(17, '2.56', 7, 'Kewirausahaan dan Inovasi', '0.37', 0, '2018', 1),
+(18, '1.84', 7, 'Produktivitas', '0.27', 0, '2018', 2),
+(19, '2.49', 7, 'Jaringan Bisnis Dalam dan Luar Negeri', '0.36', 0, '2018', 3),
+(20, '2.58', 8, 'Inklusivitas Sosial', '0.25', 0, '2018', 1),
+(21, '2.13', 8, 'Pendidikan', '0.20', 0, '2018', 2),
+(22, '5.79', 8, 'Kreativitas', '0.55', 0, '2018', 3),
+(23, '3.17', 9, 'Budaya dan Kesejahteraan', '0.30', 0, '2018', 1),
+(24, '2.51', 9, 'Keamanan', '0.24', 0, '2018', 2),
+(25, '4.77', 9, 'Kesehatan', '0.46', 0, '2018', 3);
 
 -- --------------------------------------------------------
 
@@ -204,15 +646,15 @@ CREATE TABLE `tb_domain` (
 --
 
 INSERT INTO `tb_domain` (`iddomain`, `id_indeks`, `nilai_indeks_domain`, `namadomain`, `bobot`, `tahun_domain`, `urutan_domain`) VALUES
-(1, 1, 2.06, 'Kebijakan SPBE', 17.00, '2018', 1),
-(2, 1, 2.29, 'Tata Kelola SPBE', 28.00, '2018', 2),
-(3, 1, 3.00, 'Layanan SPBE', 55.00, '2018', 3),
-(4, 2, 0.00, 'Dimensi Lingkungan (Smart Environment)', 0.16, '2018', 1),
-(5, 2, 0.00, 'Dimensi Mobilitas (Smart Mobility)', 0.11, '2018', 2),
-(6, 2, 0.00, 'Dimensi Pemerintahan (Smart Government)', 0.12, '2018', 3),
-(7, 2, 0.00, 'Dimensi Ekonomi (Smart Economy)', 0.12, '2018', 4),
-(8, 2, 0.00, 'Dimensi Masyarakat (Smart People)', 0.29, '2018', 5),
-(9, 2, 0.00, 'Dimensi Kualitas Hidup (Smart Living)', 0.20, '2018', 6);
+(1, 1, '2.06', 'Kebijakan SPBE', '17.00', '2018', 1),
+(2, 1, '2.29', 'Tata Kelola SPBE', '28.00', '2018', 2),
+(3, 1, '3.00', 'Layanan SPBE', '55.00', '2018', 3),
+(4, 2, '0.00', 'Dimensi Lingkungan (Smart Environment)', '0.16', '2018', 1),
+(5, 2, '0.00', 'Dimensi Mobilitas (Smart Mobility)', '0.11', '2018', 2),
+(6, 2, '0.00', 'Dimensi Pemerintahan (Smart Government)', '0.12', '2018', 3),
+(7, 2, '0.00', 'Dimensi Ekonomi (Smart Economy)', '0.12', '2018', 4),
+(8, 2, '0.00', 'Dimensi Masyarakat (Smart People)', '0.29', '2018', 5),
+(9, 2, '0.00', 'Dimensi Kualitas Hidup (Smart Living)', '0.20', '2018', 6);
 
 -- --------------------------------------------------------
 
@@ -339,7 +781,7 @@ CREATE TABLE `tb_feedback` (
   `idfeedback` int(11) NOT NULL,
   `idpenilaian` int(11) NOT NULL,
   `ket_feedback` text NOT NULL,
-  `files_feedback` text,
+  `files_feedback` text DEFAULT NULL,
   `userid_created` varchar(50) NOT NULL,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -537,8 +979,11 @@ CREATE TABLE `tb_indeks` (
 --
 
 INSERT INTO `tb_indeks` (`id_indeks`, `nama_indeks`, `nilai_indeks`, `tahun_indeks`, `urutan_indeks`) VALUES
-(1, 'SPBE', 2.64, '2018', 1),
-(2, 'IKCI', 61.70, '2018', 2);
+(1, 'SPBE', '2.64', '2018', 1),
+(2, 'IKCI', '61.70', '2018', 2),
+(3, 'SPBE', '3.33', '2019', 2),
+(4, 'SPBE', '3.33', '2019', 3),
+(5, 'SPBE', '3.33', '2019', 2);
 
 -- --------------------------------------------------------
 
@@ -560,43 +1005,43 @@ CREATE TABLE `tb_indikator` (
 --
 
 INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`, `bobot_indikator`) VALUES
-(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, 1.0),
-(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, 1.0),
-(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, 1.0),
-(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, 1.0),
-(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, 1.0),
-(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, 1.0),
-(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, 1.0),
-(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, 1.0),
-(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, 1.0),
-(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, 1.0),
-(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, 1.0),
-(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, 1.0),
-(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, 1.0),
-(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, 1.0),
-(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, 1.0),
-(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, 1.0),
-(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, 1.0),
-(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, 4.0),
-(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, 4.0),
-(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, 4.0),
-(21, 4, 'Anggaran dan Belanja TIK', '21', 21, 4.0),
-(22, 5, 'Pengoperasian Pusat Data', '22', 22, 4.0),
-(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, 4.0),
-(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, 4.0),
-(25, 6, 'Layanan Naskah Dinas', '25', 25, 5.0),
-(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, 5.0),
-(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, 5.0),
-(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, 5.0),
-(29, 6, 'Layanan Manajemen Keuangan', '29', 29, 5.0),
-(30, 6, 'Layanan Manajemen Kinerja', '30', 30, 5.0),
-(31, 6, 'Layanan Pengadaan', '31', 31, 5.0),
-(32, 7, 'Layanan Pengaduan Publik', '32', 32, 3.3),
-(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, 3.3),
-(34, 7, 'Layanan Whistle-Blowing System', '34', 34, 3.3),
-(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, 3.3),
-(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, 3.3),
-(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, 3.3);
+(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, '1.0'),
+(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, '1.0'),
+(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, '1.0'),
+(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, '1.0'),
+(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, '1.0'),
+(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, '1.0'),
+(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, '1.0'),
+(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, '1.0'),
+(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, '1.0'),
+(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, '1.0'),
+(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, '1.0'),
+(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, '1.0'),
+(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, '1.0'),
+(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, '1.0'),
+(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, '1.0'),
+(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, '1.0'),
+(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, '1.0'),
+(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, '4.0'),
+(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, '4.0'),
+(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, '4.0'),
+(21, 4, 'Anggaran dan Belanja TIK', '21', 21, '4.0'),
+(22, 5, 'Pengoperasian Pusat Data', '22', 22, '4.0'),
+(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, '4.0'),
+(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, '4.0'),
+(25, 6, 'Layanan Naskah Dinas', '25', 25, '5.0'),
+(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, '5.0'),
+(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, '5.0'),
+(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, '5.0'),
+(29, 6, 'Layanan Manajemen Keuangan', '29', 29, '5.0'),
+(30, 6, 'Layanan Manajemen Kinerja', '30', 30, '5.0'),
+(31, 6, 'Layanan Pengadaan', '31', 31, '5.0'),
+(32, 7, 'Layanan Pengaduan Publik', '32', 32, '3.3'),
+(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, '3.3'),
+(34, 7, 'Layanan Whistle-Blowing System', '34', 34, '3.3'),
+(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, '3.3'),
+(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, '3.3'),
+(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, '3.3');
 
 -- --------------------------------------------------------
 
@@ -938,7 +1383,7 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 ('040501', 'Dinas Pemberdayaan Masyarakat dan Desa Kota', ''),
 ('040601', 'Badan Kesatuan Bangsa, Politik dan Perlindungan Masyarakat', ''),
 ('040701', 'Dinas Perpustakaan dan Kearsipan', ''),
-('040801', 'Badan Penanggulangan Bencana Daerah (BPBD)', ''),
+('040801', 'Badan Penanggulangan Bencana Daerah (BPBD)', 'BPBD'),
 ('040901', 'Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana', ''),
 ('041001', 'Rumah Sakit Umum Daerah Wangaya', 'RSUD Wangaya'),
 ('041101', 'Badan Penelitian Dan Pengembangan', ''),
@@ -1077,10 +1522,10 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 CREATE TABLE `tb_penilaian` (
   `idpenilaian` int(11) NOT NULL,
   `idindikator` int(11) NOT NULL,
-  `rekomendasi` text,
+  `rekomendasi` text DEFAULT NULL,
   `nilaikematangan` varchar(5) DEFAULT NULL,
   `penilaianmandiri` varchar(5) NOT NULL,
-  `tindaklanjut` text,
+  `tindaklanjut` text DEFAULT NULL,
   `target_waktu` varchar(5) NOT NULL,
   `tahun_penilaian` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1126,43 +1571,43 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (37, 35, '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya', '-', '-', '-	Sistem integrasi PHR dengan Perijinan\r\n-	Sistem integrasi PBB dengan Perijinan\r\n-	Sistem integrasi BPHTB denganKantor BPN tujuannya (Perwali No 17 Tahun 2016)\r\n-	E-SPTPD  Sistem pelaporan pajak secara online (Perwali No. 16 Tahun 2016)\r\n-	I-PBB (informasi pelayanan Pajak Bumi dan Bangunan)\r\n-	Aplikasi integrasi Kasda online Penerimaan PAD Kota Denpasar', '2019', '2018'),
 (38, 36, 'Layanan publik sebaiknya ditingkatkan menjadi layanan transaksi dimana pengguna dapat dengan mudah mendapatkan layanan dan sistem dapat menjalankan otomasi proses bisnis layanan dan menerapkan transaksi layanan ke dalam basis data secara daring (on-line)', '214', '215', 'Optimalisasi Layanan Bursa Kerja dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (39, 37, 'Layanan publik sebaiknya ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '3', '5', 'Optimalisasi Layanan Perijinan dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
-(42, 1, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Tim Pengarah SPBE \r\n-	Monev Kebijakan', '2020', '2019'),
-(43, 2, 'Masih Menunggu Hasil Kemenpan 2019', '-', '2', '-	Kebijakan Proses Bisnis Integrasi\r\n-	Monev Kebijakan', '2020', '2019'),
-(44, 3, 'Masih Menunggu Hasil Kemenpan 2019', '-', '2', '-	Kebijakan Rencana Induk Blue Print eGov\r\n-	Monev Kebijakan', '2020', '2019'),
-(45, 4, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Anggaran dan  Belanja TIK\r\n-	Monev Kebijakan', '2020', '2019'),
-(46, 5, 'Masih Menunggu Hasil Kemenpan 2019', '-', '2', '-	Revisi Perwali eGov  atau Rencana Induk SPBE (Pusat Data)\r\n-	Monev Kebijakan', '2020', '2019'),
-(47, 6, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Revisi Perwali eGov  atau Rencana Induk  SPBE (Integrasi Sistem)\r\n-	Monev Kebijakan', '2020', '2019'),
-(48, 7, 'Masih Menunggu Hasil Kemenpan 2019', '-', '-', '-	Kebijakan aplikasi monitoring dan evaluasi (Simonev) Karma Simanis\r\n-	Monev Kebijakan', '2020', '2019'),
-(49, 8, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Naskah Dinas\r\n-	Monev Kebijakan', '2020', '2019'),
-(50, 9, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Manajemen Kepegawaian (Simak di Hati)\r\n-	Monev Kebijakan', '2020', '2019'),
-(51, 10, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Manajemen Perencanaaan dan Penganggaran\r\n-	Monev Kebijakan', '2020', '2019'),
-(52, 11, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Membuat Kebijakan Layanan Manajemen Keuangan\r\n-	Monev Kebijakan', '2020', '2019'),
-(53, 12, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Revisi Kebijakan Layanan Manajemen Kinerja\r\n-	Monev Kebijakan', '2020', '2019'),
-(54, 13, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Revisi Perwali No 2 Tahun 2018 Tentang Layanan Pengadaan (Integrasi dengan Layanan SPBE lainnya)\r\n-	Monev Kebijakan', '2020', '2019'),
-(55, 14, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Revisi Perwali No 45 Tahun 2014 Tentang Pengaduan Publik (Integrasi dengan Layanan SPBE lainnya)\r\n-	Monev Kebijakan', '2020', '2019'),
-(56, 15, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Membuat Kebijakan Layanan JDIH\r\n-	Monev Kebijakan', '2020', '2019'),
-(57, 16, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Membuat atau Revisi Kebijakan Layanan WBS\r\n-	Monev Kebijakan', '2020', '2019'),
-(58, 17, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Kebijakan Layanan Perijinan\r\n-	Monev Kebijakan', '2020', '2019'),
-(59, 18, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Membentuk Tim Pengarah SPBE\r\n-	Monev Berkala', '2020', '2019'),
-(60, 19, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Menerapkan proses bisnis\r\n-	Monev Berkala', '2020', '2019'),
-(61, 20, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Membuat Rencana Induk SPBE\r\n-	Monev Berkala', '2020', '2019'),
-(62, 21, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Anggaran Belanja TIK OPD diukur, dipantau dan dievaluasi berkala', '2020', '2019'),
-(63, 22, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Pengembangan Data Center\r\n-	Monev Berkala', '2020', '2019'),
-(64, 23, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Integrasi sesuai arsitektur dari Rencana Induk SPBE\r\n-	Monev Berkala', '2020', '2019'),
-(65, 24, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi Penerapan  eMonev yang terintegrasi dari perencanaan, penganggaran, hingga realisasi fisik serta keuangan dan kepegawaian.\r\n-	Monev Berkala', '2020', '2019'),
-(66, 25, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan Layanan Naskah Dinas\r\n-	Monitoring Berkala', '2020', '2019'),
-(67, 26, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Kepegawaian\r\n-	Monitoring Berkala', '2020', '2019'),
-(68, 27, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Penerapan Layanan Manajemen Perencanaan\r\n-	Monev Berkala', '2020', '2019'),
-(69, 28, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Penerapan Layanan Manajemen Penganggaran\r\n-	Monev Berkala', '2020', '2019'),
-(70, 29, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Penerapan Layanan Manajemen Keuangan\r\n-	Monev Berkala', '2020', '2019'),
-(71, 30, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Manajemen Kinerja\r\n-	Monev Berkala', '2020', '2019'),
-(72, 31, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Penerapan Layanan Pengadaan\r\n-	Monev Berkala', '2020', '2019'),
-(73, 32, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Pengaduan Publik\r\n-	Monev Berkala', '2020', '2019'),
-(74, 33, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Dokumentasi dan Informasi Hukum\r\n-	Monev Berkala', '2020', '2019'),
-(75, 34, 'Masih Menunggu Hasil Kemenpan 2019', '-', '3', '-	Optimalisasi  Penerapan dan Pengembangan Layanan WBS\r\n-	Monev Berkala', '2020', '2019'),
-(76, 35, 'Masih Menunggu Hasil Kemenpan 2019', '-', '-', '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Layanan dan Kebijakan secara Berkala', '2020', '2019'),
-(77, 36, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi Penerapan dan Pengembangan Layanan Bursa Kerja \r\n-	Revisi Kebijakan Internal Layanan Bursa Kerja Online serta dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Berkala', '2020', '2019'),
-(78, 37, 'Masih Menunggu Hasil Kemenpan 2019', '-', '4', '-	Optimalisasi Penerpan dan Pengembangan Layanan Perijinan\r\n-	Monev Berkala', '2020', '2019'),
+(42, 1, 'Masih Menunggu Hasil Kemenpan 2019', '4', '4', '-	Kebijakan Tim Pengarah SPBE \r\n-	Monev Kebijakan', '2020', '2019'),
+(43, 2, 'Masih Menunggu Hasil Kemenpan 2019', '10', '10', '-	Kebijakan Proses Bisnis Integrasi\r\n-	Monev Kebijakan', '2020', '2019'),
+(44, 3, 'Masih Menunggu Hasil Kemenpan 2019', '16', '16', '-	Kebijakan Rencana Induk Blue Print eGov\r\n-	Monev Kebijakan', '2020', '2019'),
+(45, 4, 'Masih Menunggu Hasil Kemenpan 2019', '22', '22', '-	Kebijakan Anggaran dan  Belanja TIK\r\n-	Monev Kebijakan', '2020', '2019'),
+(46, 5, 'Masih Menunggu Hasil Kemenpan 2019', '28', '28', '-	Revisi Perwali eGov  atau Rencana Induk SPBE (Pusat Data)\r\n-	Monev Kebijakan', '2020', '2019'),
+(47, 6, 'Masih Menunggu Hasil Kemenpan 2019', '34', '34', '-	Revisi Perwali eGov  atau Rencana Induk  SPBE (Integrasi Sistem)\r\n-	Monev Kebijakan', '2020', '2019'),
+(48, 7, 'Masih Menunggu Hasil Kemenpan 2019', '40', '40', '-	Kebijakan aplikasi monitoring dan evaluasi (Simonev) Karma Simanis\r\n-	Monev Kebijakan', '2020', '2019'),
+(49, 8, 'Masih Menunggu Hasil Kemenpan 2019', '46', '46', '-	Kebijakan Layanan Naskah Dinas\r\n-	Monev Kebijakan', '2020', '2019'),
+(50, 9, 'Masih Menunggu Hasil Kemenpan 2019', '52', '52', '-	Kebijakan Layanan Manajemen Kepegawaian (Simak di Hati)\r\n-	Monev Kebijakan', '2020', '2019'),
+(51, 10, 'Masih Menunggu Hasil Kemenpan 2019', '58', '58', '-	Kebijakan Layanan Manajemen Perencanaaan dan Penganggaran\r\n-	Monev Kebijakan', '2020', '2019'),
+(52, 11, 'Masih Menunggu Hasil Kemenpan 2019', '64', '64', '-	Membuat Kebijakan Layanan Manajemen Keuangan\r\n-	Monev Kebijakan', '2020', '2019'),
+(53, 12, 'Masih Menunggu Hasil Kemenpan 2019', '70', '70', '-	Revisi Kebijakan Layanan Manajemen Kinerja\r\n-	Monev Kebijakan', '2020', '2019'),
+(54, 13, 'Masih Menunggu Hasil Kemenpan 2019', '76', '76', '-	Revisi Perwali No 2 Tahun 2018 Tentang Layanan Pengadaan (Integrasi dengan Layanan SPBE lainnya)\r\n-	Monev Kebijakan', '2020', '2019'),
+(55, 14, 'Masih Menunggu Hasil Kemenpan 2019', '82', '82', '-	Revisi Perwali No 45 Tahun 2014 Tentang Pengaduan Publik (Integrasi dengan Layanan SPBE lainnya)\r\n-	Monev Kebijakan', '2020', '2019'),
+(56, 15, 'Masih Menunggu Hasil Kemenpan 2019', '88', '88', '-	Membuat Kebijakan Layanan JDIH\r\n-	Monev Kebijakan', '2020', '2019'),
+(57, 16, 'Masih Menunggu Hasil Kemenpan 2019', '94', '94', '-	Membuat atau Revisi Kebijakan Layanan WBS\r\n-	Monev Kebijakan', '2020', '2019'),
+(58, 17, 'Masih Menunggu Hasil Kemenpan 2019', '100', '100', '-	Kebijakan Layanan Perijinan\r\n-	Monev Kebijakan', '2020', '2019'),
+(59, 18, 'Masih Menunggu Hasil Kemenpan 2019', '106', '106', '-	Membentuk Tim Pengarah SPBE\r\n-	Monev Berkala', '2020', '2019'),
+(60, 19, 'Masih Menunggu Hasil Kemenpan 2019', '112', '112', '-	Menerapkan proses bisnis\r\n-	Monev Berkala', '2020', '2019'),
+(61, 20, 'Masih Menunggu Hasil Kemenpan 2019', '118', '118', '-	Membuat Rencana Induk SPBE\r\n-	Monev Berkala', '2020', '2019'),
+(62, 21, 'Masih Menunggu Hasil Kemenpan 2019', '124', '124', '-	Anggaran Belanja TIK OPD diukur, dipantau dan dievaluasi berkala', '2020', '2019'),
+(63, 22, 'Masih Menunggu Hasil Kemenpan 2019', '130', '130', '-	Pengembangan Data Center\r\n-	Monev Berkala', '2020', '2019'),
+(64, 23, 'Masih Menunggu Hasil Kemenpan 2019', '136', '136', '-	Integrasi sesuai arsitektur dari Rencana Induk SPBE\r\n-	Monev Berkala', '2020', '2019'),
+(65, 24, 'Masih Menunggu Hasil Kemenpan 2019', '142', '142', '-	Optimalisasi Penerapan  eMonev yang terintegrasi dari perencanaan, penganggaran, hingga realisasi fisik serta keuangan dan kepegawaian.\r\n-	Monev Berkala', '2020', '2019'),
+(66, 25, 'Masih Menunggu Hasil Kemenpan 2019', '148', '148', '-	Optimalisasi  Penerapan Layanan Naskah Dinas\r\n-	Monitoring Berkala', '2020', '2019'),
+(67, 26, 'Masih Menunggu Hasil Kemenpan 2019', '154', '154', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Kepegawaian\r\n-	Monitoring Berkala', '2020', '2019'),
+(68, 27, 'Masih Menunggu Hasil Kemenpan 2019', '161', '161', '-	Optimalisasi  Penerapan Layanan Manajemen Perencanaan\r\n-	Monev Berkala', '2020', '2019'),
+(69, 28, 'Masih Menunggu Hasil Kemenpan 2019', '167', '167', '-	Optimalisasi  Penerapan Layanan Manajemen Penganggaran\r\n-	Monev Berkala', '2020', '2019'),
+(70, 29, 'Masih Menunggu Hasil Kemenpan 2019', '173', '173', '-	Optimalisasi  Penerapan Layanan Manajemen Keuangan\r\n-	Monev Berkala', '2020', '2019'),
+(71, 30, 'Masih Menunggu Hasil Kemenpan 2019', '178', '178', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Manajemen Kinerja\r\n-	Monev Berkala', '2020', '2019'),
+(72, 31, 'Masih Menunggu Hasil Kemenpan 2019', '185', '185', '-	Optimalisasi  Penerapan Layanan Pengadaan\r\n-	Monev Berkala', '2020', '2019'),
+(73, 32, 'Masih Menunggu Hasil Kemenpan 2019', '191', '190', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Pengaduan Publik\r\n-	Monev Berkala', '2020', '2019'),
+(74, 33, 'Masih Menunggu Hasil Kemenpan 2019', '196', '196', '-	Optimalisasi  Penerapan dan Pengembangan Layanan Dokumentasi dan Informasi Hukum\r\n-	Monev Berkala', '2020', '2019'),
+(75, 34, 'Masih Menunggu Hasil Kemenpan 2019', '203', '202', '-	Optimalisasi  Penerapan dan Pengembangan Layanan WBS\r\n-	Monev Berkala', '2020', '2019'),
+(76, 35, 'Masih Menunggu Hasil Kemenpan 2019', '208', '208', '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Layanan dan Kebijakan secara Berkala', '2020', '2019'),
+(77, 36, 'Masih Menunggu Hasil Kemenpan 2019', '215', '214', '-	Optimalisasi Penerapan dan Pengembangan Layanan Bursa Kerja \r\n-	Revisi Kebijakan Internal Layanan Bursa Kerja Online serta dapat terintegrasi dengan SPBE lainnya\r\n-	Monev Berkala', '2020', '2019'),
+(78, 37, 'Masih Menunggu Hasil Kemenpan 2019', '221', '221', '-	Optimalisasi Penerpan dan Pengembangan Layanan Perijinan\r\n-	Monev Berkala', '2020', '2019'),
 (128, 16, 'Kebijakan Internal Layanan Whistle Blowing System (WBS) sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan WBS secara elektronik dengan layanan SPBE lain yang sudah tersedia cli Instansi Pusat/Pemerintah Daerah atau integrasi layanan WBS secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah.', '3', '5', 'Revisi Perwali No 45 Tahun 2014 Tentang Pengaduan Publik (Integrasi dengan Layanan SPBE lainnya).\r\nAtau membuat Kebijakan khusus WBS.\r\n', '2019', '2018');
 
 -- --------------------------------------------------------
@@ -1271,11 +1716,72 @@ INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `group
 ('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', 4, 1, 1),
 ('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', 4, 1, 1),
 ('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', 4, 1, 1),
-('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', 4, 1, 1);
+('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', 4, 1, 1),
+('putuokky', 'Okky Maheswara', 'dc2f4ef676263fe9dde73a9ae6299258', 'okkymahes@gmail.com', '0', 1, 0, 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `aplikasi`
+--
+ALTER TABLE `aplikasi`
+  ADD PRIMARY KEY (`id_app`);
+
+--
+-- Indexes for table `detail_aplikasi`
+--
+ALTER TABLE `detail_aplikasi`
+  ADD PRIMARY KEY (`id_detail_aplikasi`);
+
+--
+-- Indexes for table `kategori_aplikasi`
+--
+ALTER TABLE `kategori_aplikasi`
+  ADD PRIMARY KEY (`id_kat_aplikasi`);
+
+--
+-- Indexes for table `kategori_database`
+--
+ALTER TABLE `kategori_database`
+  ADD PRIMARY KEY (`id_kat_database`);
+
+--
+-- Indexes for table `kategori_media`
+--
+ALTER TABLE `kategori_media`
+  ADD PRIMARY KEY (`id_media`);
+
+--
+-- Indexes for table `klasifikasi_aplikasi`
+--
+ALTER TABLE `klasifikasi_aplikasi`
+  ADD PRIMARY KEY (`id_klasifikasi_app`);
+
+--
+-- Indexes for table `tbl_jenis_laporan`
+--
+ALTER TABLE `tbl_jenis_laporan`
+  ADD PRIMARY KEY (`id_jenis_laporan`);
+
+--
+-- Indexes for table `tbl_kategori_monev`
+--
+ALTER TABLE `tbl_kategori_monev`
+  ADD PRIMARY KEY (`id_kat_monev`);
+
+--
+-- Indexes for table `tbl_lapormasalah`
+--
+ALTER TABLE `tbl_lapormasalah`
+  ADD PRIMARY KEY (`id_lapormasalah`);
+
+--
+-- Indexes for table `tbl_monev_app`
+--
+ALTER TABLE `tbl_monev_app`
+  ADD PRIMARY KEY (`id_monev_app`);
 
 --
 -- Indexes for table `tb_aspek`
@@ -1378,10 +1884,70 @@ ALTER TABLE `tb_user`
 --
 
 --
+-- AUTO_INCREMENT for table `aplikasi`
+--
+ALTER TABLE `aplikasi`
+  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+
+--
+-- AUTO_INCREMENT for table `detail_aplikasi`
+--
+ALTER TABLE `detail_aplikasi`
+  MODIFY `id_detail_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `kategori_aplikasi`
+--
+ALTER TABLE `kategori_aplikasi`
+  MODIFY `id_kat_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `kategori_database`
+--
+ALTER TABLE `kategori_database`
+  MODIFY `id_kat_database` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `kategori_media`
+--
+ALTER TABLE `kategori_media`
+  MODIFY `id_media` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `klasifikasi_aplikasi`
+--
+ALTER TABLE `klasifikasi_aplikasi`
+  MODIFY `id_klasifikasi_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_jenis_laporan`
+--
+ALTER TABLE `tbl_jenis_laporan`
+  MODIFY `id_jenis_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_kategori_monev`
+--
+ALTER TABLE `tbl_kategori_monev`
+  MODIFY `id_kat_monev` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_lapormasalah`
+--
+ALTER TABLE `tbl_lapormasalah`
+  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_monev_app`
+--
+ALTER TABLE `tbl_monev_app`
+  MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
-  MODIFY `idaspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idaspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_datapendukung`
@@ -1399,7 +1965,7 @@ ALTER TABLE `tb_detail_indikator`
 -- AUTO_INCREMENT for table `tb_domain`
 --
 ALTER TABLE `tb_domain`
-  MODIFY `iddomain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `iddomain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_evaluasi`
@@ -1417,19 +1983,19 @@ ALTER TABLE `tb_feedback`
 -- AUTO_INCREMENT for table `tb_groupuser`
 --
 ALTER TABLE `tb_groupuser`
-  MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_indeks`
 --
 ALTER TABLE `tb_indeks`
-  MODIFY `id_indeks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_indeks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
-  MODIFY `idindikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idindikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tb_lemah_kuat`
@@ -1459,7 +2025,7 @@ ALTER TABLE `tb_penilaian`
 -- AUTO_INCREMENT for table `tb_pertanyaan`
 --
 ALTER TABLE `tb_pertanyaan`
-  MODIFY `idpertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idpertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
