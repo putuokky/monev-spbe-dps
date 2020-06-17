@@ -10,7 +10,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else if (isset($_GET['act']) && $_GET['act'] == "respontl") {
   include 'form_respontl.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "respontls") {
-  include '.php';
+  include 'form_respontls.php';
 } else {
 
 ?>
@@ -99,10 +99,13 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                       <tr>
                         <td><?= $no; ?></td>
-                        <td><button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
+                        <td>
+                          <!-- <button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
                           <?php if ($row['kat_tl'] == '1') { ?>
                             <a class="btn btn-info btn-sm" title="Respon TL Selesai" href="?page=lapormasalah&act=respontls&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
-                          <?php } else { ?>
+                          <?php } else if ($row['kat_tl'] == '2') {
+                            echo '';
+                          } else { ?>
                             <a class="btn btn-secondary btn-sm" title="Respon TL Awal" href="?page=lapormasalah&act=respontl&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
                           <?php } ?>
                           <a class="btn btn-warning btn-sm" title="Edit" href="?page=lapormasalah&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
