@@ -7,10 +7,10 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= $grupuser; ?></b> dengan Keterangan <b><?= $ket; ?></b> ini.</div>
+      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= $row['nama_jenis_laporan']; ?></b> pada Aplikasi <b><?= $row['judul']; ?></b> ini.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger" href="?page=grupuser&act=hapus&id=<?= $id; ?>">Hapus</a>
+        <a class="btn btn-danger" href="?page=lapormasalah&act=hapus&id=<?= $id; ?>">Hapus</a>
       </div>
     </div>
   </div>

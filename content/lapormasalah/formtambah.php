@@ -62,7 +62,7 @@ if (isset($_POST['input'])) {
       } else {
         // Jika ukuran file lebih dari 1MB, lakukan :
         echo '<script type="text/javascript">
-              alert("Maaf, Tipe gambar yang diupload harus PDF");
+              alert("Maaf, Tipe file yang diupload harus PDF");
               window.location.href="t.php?page=lapormasalah&act=tambah";
               </script>';
       }
