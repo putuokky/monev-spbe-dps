@@ -15,25 +15,31 @@
     </tfoot> -->
     <tbody>
       <?php
-      $sqlAppTopApp = "SELECT b.namaopd, COUNT(a.id_app) as jml_top_app 
+      $sqlAppTopApp = "SELECT COUNT(a.id_app) as jml_top_app ,a.unit 
                       FROM aplikasi a 
                       LEFT JOIN tb_opd b ON b.idopd = a.unit 
                       GROUP BY a.unit 
-                      ORDER BY COUNT(a.id_app) DESC
+                      ORDER BY COUNT(a.id_app) DESC 
                       LIMIT 10";
       $resultAppTopApp = mysqli_query($conn, $sqlAppTopApp);
       if (mysqli_num_rows($resultAppTopApp) > 0) {
         $no = 1;
         while ($rowAppTopApp = mysqli_fetch_assoc($resultAppTopApp)) {
-          $namaunit = $rowAppTopApp['namaopd'];
+          $kodeunit = $rowAppTopApp['unit'];
           $top_app = $rowAppTopApp['jml_top_app'];
+
+          $sqlOpd = "SELECT * FROM tb_opd WHERE idopd = $kodeunit";
+          $resOpd = mysqli_query($conn, $sqlOpd);
+          while ($rowOpd = mysqli_fetch_assoc($resOpd)) {
+            $opd = $rowOpd['namaopd'];
       ?>
-          <tr>
-            <td><?= $no; ?></td>
-            <td><?= $namaunit; ?></td>
-            <td><?= $top_app; ?></td>
-          </tr>
+            <tr>
+              <td><?= $no; ?></td>
+              <td><?= $opd; ?></td>
+              <td><?= $top_app; ?></td>
+            </tr>
       <?php
+          }
           $no++;
         }
       }
