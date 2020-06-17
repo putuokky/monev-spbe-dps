@@ -53,7 +53,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Kategori Monev</th>
                     <th>Nama Aplikasi</th>
                     <th>Permasalahan</th>
-                    <th>Solusi/Pengembangan</th>
+                    <th>Solusi / Pengembangan</th>
                     <th>Status</th>
                     <th>User</th>
                 </thead>
@@ -65,7 +65,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Kategori Monev</th>
                     <th>Nama Aplikasi</th>
                     <th>Permasalahan</th>
-                    <th>Solusi/Pengembangan</th>
+                    <th>Solusi / Pengembangan</th>
                     <th>Status</th>
                     <th>User</th>
                   </tr>
