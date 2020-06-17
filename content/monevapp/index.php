@@ -7,6 +7,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formtambah.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "respon") {
+  include 'form_respon.php';
 } else {
 ?>
 
@@ -102,6 +104,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $no; ?></td>
                         <td>
                           <!-- <button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
+                          <?php
+                          if ($row['status_monev'] == 1) { ?>
+                            <a class="btn btn-info btn-sm" title="Respon" href="?page=monevapp&act=respon&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
+                          <?php } ?>
                           <a class="btn btn-warning btn-sm" title="Edit" href="?page=monevapp&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
