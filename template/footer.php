@@ -52,13 +52,13 @@
 <script src="assets/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="assets/vendor/chart.js/Chart.min.js"></script>
+<!-- <script src="assets/vendor/chart.js/Chart.min.js"></script> -->
 <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="assets/js/demo/chart-area-demo.js"></script>
-<script src="assets/js/demo/chart-pie-demo.js"></script>
+<!-- <script src="assets/js/demo/chart-area-demo.js"></script>
+<script src="assets/js/demo/chart-pie-demo.js"></script> -->
 <script src="assets/js/demo/datatables-demo.js"></script>
 
 <!-- datetime dari https://gijgo.com/ -->
@@ -168,7 +168,7 @@
       $('#loader1').hide();
     }
   });
-  
+
   // ------------------------------------------
 
   $('select[id="nama_level"]').on('change', function() {
@@ -181,7 +181,7 @@
     $("#fpertanyaan").prop('disabled', true);
     if (id != null) {
 
-      
+
       $.ajax({
         type: 'GET',
         url: 'api/data-pertanyaan.php?id=' + id,
@@ -221,7 +221,7 @@
           $('select[id="id_nilai"]').empty();
           $('select[id="id_nilai"]').append('<option value="-">-</option>');
           $.each(JSON.parse(result), function(i, val) {
-            $('#id_nilai').append($('<option></option>').attr('value', val.idpenilaian).text('Indikator '+val.indikator+' - '+val.namaindikator));
+            $('#id_nilai').append($('<option></option>').attr('value', val.idpenilaian).text('Indikator ' + val.indikator + ' - ' + val.namaindikator));
           });
 
           $("#id_nilai").prop('disabled', false);

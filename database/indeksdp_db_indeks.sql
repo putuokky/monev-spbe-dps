@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2020 at 06:09 PM
+-- Generation Time: Jun 17, 2020 at 12:56 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -425,10 +425,9 @@ CREATE TABLE `tbl_lapormasalah` (
 --
 
 INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `permasalahan`, `bukti_lapor`, `nama_input`, `status_lapor`, `kat_tl`, `respon_lapor`, `bukti_dukung_selesai`, `dlu`) VALUES
-(1, 1, 194, 'asdasd', 'ssss', 'putuokky', 1, NULL, NULL, NULL, '2020-06-16 20:47:23'),
-(2, 0, 4, 'yyy', 'bali.pdf', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 00:04:40'),
-(3, 2, 1, 'qqqq', 'Panduan Penggunaan Sistem esewakadharma Rev1.pdf', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 00:05:45'),
-(4, 3, 6, 'gak isi filee', '', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 00:06:55');
+(3, 1, 5, 'hhhhh', 'Panduan Penggunaan Sistem esewakadharma Rev1.pdf', 'putuokky', 2, 2, 'vvvv', NULL, '2020-06-17 10:54:21'),
+(4, 3, 6, 'gak isi filee', '', 'putuokky', 2, 1, 'ttttt', NULL, '2020-06-17 00:06:55'),
+(5, 2, 181, 'gggggg', 'bali.pdf', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 11:27:21');
 
 -- --------------------------------------------------------
 
@@ -440,9 +439,9 @@ CREATE TABLE `tbl_monev_app` (
   `id_monev_app` int(11) NOT NULL,
   `nama_app` int(11) NOT NULL,
   `kategori_monev` int(11) NOT NULL,
-  `masalah` mediumtext NOT NULL,
-  `bukti_dukung` mediumtext NOT NULL,
-  `solusi_pengembang` mediumtext NOT NULL,
+  `masalah` text NOT NULL,
+  `bukti_dukung` text NOT NULL,
+  `solusi_pengembang` text NOT NULL,
   `nama_team` varchar(50) NOT NULL,
   `status_monev` int(11) NOT NULL,
   `dlu_monev` datetime NOT NULL,
@@ -456,13 +455,7 @@ CREATE TABLE `tbl_monev_app` (
 --
 
 INSERT INTO `tbl_monev_app` (`id_monev_app`, `nama_app`, `kategori_monev`, `masalah`, `bukti_dukung`, `solusi_pengembang`, `nama_team`, `status_monev`, `dlu_monev`, `respon_koor`, `nama_koor`, `dlu_respon_koor`) VALUES
-(5, 5, 1, 'mau donk', 'tte-000020-SRT-062020.pdf', 'harus bisa ', 'putuokky', 2, '2020-06-06 17:49:15', 'Tes', '198404062009031006', '2020-06-06 18:16:06'),
-(6, 73, 2, 'Eror koneksi', 'Eksport_Rekap_Surat_Request_.pdf', 'Tes', 'veriandriawan', 2, '2020-06-06 18:07:44', 'Kembangkan aplikasi', '198404062009031006', '2020-06-06 18:14:34'),
-(7, 75, 3, 'T', '', 'Yyy', 'veriandriawan', 1, '2020-06-06 18:26:49', NULL, NULL, NULL),
-(8, 72, 1, 'Ttt', 'laporan pekerja informal 31 mei 2020.pdf', 'Ttjvxxcv', 'veriandriawan', 1, '2020-06-06 18:29:25', NULL, NULL, NULL),
-(9, 145, 5, 'ha ahahahaha', 'jadwal FGD SC.pdf', 'wkwkwkwkwk', 'putuokky', 1, '2020-06-06 18:32:52', NULL, NULL, NULL),
-(10, 73, 5, 'Lapar', '', 'Makan', 'agungpriambada', 1, '2020-06-06 20:31:31', NULL, NULL, NULL),
-(11, 163, 5, 'Tampilan kurang responsif', 'Buku Panduan - SIM Kependudukan (tanpa KAK).pdf', 'Bangun baru', 'putuokky', 1, '2020-06-08 09:52:35', NULL, NULL, NULL);
+(2, 11, 4, 'isi file ini', 'RKCI Enabler.pdf', 'ayooo', 'putuokky', 2, '2020-06-17 18:52:18', 'wwww', 'putuokky', '2020-06-17 18:53:28');
 
 -- --------------------------------------------------------
 
@@ -1935,13 +1928,13 @@ ALTER TABLE `tbl_kategori_monev`
 -- AUTO_INCREMENT for table `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_lapormasalah`
-  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_monev_app`
 --
 ALTER TABLE `tbl_monev_app`
-  MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_aspek`

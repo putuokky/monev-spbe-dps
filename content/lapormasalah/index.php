@@ -50,7 +50,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
             <div class="table-responsive">
               <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                  <tr>
+                  <tr class="btn-dark">
                     <th>No</th>
                     <th>Action</th>
                     <th>Tanggal</th>
@@ -61,7 +61,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>User</th>
                 </thead>
                 <tfoot>
-                  <tr>
+                  <tr class="btn-dark">
                     <th>No</th>
                     <th>Action</th>
                     <th>Tanggal</th>
