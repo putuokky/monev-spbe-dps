@@ -96,6 +96,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
+                      $id = $row['id_monev_app'];
                   ?>
                       <tr>
                         <td><?= $no; ?></td>

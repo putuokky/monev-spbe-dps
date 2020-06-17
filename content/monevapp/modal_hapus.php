@@ -7,10 +7,10 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= $namadomain; ?></b> ini.</div>
+      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> Kategori <b><?= $row['nama_kategori_monev']; ?></b> pada Aplikasi <b><?= $row['judul']; ?></b> ini.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger" href="?page=domain&act=hapus&id=<?= $id; ?>">Hapus</a>
+        <a class="btn btn-danger" href="?page=monevapp&act=hapus&id=<?= $id; ?>">Hapus</a>
       </div>
     </div>
   </div>
