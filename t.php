@@ -11,6 +11,8 @@ function __autoload($tagline)
   require_once 'template/' . $tagline . '.php';
 }
 $tagline = new tagline();
+$model_domain = new model_domain();
+$model_indikator = new model_indikator();
 // end manggil class
 
 if (empty($_SESSION['userid'])) {
