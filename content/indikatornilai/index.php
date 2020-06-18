@@ -10,7 +10,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else if (isset($_GET['act']) && $_GET['act'] == "addjelas") {
   include 'formjelas.php';
 } else {
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -33,7 +33,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
       <div class="col-xl-12 col-lg-12">
 
-      <?php include 'formpencarian.php'; ?>
+        <?php include 'formpencarian.php'; ?>
 
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
@@ -53,7 +53,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks Akhir</th>
                 </thead>
                 <tbody>
-                <?php
+                  <?php
                   $total_hasil_domain = 0;
                   $resultDomain = $model_domain->all();
 
@@ -63,14 +63,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       $id_domain = $rowDomain['iddomain'];
                       $namadomain = $rowDomain['namadomain'];
                       $urutan_domain = $rowDomain['urutan_domain'];
-                      ?>
+                  ?>
 
                       <tr style="background-color:#79e5cb;">
-                        <td><?= "Domain ".$urutan_domain; ?></td>
+                        <td><?= "Domain " . $urutan_domain; ?></td>
                         <td><?= $namadomain; ?></td>
                         <td>
-                        <?php $total_hasil_domain += ceil($model_indikator->jumlahBobotDomain($id_domain));
-                        echo number_format($model_indikator->jumlahBobotDomain($id_domain),0, ",", "."). "%"; ?></td>
+                          <?php $total_hasil_domain += ceil($model_indikator->jumlahBobotDomain($id_domain));
+                          echo number_format($model_indikator->jumlahBobotDomain($id_domain), 0, ",", ".") . "%"; ?></td>
                         <td></td>
                         <td></td>
                         <td>Indeks Akhir utk domain</td>
@@ -84,42 +84,42 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           $id_aspek = $rowAspek['idaspek'];
                           $nama_aspek = $rowAspek['nama_aspek'];
                           $urutan_aspek = $rowAspek['urutan_aspek'];
-                          ?>
+                      ?>
 
                           <tr style="background-color:#efefef;">
-                            <td><?= "Aspek ".$urutan_aspek; ?></td>
+                            <td><?= "Aspek " . $urutan_aspek; ?></td>
                             <td><?= $nama_aspek; ?></td>
-                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek),1, ",", "."). "%";?>
+                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek), 1, ",", ".") . "%"; ?>
                             </td>
-                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek)/$model_indikator->jumlahBobotDomain($id_domain)*100,2, ",", "."); ?>%</td>
+                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek) / $model_indikator->jumlahBobotDomain($id_domain) * 100, 2, ",", "."); ?>%</td>
                             <td>
-                            <?php
-                            if (isset($_POST['cari'])) {
-                              echo $model_indikator->totalAdj($_POST['caritahun'], $id_aspek);
-                            }
-                            ?> </td>
+                              <?php
+                              if (isset($_POST['cari'])) {
+                                echo $model_indikator->totalAdj($_POST['caritahun'], $id_aspek);
+                              }
+                              ?> </td>
                             <td>Indeks Akhir utk aspek</td>
                           </tr>
                           <?php
-                            $result = $model_indikator->all($id_aspek);
+                          $result = $model_indikator->all($id_aspek);
 
-                            if (mysqli_num_rows($result) > 0) {
-                              // output data of each row
-                              while ($row = mysqli_fetch_assoc($result)) {
-                                $id = $row['idindikator'];
-                                $namaindikator = $row['namaindikator'];
-                                $indikator = $row['indikator'];
-                                $penjelasanindikator = $row['penjelasanindikator'];
-                                $bobot_indikator = $row['bobot_indikator'];
-                                ?>
+                          if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
+                              $id = $row['idindikator'];
+                              $namaindikator = $row['namaindikator'];
+                              $indikator = $row['indikator'];
+                              $penjelasanindikator = $row['penjelasanindikator'];
+                              $bobot_indikator = $row['bobot_indikator'];
+                          ?>
 
                               <tr>
-                                <td><?= "Indikator ".$indikator; ?></td>
+                                <td><?= "Indikator " . $indikator; ?></td>
                                 <td><?= $namaindikator; ?></td>
-                                <td><?= number_format($bobot_indikator, 1, ",", ".")."%"; ?></td>
-                                <td><?php 
-                                    $bobot_aspek_for_indi = $bobot_indikator/($model_indikator->jumlahBobotIndikator($id_aspek))*100; 
-                                    echo number_format(round($bobot_aspek_for_indi,1),1, ",",".")."%";
+                                <td><?= number_format($bobot_indikator, 1, ",", ".") . "%"; ?></td>
+                                <td><?php
+                                    $bobot_aspek_for_indi = $bobot_indikator / ($model_indikator->jumlahBobotIndikator($id_aspek)) * 100;
+                                    echo number_format(round($bobot_aspek_for_indi, 1), 1, ",", ".") . "%";
                                     ?></td>
                                 <td>
                                   <?php
@@ -138,28 +138,28 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                       }
                                     } else {
                                       echo "-";
-                                    }  
+                                    }
                                   } else {
                                     echo "-";
-                                  }                                
+                                  }
                                   ?>
                                 </td>
                                 <td>
-                                <?php
-                                if (isset($_POST['cari'])) {
-                                  $ba_for_indi_indeks = $bobot_indikator/($model_indikator->jumlahBobotIndikator($id_aspek));
-                                  echo number_format($ba_for_indi_indeks*$adj,2,",", ".");
-                                } else {
-                                  echo "-";
-                                }
-                                ?>
-                                
+                                  <?php
+                                  if (isset($_POST['cari'])) {
+                                    $ba_for_indi_indeks = $bobot_indikator / ($model_indikator->jumlahBobotIndikator($id_aspek));
+                                    echo number_format($ba_for_indi_indeks * $adj, 2, ",", ".");
+                                  } else {
+                                    echo "-";
+                                  }
+                                  ?>
+
                                 </td>
                               </tr>
-                          <?php
-                              }
+                  <?php
                             }
-                            // end indikator
+                          }
+                          // end indikator
 
                         }
                       }
