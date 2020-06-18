@@ -98,7 +98,7 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="klasifikasi" class="col-md-2 col-form-label">Klasifikasi</label>
+                <label for="klasifikasi" class="col-md-2 col-form-label">Sifat Klasifikasi</label>
                 <div class="col-md-2">
                   <select class="form-control" id="klasifikasi" name="klasifikasi">
                     <option value="0">-</option>

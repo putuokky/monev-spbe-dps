@@ -70,7 +70,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "hapusdetail") {
                     <th>Tahun Pengembangan</th>
                     <th>Bahasa Pemrograman</th>
                     <th>Database</th>
-                    <th>Vendor</th>
+                    <th>Pengembang</th>
                     <th>Kontak</th>
                     <th>User/DLU</th>
                 </thead>
@@ -84,7 +84,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "hapusdetail") {
                     <th>Tahun Pengembangan</th>
                     <th>Bahasa Pemrograman</th>
                     <th>Database</th>
-                    <th>Vendor</th>
+                    <th>Pengembang</th>
                     <th>Kontak</th>
                     <th>User/DLU</th>
                   </tr>

@@ -236,7 +236,7 @@ if (isset($_POST['inputdetail'])) {
               <div class="form-group row">
                 <label for="judulspk" class="col-md-2 col-form-label">Judul SPK</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="judulspk" id="judulspk" placeholder="Enter Judul SPK" autocomplete="off">
+                  <textarea class="form-control" id="judulspk" name="judulspk" rows="3" placeholder="Enter Judul SPK"></textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -252,13 +252,13 @@ if (isset($_POST['inputdetail'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="vendor" class="col-md-2 col-form-label">Vendor</label>
+                <label for="vendor" class="col-md-2 col-form-label">Pengembang</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="vendor" id="vendor" placeholder="Enter Vendor" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="kontakvendor" class="col-md-2 col-form-label">Kontak Vendor</label>
+                <label for="kontakvendor" class="col-md-2 col-form-label">Kontak Pengembang</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="kontakvendor" id="kontakvendor" placeholder="Enter Kontak Vendor" autocomplete="off">
                 </div>

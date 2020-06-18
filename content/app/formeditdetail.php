@@ -287,7 +287,7 @@ $data = mysqli_fetch_assoc($resUbah);
               <div class="form-group row">
                 <label for="judulspk" class="col-md-2 col-form-label">Judul SPK</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="judulspk" id="judulspk" placeholder="Enter Judul SPK" autocomplete="off" value="<?= $data['judul_spk']; ?>">
+                  <textarea class="form-control" id="judulspk" name="judulspk" rows="3" placeholder="Enter Judul SPK"><?= $data['judul_spk']; ?></textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -303,13 +303,13 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="vendor" class="col-md-2 col-form-label">Vendor</label>
+                <label for="vendor" class="col-md-2 col-form-label">Pengembang</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="vendor" id="vendor" placeholder="Enter Vendor" autocomplete="off" value="<?= $data['vendor']; ?>">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="kontakvendor" class="col-md-2 col-form-label">Kontak Vendor</label>
+                <label for="kontakvendor" class="col-md-2 col-form-label">Kontak Pengembang</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="kontakvendor" id="kontakvendor" placeholder="Enter Kontak Vendor" autocomplete="off" value="<?= $data['kontak_vendor']; ?>">
                 </div>
