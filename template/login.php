@@ -59,7 +59,7 @@ if (!empty($_SESSION['user'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $tagline->sidetitle(); ?>&nbsp;<?= $tagline->kota(); ?></title>
+    <title><?= $tagline->title_front(); ?>&nbsp;<?= $tagline->kota(); ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ if (!empty($_SESSION['user'])) {
 
         <div class="col-xl-6 col-lg-12 col-md-6">
           <div class="text-center text-white my-5">
-            <p class="h1"><?= $tagline->sidetitle(); ?><br><?= $tagline->pemkot(); ?><br></p>
+            <p class="h1"><?= $tagline->title_front(); ?><br><?= $tagline->pemkot(); ?><br></p>
           </div>
           <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">

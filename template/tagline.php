@@ -1,9 +1,14 @@
 <?php
 class tagline
 {
+    function title_front()
+    {
+        echo 'Sistem Pemerintahan Berbasis Elektronik';
+    }
+
     function sidetitle()
     {
-        echo 'Monev SPBE';
+        echo 'SPBE';
     }
 
     function kota()
