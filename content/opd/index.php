@@ -10,7 +10,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else {
 
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -67,19 +67,22 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
+                  if ($_SESSION['groupuser'] == 1) {
+                    $sql = "SELECT * FROM tb_opd";
+                  } else {
+                    $sql = "SELECT * FROM tb_opd WHERE LENGTH(idopd) = 6";
+                  }
 
-                    $sql = "SELECT * FROM tb_opd 
-                            WHERE LENGTH(idopd) = 6 ORDER BY namaopd";
-                    $result = mysqli_query($conn, $sql);
+                  $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['idopd'];
-                        $namaopd = $row['namaopd'];
-                        $nama_pendek_opd = $row['nama_pendek_opd'];
-                        ?>
+                  if (mysqli_num_rows($result) > 0) {
+                    $no = 1;
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $id = $row['idopd'];
+                      $namaopd = $row['namaopd'];
+                      $nama_pendek_opd = $row['nama_pendek_opd'];
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -101,11 +104,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $nama_pendek_opd; ?></td>
                       </tr>
                   <?php
-                        $no++;
-                      }
+                      $no++;
                     }
-                    mysqli_close($conn);
-                    ?>
+                  }
+                  mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>
