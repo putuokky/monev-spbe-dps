@@ -130,21 +130,19 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="aktifan" class="col-md-2 col-form-label">Grup Indeks</label>
                 <div class="col-md-10">
-                <?php
-                  $sqlIndeks = "SELECT * FROM tb_indeks";
+                  <?php
+                  $sqlIndeks = "SELECT * FROM tbl_user_katindex";
                   $resultIndeks = mysqli_query($conn, $sqlIndeks);
 
                   while ($rowIndeks = mysqli_fetch_assoc($resultIndeks)) {
-                    $id_indeks = $rowIndeks['id_indeks'];
-                    $nama_indeks = $rowIndeks['nama_indeks'];
-                    $nilai_indeks = $rowIndeks['nilai_indeks'];
-                    $tahun_indeks = $rowIndeks['tahun_indeks'];
-                ?>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="<?= $id_indeks; ?>">
-                    <label class="form-check-label" for="inlineRadio1"><?= $nama_indeks; ?></label>
-                  </div>
-                <?php } ?>                
+                    $id_indeks = $rowIndeks['id_user_katindex'];
+                    $nama_indeks = $rowIndeks['user_katindex'];
+                  ?>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="<?= $id_indeks; ?>">
+                      <label class="form-check-label" for="inlineRadio1"><?= $nama_indeks; ?></label>
+                    </div>
+                  <?php } ?>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
                     <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>

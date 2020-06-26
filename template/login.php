@@ -32,7 +32,7 @@ if (isset($_POST['login'])) {
     if ($_SESSION['groupuser'] == 1) {
       header("location:t.php?page=home");
     } else if ($_SESSION['groupuser'] == 2 || $_SESSION['groupuser'] == 3) {
-      header("location:t.php?page=nilaikematangan");
+      header("location:t.php?page=profile");
     } else if ($_SESSION['groupuser'] == 4) {
       header("location:t.php?page=home");
     }

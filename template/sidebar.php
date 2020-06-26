@@ -27,6 +27,45 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard IKCI</span></a>
         </li>
+      <?php } else if ($_SESSION['grupindeks'] == 3) { ?>
+        <li class="nav-item" id="dashboardapp">
+          <a class="nav-link" href="?page=homeapp">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard Aplikasi</span></a>
+        </li>
+      <?php } else if ($_SESSION['grupindeks'] == 4) { ?>
+        <li class="nav-item" id="dashboard">
+          <a class="nav-link" href="?page=home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard SPBE</span></a>
+        </li>
+        <li class="nav-item" id="dashboardikci">
+          <a class="nav-link" href="?page=homeikci">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard IKCI</span></a>
+        </li>
+      <?php } else if ($_SESSION['grupindeks'] == 5) { ?>
+        <li class="nav-item" id="dashboard">
+          <a class="nav-link" href="?page=home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard SPBE</span></a>
+        </li>
+        <li class="nav-item" id="dashboardapp">
+          <a class="nav-link" href="?page=homeapp">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard Aplikasi</span></a>
+        </li>
+      <?php } else if ($_SESSION['grupindeks'] == 6) { ?>
+        <li class="nav-item" id="dashboardikci">
+          <a class="nav-link" href="?page=homeikci">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard IKCI</span></a>
+        </li>
+        <li class="nav-item" id="dashboardapp">
+          <a class="nav-link" href="?page=homeapp">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard Aplikasi</span></a>
+        </li>
       <?php } else { ?>
         <li class="nav-item" id="dashboard">
           <a class="nav-link" href="?page=home">
@@ -45,83 +84,87 @@
         </li>
       <?php } ?>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
       <?php
       // SPBE
-      if ($_SESSION['groupuser'] == 4) { ?>
-        <li class="nav-item" id="alleva">
-          <a class="nav-link" href="?page=all-evaluasi">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Evaluasi SPBE</span></a>
-        </li>
-      <?php } ?>
+      if ($_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 1 || $_SESSION['grupindeks'] == 4 || $_SESSION['grupindeks'] == 5) { ?>
 
-      <?php
-      // SPBE
-      if ($_SESSION['groupuser'] != 4) { ?>
-        <!-- Heading -->
-        <div class="sidebar-heading">
-          Evaluasi SPBE
-        </div>
-        <!-- Nav Item -->
-        <?php if ($_SESSION['groupuser'] == 1) { ?>
-          <li class="nav-item pb-0" id="evaluasi">
-            <a class="nav-link" href="?page=evaluasi">
-              <i class="fas fa-fw fa-paste"></i>
-              <span>Hasil Evaluasi</span></a>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <?php if ($_SESSION['groupuser'] == 4) { ?>
+          <li class="nav-item" id="alleva">
+            <a class="nav-link" href="?page=all-evaluasi">
+              <i class="fas fa-fw fa-clipboard-list"></i>
+              <span>Evaluasi SPBE</span></a>
           </li>
         <?php } ?>
 
-        <!-- Nav Item -->
-        <li class="nav-item pb-0" id="nilaikematangan">
-          <a class="nav-link" href="?page=nilaikematangan">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Penilaian Kematangan</span></a>
-        </li>
+        <?php
+        // SPBE
+        if ($_SESSION['groupuser'] != 4) { ?>
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Evaluasi SPBE
+          </div>
+          <!-- Nav Item -->
+          <?php if ($_SESSION['groupuser'] == 1) { ?>
+            <li class="nav-item pb-0" id="evaluasi">
+              <a class="nav-link" href="?page=evaluasi">
+                <i class="fas fa-fw fa-paste"></i>
+                <span>Hasil Evaluasi</span></a>
+            </li>
+          <?php } ?>
 
-        <!-- Nav Item -->
-        <li class="nav-item pb-0" id="indikatornilai">
-          <a class="nav-link" href="?page=nilai-indikator">
-            <i class="fas fa-fw fa-clipboard"></i>
-            <span>Penilaian Indikator</span></a>
-        </li>
+          <!-- Nav Item -->
+          <li class="nav-item pb-0" id="nilaikematangan">
+            <a class="nav-link" href="?page=nilaikematangan">
+              <i class="fas fa-fw fa-clipboard-list"></i>
+              <span>Penilaian Kematangan</span></a>
+          </li>
 
-        <!-- Nav Item -->
-        <li class="nav-item pb-0" id="rekaptingkat">
-          <a class="nav-link" href="?page=rekap-tingkat">
-            <i class="fab fa-fw fa-flipboard"></i>
-            <span>Rekap Peningkatan</span></a>
-        </li>
-      <?php } else {
-        echo "";
+          <!-- Nav Item -->
+          <li class="nav-item pb-0" id="indikatornilai">
+            <a class="nav-link" href="?page=nilai-indikator">
+              <i class="fas fa-fw fa-clipboard"></i>
+              <span>Penilaian Indikator</span></a>
+          </li>
+
+          <!-- Nav Item -->
+          <li class="nav-item pb-0" id="rekaptingkat">
+            <a class="nav-link" href="?page=rekap-tingkat">
+              <i class="fab fa-fw fa-flipboard"></i>
+              <span>Rekap Peningkatan</span></a>
+          </li>
+      <?php }
       } ?>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+      <!-- Aplikasi -->
+      <?php if ($_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 3 || $_SESSION['grupindeks'] == 5 || $_SESSION['grupindeks'] == 6) { ?>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Data Aplikasi
-      </div>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Data Aplikasi
+        </div>
 
-      <!-- Nav Item -->
-      <li class="nav-item pb-0" id="app">
-        <a class="nav-link" href="?page=app">
-          <i class="fas fa-fw fa-globe"></i>
-          <span>Aplikasi</span></a>
-      </li>
-      <li class="nav-item pb-0" id="monevapp">
-        <a class="nav-link" href="?page=monevapp">
-          <i class="fas fa-fw fa-file-archive"></i>
-          <span>Monitoring Aplikasi</span></a>
-      </li>
-      <li class="nav-item pb-0" id="lapormasalah">
-        <a class="nav-link" href="?page=lapormasalah">
-          <i class="fas fa-fw fa-file-signature"></i>
-          <span>Lapor Permasalahan</span></a>
-      </li>
+        <!-- Nav Item -->
+        <li class="nav-item pb-0" id="app">
+          <a class="nav-link" href="?page=app">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Aplikasi</span></a>
+        </li>
+        <li class="nav-item pb-0" id="monevapp">
+          <a class="nav-link" href="?page=monevapp">
+            <i class="fas fa-fw fa-file-archive"></i>
+            <span>Monitoring Aplikasi</span></a>
+        </li>
+        <li class="nav-item pb-0" id="lapormasalah">
+          <a class="nav-link" href="?page=lapormasalah">
+            <i class="fas fa-fw fa-file-signature"></i>
+            <span>Lapor Permasalahan</span></a>
+        </li>
+      <?php } ?>
 
       <?php
       // grupuser user admin

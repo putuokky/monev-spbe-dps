@@ -150,15 +150,13 @@ $data = mysqli_fetch_assoc($resUbah);
               <div class="form-group row">
                 <label for="aktifan" class="col-md-2 col-form-label">Grup Indeks</label>
                 <div class="col-md-10">
-                <?php
-                  $sqlIndeks = "SELECT * FROM tb_indeks";
+                  <?php
+                  $sqlIndeks = "SELECT * FROM tbl_user_katindex";
                   $resultIndeks = mysqli_query($conn, $sqlIndeks);
 
                   while ($rowIndeks = mysqli_fetch_assoc($resultIndeks)) {
-                    $id_indeks = $rowIndeks['id_indeks'];
-                    $nama_indeks = $rowIndeks['nama_indeks'];
-                    $nilai_indeks = $rowIndeks['nilai_indeks'];
-                    $tahun_indeks = $rowIndeks['tahun_indeks'];
+                    $id_indeks = $rowIndeks['id_user_katindex'];
+                    $nama_indeks = $rowIndeks['user_katindex'];
 
                     if ($id_indeks == $data['grupindeks']) { ?>
                       <div class="form-check form-check-inline">
@@ -170,19 +168,19 @@ $data = mysqli_fetch_assoc($resUbah);
                         <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="<?= $id_indeks; ?>">
                         <label class="form-check-label" for="inlineRadio1"><?= $nama_indeks; ?></label>
                       </div>
-                     <?php } ?>
-                <?php } ?>
-                    <?php if ($data['grupindeks'] == 0) { ?>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0" checked>
-                        <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
-                      </div>
-                    <?php } else { ?>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
-                        <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
-                      </div>
-                     <?php } ?>
+                    <?php } ?>
+                  <?php } ?>
+                  <?php if ($data['grupindeks'] == 0) { ?>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0" checked>
+                      <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
+                    </div>
+                  <?php } else { ?>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
+                      <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
+                    </div>
+                  <?php } ?>
                 </div>
               </div>
               <div class="form-group">
