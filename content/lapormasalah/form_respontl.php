@@ -9,18 +9,22 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
+  $kat_tl = $_POST['kat_tl'];
   $respontl = $_POST['respontl'];
+  $usertl = $_POST['usertl'];
 
   $res = true;
 
   if ($res) {
     $sql = "UPDATE tbl_lapormasalah 
         SET status_lapor = '2',
-        kat_tl = '1',
-        respon_lapor = '$respontl'
+        kat_tl_lapor = '1'
         WHERE id_lapormasalah = '$id'";
 
-    if (mysqli_query($conn, $sql)) {
+    $sql2 = "INSERT INTO tbl_respon_tl (id_lapormasalah,kat_tl_respon,respon_tl,user_tl,dlu_tl)
+      VALUES ('$id','$kat_tl','$respontl','$usertl','$datenow2')";
+
+    if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
       echo '<script type="text/javascript">
             alert("Data Respon Lapor Permasalahan Berhasil Tindak Lanjut");
             window.location.href="t.php?page=lapormasalah";
@@ -101,7 +105,7 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="buktimasalah" class="col-md-2 col-form-label">Bukti</label>
+                <label for="buktimasalah" class="col-md-2 col-form-label">Bukti Lapor</label>
                 <div class="col-md-10">
                   <?php
                   if (!empty($data['bukti_lapor'])) { ?>
@@ -113,15 +117,31 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="user" class="col-md-2 col-form-label">User</label>
+                <label for="user" class="col-md-2 col-form-label">User Lapor</label>
                 <div class="col-md-5">
                   <input type="text" class="form-control" name="user" id="user" placeholder="Enter User" autocomplete="off" value="<?= $data['nama_input']; ?>" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="kat_tl" class="col-md-2 col-form-label">Kategori Tindak Lanjut</label>
+                <div class="col-md-3">
+                  <select class="form-control" id="kat_tl" name="kat_tl">
+                    <option>-</option>
+                    <option value="1">Tidak Lanjut Awal</option>
+                    <option value="2">Selesai</option>
+                  </select>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="respontl" class="col-md-2 col-form-label">Respon Tindak Lanjut</label>
                 <div class="col-md-10">
                   <textarea class="form-control" id="respontl" name="respontl" rows="3" placeholder="Enter Respon Tindak Lanjut"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="usertl" class="col-md-2 col-form-label">User Respon Tindak Lanjut</label>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" name="usertl" id="usertl" placeholder="Enter User Respon Tindak Lanju" autocomplete="off" value="<?= $_SESSION['userid']; ?>" readonly>
                 </div>
               </div>
               <div class="form-group">

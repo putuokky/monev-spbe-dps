@@ -9,8 +9,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formedit.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "respontl") {
   include 'form_respontl.php';
-} else if (isset($_GET['act']) && $_GET['act'] == "respontls") {
-  include 'form_respontls.php';
 } else {
 
 ?>
@@ -56,9 +54,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Tanggal</th>
                     <th>Jenis Lapor</th>
                     <th>Aplikasi</th>
-                    <th>Permasalahan</th>
                     <th>Status</th>
-                    <th>User</th>
+                    <th>Tidak Lanjut</th>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
@@ -67,23 +64,23 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Tanggal</th>
                     <th>Jenis Lapor</th>
                     <th>Aplikasi</th>
-                    <th>Permasalahan</th>
                     <th>Status</th>
-                    <th>User</th>
+                    <th>Tidak Lanjut</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
                   if ($_SESSION['groupuser'] == 1) {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl,a.respon_lapor,a.bukti_dukung_selesai,a.dlu,b.nama_jenis_laporan,c.judul 
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,c.judul 
                     FROM tbl_lapormasalah a 
                     LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
                     LEFT JOIN aplikasi c ON c.id_app = a.nama_app";
                   } else {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl,a.respon_lapor,a.bukti_dukung_selesai,a.dlu,b.nama_jenis_laporan,c.judul 
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,c.judul 
                     FROM tbl_lapormasalah a 
                     LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
-                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app";
+                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app
+                    WHERE a.nama_input = '$_SESSION[userid]'";
                   }
 
                   $sql = $sql . " ORDER BY a.id_lapormasalah DESC";
@@ -100,16 +97,13 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       <tr>
                         <td><?= $no; ?></td>
                         <td>
-                          <!-- <button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
-                          <?php if ($row['kat_tl'] == '1') { ?>
-                            <a class="btn btn-info btn-sm" title="Respon TL Selesai" href="?page=lapormasalah&act=respontls&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
-                          <?php } else if ($row['kat_tl'] == '2') {
-                            echo '';
-                          } else { ?>
-                            <a class="btn btn-secondary btn-sm" title="Respon TL Awal" href="?page=lapormasalah&act=respontl&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
-                          <?php } ?>
-                          <a class="btn btn-warning btn-sm" title="Edit" href="?page=lapormasalah&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
-                          <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
+                          <button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
+                          <a class="btn btn-info btn-sm" title="Respon Tindak Lanjut" href="?page=lapormasalah&act=respontl&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
+
+                          <?php if ($_SESSION['groupuser'] == 1 || $row['status_lapor'] == 1 || $row['nama_input'] == $_SESSION['userid']) : ?>
+                            <a class="btn btn-warning btn-sm" title="Edit" href="?page=lapormasalah&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                            <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
+                          <?php endif ?>
 
                           <!-- Modal Detail -->
                           <?php include 'modal_detail.php'; ?>
@@ -123,22 +117,32 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= date('d-m-Y', strtotime($row['dlu'])); ?></td>
                         <td><?= $row['nama_jenis_laporan']; ?></td>
                         <td><?= $row['judul']; ?></td>
-                        <td><?= $row['permasalahan']; ?></td>
                         <td><?php if ($row['status_lapor'] == '1') {
                               echo '<span class="badge badge-primary">Baru</span>';
                             } else {
                               echo '<span class="badge badge-success">Respon</span>';
                             } ?>
-                          <br>
-                          <?php if ($row['kat_tl'] == '1') {
-                            echo '<span class="badge badge-warning">Tindak Lanjut Awal</span>';
-                          } else if ($row['kat_tl'] == '2') {
-                            echo '<span class="badge badge-success">Selesai</span>';
-                          } else {
-                            echo '';
-                          } ?>
                         </td>
-                        <td><?= $row['nama_input']; ?></td>
+                        <td>
+                          <?php
+                          if ($row['kat_tl_lapor'] == 0) {
+                            echo '<span class="badge badge-danger">Belum TL</span>';
+                          } else {
+                            $sqlTL = "SELECT * FROM tbl_respon_tl 
+                                    WHERE id_lapormasalah = $id
+                                    ORDER BY dlu_tl DESC
+                                    LIMIT 1";
+                            $resultTL = mysqli_query($conn, $sqlTL);
+                            while ($rowTL = mysqli_fetch_assoc($resultTL)) {
+                              if ($rowTL['kat_tl_respon'] == 1) {
+                                echo '<span class="badge badge-warning">TL Awal</span>';
+                              } else if ($rowTL['kat_tl_respon'] == 2) {
+                                echo '<span class="badge badge-success">TL Selesai</span>';
+                              }
+                            }
+                          }
+                          ?>
+                        </td>
                       </tr>
                   <?php
                       $no++;

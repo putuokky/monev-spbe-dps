@@ -4,3 +4,4 @@
     - table kategori_media
     - table klasifikasi_aplikasi
     - table tbl_kategori_monev
+    - table respon_tl
