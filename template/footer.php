@@ -234,6 +234,37 @@
   });
 </script>
 
+<script>
+  $('select[id="unit"]').on('change', function() {
+    var id = $('#unit').val();
+    if (id == '') {
+      id = '0';
+    }
+
+    $('#loader4').show();
+    $("#unitbid").prop('disabled', true);
+    if (id != null) {
+      $.ajax({
+        type: 'GET',
+        url: 'api/data-opdbid.php?id=' + id,
+        data: '',
+        success: function(result) {
+          $('select[id="unitbid"]').empty();
+          $('select[id="unitbid"]').append('<option value="-">-</option>');
+          $.each(JSON.parse(result), function(i, val) {
+            $('#unitbid').append($('<option></option>').attr('value', val.idopd).text(val.namaopd));
+          });
+
+          $("#unitbid").prop('disabled', false);
+          $('#loader4').hide();
+        }
+      });
+    } else {
+      $('#loader4').hide();
+    }
+  });
+</script>
+
 </body>
 
 </html>

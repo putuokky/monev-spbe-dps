@@ -70,20 +70,26 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  if ($_SESSION['groupuser'] == 1) {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,c.judul 
+                  if ($_SESSION['groupuser'] == 1 || $_SESSION['groupuser'] == 2) {
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul 
                     FROM tbl_lapormasalah a 
                     LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
                     LEFT JOIN aplikasi c ON c.id_app = a.nama_app";
+                  } else if ($_SESSION['opdb']) {
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul 
+                    FROM tbl_lapormasalah a 
+                    LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
+                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app
+                    WHERE b.bidang = $_SESSION[opdb]";
                   } else {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,c.judul 
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul 
                     FROM tbl_lapormasalah a 
                     LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
                     LEFT JOIN aplikasi c ON c.id_app = a.nama_app
                     WHERE a.nama_input = '$_SESSION[userid]'";
                   }
 
-                  $sql = $sql . " ORDER BY a.id_lapormasalah DESC";
+                  $sql = $sql . " ORDER BY a.status_lapor ASC, a.dlu DESC";
 
                   $result = mysqli_query($conn, $sql);
 
@@ -93,14 +99,16 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     while ($row = mysqli_fetch_assoc($result)) {
                       $id = $row['id_lapormasalah'];
                   ?>
-
                       <tr>
                         <td><?= $no; ?></td>
                         <td>
                           <button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
-                          <a class="btn btn-info btn-sm" title="Respon Tindak Lanjut" href="?page=lapormasalah&act=respontl&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
 
-                          <?php if ($_SESSION['groupuser'] == 1 || $row['status_lapor'] == 1 || $row['nama_input'] == $_SESSION['userid']) : ?>
+                          <?php if ($_SESSION['opdb'] == $row['bidang']) : ?>
+                            <a class="btn btn-info btn-sm" title="Respon Tindak Lanjut" href="?page=lapormasalah&act=respontl&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
+                          <?php endif ?>
+
+                          <?php if ($_SESSION['groupuser'] == 1 || $_SESSION['groupuser'] == 2 || $row['nama_input'] == $_SESSION['userid'] && $row['status_lapor'] == 0) : ?>
                             <a class="btn btn-warning btn-sm" title="Edit" href="?page=lapormasalah&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                             <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
                           <?php endif ?>

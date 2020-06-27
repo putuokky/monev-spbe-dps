@@ -60,7 +60,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Username</th>
                     <th>Nama</th>
-                    <th>Email</th>
                     <th>OPD</th>
                     <th>Groupuser</th>
                     <th>Grup Indeks</th>
@@ -73,7 +72,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Username</th>
                     <th>Nama</th>
-                    <th>Email</th>
                     <th>OPD</th>
                     <th>Groupuser</th>
                     <th>Grup Indeks</th>
@@ -84,16 +82,20 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   <?php
                   // grup user admin OPD atau Operator OPD
                   if ($_SESSION['groupuser'] == 2) {
-                    $sql = "SELECT * FROM tb_user a 
-                            LEFT JOIN tb_opd b ON a.opd = b.idopd 
-                            LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser 
-                            LEFT JOIN tbl_user_katindex d ON d.id_user_katindex = a.grupindeks
-                            WHERE a.opd = '$_SESSION[opd]'";
+                    $sql = "SELECT a.userid,a.nama_user,a.password,a.email,a.opd,a.opdb,a.groupuser,a.grupindeks,a.is_active,b.namaopd,b.nama_pendek_opd,c.nama_groupuser,c.keterangan,d.user_katindex,e.namaopd AS opdbidang 
+                          FROM tb_user a 
+                          LEFT JOIN tb_opd b ON a.opd = b.idopd 
+                          LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser
+                          LEFT JOIN tbl_user_katindex d ON d.id_user_katindex = a.grupindeks 
+                          LEFT JOIN tb_opd e ON e.idopd = a.opdb
+                          WHERE a.opd = '$_SESSION[opd]'";
                   } else {
-                    $sql = "SELECT * FROM tb_user a 
-                            LEFT JOIN tb_opd b ON a.opd = b.idopd 
-                            LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser 
-                            LEFT JOIN tbl_user_katindex d ON d.id_user_katindex = a.grupindeks";
+                    $sql = "SELECT a.userid,a.nama_user,a.password,a.email,a.opd,a.opdb,a.groupuser,a.grupindeks,a.is_active,b.namaopd,b.nama_pendek_opd,c.nama_groupuser,c.keterangan,d.user_katindex,e.namaopd AS opdbidang 
+                    FROM tb_user a 
+                    LEFT JOIN tb_opd b ON a.opd = b.idopd 
+                    LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser
+                    LEFT JOIN tbl_user_katindex d ON d.id_user_katindex = a.grupindeks 
+                    LEFT JOIN tb_opd e ON e.idopd = a.opdb";
                   }
                   $result = mysqli_query($conn, $sql);
 
@@ -105,6 +107,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       $nama = $row['nama_user'];
                       $email = $row['email'];
                       $unit = $row['namaopd'];
+                      $unitbid = $row['opdbidang'];
                       $groupuser = $row['keterangan'];
                       $nama_indeks = $row['user_katindex'];
                       $is_active = $row['is_active'];
@@ -148,11 +151,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         </td>
                         <td><?= $id; ?></td>
                         <td><?= $nama; ?></td>
-                        <td><?php if ($email != '') {
-                              echo $email;
-                            } else {
-                              echo "-";
-                            } ?></td>
                         <td><?php if ($unit != '') {
                               echo $unit;
                             } else {

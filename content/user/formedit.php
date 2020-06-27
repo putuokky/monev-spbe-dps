@@ -13,6 +13,7 @@ if (isset($_POST['update'])) {
   $nama       = $_POST['nama'];
   $email      = $_POST['email'];
   $unit       = $_POST['unit'];
+  $unitbid    = $_POST['unitbid'];
   $grupuser   = $_POST['grupuser'];
   $indekss    = $_POST['indekss'];
 
@@ -23,6 +24,7 @@ if (isset($_POST['update'])) {
         SET nama_user = '$nama',
         email = '$email',
         opd = '$unit',
+        opdb = '$unitbid',
         groupuser = '$grupuser',
         grupindeks = '$indekss'
         WHERE userid = '$id'";
@@ -96,7 +98,10 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="unit" class="col-md-2 col-form-label">OPD</label>
                 <div class="col-md-10">
                   <select class="form-control" id="unit" name="unit">
-                    <option value="0">-</option>
+                    <?php if ($_SESSION['groupuser'] == 1) { ?>
+                      <option value="0">-</option>
+                    <?php } ?>
+
                     <?php
                     // grup user admin OPD atau Operator OPD
                     if ($_SESSION['groupuser'] == 2 || $_SESSION['groupuser'] == 3) {
@@ -112,6 +117,34 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resUnit = mysqli_query($conn, $sqlUnit);
                     while ($rowUnit = mysqli_fetch_assoc($resUnit)) {
                       if ($rowUnit['idopd'] == $data['opd']) { ?>
+                        <option value="<?= $rowUnit['idopd']; ?>" selected><?= $rowUnit['namaopd']; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $rowUnit['idopd']; ?>"><?= $rowUnit['namaopd']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="unitbid" class="col-md-2 col-form-label">Bidang Unit</label>
+                <div class="col-md-10">
+                  <select class="form-control" id="unitbid" name="unitbid" disabled>
+                    <option value="0">-</option>
+                    <?php
+                    // grup user admin OPD atau Operator OPD
+                    if ($_SESSION['groupuser'] == 2 || $_SESSION['groupuser'] == 3) {
+                      $sqlUnit = "SELECT * FROM tb_opd 
+                                WHERE LENGTH(idopd) = 8 && idopd = '$_SESSION[opd]' && idopd = $data[opdb]";
+                    } else {
+                      $sqlUnit = "SELECT * FROM tb_opd
+                                WHERE idopd = $data[opdb] && LENGTH(idopd) = 8";
+                    }
+
+                    $sqlUnit = $sqlUnit . " ORDER BY namaopd ASC";
+
+                    $resUnit = mysqli_query($conn, $sqlUnit);
+                    while ($rowUnit = mysqli_fetch_assoc($resUnit)) {
+                      if ($rowUnit['idopd'] == $data['opdb']) { ?>
                         <option value="<?= $rowUnit['idopd']; ?>" selected><?= $rowUnit['namaopd']; ?></option>
                       <?php } else { ?>
                         <option value="<?= $rowUnit['idopd']; ?>"><?= $rowUnit['namaopd']; ?></option>

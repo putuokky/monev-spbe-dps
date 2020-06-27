@@ -6,14 +6,15 @@ if (isset($_POST['input'])) {
   $nama       = $_POST['nama'];
   $email      = $_POST['email'];
   $unit       = $_POST['unit'];
+  $unitbid    = $_POST['unitbid'];
   $grupuser   = $_POST['grupuser'];
   $indekss    = $_POST['indekss'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO  tb_user (userid, nama_user, password, email, opd, groupuser, grupindeks, is_active)
-      VALUES ('$username', '$nama', '$passw', '$email', '$unit', '$grupuser', '$indekss', '1')";
+    $sql = "INSERT INTO  tb_user (userid, nama_user, password, email, opd, opdb, groupuser, grupindeks, is_active)
+      VALUES ('$username', '$nama', '$passw', '$email', '$unit', '$unitbid', '$grupuser', '$indekss', '1')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -101,6 +102,14 @@ if (isset($_POST['input'])) {
                     while ($rowUnit = mysqli_fetch_assoc($resUnit)) { ?>
                       <option value="<?= $rowUnit['idopd']; ?>"><?= $rowUnit['namaopd']; ?></option>
                     <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="unitbid" class="col-md-2 col-form-label">Bidang Unit</label>
+                <div class="col-md-10">
+                  <select class="form-control" id="unitbid" name="unitbid" disabled>
+                    <option value="0">-</option>
                   </select>
                 </div>
               </div>
