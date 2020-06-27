@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2020 at 12:56 PM
+-- Generation Time: Jun 27, 2020 at 02:40 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -365,17 +365,20 @@ INSERT INTO `klasifikasi_aplikasi` (`id_klasifikasi_app`, `nama_klasifikasi_app`
 
 CREATE TABLE `tbl_jenis_laporan` (
   `id_jenis_laporan` int(11) NOT NULL,
-  `nama_jenis_laporan` varchar(100) NOT NULL
+  `nama_jenis_laporan` varchar(100) NOT NULL,
+  `bidang` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_jenis_laporan`
 --
 
-INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`) VALUES
-(1, 'Server'),
-(2, 'Aplikasi'),
-(3, 'Jaringan');
+INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`, `bidang`) VALUES
+(1, 'Server', '03080104'),
+(2, 'Aplikasi', '03080103'),
+(3, 'Jaringan', '03080104'),
+(4, 'Data', '03080102'),
+(5, 'Informasi', '03080105');
 
 -- --------------------------------------------------------
 
@@ -414,9 +417,7 @@ CREATE TABLE `tbl_lapormasalah` (
   `bukti_lapor` text NOT NULL,
   `nama_input` varchar(100) NOT NULL,
   `status_lapor` int(11) NOT NULL,
-  `kat_tl` int(11) DEFAULT NULL,
-  `respon_lapor` text DEFAULT NULL,
-  `bukti_dukung_selesai` text DEFAULT NULL,
+  `kat_tl_lapor` int(11) NOT NULL,
   `dlu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -424,10 +425,12 @@ CREATE TABLE `tbl_lapormasalah` (
 -- Dumping data for table `tbl_lapormasalah`
 --
 
-INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `permasalahan`, `bukti_lapor`, `nama_input`, `status_lapor`, `kat_tl`, `respon_lapor`, `bukti_dukung_selesai`, `dlu`) VALUES
-(3, 1, 5, 'hhhhh', 'Panduan Penggunaan Sistem esewakadharma Rev1.pdf', 'putuokky', 2, 2, 'vvvv', NULL, '2020-06-17 10:54:21'),
-(4, 3, 6, 'gak isi filee', '', 'putuokky', 2, 1, 'ttttt', NULL, '2020-06-17 00:06:55'),
-(5, 2, 181, 'gggggg', 'bali.pdf', 'putuokky', 1, NULL, NULL, NULL, '2020-06-17 11:27:21');
+INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `permasalahan`, `bukti_lapor`, `nama_input`, `status_lapor`, `kat_tl_lapor`, `dlu`) VALUES
+(3, 1, 5, 'hhhhh', 'Panduan Penggunaan Sistem esewakadharma Rev1.pdf', 'putuokky', 2, 1, '2020-06-17 10:54:21'),
+(4, 3, 6, 'gak isi filee', '', 'putuokky', 2, 1, '2020-06-17 00:06:55'),
+(5, 2, 181, 'gggggg', 'bali.pdf', 'putuokky', 2, 1, '2020-06-17 11:27:21'),
+(6, 5, 181, 'yyyyyy', 'kuisioner.pdf', 'opkominfo', 2, 1, '2020-06-26 12:16:58'),
+(7, 5, 76, 'konten kurang', 'RKCI Enabler.pdf', 'anggita', 2, 1, '2020-06-26 14:29:06');
 
 -- --------------------------------------------------------
 
@@ -456,6 +459,57 @@ CREATE TABLE `tbl_monev_app` (
 
 INSERT INTO `tbl_monev_app` (`id_monev_app`, `nama_app`, `kategori_monev`, `masalah`, `bukti_dukung`, `solusi_pengembang`, `nama_team`, `status_monev`, `dlu_monev`, `respon_koor`, `nama_koor`, `dlu_respon_koor`) VALUES
 (2, 11, 4, 'isi file ini', 'RKCI Enabler.pdf', 'ayooo', 'putuokky', 2, '2020-06-17 18:52:18', 'wwww', 'putuokky', '2020-06-17 18:53:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_respon_tl`
+--
+
+CREATE TABLE `tbl_respon_tl` (
+  `id_respon_tl` int(11) NOT NULL,
+  `id_lapormasalah` int(11) NOT NULL,
+  `kat_tl_respon` int(11) NOT NULL,
+  `respon_tl` text NOT NULL,
+  `user_tl` varchar(100) NOT NULL,
+  `dlu_tl` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_respon_tl`
+--
+
+INSERT INTO `tbl_respon_tl` (`id_respon_tl`, `id_lapormasalah`, `kat_tl_respon`, `respon_tl`, `user_tl`, `dlu_tl`) VALUES
+(1, 3, 1, 'aaaa', 'putuokky', '2020-06-26 11:56:07'),
+(2, 3, 2, 'sssss', 'putuokky', '2020-06-26 12:15:07'),
+(3, 4, 1, 'sssss', 'putuokky', '2020-06-26 12:15:20'),
+(4, 7, 1, 'sssss', '198404162009031007', '2020-06-26 14:46:38'),
+(5, 5, 1, 'ssss', '198404062009031006', '2020-06-26 14:57:48'),
+(6, 5, 1, 'ssss', '198404062009031006', '2020-06-26 14:58:01'),
+(7, 6, 2, 'aaaaaaaaa', '198404162009031007', '2020-06-27 19:56:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user_katindex`
+--
+
+CREATE TABLE `tbl_user_katindex` (
+  `id_user_katindex` int(11) NOT NULL,
+  `user_katindex` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_user_katindex`
+--
+
+INSERT INTO `tbl_user_katindex` (`id_user_katindex`, `user_katindex`) VALUES
+(1, 'SPBE'),
+(2, 'IKCI'),
+(3, 'Aplikasi'),
+(4, 'SPBE & IKCI'),
+(5, 'SPBE & Aplikasi'),
+(6, 'IKCI & Aplikasi');
 
 -- --------------------------------------------------------
 
@@ -1670,6 +1724,7 @@ CREATE TABLE `tb_user` (
   `password` varchar(50) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `opd` varchar(11) DEFAULT NULL,
+  `opdb` varchar(11) NOT NULL,
   `groupuser` int(11) NOT NULL,
   `grupindeks` int(11) NOT NULL,
   `is_active` int(11) NOT NULL
@@ -1679,38 +1734,44 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `groupuser`, `grupindeks`, `is_active`) VALUES
-('Adbang', 'Bagian Administrasi Pembangunan', '3c69c0ffe7026314919b56c9448563fd', '', '012001', 2, 1, 1),
-('adminkominfo', 'Dinas Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', 'kominfo@denpasarkota.go.id', '030801', 2, 0, 1),
-('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '0', 1, 1, 1),
-('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', '', '011201', 2, 1, 1),
-('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', '', '011301', 2, 1, 1),
-('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', '', '013301', 2, 1, 1),
-('Bapenda', 'Badan Pendapatan Daerah', '1503ff71ca16d26a7e4f16b24e0eb984', '', '031601', 2, 1, 1),
-('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', 2, 1, 1),
-('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', '', '040301', 2, 1, 1),
-('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', '', '300005', 2, 1, 1),
-('denpasarkota', 'Denpasar Kota', 'a16ceb6d9cc146de1a264d4edac2f2e7', 'kominfo@denpasarkota.go.id', '000000', 1, 0, 1),
-('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', '', '030901', 2, 1, 1),
-('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', '', '030801', 2, 1, 1),
-('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', NULL, '030601', 2, 0, 1),
-('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', '', '040101', 2, 1, 1),
-('kominfo', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', NULL, '030801', 2, 0, 1),
-('opkominfo', 'Operator Kominfo', 'f6fa6c72881573370a2f61f1e0e6c11b', 'opkominfo@kominfo.com', '030801', 3, 0, 1),
-('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', '', '140018', 2, 1, 1),
-('PimpinanDKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', 4, 1, 0),
-('Pimpinan_adbang', 'Bagian Administrasi Pembangunan (Asisten II)', 'b4ae4d8cf01a692897356c7167f10565', '', '012001', 4, 1, 1),
-('Pimpinan_bapenda', 'Badan Pendapatan Daerah', '2a14fbccc46372e127492c153703ea31', '', '031601', 4, 1, 1),
-('Pimpinan_bkpsdm', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', '0ccb609865eab19115534b2130eb2922', '', '040301', 4, 1, 1),
-('Pimpinan_bpkad', 'Badan Pengelola Keuangan dan Aset Daerah', '8a7b37ac7e5d37ff06b1268ac9afffe4', '', '300005', 4, 1, 1),
-('Pimpinan_disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'afb9879105b166ef56d62cc9962307d5', '', '030901', 4, 1, 1),
-('Pimpinan_DKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', 4, 1, 1),
-('Pimpinan_hukum', 'Bagian Hukum Setda Kota Denpasar', '011d10ad3167248d207c5e5b77a8cd32', '', '011201', 4, 1, 1),
-('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', 4, 1, 1),
-('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', 4, 1, 1),
-('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', 4, 1, 1),
-('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', 4, 1, 1),
-('putuokky', 'Okky Maheswara', 'dc2f4ef676263fe9dde73a9ae6299258', 'okkymahes@gmail.com', '0', 1, 0, 1);
+INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`, `groupuser`, `grupindeks`, `is_active`) VALUES
+('198404062009031006', 'Dewa Ngakan Ketut Rama Sanjaya', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080103', 3, 3, 1),
+('198404162009031007', 'I MD ARTA WIBAWA,S.Kom', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080105', 3, 3, 1),
+('aaa', 'aaaa', '47bce5c74f589f4867dbd57e9ca9f808', '', '030801', '03080102', 3, 3, 1),
+('Adbang', 'Bagian Administrasi Pembangunan', '3c69c0ffe7026314919b56c9448563fd', '', '012001', '0', 2, 1, 1),
+('adminkominfo', 'Dinas Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 2, 0, 1),
+('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', '', '0', '0', 1, 1, 1),
+('agungpriambada', 'Agung Priambada', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
+('anggita', 'Ni Luh Made Anggita Damayanti', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
+('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', '', '011201', '0', 2, 1, 1),
+('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', '', '011301', '0', 2, 1, 1),
+('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', '', '013301', '0', 2, 1, 1),
+('Bapenda', 'Badan Pendapatan Daerah', '1503ff71ca16d26a7e4f16b24e0eb984', '', '031601', '0', 2, 1, 1),
+('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', '0', 2, 1, 1),
+('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', '', '040301', '0', 2, 1, 1),
+('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', '', '300005', '0', 2, 1, 1),
+('denpasarkota', 'Denpasar Kota', 'a16ceb6d9cc146de1a264d4edac2f2e7', 'kominfo@denpasarkota.go.id', '000000', '0', 1, 0, 1),
+('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', '', '030901', '0', 2, 1, 1),
+('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', '', '030801', '0', 2, 1, 1),
+('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', NULL, '030601', '0', 2, 0, 1),
+('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', '', '040101', '0', 2, 1, 1),
+('krisna', 'Dewa Ayu Krisna', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
+('opkominfo', 'Operator Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
+('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', '', '140018', '0', 2, 1, 1),
+('PimpinanDKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 4, 1, 0),
+('Pimpinan_adbang', 'Bagian Administrasi Pembangunan (Asisten II)', 'b4ae4d8cf01a692897356c7167f10565', '', '012001', '0', 4, 1, 1),
+('Pimpinan_bapenda', 'Badan Pendapatan Daerah', '2a14fbccc46372e127492c153703ea31', '', '031601', '0', 4, 1, 1),
+('Pimpinan_bkpsdm', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', '0ccb609865eab19115534b2130eb2922', '', '040301', '0', 4, 1, 1),
+('Pimpinan_bpkad', 'Badan Pengelola Keuangan dan Aset Daerah', '8a7b37ac7e5d37ff06b1268ac9afffe4', '', '300005', '0', 4, 1, 1),
+('Pimpinan_disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'afb9879105b166ef56d62cc9962307d5', '', '030901', '0', 4, 1, 1),
+('Pimpinan_DKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 4, 1, 1),
+('Pimpinan_hukum', 'Bagian Hukum Setda Kota Denpasar', '011d10ad3167248d207c5e5b77a8cd32', '', '011201', '0', 4, 1, 1),
+('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', '0', 4, 1, 1),
+('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', '0', 4, 1, 1),
+('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', '0', 4, 1, 1),
+('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', '0', 4, 1, 1),
+('putuokky', 'Okky Maheswara', 'dc2f4ef676263fe9dde73a9ae6299258', '', '0', '0', 1, 0, 1),
+('veriandriawan', 'Dewa Very Andriawan', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 6, 1);
 
 --
 -- Indexes for dumped tables
@@ -1775,6 +1836,18 @@ ALTER TABLE `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_monev_app`
   ADD PRIMARY KEY (`id_monev_app`);
+
+--
+-- Indexes for table `tbl_respon_tl`
+--
+ALTER TABLE `tbl_respon_tl`
+  ADD PRIMARY KEY (`id_respon_tl`);
+
+--
+-- Indexes for table `tbl_user_katindex`
+--
+ALTER TABLE `tbl_user_katindex`
+  ADD PRIMARY KEY (`id_user_katindex`);
 
 --
 -- Indexes for table `tb_aspek`
@@ -1916,7 +1989,7 @@ ALTER TABLE `klasifikasi_aplikasi`
 -- AUTO_INCREMENT for table `tbl_jenis_laporan`
 --
 ALTER TABLE `tbl_jenis_laporan`
-  MODIFY `id_jenis_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jenis_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori_monev`
@@ -1928,13 +2001,25 @@ ALTER TABLE `tbl_kategori_monev`
 -- AUTO_INCREMENT for table `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_lapormasalah`
-  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_monev_app`
 --
 ALTER TABLE `tbl_monev_app`
   MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_respon_tl`
+--
+ALTER TABLE `tbl_respon_tl`
+  MODIFY `id_respon_tl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tbl_user_katindex`
+--
+ALTER TABLE `tbl_user_katindex`
+  MODIFY `id_user_katindex` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_aspek`
