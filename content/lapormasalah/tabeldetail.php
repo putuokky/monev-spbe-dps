@@ -17,9 +17,9 @@
 
       <div class="col-xl-12 col-lg-12">
 
-      <a class="btn btn-dark btn-icon-split h3 mb-4" title="Kembali" href="?page=lapormasalah"> 
-        <span class="text">Kembali</span>
-      </a>
+        <a class="btn btn-dark btn-icon-split h3 mb-4" title="Kembali" href="?page=lapormasalah">
+          <span class="text">Kembali</span>
+        </a>
 
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
@@ -27,24 +27,24 @@
             <h6 class="m-0 font-weight-bold text-primary">Tabel Detail <?php include 'template/title.php'; ?></h6>
           </div>
           <?php
-            // inisiasi id
-            if (isset($_GET['id']) && $_GET['id'] != "") {
-              $id = $_GET['id'];
-            } else {
-              $id = "";
-            }
+          // inisiasi id
+          if (isset($_GET['id']) && $_GET['id'] != "") {
+            $id = $_GET['id'];
+          } else {
+            $id = "";
+          }
 
-            // query menampilkan data dengan id
-            $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul,d.nama_user
+          // query menampilkan data dengan id
+          $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul,d.nama_user
             FROM tbl_lapormasalah a 
             LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
             LEFT JOIN aplikasi c ON c.id_app = a.nama_app
             LEFT JOIN tb_user d ON d.userid = a.nama_input 
             WHERE id_lapormasalah  = '$id'";
 
-            $res = mysqli_query($conn, $sql);
+          $res = mysqli_query($conn, $sql);
 
-            $data = mysqli_fetch_assoc($res);
+          $data = mysqli_fetch_assoc($res);
           ?>
           <div class="card-body">
             <div class="card text-white bg-secondary mb-3">
@@ -109,8 +109,8 @@
                   </tr>
                 </tfoot> -->
                 <tbody>
-                <?php
-                $sqlTL = "SELECT * FROM tbl_respon_tl a 
+                  <?php
+                  $sqlTL = "SELECT * FROM tbl_respon_tl a 
                       LEFT JOIN tb_user b ON b.userid = a.user_tl
                       WHERE id_lapormasalah = $id
                       ORDER BY dlu_tl DESC";
@@ -130,11 +130,11 @@
                             } ?></td>
                         <td><?= $rowTL['nama_user']; ?></td>
                       </tr>
-                    <?php 
-                    $no++;
-                    } 
-                  } else { ?> 
-                  <td colspan="5" class="text-center">Belum Ada Tindak Lanjut</td>
+                    <?php
+                      $no++;
+                    }
+                  } else { ?>
+                    <td colspan="5" class="text-center">Belum Ada Tindak Lanjut</td>
                   <?php } ?>
                 </tbody>
               </table>
