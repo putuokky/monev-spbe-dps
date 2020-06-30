@@ -71,21 +71,24 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 <tbody>
                   <?php
                   if ($_SESSION['groupuser'] == 1 || $_SESSION['groupuser'] == 2) {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul 
-                    FROM tbl_lapormasalah a 
-                    LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
-                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app";
-                  } else if ($_SESSION['opdb']) {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul 
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul,d.nama_user
                     FROM tbl_lapormasalah a 
                     LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
                     LEFT JOIN aplikasi c ON c.id_app = a.nama_app
+                    LEFT JOIN tb_user d ON d.userid = a.nama_input";
+                  } else if ($_SESSION['opdb']) {
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul,d.nama_user
+                    FROM tbl_lapormasalah a 
+                    LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
+                    LEFT JOIN aplikasi c ON c.id_app = a.nama_app
+                    LEFT JOIN tb_user d ON d.userid = a.nama_input
                     WHERE b.bidang = $_SESSION[opdb]";
                   } else {
-                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul 
+                    $sql = "SELECT a.id_lapormasalah,a.jns_laporan,a.nama_app,a.permasalahan,a.bukti_lapor,a.nama_input,a.status_lapor,a.kat_tl_lapor,a.dlu,b.nama_jenis_laporan,b.bidang,c.judul,d.nama_user
                     FROM tbl_lapormasalah a 
                     LEFT JOIN tbl_jenis_laporan b ON b.id_jenis_laporan = a.jns_laporan 
                     LEFT JOIN aplikasi c ON c.id_app = a.nama_app
+                    LEFT JOIN tb_user d ON d.userid = a.nama_input
                     WHERE a.nama_input = '$_SESSION[userid]'";
                   }
 
