@@ -9,6 +9,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formedit.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "respontl") {
   include 'form_respontl.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "detail") {
+  include 'tabeldetail.php';
 } else {
 
 ?>
@@ -104,10 +106,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   ?>
                       <tr>
                         <td><?= $no; ?></td>
-                        <td>
-                          <button type="button" class="btn btn-dark btn-sm" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button>
+                        <td>                       
+                          <a class="btn btn-dark btn-sm" title="Detail" href="?page=lapormasalah&act=detail&id=<?= $id; ?>"><i class="fas fa-fw fa-file"></i></a>
 
-                          <?php if ($_SESSION['opdb'] == $row['bidang']) : ?>
+                          <?php if ($_SESSION['opdb'] == $row['bidang'] || $_SESSION['groupuser'] == 1) : ?>
                             <a class="btn btn-info btn-sm" title="Respon Tindak Lanjut" href="?page=lapormasalah&act=respontl&id=<?= $id; ?>"><i class="fas fa-fw fa-check-circle"></i></a>
                           <?php endif ?>
 
@@ -115,10 +117,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             <a class="btn btn-warning btn-sm" title="Edit" href="?page=lapormasalah&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                             <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
                           <?php endif ?>
-
-                          <!-- Modal Detail -->
-                          <?php include 'modal_detail.php'; ?>
-                          <!-- End Modal Detail -->
 
                           <!-- Modal Hapus -->
                           <?php include 'modal_hapus.php'; ?>
