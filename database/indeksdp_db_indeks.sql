@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 29, 2020 at 01:37 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Host: localhost:3306
+-- Waktu pembuatan: 01 Jul 2020 pada 17.51
+-- Versi server: 5.7.27
+-- Versi PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aplikasi`
+-- Struktur dari tabel `aplikasi`
 --
 
 CREATE TABLE `aplikasi` (
@@ -36,7 +37,7 @@ CREATE TABLE `aplikasi` (
   `dasarhukum` text NOT NULL,
   `media` int(2) NOT NULL,
   `link` varchar(255) NOT NULL,
-  `pict` text NOT NULL,
+  `pict` varchar(255) NOT NULL,
   `dash_internal` int(1) NOT NULL,
   `unit` varchar(20) NOT NULL,
   `unit_pengguna` varchar(20) NOT NULL,
@@ -47,7 +48,7 @@ CREATE TABLE `aplikasi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `aplikasi`
+-- Dumping data untuk tabel `aplikasi`
 --
 
 INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_aplikasi`, `infofungsi`, `dasarhukum`, `media`, `link`, `pict`, `dash_internal`, `unit`, `unit_pengguna`, `sts_aktif`, `thn_pembuatan`, `usr`, `dlu`) VALUES
@@ -55,7 +56,7 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (2, 'ATCS DENPASAR', 2, 2, 'Untuk memberikan info terkait arus lalu lintas di Kota Denpasar', '', 1, '', '1.', 0, '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:56:20'),
 (3, 'ATCS_CLIENT', 1, 2, 'Untuk pengaturan traffic light kota denpasar', '', 1, '', '1.', 0, '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:56:42'),
 (4, 'Penilaian Kesehatan Koperasi Online', 1, 2, 'Melakukan penilaian kesehatan usaha koperasi secara online (intranet).', '', 1, '', '1.', 0, '031501', '031501', 'aktif', '-', 'adm', '2019-04-29 10:50:05'),
-(5, 'Bank Data', 2, 2, 'Meningkatkan kecepatan proses perubahan data dan informasi yang dinamis, meningkatkan volume data informasi yang dapat diakses dan meningkatkan kualitas dan kuantitas pengolahan informasi. Meningkatkan pelayanan kepada masyarakat/publik secara lebih professional dan modern. Pemeliharaan dokumen, data dan informasi yang berkaitan dengan perbankan secara memadai, media komunikasi, interaksi dan informasi dengan masyarakat/publik dengan dua arah agar bisa mendengar dan berbicara secara efektif. memberikan informasi resmi dan terbaru tentang aktifitas dari Pemerintah Kota Denpasar, baik mengenai informasi layanan perizinan, pengaduan masyarakat, transparansi anggaran, informasi publik, informasi layanan publik dan informasi kepada publik.', '', 1, 'https://bankdata.denpasarkota.go.id/', '1.', 0, '030801', '170004', 'aktif', '2016', 'adm', '2020-06-10 10:43:19'),
+(5, 'Bank Data', 2, 2, 'Meningkatkan kecepatan proses perubahan data dan informasi yang dinamis, meningkatkan volume data informasi yang dapat diakses dan meningkatkan kualitas dan kuantitas pengolahan informasi. Meningkatkan pelayanan kepada masyarakat/publik secara lebih professional dan modern. Pemeliharaan dokumen, data dan informasi yang berkaitan dengan perbankan secara memadai, media komunikasi, interaksi dan informasi dengan masyarakat/publik dengan dua arah agar bisa mendengar dan berbicara secara efektif. memberikan informasi resmi dan terbaru tentang aktifitas dari Pemerintah Kota Denpasar, baik mengenai informasi layanan perizinan, pengaduan masyarakat, transparansi anggaran, informasi publik, informasi layanan publik dan informasi kepada publik.', '', 1, 'https://bankdata.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '2016', 'krisna', '2020-06-23 09:22:22'),
 (6, 'Prodeskel', 1, 1, 'Memantau Profil Potensi dan perkembangan Desa/ Kelurahan.', '', 1, 'prodeskel.binapemdes.kemendagri.go.id', '1.', 0, '040501', '040501', 'aktif', '', 'adm', '2019-03-28 14:03:17'),
 (7, 'Basis data terpadu / SLRT', 1, 1, 'Sistem informasi basis data terpadu pendataan PMKS dan PSKS Kota Denpasar', '', 1, 'jendela.denpasarkota.go.id/bdt', '1.', 0, '300004', '300004', 'naktif', '-', 'adm', '2019-04-29 11:04:44'),
 (8, 'Rajakol (Rekomendasi Jasa Konstruksi Online)', 1, 2, 'Pelayanan publik pengajuan dan penerbitan rekomendasi teknis (IUJK) Ijin Usaha Jasa Konstruksi online.', '', 1, 'damamandala.denpasarkota.go.id', '1.', 0, '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:51:59'),
@@ -111,7 +112,7 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (58, 'Sismadak', 1, 2, 'Sebagai sarana untuk menyimpan dan mencari kembali dokumen berdasarkan elemen penilaian yang berhubungan dengan akreditasi rumah sakit\r\n', '', 1, '', '1.', 0, '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:40'),
 (59, 'Sistem Denda Piutang', 1, 2, 'Mengelola piutang dan denda retribusi\r\n', '', 1, 'perijinan.denpasarkota.go.id/dendapiutang', '1.', 0, '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:53:44'),
 (60, 'Sistem Informasi Coorporate Social Responsibilities (CSR)', 1, 2, 'Mengelola informasi data CSR\r\n', '', 1, 'http://csrkotadenpasar.com/', '1.', 0, '013401', '013401', 'aktif', '-', 'adm', '2019-04-29 10:36:24'),
-(61, 'Sistem Informasi Graha Sewaka Dharma (Dashboard Internal Denpasar)', 1, 2, 'Sebagai media informasi untuk permohonan peminjaman Gedung atau ruang rapat yang ada di Kota Denpasar, Peminjaman sound system, Peminjaman Videotron dan informasi terkait aplikasi yang dimiliki oleh pemerintah Kota Denpasar.', 'Belum ada', 1, 'http://aplikasi.denpasarkota.go.id:8086/internal/', 'group-icon.png', 1, '030801', '030801', 'aktif', '2015', 'adm', '2020-06-10 10:42:03'),
+(61, 'Sistem Informasi Graha Sewaka Dharma (Dashboard Internal Denpasar) / SIMPARSA', 1, 2, 'Sebagai media informasi untuk permohonan peminjaman Gedung atau ruang rapat yang ada di Kota Denpasar, Peminjaman sound system, Peminjaman Videotron yang dimiliki oleh pemerintah Kota Denpasar.', 'Belum ada', 1, 'https://sipoint.denpasarkota.go.id/simparsa/', 'group-icon.png', 1, '030801', '030801', 'aktif', '2015', 'veriandriawan', '2020-06-23 09:42:50'),
 (62, 'Sistem Informasi Manajemen Gaji (SIMGAJI)', 1, 2, 'Untuk menyajikan informasi gaji PNSD dan untuk mengolah mencatat dan menyimpan data PNSD.\r\n', '', 1, '192.100.100.93', '1.', 0, '300005', '300005', 'aktif', '-', 'adm', '2019-04-29 10:33:41'),
 (63, 'SISTEM INFORMASI TAGIHAN REKENING AIR MINUM', 2, 2, 'Membantu mendapatkan infomasi mengenai tagihan rekening air minum\r\n', '', 4, '', '1.', 0, '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:13:20'),
 (64, 'Sistem Manajemen Informasi Program Keluarga Harapan (PHK) Online', 1, 1, 'Pemutakhiran Data Keluarga Penerima Manfaat (KPM) Program Keluarga Harapan (PKH) meliputi perubahaan komponen dari ibu hamil ke nifas, anak balita ke prasekolah, anak sd ke smp, kemudian sma/smk, lansia dan disabilitas berat yang menentukan masih berhak atau tidak KPM tersebut mendapatkan bantuan PKH, Perubahan status KPM, Perubahan data KPM seperti data KYC (knowing your customer), penginputan data pendidikan dan fasilitas kesehatan yang digunakan masing masing anggota rumah tangga setiap KPM dalam hadir disekolah dan rutin periksa ke fasilitas kesehatan\r\n', '', 4, '192.168.100.225', '1.', 0, '300004', '300004', 'aktif', '', 'adm', '2019-03-31 10:25:44'),
@@ -122,13 +123,13 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (69, 'SITT (sistem informasi tubercolosis terpadu)', 1, 1, 'Untuk merekap penerimaan kasus baru, konversi, kesembuhan, DO, meninggal, pindah, gagal pasien TB dan PX TB -HIV\r\n', '', 1, 'sitt.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-31 10:33:47'),
 (70, 'SLRT', 1, 1, 'Membantu mengidentifikasi kebutuhan masyarakat miskin dan rentan miskin, kemudian menghubungkan mereka dengan program dan layanan yang dikelola oleh pemerintah (Pusat, Provinsi dan Kabupaten/Kota) dan non Pemerintah sesuai dengan kebutuhan mereka. SLRT juga membantu mengidentifikasi keluhan masyarakat miskin dan rentan miskin, melakukan rujukan, dan memantau penanganan keluhan untuk memastikan keluhan-keluhan tsb ditangani dengan baik.\r\n', '', 1, 'http://slrt.kemsos.go.id/v2/webslrt/login', '1.', 0, '300004', '300004', 'naktif', '', 'adm', '2019-03-31 10:34:56'),
 (71, 'Aplikasi Kegawatdaruratan 112', 1, 2, 'Aplikasi Kegawatdaruratan 112 berfungsi sebagai layanan panggilan kegawatdaruratan', '', 1, 'http://182.253.196.220/com/dashboard/auth', 'gambar 1121.jpg', 0, '030801', '040801', 'aktif', '2018', 'adm', '2019-09-26 08:54:07'),
-(72, 'Damakesmas', 1, 2, 'Sistem informasi denpasar mantap kesehatan masyarakat.', 'SK Kebijakan Damakesmas.pdf', 1, 'https://damakesmas.denpasarkota.go.id/', '1.', 0, '030801', '030201', 'aktif', '2017', 'adm', '2019-05-22 15:30:58'),
-(73, 'e-Kinerja', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '-', 'adm', '2019-05-09 14:06:15'),
-(74, 'TNDE', 1, 2, '-', '', 4, 'http://aplikasi.denpasarkota.go.id:8084/tnde/', 'tnde.png', 1, '030801', '030801', 'aktif', '-', 'adm', '2019-05-16 09:06:31'),
+(72, 'Damakesmas', 1, 2, 'Sistem informasi denpasar mantap kesehatan masyarakat.', 'SK Kebijakan Damakesmas.pdf', 1, 'https://damakesmas.denpasarkota.go.id/', '1.', 0, '030801', '030201', 'aktif', '2017', 'krisna', '2020-06-25 12:24:24'),
+(73, 'e-Kinerja', 2, 2, 'Sebuah aplikasi untuk mendukung kegiatan harian pegawai dilingkungan Pemerintah Kota Denpasar seperti dalam hal absensi, menginput sasaran kegiatan pegawai, menginput kegiatan harian, melihat informasi tunjangan kinerja pewagai dan lain-lainnya.', '', 1, 'https://ekinerja.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '-', 'veriandriawan', '2020-06-23 09:57:50'),
+(74, 'TNDE (Tata Naskah Dinas Elektronik)', 1, 2, '-', '', 4, 'https://tnde.denpasarkota.go.id/', 'tnde.png', 1, '030801', '030801', 'aktif', '-', 'veriandriawan', '2020-06-23 10:15:16'),
 (75, 'SIPENJAR', 1, 2, 'Mengelola pengaduan jaringan', '', 1, 'http://infrastruktur.denpasarkota.go.id/index.php/', '1.', 0, '030801', '030801', 'aktif', '2017', 'adm', '2019-05-22 15:37:35'),
 (76, 'PPID', 1, 2, '-', '', 4, 'https://ppid.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '2017', 'adm', '2019-05-17 11:45:52'),
 (77, 'Simonev', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2018', 'adm', '2019-05-16 11:16:23'),
-(78, 'Portal Disabilitas (Diaspora)', 1, 2, '-', '', 4, 'http://diaspora.denpasarkota.go.id/', '1.', 0, '030801', '300004', 'aktif', '2018', 'adm', '2019-05-17 11:49:12'),
+(78, 'Portal Disabilitas (Diaspora)', 1, 2, 'Dalam rangka analisis, perancangan dan pengembangan portal disabilitas dalam bentuk website, yang diperuntukan terutama bagi kelompok masyarakat penyandang cacat (disabilitas), dalam hal mengakses informasi publik terutama yang berhubungan dengan disabilitas, lokasi ramah disabilitas, relawan dan bantuan kepada disabilitas serta menjadi satu informasi dan komunikasi peluang kerja dengan masyarakat pengguna jasa keahlian penyandang cacat, perusahaan serta pemerintah.', '', 1, 'http://diaspora.denpasarkota.go.id/', '1.', 0, '030801', '300004', 'aktif', '2018', 'veriandriawan', '2020-06-23 10:41:09'),
 (79, 'Website Disdikpora Kota Denpasar', 1, 2, 'Memberikan informasi kegiatan pendidikan kepada masyarakat\r\n', '', 1, 'http://www.pendidikan.denpasarkota.go.id', '1.', 0, '030101', '030101', 'aktif', '-', 'adm', '2019-04-29 10:55:23'),
 (80, 'Website Bus Sekolah', 2, 2, 'Digunakan untuk memantau posisi bus dan rute bus sekolah\r\n', '', 3, '', '1.', 0, '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:57:49'),
 (81, 'web PPTM ', 1, 1, 'penyebar luasan informasi PTM\r\n', '', 1, 'www.p2ptm.kemkes.go.id', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-03-31 10:49:50'),
@@ -162,7 +163,7 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (109, 'E-Renggar', 1, 1, 'Perencanaan dan Informasi Kinerja Anggaran untuk DAK fisik dan non fisik', '', 1, 'http://e-renggar.kemkes.go.id/index.php/', '1.', 0, '030201', '030201', 'aktif', '', 'adm', '2019-04-01 08:19:20'),
 (110, 'e-RTLH (ertlh.denpasarkota.go.id)', 2, 2, 'Untuk menyampaikan informasi tentang rumah tidak layak huni yang ada di Kota Denpasar Kepada seluruh masyarakat Kota Denpasar', '', 1, '', '1.', 0, '030401', '030401', 'aktif', '2017', 'adm', '2019-10-14 15:04:40'),
 (111, 'e-SAKIP REVIEW (Sistem Akuntabilitas Kinerja Instansi Pemerintah)', 1, 1, 'e-SAKIP REVIU adalah sistem aplikasi yang dibangun oleh Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi sebagai upaya peningkatan kualitas pelaksanaan akuntabilitas kinerja di lingkungan instansi pemerintah untuk meningkatkan efektivitas dan efisiensi penggunaan anggaran.\r\nSistem ini bertujuan sebagai sarana pembinaan interaktif pelaksanaan Akuntabilitas kerja instansi pemerintah dan sarana penyampaian laporan kinerja secara online.', '', 1, 'www.esr.menpan.go.id', '1.', 0, '040201', '000000', 'aktif', '-', 'adm', '2019-04-22 15:17:46'),
-(112, 'Esewaka Dharma', 1, 2, 'e-Sewaka Dharma berfungsi sebagai aplikasi pelayanan public kantor camat Denpasar Utara', '', 1, 'https://esewakadharma.denpasarkota.go.id/', 'logo-sewaka-dharma.png', 1, '030801', '170004', 'aktif', '2017', 'adm', '2020-03-09 09:05:35'),
+(112, 'Website e-Sewaka Dharma', 1, 2, 'e-Sewaka Dharma berfungsi sebagai aplikasi pelayanan public kantor camat Denpasar Utara', '', 1, 'https://esewakadharma.denpasarkota.go.id/', 'logo-sewaka-dharma.png', 1, '030801', '100000', 'aktif', '2017', 'veriandriawan', '2020-06-18 14:24:34'),
 (113, 'e-SPTPD', 1, 2, 'Pelaporan pajak hotel , restoran dan hiburan secara online', '', 1, 'e-pajak.denpasarkota.go.id/esptpd', '1.', 0, '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:32:31'),
 (114, 'Ewars', 1, 1, 'Untuk laporan mingguan kewaspadaan dini penyakit', '', 1, 'www.surveilans.org', '1.', 0, '030201', '030201', 'naktif', '', 'adm', '2019-04-01 08:25:40'),
 (115, 'G Sinjab', 1, 1, 'Menginput data Analisis Jabatan dan Analisis beban keja dari perangkat daerah/ unit', '', 1, '', '1.', 0, '011301', '000000', 'aktif', '-', 'adm', '2019-04-29 10:37:15'),
@@ -195,7 +196,7 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (143, 'Simyandu', 2, 2, '-', '', 4, '', '1.', 0, '030801', '000000', 'aktif', '2015', 'adm', '2019-05-16 11:21:46'),
 (144, 'Website Aksara Bali', 1, 2, '-', '', 1, '', '1.', 0, '030801', '030801', 'aktif', '2015', 'adm', '2019-05-16 12:52:43'),
 (145, 'PRO Denpasar Mobile Android', 2, 2, 'PRO Denpasar berfungsi sebagai alat bantu untuk melakukan monitoring dan verifikasi program pembangunan, serta pengaduan masyarakat di Kota Denpasar.', '', 2, 'https://pengaduan.denpasarkota.go.id/', 'logo-prodenpasar.png', 0, '030801', '000000', 'aktif', '2016', 'adm', '2019-05-17 11:43:25'),
-(146, 'SIDOK', 2, 2, '-', '', 1, 'https://sidok.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '2017', 'adm', '2019-05-17 11:47:22'),
+(146, 'SIDOK', 2, 2, 'Sistem Informasi Dokumen Kota Denpasar atau disebut Sidok merupakan salah satu website yang dikelola oleh Dinas Komunikasi, Informatika dan Statistik Kota Denpasar dan di integrasikan dengan Pusat Data Kota Denpasar, dimana diperuntukan untuk memanajemen dokumen di seluruh OPD dan Badan yang ada di Lingkungan Pemerintahan Kota Denpasar, dan dapat sebagai pendukung tautan data. Selain itu tidak kalah pentingnya sistem ini akan menjadi salah satu penambah kelengkapan dashboard bagi pimpinan melihat secara cepat dan akurat data dan informasi seluruh Kota Denpasar.', '', 1, 'https://sidok.denpasarkota.go.id/', '1.', 0, '030801', '000000', 'aktif', '2017', 'agungpriambada', '2020-06-25 10:05:03'),
 (147, 'Software Aplikasi buku elektronik (e-Book Perpustakaan Kominfo)', 1, 2, '-', '', 1, 'http://widyasastra.denpasarkota.go.id/', '1.', 0, '030801', '030801', 'aktif', '2016', 'adm', '2019-07-05 11:52:24'),
 (148, 'Rujukan Online (Dinas Kominfo)', 1, 2, '-', '', 1, 'http://rujukanonline.denpasarkota.go.id/', '1.', 0, '030801', '030801', 'aktif', '2015', 'adm', '2019-05-16 13:03:19'),
 (149, 'GPS Tracking', 1, 2, 'Diharapkan dapat memantau kendaraan operasional sehingga mengurangi penyimpangan terhadap tugas pengguna armada sesuai dengan ketentuan yang berlaku, dismaping itu tujuan sistem ini digunakan untuk memaksimalkan kinerja dan armada kegawatdaruratan.', '', 1, '', 'map-icon-silicon-beach-la-map-icon-1.png', 1, '030801', '030801', 'aktif', '2016', 'adm', '2019-05-17 11:44:17'),
@@ -221,7 +222,7 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (172, 'SIMAK DIHATI', 2, 2, '-', '-', 1, 'https://simpeg.denpasarkota.go.id', '', 0, '040301', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:04:10'),
 (173, 'Kota Tangguh Sosial', 2, 2, '-', '-', 1, 'https://kotatangguh.denpasarkota.go.id/', '', 0, '300004', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:08:51'),
 (174, 'Pemantauan Kualitas Udara', 2, 1, 'Aplikasi utk pemantauan kualitas udara', '-', 1, 'http://202.73.26.177/bar/stasiun2.php?id=denpasar#', '', 0, '030501', '000000', 'aktif', '-', 'adm', '2019-10-24 14:56:56'),
-(175, 'Mobile Esewaka Dharma', 2, 2, 'Sebagai aplikasi layanan publik bagi seluruh masyarakat dalam melakukan administrasi kependudukan.', '-', 2, '', '', 0, '030801', '100000', 'aktif', '2020', 'adm', '2020-03-09 08:48:32'),
+(175, 'Mobile e-Sewaka Dharma', 2, 2, 'Sebagai aplikasi layanan publik bagi seluruh masyarakat dalam melakukan administrasi kependudukan.', '-', 2, '', '', 0, '030801', '100000', 'aktif', '2020', 'veriandriawan', '2020-06-18 14:23:36'),
 (176, 'Buku tamu damamaya', 1, 2, 'Sebagai aplikasi pencatatan tamu yang hadir ke ruang damamaya.', '-', 1, '', '', 0, '030801', '030801', 'aktif', '2019', 'adm', '2020-02-13 11:02:14'),
 (177, 'Karma simanis', 2, 2, '-', '-', 1, 'https://simonev.denpasarkota.go.id/', '', 0, '012001', '000000', 'aktif', '2019', 'adm', '2020-02-13 11:25:07'),
 (178, 'Sipoint', 2, 2, 'Sebagai dashboard internal aplikasi yang ada di Kota Denpasar, yang mana didalamnya terdapat aplikasi SIMPARSA, EParuman dan lain-lain.', '-', 1, 'https://sipoint.denpasarkota.go.id/', '', 0, '030801', '-', 'aktif', '2019', 'adm', '2020-02-13 11:34:42'),
@@ -233,13 +234,12 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (185, 'Sinkrondapodik', 1, 2, '-', '-', 1, 'http://sinkrondapodik.denpasarkota.go.id/', '', 0, '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:44:04'),
 (186, 'e cheking', 1, 2, '-', '-', 1, '', '', 0, '031501', '031501', 'aktif', '2020', 'adm', '2020-03-10 15:46:04'),
 (187, 'Sicantik Cloud', 1, 1, '-', '-', 1, '', '', 0, '140018', '140018', 'aktif', '2020', 'adm', '2020-06-12 10:33:31'),
-(188, 'CS2', 1, 2, '-', '-', 1, '', '', 0, '013401', '013401', 'aktif', '2020', 'adm', '2020-03-10 15:49:18'),
-(194, 'wwww', 1, 2, 'qweqe', '', 2, 'www', '', 1, '011401', '011401', 'aktif', '2019', 'putuokky', '2020-06-15 10:11:14');
+(188, 'CS2', 1, 2, '-', '-', 1, '', '', 0, '013401', '013401', 'aktif', '2020', 'adm', '2020-03-10 15:49:18');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_aplikasi`
+-- Struktur dari tabel `detail_aplikasi`
 --
 
 CREATE TABLE `detail_aplikasi` (
@@ -261,7 +261,7 @@ CREATE TABLE `detail_aplikasi` (
   `web_server` varchar(100) NOT NULL,
   `database_server` varchar(100) NOT NULL,
   `bplain_server` varchar(100) NOT NULL,
-  `judul_spk` varchar(50) NOT NULL,
+  `judul_spk` text NOT NULL,
   `nilai_spk` int(11) NOT NULL,
   `sumberdana_spk` varchar(20) NOT NULL,
   `vendor` varchar(100) NOT NULL,
@@ -271,16 +271,30 @@ CREATE TABLE `detail_aplikasi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `detail_aplikasi`
+-- Dumping data untuk tabel `detail_aplikasi`
 --
 
 INSERT INTO `detail_aplikasi` (`id_detail_aplikasi`, `id_aplikasi`, `input`, `output`, `version`, `db`, `pemrograman`, `integrasi`, `info_integrasi`, `thn_pengembangan`, `cpu_server`, `ram_server`, `harddisk_server`, `os_server`, `bp_server`, `web_server`, `database_server`, `bplain_server`, `judul_spk`, `nilai_spk`, `sumberdana_spk`, `vendor`, `kontak_vendor`, `usr`, `dlu`) VALUES
-(1, 194, 'qqq', 'ww1', '1.6.20', 1, 'PHP, Framework CI, Laravel, YII', 'sudah', '', '2020', 'www', 'eee', 'rrr', 'tt', 'yyy', 'uuuu', 'iiii', 'jjjj', 'hhhh', 111, 'gg', 'kkk', '222', 'putuokky', '2020-06-16 17:57:35');
+(1, 194, 'qqq', 'ww1', '1.6.20', 1, 'PHP, Framework CI, Laravel, YII', 'belum', '', '2020', 'www', 'eee', 'rrr', 'tt', 'yyy', 'uuuu', 'iiii', 'jjjj', 'hhhh', 111, 'gg', 'kkk', '222', 'putuokky', '2020-06-15 11:29:04'),
+(2, 112, 'Data kependudukan, Surat menyurat, potensi dan perkembangan desa dan kelurahan', 'Laporan data kependudukan, laporan surat menyurat, laporan potensi dan laporan perkembangan desa dan kelurahan', 'Versi 1.1', 1, 'PHP', 'sudah', 'Diintegrasikan dengan aplikasi pusat data', '2017', 'Dual Xeon Processor Silver 4110 (8 Core)', '32GB', '4TB', 'Linux CenOS 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'Javascript', '-', 0, 'APBD', 'Universitas Udayana', 'gusdedwidasmara (081934345685)', 'veriandriawan', '2020-06-26 10:11:02'),
+(4, 5, 'Data dan informasi berupa file excel, pdf, csv dan json\r\nAditional info berupa tanggal input, last update, sumber / OPD, frekuwensi penerbitan, tahun penerbita, cakupan, kontak dan tagline', 'Data series berupa : agregat atau grafik\r\nData berdasarkan kategori seperti : kependudukan, eknomi dan lain-lain\r\nData berdasarkan instansi atau sumber data\r\nData berdasarkan popular tag\r\nMetadata atau additonal info', '1.0', 1, 'PHP', 'sudah', '-', '2017', 'Dual XeonÂ® Processor Silver 4110(8 Core)', '32GB', '4TB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'veriandriawan', '2020-06-23 09:40:00'),
+(5, 61, 'Data permohonan peminjaman gedung dan ruang rapat\r\nData permohonan peminjaman sound system\r\nData permohonan peminjaman videotron', 'Jadwal Peminjaman Gedung , Sound system, videotron\r\nLaporan peminjaman gedung dan ruang rapat\r\nLaporan peminjaman sound system\r\nLaporan peminjaman videotron', '1.0', 1, 'PHP', 'belum', '-', '2017', 'Intel(R) Xeon(R) CPU E5606  @ 2.13GHz (4 Core)', '8GB', '1TB', 'Linux 11.10', 'PHP 5.6', 'Apache', 'Mysql', 'javascript', '-', 40000000, '-', '-', '-', 'veriandriawan', '2020-06-23 09:50:50'),
+(6, 73, '- Absensi berdasarkan lokasi pegawai (absensi GPS)\r\n- SKP (Sasaran Kegiatan Pegawai) : terdiri dari detail kegiatan, penilaian unsur dan ppengukuran\r\n- Kegiatan harian yang terdiri dari kategori kegiatan, kelompok SKP, penjelasan kegiatan dan bukti hasil kegiatan', '- Rekapitulasi absensi berdasarkan waktu kehadiran dan pemetaan lokasi pegawai\r\n- Daftar  SKP pegawai tiap tahun\r\n- Rekapitulasi kegiatan harian pegawai\r\n- Tunjangan kinerja', '1.0', 1, 'PHP', 'belum', '-', '2020', 'Dual Intel(R) Xeon(R) CPU E5-2660v4 @ 2.00GHz (14 Core)', '32GB', '1,7TB', 'Linux CenOs 6', 'PHP 5.6', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'veriandriawan', '2020-06-23 10:03:57'),
+(7, 74, '- Jenis surat\r\n- Sifat surat\r\n- Surat masuk\r\n- Surat keluar', '- Informasi jenis surat\r\n- Informasi sifat surat\r\n- Informasi surat masuk\r\n- Informasi surat keluar', '1.0', 1, 'PHP', 'belum', '-', '2020', 'Dual XeonÂ® Processor Silver 4110(8 Core)', '32GB', '4TB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'veriandriawan', '2020-06-23 10:23:23'),
+(8, 75, '- Pengaduan masalah jaringan dari OPD\r\n- Data peralatan jaringan', '- Laporan Progres pengaduan\r\n- Laporan Peralatan jaringan', '', 1, 'PHP', 'belum', '-', '2017', 'Intel(R) Xeon(R) CPU E5-2660 v3 (8 Core)', '8GB', '1,2TB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 43000000, '-', 'Bakti Meening', '-', 'veriandriawan', '2020-06-23 10:33:38'),
+(9, 78, '- Penyedia pekerjaan\r\n- Lowongan pekerjaan disabilitas\r\n- Penyandang cacat\r\n- Lokasi wisata dan tempat ramah difabel\r\n- Donasi difabel\r\n- Relawan untuk disabilitas\r\n- Kegiatan disabilitas\r\n- Beasiswa penyandang cacat\r\n- Prestasi penyancang cacat\r\n- Galeri kegiatan\r\n- Layanan keahlian penyandang disabilitas', '- Rekapitulasi Penyedia kerja\r\n- Informasi lowongan kerja atau bursa kerja disabilitas\r\n- Informasi relawan\r\n- Informasi donasi\r\n- Informasi lokasi wisata dan tempat ramah difabel\r\n- Informasi kegiatan disabilitas\r\n- Informasi beasiswa penyandang cacat\r\n- Informasi prestasi penyandang cacat\r\n- Informasi layanan keahlian penyandang disabilitas\r\n- Informasi galeri kegiatan', '1.0', 1, 'PHP', 'belum', '-', '2018', 'Celeron', '4GB', '500GB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 42350000, '-', 'PT. Djingga Media Teknokreatif', '-', 'veriandriawan', '2020-06-23 10:44:51'),
+(10, 144, '- Peribahasa bahas bali terdiri dari : cecimpedan, sesonggan, raos ngempelin, sesenggakan, dan lain-lain\r\n- Input berita bahasa bali\r\n- Input pencarian berita\r\n- Input konversi tulisan latin ke tulisan bali\r\n- Kamus bahasa bali\r\n- Audio kidung\r\n- Opini\r\n- Karaoke lagu bali\r\n- Objek wisata\r\n- Cerita bahasa bali', '- Informasi peribahasa bahas bali terdiri dari : cecimpedan, sesonggan, raos ngempelin, sesenggakan, dan lain-lain\r\n- Informasi  berita bahasa bali\r\n- Informasi  pencarian berita\r\n- Informasi konversi tulisan latin ke tulisan bali\r\n- Informasi Kamus bahasa bali\r\n- Informasi  audio kidung\r\n- Informasi opini\r\n- Informasi karaoke lagu bali\r\n- Informasi  objek wisata\r\n- Informasi  cerita bahasa bali', '', 1, 'PHP', 'belum', '-', '2015', 'Intel(R) Xeon(R) CPU E5-2430 @2.220GHz (6 Core)', '4GB', '250GB', 'LinuxCenOS 7', 'PHP 5.6 dan PHP 7', 'Litespeed', 'Mariadb', 'Javascript', '-', 148000000, '-', '-', '-', 'veriandriawan', '2020-06-26 10:13:01'),
+(11, 72, '- Layanan kesehatan kategori pasien home care/ terjadwal, kegawat daruratan, ODGJ , dll. \r\n- penginputan layanan kesehatan berdasarkan lokasi faskes\r\n- penginputan layanan kesehatan berdasarkan lokasi Desa Kelurahan\r\n- penginputan jadwal kunjungan pasien', '- Layanan kesehatan kategori pasien home care/ terjadwal, kegawat daruratan, ODGJ , dll. \r\n- penginputan layanan kesehatan berdasarkan lokasi faskes\r\n- penginputan layanan kesehatan berdasarkan lokasi Desa Kelurahan\r\n- penginputan jadwal kunjungan pasien\r\n- laporan jadwal pasien berdasarkan desa kelurahan', '1.0', 1, 'PHP ', 'sudah', 'Sudah Terintegrasi dengan Data Center di Dinas Komunikasi, Informatika dan Statistik Pemerintah Kota Denpasar', '2018', 'Coleron', '4GB', '500GB', 'Linux CenOS7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'Javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:15:56'),
+(12, 76, '- inputan data berdasarkan jenis informasi :\r\nBerkala, Setiap Saat, Serta Merta, Dikecualikan\r\n-Klasifikasi Data : Utama atau pembantu\r\n- Bentuk informasi: cetak, online, rekam\r\n- inputan meta data\r\n- inputan masyarakat berupa permohonan informasi publik\r\n- Cek Status Permohonan Informasi Publik', '-laporan berdasarkan jenis informasi: Berkala, Setiap Saat, Serta Merta, Dikecualikan\r\n- laporan berdasarkan Klasifikasi Data : Utama atau pembantu\r\n- laporan berdasarkan bentuk informasi: cetak, online, rekam\r\n- laporan permohonan informasi publik\r\n- laporan hasil Cek Status Permohonan Informasi Publik\r\n-laporan Statistik Layanan Informasi Publik\r\n-informasi peta \r\n- laporan daftar infromasi publik ', '1.0', 1, 'PHP', 'belum', '-', '2020', 'Dual XeonÂ® Processor Silver 4110(8 Core)', '32GB', '4TB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:18:33'),
+(13, 77, '- menginputkan pejabat pengadaan (Pejaban penatausahaan keuangan, pejabat pembuat komitmen, PPTK)\r\n- manage kegiatan berdasarkan jenis kegiatan ( fisik dan non fisik) dan target kegiatan dalam setahun\r\n- menginputkan persentase progres realisasi fisik kegiatan perbulan di lengkapi dengan bukti pendukung\r\n- menginputkan data tender', ' -Ranking OPD berdasarkan Realisasi Keuangan\r\n -Ranking OPD berdasarkan Realisasi Fisik\r\n- Rekapitulasi DPA Seluruh OPD\r\n- Laporan Keaktifan OPD\r\n -Jumlah Kegiatan Per OPD\r\n -Laporan Anggaran Per OPD\r\n- Laporan Realisasi Program/Kegiatan\r\n -Laporan Detail Pagu dan Realisasi', '1.0', 1, 'PHP', 'belum', '-', '2018', 'Celeron', '4GB', '500GB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:25:14'),
+(14, 142, 'Menginputkan data kejadian baik rawan bencana, kriminal, maupun kecelakaan suatu wilayah di Kota Denpasar.', '- Laporan Kejadian Per Desa/Kelurahan\r\n- Laporan Kejadian per Kategori\r\n -Laporan Kejadian per Periode\r\n -Laporan Kejadian per Hari\r\n -Laporan Rekap Kejadian Per Kelurahan', '1.0', 1, 'PHP', 'sudah', 'Sudah Terintegrasi dengan Data Center di Dinas Komunikasi, Informatika dan Statistik Pemerintah Kota Denpasar', '2020', 'Dual XeonÂ® Processor Silver 4110(8 Core)', '32GB', '4TB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:32:36'),
+(15, 147, '-menginputkan buku yang dilengkapi dengan informasi seperti pengerang, penerbit, judul, jumlah halaman dan lokasi rak buku.\r\n-menginputkan ebook ', '-informasi buku\r\n- informasi ebook', '1.0', 1, 'PHP', 'belum', '-', '2016', 'Intel(R) Xeon (R) CPU E5-649 @ 2.53 GHz (8 Core)', '4GB', '146GB', 'Linux CenOs 6', 'PHP 5.6', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:38:17'),
+(16, 140, 'Input data agenda\r\nInput data berita terbaru\r\nInput data keuangan\r\nInput foto dan video\r\nInput pelayanan\r\nInput Tupoksi\r\nInput Struktur Organisasi\r\nInput Pengumuman', 'Data agenda\r\nData berita terbaru\r\nData keuangan\r\nData video dan foto\r\nData pelayanan\r\nData Tupoksi\r\nData Struktur Organisasi\r\nData pengumuman', '1.0', 1, 'PHP', 'belum', '-', '2019', 'Intel(R) Xeon(R) CPU E5-630 @ 2.53GHz (8 Core)', '4GB', '60GB', 'Linux CenOs 7', 'PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-07-01 13:32:01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_aplikasi`
+-- Struktur dari tabel `kategori_aplikasi`
 --
 
 CREATE TABLE `kategori_aplikasi` (
@@ -289,7 +303,7 @@ CREATE TABLE `kategori_aplikasi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori_aplikasi`
+-- Dumping data untuk tabel `kategori_aplikasi`
 --
 
 INSERT INTO `kategori_aplikasi` (`id_kat_aplikasi`, `kat_aplikasi`) VALUES
@@ -299,7 +313,7 @@ INSERT INTO `kategori_aplikasi` (`id_kat_aplikasi`, `kat_aplikasi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_database`
+-- Struktur dari tabel `kategori_database`
 --
 
 CREATE TABLE `kategori_database` (
@@ -308,7 +322,7 @@ CREATE TABLE `kategori_database` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori_database`
+-- Dumping data untuk tabel `kategori_database`
 --
 
 INSERT INTO `kategori_database` (`id_kat_database`, `nama_kat_database`) VALUES
@@ -320,7 +334,7 @@ INSERT INTO `kategori_database` (`id_kat_database`, `nama_kat_database`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_media`
+-- Struktur dari tabel `kategori_media`
 --
 
 CREATE TABLE `kategori_media` (
@@ -329,7 +343,7 @@ CREATE TABLE `kategori_media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori_media`
+-- Dumping data untuk tabel `kategori_media`
 --
 
 INSERT INTO `kategori_media` (`id_media`, `nama_kat_media`) VALUES
@@ -341,7 +355,7 @@ INSERT INTO `kategori_media` (`id_media`, `nama_kat_media`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klasifikasi_aplikasi`
+-- Struktur dari tabel `klasifikasi_aplikasi`
 --
 
 CREATE TABLE `klasifikasi_aplikasi` (
@@ -350,7 +364,7 @@ CREATE TABLE `klasifikasi_aplikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `klasifikasi_aplikasi`
+-- Dumping data untuk tabel `klasifikasi_aplikasi`
 --
 
 INSERT INTO `klasifikasi_aplikasi` (`id_klasifikasi_app`, `nama_klasifikasi_app`) VALUES
@@ -360,7 +374,7 @@ INSERT INTO `klasifikasi_aplikasi` (`id_klasifikasi_app`, `nama_klasifikasi_app`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jenis_laporan`
+-- Struktur dari tabel `tbl_jenis_laporan`
 --
 
 CREATE TABLE `tbl_jenis_laporan` (
@@ -370,7 +384,7 @@ CREATE TABLE `tbl_jenis_laporan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_jenis_laporan`
+-- Dumping data untuk tabel `tbl_jenis_laporan`
 --
 
 INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`, `bidang`) VALUES
@@ -383,7 +397,7 @@ INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`, `bida
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kategori_monev`
+-- Struktur dari tabel `tbl_kategori_monev`
 --
 
 CREATE TABLE `tbl_kategori_monev` (
@@ -392,7 +406,7 @@ CREATE TABLE `tbl_kategori_monev` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_kategori_monev`
+-- Dumping data untuk tabel `tbl_kategori_monev`
 --
 
 INSERT INTO `tbl_kategori_monev` (`id_kat_monev`, `nama_kategori_monev`) VALUES
@@ -406,7 +420,7 @@ INSERT INTO `tbl_kategori_monev` (`id_kat_monev`, `nama_kategori_monev`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_lapormasalah`
+-- Struktur dari tabel `tbl_lapormasalah`
 --
 
 CREATE TABLE `tbl_lapormasalah` (
@@ -422,48 +436,53 @@ CREATE TABLE `tbl_lapormasalah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_lapormasalah`
+-- Dumping data untuk tabel `tbl_lapormasalah`
 --
 
 INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `permasalahan`, `bukti_lapor`, `nama_input`, `status_lapor`, `kat_tl_lapor`, `dlu`) VALUES
 (3, 1, 5, 'hhhhh', 'Panduan Penggunaan Sistem esewakadharma Rev1.pdf', 'putuokky', 2, 1, '2020-06-17 10:54:21'),
 (4, 3, 6, 'gak isi filee', '', 'putuokky', 2, 1, '2020-06-17 00:06:55'),
-(5, 2, 181, 'gggggg', 'bali.pdf', 'putuokky', 2, 1, '2020-06-17 11:27:21'),
-(6, 5, 181, 'yyyyyy', 'kuisioner.pdf', 'opkominfo', 2, 1, '2020-06-26 12:16:58'),
-(7, 5, 76, 'konten kurang', 'RKCI Enabler.pdf', 'anggita', 2, 1, '2020-06-26 14:29:06');
+(5, 2, 181, 'gggggg', 'bali.pdf', 'putuokky', 1, 0, '2020-06-17 11:27:21'),
+(6, 5, 181, 'yyyyyy', 'kuisioner.pdf', 'opkominfo', 1, 0, '2020-06-26 12:16:58');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_monev_app`
+-- Struktur dari tabel `tbl_monev_app`
 --
 
 CREATE TABLE `tbl_monev_app` (
   `id_monev_app` int(11) NOT NULL,
   `nama_app` int(11) NOT NULL,
   `kategori_monev` int(11) NOT NULL,
-  `masalah` text NOT NULL,
-  `bukti_dukung` text NOT NULL,
-  `solusi_pengembang` text NOT NULL,
+  `masalah` mediumtext NOT NULL,
+  `bukti_dukung` mediumtext NOT NULL,
+  `solusi_pengembang` mediumtext NOT NULL,
   `nama_team` varchar(50) NOT NULL,
   `status_monev` int(11) NOT NULL,
   `dlu_monev` datetime NOT NULL,
-  `respon_koor` mediumtext DEFAULT NULL,
+  `respon_koor` mediumtext,
   `nama_koor` varchar(50) DEFAULT NULL,
   `dlu_respon_koor` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_monev_app`
+-- Dumping data untuk tabel `tbl_monev_app`
 --
 
 INSERT INTO `tbl_monev_app` (`id_monev_app`, `nama_app`, `kategori_monev`, `masalah`, `bukti_dukung`, `solusi_pengembang`, `nama_team`, `status_monev`, `dlu_monev`, `respon_koor`, `nama_koor`, `dlu_respon_koor`) VALUES
-(2, 11, 4, 'isi file ini', 'RKCI Enabler.pdf', 'ayooo', 'putuokky', 2, '2020-06-17 18:52:18', 'wwww', 'putuokky', '2020-06-17 18:53:28');
+(5, 5, 1, 'mau donk', 'tte-000020-SRT-062020.pdf', 'harus bisa ', 'putuokky', 2, '2020-06-06 17:49:15', 'Tes', '198404062009031006', '2020-06-06 18:16:06'),
+(6, 73, 2, 'Eror koneksi', 'Eksport_Rekap_Surat_Request_.pdf', 'Tes', 'veriandriawan', 2, '2020-06-06 18:07:44', 'Kembangkan aplikasi', '198404062009031006', '2020-06-06 18:14:34'),
+(7, 75, 3, 'T', '', 'Yyy', 'veriandriawan', 1, '2020-06-06 18:26:49', NULL, NULL, NULL),
+(8, 72, 1, 'Ttt', 'laporan pekerja informal 31 mei 2020.pdf', 'Ttjvxxcv', 'veriandriawan', 1, '2020-06-06 18:29:25', NULL, NULL, NULL),
+(9, 145, 5, 'ha ahahahaha', 'jadwal FGD SC.pdf', 'wkwkwkwkwk', 'putuokky', 1, '2020-06-06 18:32:52', NULL, NULL, NULL),
+(10, 73, 5, 'Lapar', '', 'Makan', 'agungpriambada', 1, '2020-06-06 20:31:31', NULL, NULL, NULL),
+(11, 163, 5, 'Tampilan kurang responsif', 'Buku Panduan - SIM Kependudukan (tanpa KAK).pdf', 'Bangun baru', 'putuokky', 2, '2020-06-08 09:52:35', 'ok lanjutkan', 'veriandriawan', '2020-06-18 14:29:44');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_respon_tl`
+-- Struktur dari tabel `tbl_respon_tl`
 --
 
 CREATE TABLE `tbl_respon_tl` (
@@ -476,22 +495,18 @@ CREATE TABLE `tbl_respon_tl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_respon_tl`
+-- Dumping data untuk tabel `tbl_respon_tl`
 --
 
 INSERT INTO `tbl_respon_tl` (`id_respon_tl`, `id_lapormasalah`, `kat_tl_respon`, `respon_tl`, `user_tl`, `dlu_tl`) VALUES
 (1, 3, 1, 'aaaa', 'putuokky', '2020-06-26 11:56:07'),
 (2, 3, 2, 'sssss', 'putuokky', '2020-06-26 12:15:07'),
-(3, 4, 1, 'sssss', 'putuokky', '2020-06-26 12:15:20'),
-(4, 7, 1, 'sssss', '198404162009031007', '2020-06-26 14:46:38'),
-(5, 5, 1, 'ssss', '198404062009031006', '2020-06-26 14:57:48'),
-(6, 5, 1, 'ssss', '198404062009031006', '2020-06-26 14:58:01'),
-(7, 6, 2, 'aaaaaaaaa', '198404162009031007', '2020-06-27 19:56:05');
+(3, 4, 1, 'sssss', 'putuokky', '2020-06-26 12:15:20');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user_katindex`
+-- Struktur dari tabel `tbl_user_katindex`
 --
 
 CREATE TABLE `tbl_user_katindex` (
@@ -500,7 +515,7 @@ CREATE TABLE `tbl_user_katindex` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_user_katindex`
+-- Dumping data untuk tabel `tbl_user_katindex`
 --
 
 INSERT INTO `tbl_user_katindex` (`id_user_katindex`, `user_katindex`) VALUES
@@ -514,7 +529,7 @@ INSERT INTO `tbl_user_katindex` (`id_user_katindex`, `user_katindex`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_aspek`
+-- Struktur dari tabel `tb_aspek`
 --
 
 CREATE TABLE `tb_aspek` (
@@ -529,40 +544,40 @@ CREATE TABLE `tb_aspek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_aspek`
+-- Dumping data untuk tabel `tb_aspek`
 --
 
 INSERT INTO `tb_aspek` (`idaspek`, `nilai_indeks_aspek`, `iddomain`, `nama_aspek`, `bobot_aspek`, `target`, `tahun_aspek`, `urutan_aspek`) VALUES
-(1, '2.00', 1, 'Kebijakan Tata Kelola SPBE', '7.00', 3, '2018', 1),
-(2, '2.10', 1, 'Kebijakan Layanan SPBE', '10.00', 3, '2018', 2),
-(3, '2.00', 2, 'Kelembagaan', '8.00', 3, '2018', 3),
-(4, '2.50', 2, 'Strategi dan Perencanaan', '8.00', 3, '2018', 4),
-(5, '2.33', 2, 'Teknologi Informasi dan Komunikasi', '12.00', 3, '2018', 5),
-(6, '3.29', 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', '35.00', 3, '2018', 6),
-(7, '2.50', 3, 'Layanan Publik Berbasis Elektronik', '20.00', 3, '2018', 7),
-(8, '0.83', 4, 'Bangunan Cerdas Cerdas', '0.08', 0, '2018', 1),
-(9, '2.88', 4, 'Manajemen Sumber Daya', '0.29', 0, '2018', 2),
-(10, '6.29', 4, 'Perencanaan Berkelanjutan', '0.63', 0, '2018', 3),
-(11, '2.67', 5, 'Transportasi yang Efisien', '0.36', 0, '2018', 1),
-(12, '2.99', 5, 'Akses Multi Moda', '0.40', 0, '2018', 2),
-(13, '1.84', 5, 'Infrastruktur Teknologi', '0.25', 0, '2018', 3),
-(14, '2.91', 6, 'Layanan Daring', '0.32', 0, '2018', 1),
-(15, '2.57', 6, 'Infrastruktur Pendukung Sistem', '0.28', 0, '2018', 2),
-(16, '3.57', 6, 'Keterbukaan Data Pemerintahan', '0.39', 0, '2018', 3),
-(17, '2.56', 7, 'Kewirausahaan dan Inovasi', '0.37', 0, '2018', 1),
-(18, '1.84', 7, 'Produktivitas', '0.27', 0, '2018', 2),
-(19, '2.49', 7, 'Jaringan Bisnis Dalam dan Luar Negeri', '0.36', 0, '2018', 3),
-(20, '2.58', 8, 'Inklusivitas Sosial', '0.25', 0, '2018', 1),
-(21, '2.13', 8, 'Pendidikan', '0.20', 0, '2018', 2),
-(22, '5.79', 8, 'Kreativitas', '0.55', 0, '2018', 3),
-(23, '3.17', 9, 'Budaya dan Kesejahteraan', '0.30', 0, '2018', 1),
-(24, '2.51', 9, 'Keamanan', '0.24', 0, '2018', 2),
-(25, '4.77', 9, 'Kesehatan', '0.46', 0, '2018', 3);
+(1, 2.00, 1, 'Kebijakan Tata Kelola SPBE', 7.00, 3, '2018', 1),
+(2, 2.10, 1, 'Kebijakan Layanan SPBE', 10.00, 3, '2018', 2),
+(3, 2.00, 2, 'Kelembagaan', 8.00, 3, '2018', 3),
+(4, 2.50, 2, 'Strategi dan Perencanaan', 8.00, 3, '2018', 4),
+(5, 2.33, 2, 'Teknologi Informasi dan Komunikasi', 12.00, 3, '2018', 5),
+(6, 3.29, 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', 35.00, 3, '2018', 6),
+(7, 2.50, 3, 'Layanan Publik Berbasis Elektronik', 20.00, 3, '2018', 7),
+(8, 0.83, 4, 'Bangunan Cerdas Cerdas', 0.08, 0, '2018', 1),
+(9, 2.88, 4, 'Manajemen Sumber Daya', 0.29, 0, '2018', 2),
+(10, 6.29, 4, 'Perencanaan Berkelanjutan', 0.63, 0, '2018', 3),
+(11, 2.67, 5, 'Transportasi yang Efisien', 0.36, 0, '2018', 1),
+(12, 2.99, 5, 'Akses Multi Moda', 0.40, 0, '2018', 2),
+(13, 1.84, 5, 'Infrastruktur Teknologi', 0.25, 0, '2018', 3),
+(14, 2.91, 6, 'Layanan Daring', 0.32, 0, '2018', 1),
+(15, 2.57, 6, 'Infrastruktur Pendukung Sistem', 0.28, 0, '2018', 2),
+(16, 3.57, 6, 'Keterbukaan Data Pemerintahan', 0.39, 0, '2018', 3),
+(17, 2.56, 7, 'Kewirausahaan dan Inovasi', 0.37, 0, '2018', 1),
+(18, 1.84, 7, 'Produktivitas', 0.27, 0, '2018', 2),
+(19, 2.49, 7, 'Jaringan Bisnis Dalam dan Luar Negeri', 0.36, 0, '2018', 3),
+(20, 2.58, 8, 'Inklusivitas Sosial', 0.25, 0, '2018', 1),
+(21, 2.13, 8, 'Pendidikan', 0.20, 0, '2018', 2),
+(22, 5.79, 8, 'Kreativitas', 0.55, 0, '2018', 3),
+(23, 3.17, 9, 'Budaya dan Kesejahteraan', 0.30, 0, '2018', 1),
+(24, 2.51, 9, 'Keamanan', 0.24, 0, '2018', 2),
+(25, 4.77, 9, 'Kesehatan', 0.46, 0, '2018', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_datapendukung`
+-- Struktur dari tabel `tb_datapendukung`
 --
 
 CREATE TABLE `tb_datapendukung` (
@@ -572,7 +587,7 @@ CREATE TABLE `tb_datapendukung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_datapendukung`
+-- Dumping data untuk tabel `tb_datapendukung`
 --
 
 INSERT INTO `tb_datapendukung` (`iddata`, `idevaluasi`, `keterangan`) VALUES
@@ -617,7 +632,7 @@ INSERT INTO `tb_datapendukung` (`iddata`, `idevaluasi`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_detail_indikator`
+-- Struktur dari tabel `tb_detail_indikator`
 --
 
 CREATE TABLE `tb_detail_indikator` (
@@ -629,7 +644,7 @@ CREATE TABLE `tb_detail_indikator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_detail_indikator`
+-- Dumping data untuk tabel `tb_detail_indikator`
 --
 
 INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, `penjelasan_indikator_list`, `penjelasan_indikator_level`, `penjelasan_indikator_tambahan`) VALUES
@@ -675,7 +690,7 @@ INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_domain`
+-- Struktur dari tabel `tb_domain`
 --
 
 CREATE TABLE `tb_domain` (
@@ -689,24 +704,24 @@ CREATE TABLE `tb_domain` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_domain`
+-- Dumping data untuk tabel `tb_domain`
 --
 
 INSERT INTO `tb_domain` (`iddomain`, `id_indeks`, `nilai_indeks_domain`, `namadomain`, `bobot`, `tahun_domain`, `urutan_domain`) VALUES
-(1, 1, '2.06', 'Kebijakan SPBE', '17.00', '2018', 1),
-(2, 1, '2.29', 'Tata Kelola SPBE', '28.00', '2018', 2),
-(3, 1, '3.00', 'Layanan SPBE', '55.00', '2018', 3),
-(4, 2, '0.00', 'Dimensi Lingkungan (Smart Environment)', '0.16', '2018', 1),
-(5, 2, '0.00', 'Dimensi Mobilitas (Smart Mobility)', '0.11', '2018', 2),
-(6, 2, '0.00', 'Dimensi Pemerintahan (Smart Government)', '0.12', '2018', 3),
-(7, 2, '0.00', 'Dimensi Ekonomi (Smart Economy)', '0.12', '2018', 4),
-(8, 2, '0.00', 'Dimensi Masyarakat (Smart People)', '0.29', '2018', 5),
-(9, 2, '0.00', 'Dimensi Kualitas Hidup (Smart Living)', '0.20', '2018', 6);
+(1, 1, 2.06, 'Kebijakan SPBE', 17.00, '2018', 1),
+(2, 1, 2.29, 'Tata Kelola SPBE', 28.00, '2018', 2),
+(3, 1, 3.00, 'Layanan SPBE', 55.00, '2018', 3),
+(4, 2, 0.00, 'Dimensi Lingkungan (Smart Environment)', 0.16, '2018', 1),
+(5, 2, 0.00, 'Dimensi Mobilitas (Smart Mobility)', 0.11, '2018', 2),
+(6, 2, 0.00, 'Dimensi Pemerintahan (Smart Government)', 0.12, '2018', 3),
+(7, 2, 0.00, 'Dimensi Ekonomi (Smart Economy)', 0.12, '2018', 4),
+(8, 2, 0.00, 'Dimensi Masyarakat (Smart People)', 0.29, '2018', 5),
+(9, 2, 0.00, 'Dimensi Kualitas Hidup (Smart Living)', 0.20, '2018', 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_eksekutif_opd`
+-- Struktur dari tabel `tb_eksekutif_opd`
 --
 
 CREATE TABLE `tb_eksekutif_opd` (
@@ -718,7 +733,7 @@ CREATE TABLE `tb_eksekutif_opd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_eksekutif_opd`
+-- Dumping data untuk tabel `tb_eksekutif_opd`
 --
 
 INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_harus_dipenuhi_opd`, `telah_miliki`, `belum_miliki`) VALUES
@@ -763,7 +778,7 @@ INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_h
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_evaluasi`
+-- Struktur dari tabel `tb_evaluasi`
 --
 
 CREATE TABLE `tb_evaluasi` (
@@ -776,7 +791,7 @@ CREATE TABLE `tb_evaluasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_evaluasi`
+-- Dumping data untuk tabel `tb_evaluasi`
 --
 
 INSERT INTO `tb_evaluasi` (`idevaluasi`, `tahun_evaluasi`, `idlevel`, `idindikator`, `idpertanyaan`, `penjelasan_evaluasi`) VALUES
@@ -821,20 +836,20 @@ INSERT INTO `tb_evaluasi` (`idevaluasi`, `tahun_evaluasi`, `idlevel`, `idindikat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_feedback`
+-- Struktur dari tabel `tb_feedback`
 --
 
 CREATE TABLE `tb_feedback` (
   `idfeedback` int(11) NOT NULL,
   `idpenilaian` int(11) NOT NULL,
   `ket_feedback` text NOT NULL,
-  `files_feedback` text DEFAULT NULL,
+  `files_feedback` text,
   `userid_created` varchar(50) NOT NULL,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_feedback`
+-- Dumping data untuk tabel `tb_feedback`
 --
 
 INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_feedback`, `userid_created`, `date_created`) VALUES
@@ -988,7 +1003,7 @@ INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_f
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_groupuser`
+-- Struktur dari tabel `tb_groupuser`
 --
 
 CREATE TABLE `tb_groupuser` (
@@ -998,19 +1013,19 @@ CREATE TABLE `tb_groupuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_groupuser`
+-- Dumping data untuk tabel `tb_groupuser`
 --
 
 INSERT INTO `tb_groupuser` (`id_groupuser`, `nama_groupuser`, `keterangan`) VALUES
 (1, 'sadmin', 'Super Admin'),
-(2, 'admin', 'Administrator OPD'),
+(2, 'adminopd', 'Administrator OPD'),
 (3, 'operator', 'Operator'),
 (4, 'eksekutifopd', 'Eksekutif OPD');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_indeks`
+-- Struktur dari tabel `tb_indeks`
 --
 
 CREATE TABLE `tb_indeks` (
@@ -1022,20 +1037,18 @@ CREATE TABLE `tb_indeks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_indeks`
+-- Dumping data untuk tabel `tb_indeks`
 --
 
 INSERT INTO `tb_indeks` (`id_indeks`, `nama_indeks`, `nilai_indeks`, `tahun_indeks`, `urutan_indeks`) VALUES
-(1, 'SPBE', '2.64', '2018', 1),
-(2, 'IKCI', '61.70', '2018', 2),
-(3, 'SPBE', '3.33', '2019', 2),
-(4, 'SPBE', '3.33', '2019', 3),
-(5, 'SPBE', '3.33', '2019', 2);
+(1, 'SPBE', 2.64, '2018', 1),
+(2, 'IKCI', 61.70, '2018', 2),
+(3, 'SPBE', 3.33, '2019', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_indikator`
+-- Struktur dari tabel `tb_indikator`
 --
 
 CREATE TABLE `tb_indikator` (
@@ -1048,52 +1061,52 @@ CREATE TABLE `tb_indikator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_indikator`
+-- Dumping data untuk tabel `tb_indikator`
 --
 
 INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`, `bobot_indikator`) VALUES
-(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, '1.0'),
-(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, '1.0'),
-(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, '1.0'),
-(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, '1.0'),
-(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, '1.0'),
-(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, '1.0'),
-(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, '1.0'),
-(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, '1.0'),
-(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, '1.0'),
-(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, '1.0'),
-(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, '1.0'),
-(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, '1.0'),
-(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, '1.0'),
-(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, '1.0'),
-(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, '1.0'),
-(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, '1.0'),
-(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, '1.0'),
-(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, '4.0'),
-(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, '4.0'),
-(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, '4.0'),
-(21, 4, 'Anggaran dan Belanja TIK', '21', 21, '4.0'),
-(22, 5, 'Pengoperasian Pusat Data', '22', 22, '4.0'),
-(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, '4.0'),
-(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, '4.0'),
-(25, 6, 'Layanan Naskah Dinas', '25', 25, '5.0'),
-(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, '5.0'),
-(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, '5.0'),
-(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, '5.0'),
-(29, 6, 'Layanan Manajemen Keuangan', '29', 29, '5.0'),
-(30, 6, 'Layanan Manajemen Kinerja', '30', 30, '5.0'),
-(31, 6, 'Layanan Pengadaan', '31', 31, '5.0'),
-(32, 7, 'Layanan Pengaduan Publik', '32', 32, '3.3'),
-(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, '3.3'),
-(34, 7, 'Layanan Whistle-Blowing System', '34', 34, '3.3'),
-(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, '3.3'),
-(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, '3.3'),
-(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, '3.3');
+(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, 1.0),
+(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, 1.0),
+(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, 1.0),
+(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, 1.0),
+(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, 1.0),
+(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, 1.0),
+(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, 1.0),
+(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, 1.0),
+(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, 1.0),
+(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, 1.0),
+(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, 1.0),
+(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, 1.0),
+(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, 1.0),
+(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, 1.0),
+(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, 1.0),
+(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, 1.0),
+(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, 1.0),
+(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, 4.0),
+(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, 4.0),
+(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, 4.0),
+(21, 4, 'Anggaran dan Belanja TIK', '21', 21, 4.0),
+(22, 5, 'Pengoperasian Pusat Data', '22', 22, 4.0),
+(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, 4.0),
+(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, 4.0),
+(25, 6, 'Layanan Naskah Dinas', '25', 25, 5.0),
+(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, 5.0),
+(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, 5.0),
+(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, 5.0),
+(29, 6, 'Layanan Manajemen Keuangan', '29', 29, 5.0),
+(30, 6, 'Layanan Manajemen Kinerja', '30', 30, 5.0),
+(31, 6, 'Layanan Pengadaan', '31', 31, 5.0),
+(32, 7, 'Layanan Pengaduan Publik', '32', 32, 3.3),
+(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, 3.3),
+(34, 7, 'Layanan Whistle-Blowing System', '34', 34, 3.3),
+(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, 3.3),
+(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, 3.3),
+(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, 3.3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_lemah_kuat`
+-- Struktur dari tabel `tb_lemah_kuat`
 --
 
 CREATE TABLE `tb_lemah_kuat` (
@@ -1107,7 +1120,7 @@ CREATE TABLE `tb_lemah_kuat` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_level`
+-- Struktur dari tabel `tb_level`
 --
 
 CREATE TABLE `tb_level` (
@@ -1119,7 +1132,7 @@ CREATE TABLE `tb_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_level`
+-- Dumping data untuk tabel `tb_level`
 --
 
 INSERT INTO `tb_level` (`idlevel`, `idpertanyaan`, `namalevel`, `nilaimadiri`, `penjelasan_level`) VALUES
@@ -1349,7 +1362,7 @@ INSERT INTO `tb_level` (`idlevel`, `idpertanyaan`, `namalevel`, `nilaimadiri`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_opd`
+-- Struktur dari tabel `tb_opd`
 --
 
 CREATE TABLE `tb_opd` (
@@ -1359,10 +1372,11 @@ CREATE TABLE `tb_opd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_opd`
+-- Dumping data untuk tabel `tb_opd`
 --
 
 INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
+('000000', 'Seluruh OPD', 'Seluruh OPD'),
 ('000001', 'Walikota', ''),
 ('000002', 'Wakil Walikota', ''),
 ('010001', 'Sekretaris Daerah', 'SEKDA'),
@@ -1385,6 +1399,7 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 ('030201', 'Dinas Kesehatan ', ''),
 ('030301', 'Dinas Pekerjaan Umum dan Penataan Ruang', ''),
 ('030401', 'Dinas Perumahan, Kawasan Permukiman Dan Pertanahan', ''),
+('030501', 'Dinas Lingkungan Hidup dan Kebersihan', 'DLHK'),
 ('030601', 'Dinas Kependudukan dan Pencatatan Sipil ', 'Dinas Dukcapil'),
 ('030701', 'Dinas Perhubungan', 'dishub'),
 ('03070101', 'UPT. Transportasi Darat', ''),
@@ -1426,7 +1441,6 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 ('040101', 'Inspektorat', ''),
 ('040201', 'Badan Perencanaan Pembangunan Daerah', 'Bappeda'),
 ('040301', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', 'BKPSDM'),
-('040401', 'Dinas Lingkungan Hidup dan Kebersihan', 'DLHK'),
 ('040501', 'Dinas Pemberdayaan Masyarakat dan Desa Kota', ''),
 ('040601', 'Badan Kesatuan Bangsa, Politik dan Perlindungan Masyarakat', ''),
 ('040701', 'Dinas Perpustakaan dan Kearsipan', ''),
@@ -1434,7 +1448,7 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 ('040901', 'Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana', ''),
 ('041001', 'Rumah Sakit Umum Daerah Wangaya', 'RSUD Wangaya'),
 ('041101', 'Badan Penelitian Dan Pengembangan', ''),
-('100000', 'Seluruh Desa', ''),
+('100000', 'Seluruh Desa/Kelurahan', ''),
 ('140018', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', 'Dinas Perijinan'),
 ('14001801', 'Sekretariat Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', ''),
 ('1400180101', 'Sub Bagian Umum', ''),
@@ -1468,7 +1482,7 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_opdterkait`
+-- Struktur dari tabel `tb_opdterkait`
 --
 
 CREATE TABLE `tb_opdterkait` (
@@ -1478,7 +1492,7 @@ CREATE TABLE `tb_opdterkait` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_opdterkait`
+-- Dumping data untuk tabel `tb_opdterkait`
 --
 
 INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
@@ -1563,22 +1577,22 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_penilaian`
+-- Struktur dari tabel `tb_penilaian`
 --
 
 CREATE TABLE `tb_penilaian` (
   `idpenilaian` int(11) NOT NULL,
   `idindikator` int(11) NOT NULL,
-  `rekomendasi` text DEFAULT NULL,
+  `rekomendasi` text,
   `nilaikematangan` varchar(5) DEFAULT NULL,
   `penilaianmandiri` varchar(5) NOT NULL,
-  `tindaklanjut` text DEFAULT NULL,
+  `tindaklanjut` text,
   `target_waktu` varchar(5) NOT NULL,
   `tahun_penilaian` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_penilaian`
+-- Dumping data untuk tabel `tb_penilaian`
 --
 
 INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaikematangan`, `penilaianmandiri`, `tindaklanjut`, `target_waktu`, `tahun_penilaian`) VALUES
@@ -1660,7 +1674,7 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pertanyaan`
+-- Struktur dari tabel `tb_pertanyaan`
 --
 
 CREATE TABLE `tb_pertanyaan` (
@@ -1670,7 +1684,7 @@ CREATE TABLE `tb_pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_pertanyaan`
+-- Dumping data untuk tabel `tb_pertanyaan`
 --
 
 INSERT INTO `tb_pertanyaan` (`idpertanyaan`, `idindikator`, `pertanyaan`) VALUES
@@ -1715,7 +1729,7 @@ INSERT INTO `tb_pertanyaan` (`idpertanyaan`, `idindikator`, `pertanyaan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -1731,376 +1745,372 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`, `groupuser`, `grupindeks`, `is_active`) VALUES
+('198311232012121004', 'I Nyoman Suardana', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080102', 3, 3, 1),
 ('198404062009031006', 'Dewa Ngakan Ketut Rama Sanjaya', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080103', 3, 3, 1),
-('198404162009031007', 'I MD ARTA WIBAWA,S.Kom', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080105', 3, 3, 1),
-('aaa', 'aaaa', '47bce5c74f589f4867dbd57e9ca9f808', '', '030801', '03080102', 3, 3, 1),
-('Adbang', 'Bagian Administrasi Pembangunan', '3c69c0ffe7026314919b56c9448563fd', '', '012001', '0', 2, 1, 1),
-('adminkominfo', 'Dinas Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 2, 0, 1),
-('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', '', '0', '0', 1, 1, 1),
-('agungpriambada', 'Agung Priambada', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
-('anggita', 'Ni Luh Made Anggita Damayanti', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
-('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', '', '011201', '0', 2, 1, 1),
-('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', '', '011301', '0', 2, 1, 1),
-('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', '', '013301', '0', 2, 1, 1),
-('Bapenda', 'Badan Pendapatan Daerah', '1503ff71ca16d26a7e4f16b24e0eb984', '', '031601', '0', 2, 1, 1),
-('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', '0', 2, 1, 1),
-('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', '', '040301', '0', 2, 1, 1),
-('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', '', '300005', '0', 2, 1, 1),
-('denpasarkota', 'Denpasar Kota', 'a16ceb6d9cc146de1a264d4edac2f2e7', 'kominfo@denpasarkota.go.id', '000000', '0', 1, 0, 1),
-('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', '', '030901', '0', 2, 1, 1),
-('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', '', '030801', '0', 2, 1, 1),
-('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', NULL, '030601', '0', 2, 0, 1),
-('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', '', '040101', '0', 2, 1, 1),
-('krisna', 'Dewa Ayu Krisna', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
-('opkominfo', 'Operator Kominfo', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 0, 1),
-('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', '', '140018', '0', 2, 1, 1),
-('PimpinanDKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 4, 1, 0),
-('Pimpinan_adbang', 'Bagian Administrasi Pembangunan (Asisten II)', 'b4ae4d8cf01a692897356c7167f10565', '', '012001', '0', 4, 1, 1),
-('Pimpinan_bapenda', 'Badan Pendapatan Daerah', '2a14fbccc46372e127492c153703ea31', '', '031601', '0', 4, 1, 1),
-('Pimpinan_bkpsdm', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', '0ccb609865eab19115534b2130eb2922', '', '040301', '0', 4, 1, 1),
-('Pimpinan_bpkad', 'Badan Pengelola Keuangan dan Aset Daerah', '8a7b37ac7e5d37ff06b1268ac9afffe4', '', '300005', '0', 4, 1, 1),
-('Pimpinan_disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'afb9879105b166ef56d62cc9962307d5', '', '030901', '0', 4, 1, 1),
-('Pimpinan_DKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 4, 1, 1),
-('Pimpinan_hukum', 'Bagian Hukum Setda Kota Denpasar', '011d10ad3167248d207c5e5b77a8cd32', '', '011201', '0', 4, 1, 1),
-('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', '0', 4, 1, 1),
-('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', '0', 4, 1, 1),
-('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', '0', 4, 1, 1),
-('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', '0', 4, 1, 1),
-('putuokky', 'Okky Maheswara', 'dc2f4ef676263fe9dde73a9ae6299258', '', '0', '0', 1, 0, 1),
-('veriandriawan', 'Dewa Very Andriawan', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '0', 3, 6, 1);
+('Adbang', 'Bagian Administrasi Pembangunan', '3c69c0ffe7026314919b56c9448563fd', '', '012001', '', 2, 1, 1),
+('adminapps', 'Admin Aplikasi', '21232f297a57a5a743894a0e4a801fc3', '', '0', '', 1, 3, 1),
+('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '0', '', 1, 1, 1),
+('agungpriambada', 'Agung Priambada', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
+('anggita', 'Ni Luh Made Anggita Damayanti', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
+('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', '', '011201', '', 2, 1, 1),
+('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', '', '011301', '', 2, 1, 1),
+('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', '', '013301', '', 2, 1, 1),
+('Bapenda', 'Badan Pendapatan Daerah', '1503ff71ca16d26a7e4f16b24e0eb984', '', '031601', '', 2, 1, 1),
+('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', '', 2, 1, 1),
+('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', '', '040301', '', 2, 1, 1),
+('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', '', '300005', '', 2, 1, 1),
+('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', '', '030901', '', 2, 1, 1),
+('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', '', '030801', '', 2, 1, 1),
+('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', '', '030601', '', 2, 1, 1),
+('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', '', '040101', '', 2, 1, 1),
+('krisna', 'Dewa Ayu Krisna', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
+('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', '', '140018', '', 2, 1, 1),
+('Pimpinan_adbang', 'Bagian Administrasi Pembangunan (Asisten II)', 'b4ae4d8cf01a692897356c7167f10565', '', '012001', '', 4, 1, 1),
+('Pimpinan_bapenda', 'Badan Pendapatan Daerah', '2a14fbccc46372e127492c153703ea31', '', '031601', '', 4, 1, 1),
+('Pimpinan_bkpsdm', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', '0ccb609865eab19115534b2130eb2922', '', '040301', '', 4, 1, 1),
+('Pimpinan_bpkad', 'Badan Pengelola Keuangan dan Aset Daerah', '8a7b37ac7e5d37ff06b1268ac9afffe4', '', '300005', '', 4, 1, 1),
+('Pimpinan_disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'afb9879105b166ef56d62cc9962307d5', '', '030901', '', 4, 1, 1),
+('Pimpinan_DKIS', 'Dinas Komunikasi, Informatika dan Statistik', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 4, 1, 1),
+('Pimpinan_hukum', 'Bagian Hukum Setda Kota Denpasar', '011d10ad3167248d207c5e5b77a8cd32', '', '011201', '', 4, 1, 1),
+('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', '', 4, 1, 1),
+('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', '', 4, 1, 1),
+('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', '', 4, 1, 1),
+('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', '', 4, 1, 1),
+('putuokky', 'Okky Maheswara', 'dc2f4ef676263fe9dde73a9ae6299258', 'okkymahes@gmail.com', '0', '', 1, 0, 1),
+('veriandriawan', 'Dewa Very Andriawan', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `aplikasi`
+-- Indeks untuk tabel `aplikasi`
 --
 ALTER TABLE `aplikasi`
   ADD PRIMARY KEY (`id_app`);
 
 --
--- Indexes for table `detail_aplikasi`
+-- Indeks untuk tabel `detail_aplikasi`
 --
 ALTER TABLE `detail_aplikasi`
   ADD PRIMARY KEY (`id_detail_aplikasi`);
 
 --
--- Indexes for table `kategori_aplikasi`
+-- Indeks untuk tabel `kategori_aplikasi`
 --
 ALTER TABLE `kategori_aplikasi`
   ADD PRIMARY KEY (`id_kat_aplikasi`);
 
 --
--- Indexes for table `kategori_database`
+-- Indeks untuk tabel `kategori_database`
 --
 ALTER TABLE `kategori_database`
   ADD PRIMARY KEY (`id_kat_database`);
 
 --
--- Indexes for table `kategori_media`
+-- Indeks untuk tabel `kategori_media`
 --
 ALTER TABLE `kategori_media`
   ADD PRIMARY KEY (`id_media`);
 
 --
--- Indexes for table `klasifikasi_aplikasi`
+-- Indeks untuk tabel `klasifikasi_aplikasi`
 --
 ALTER TABLE `klasifikasi_aplikasi`
   ADD PRIMARY KEY (`id_klasifikasi_app`);
 
 --
--- Indexes for table `tbl_jenis_laporan`
+-- Indeks untuk tabel `tbl_jenis_laporan`
 --
 ALTER TABLE `tbl_jenis_laporan`
   ADD PRIMARY KEY (`id_jenis_laporan`);
 
 --
--- Indexes for table `tbl_kategori_monev`
+-- Indeks untuk tabel `tbl_kategori_monev`
 --
 ALTER TABLE `tbl_kategori_monev`
   ADD PRIMARY KEY (`id_kat_monev`);
 
 --
--- Indexes for table `tbl_lapormasalah`
+-- Indeks untuk tabel `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_lapormasalah`
   ADD PRIMARY KEY (`id_lapormasalah`);
 
 --
--- Indexes for table `tbl_monev_app`
+-- Indeks untuk tabel `tbl_monev_app`
 --
 ALTER TABLE `tbl_monev_app`
   ADD PRIMARY KEY (`id_monev_app`);
 
 --
--- Indexes for table `tbl_respon_tl`
+-- Indeks untuk tabel `tbl_respon_tl`
 --
 ALTER TABLE `tbl_respon_tl`
   ADD PRIMARY KEY (`id_respon_tl`);
 
 --
--- Indexes for table `tbl_user_katindex`
+-- Indeks untuk tabel `tbl_user_katindex`
 --
 ALTER TABLE `tbl_user_katindex`
   ADD PRIMARY KEY (`id_user_katindex`);
 
 --
--- Indexes for table `tb_aspek`
+-- Indeks untuk tabel `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
   ADD PRIMARY KEY (`idaspek`);
 
 --
--- Indexes for table `tb_datapendukung`
+-- Indeks untuk tabel `tb_datapendukung`
 --
 ALTER TABLE `tb_datapendukung`
   ADD PRIMARY KEY (`iddata`);
 
 --
--- Indexes for table `tb_detail_indikator`
+-- Indeks untuk tabel `tb_detail_indikator`
 --
 ALTER TABLE `tb_detail_indikator`
   ADD PRIMARY KEY (`id_detail_indikator`);
 
 --
--- Indexes for table `tb_domain`
+-- Indeks untuk tabel `tb_domain`
 --
 ALTER TABLE `tb_domain`
   ADD PRIMARY KEY (`iddomain`);
 
 --
--- Indexes for table `tb_evaluasi`
+-- Indeks untuk tabel `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
   ADD PRIMARY KEY (`idevaluasi`);
 
 --
--- Indexes for table `tb_feedback`
+-- Indeks untuk tabel `tb_feedback`
 --
 ALTER TABLE `tb_feedback`
   ADD PRIMARY KEY (`idfeedback`);
 
 --
--- Indexes for table `tb_groupuser`
+-- Indeks untuk tabel `tb_groupuser`
 --
 ALTER TABLE `tb_groupuser`
   ADD PRIMARY KEY (`id_groupuser`);
 
 --
--- Indexes for table `tb_indeks`
+-- Indeks untuk tabel `tb_indeks`
 --
 ALTER TABLE `tb_indeks`
   ADD PRIMARY KEY (`id_indeks`);
 
 --
--- Indexes for table `tb_indikator`
+-- Indeks untuk tabel `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
   ADD PRIMARY KEY (`idindikator`);
 
 --
--- Indexes for table `tb_lemah_kuat`
+-- Indeks untuk tabel `tb_lemah_kuat`
 --
 ALTER TABLE `tb_lemah_kuat`
   ADD PRIMARY KEY (`id_lemah_kuat`);
 
 --
--- Indexes for table `tb_level`
+-- Indeks untuk tabel `tb_level`
 --
 ALTER TABLE `tb_level`
   ADD PRIMARY KEY (`idlevel`);
 
 --
--- Indexes for table `tb_opd`
+-- Indeks untuk tabel `tb_opd`
 --
 ALTER TABLE `tb_opd`
   ADD PRIMARY KEY (`idopd`);
 
 --
--- Indexes for table `tb_opdterkait`
+-- Indeks untuk tabel `tb_opdterkait`
 --
 ALTER TABLE `tb_opdterkait`
   ADD PRIMARY KEY (`idopdterkait`);
 
 --
--- Indexes for table `tb_penilaian`
+-- Indeks untuk tabel `tb_penilaian`
 --
 ALTER TABLE `tb_penilaian`
   ADD PRIMARY KEY (`idpenilaian`);
 
 --
--- Indexes for table `tb_pertanyaan`
+-- Indeks untuk tabel `tb_pertanyaan`
 --
 ALTER TABLE `tb_pertanyaan`
   ADD PRIMARY KEY (`idpertanyaan`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`userid`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `aplikasi`
+-- AUTO_INCREMENT untuk tabel `aplikasi`
 --
 ALTER TABLE `aplikasi`
-  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
--- AUTO_INCREMENT for table `detail_aplikasi`
+-- AUTO_INCREMENT untuk tabel `detail_aplikasi`
 --
 ALTER TABLE `detail_aplikasi`
-  MODIFY `id_detail_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detail_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `kategori_aplikasi`
+-- AUTO_INCREMENT untuk tabel `kategori_aplikasi`
 --
 ALTER TABLE `kategori_aplikasi`
   MODIFY `id_kat_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kategori_database`
+-- AUTO_INCREMENT untuk tabel `kategori_database`
 --
 ALTER TABLE `kategori_database`
   MODIFY `id_kat_database` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kategori_media`
+-- AUTO_INCREMENT untuk tabel `kategori_media`
 --
 ALTER TABLE `kategori_media`
   MODIFY `id_media` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `klasifikasi_aplikasi`
+-- AUTO_INCREMENT untuk tabel `klasifikasi_aplikasi`
 --
 ALTER TABLE `klasifikasi_aplikasi`
   MODIFY `id_klasifikasi_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_jenis_laporan`
+-- AUTO_INCREMENT untuk tabel `tbl_jenis_laporan`
 --
 ALTER TABLE `tbl_jenis_laporan`
   MODIFY `id_jenis_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_kategori_monev`
+-- AUTO_INCREMENT untuk tabel `tbl_kategori_monev`
 --
 ALTER TABLE `tbl_kategori_monev`
   MODIFY `id_kat_monev` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_lapormasalah`
+-- AUTO_INCREMENT untuk tabel `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_lapormasalah`
-  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_monev_app`
+-- AUTO_INCREMENT untuk tabel `tbl_monev_app`
 --
 ALTER TABLE `tbl_monev_app`
-  MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tbl_respon_tl`
+-- AUTO_INCREMENT untuk tabel `tbl_respon_tl`
 --
 ALTER TABLE `tbl_respon_tl`
-  MODIFY `id_respon_tl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_respon_tl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_user_katindex`
+-- AUTO_INCREMENT untuk tabel `tbl_user_katindex`
 --
 ALTER TABLE `tbl_user_katindex`
   MODIFY `id_user_katindex` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tb_aspek`
+-- AUTO_INCREMENT untuk tabel `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
   MODIFY `idaspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `tb_datapendukung`
+-- AUTO_INCREMENT untuk tabel `tb_datapendukung`
 --
 ALTER TABLE `tb_datapendukung`
   MODIFY `iddata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `tb_detail_indikator`
+-- AUTO_INCREMENT untuk tabel `tb_detail_indikator`
 --
 ALTER TABLE `tb_detail_indikator`
   MODIFY `id_detail_indikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `tb_domain`
+-- AUTO_INCREMENT untuk tabel `tb_domain`
 --
 ALTER TABLE `tb_domain`
   MODIFY `iddomain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_evaluasi`
+-- AUTO_INCREMENT untuk tabel `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
   MODIFY `idevaluasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `tb_feedback`
+-- AUTO_INCREMENT untuk tabel `tb_feedback`
 --
 ALTER TABLE `tb_feedback`
   MODIFY `idfeedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
--- AUTO_INCREMENT for table `tb_groupuser`
+-- AUTO_INCREMENT untuk tabel `tb_groupuser`
 --
 ALTER TABLE `tb_groupuser`
   MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_indeks`
+-- AUTO_INCREMENT untuk tabel `tb_indeks`
 --
 ALTER TABLE `tb_indeks`
   MODIFY `id_indeks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_indikator`
+-- AUTO_INCREMENT untuk tabel `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
   MODIFY `idindikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `tb_lemah_kuat`
+-- AUTO_INCREMENT untuk tabel `tb_lemah_kuat`
 --
 ALTER TABLE `tb_lemah_kuat`
   MODIFY `id_lemah_kuat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_level`
+-- AUTO_INCREMENT untuk tabel `tb_level`
 --
 ALTER TABLE `tb_level`
   MODIFY `idlevel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
 
 --
--- AUTO_INCREMENT for table `tb_opdterkait`
+-- AUTO_INCREMENT untuk tabel `tb_opdterkait`
 --
 ALTER TABLE `tb_opdterkait`
   MODIFY `idopdterkait` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT for table `tb_penilaian`
+-- AUTO_INCREMENT untuk tabel `tb_penilaian`
 --
 ALTER TABLE `tb_penilaian`
   MODIFY `idpenilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
--- AUTO_INCREMENT for table `tb_pertanyaan`
+-- AUTO_INCREMENT untuk tabel `tb_pertanyaan`
 --
 ALTER TABLE `tb_pertanyaan`
   MODIFY `idpertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;

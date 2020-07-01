@@ -89,7 +89,16 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           LEFT JOIN tbl_user_katindex d ON d.id_user_katindex = a.grupindeks 
                           LEFT JOIN tb_opd e ON e.idopd = a.opdb
                           WHERE a.opd = '$_SESSION[opd]'";
+                  } else if ($_SESSION['grupindeks'] != '0') {
+                    $sql = "SELECT a.userid,a.nama_user,a.password,a.email,a.opd,a.opdb,a.groupuser,a.grupindeks,a.is_active,b.namaopd,b.nama_pendek_opd,c.nama_groupuser,c.keterangan,d.user_katindex,e.namaopd AS opdbidang 
+                          FROM tb_user a 
+                          LEFT JOIN tb_opd b ON a.opd = b.idopd 
+                          LEFT JOIN tb_groupuser c ON a.groupuser = c.id_groupuser 
+                          LEFT JOIN tbl_user_katindex d ON d.id_user_katindex = a.grupindeks 
+                          LEFT JOIN tb_opd e ON e.idopd = a.opdb 
+                          WHERE a.grupindeks = '$_SESSION[grupindeks]'";
                   } else {
+                    // super admin
                     $sql = "SELECT a.userid,a.nama_user,a.password,a.email,a.opd,a.opdb,a.groupuser,a.grupindeks,a.is_active,b.namaopd,b.nama_pendek_opd,c.nama_groupuser,c.keterangan,d.user_katindex,e.namaopd AS opdbidang 
                     FROM tb_user a 
                     LEFT JOIN tb_opd b ON a.opd = b.idopd 

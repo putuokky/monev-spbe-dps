@@ -70,7 +70,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   if ($_SESSION['groupuser'] == 1) {
                     $sql = "SELECT * FROM tb_opd";
                   } else {
-                    $sql = "SELECT * FROM tb_opd WHERE LENGTH(idopd) = 6";
+                    $sql = "SELECT * FROM tb_opd 
+                          WHERE idopd LIKE '$_SESSION[opd]%'";
                   }
 
                   $result = mysqli_query($conn, $sql);

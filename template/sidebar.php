@@ -219,26 +219,25 @@
           Add On
         </div>
 
-        <?php
-        // grupuser user admin
-        if ($_SESSION['groupuser'] == 1) { ?>
-          <!-- Nav Item -->
-          <li class="nav-item pb-0" id="opd">
-            <a class="nav-link" href="?page=opd">
-              <i class="fas fa-fw fa-user-tie"></i>
-              <span>Perangkat Daerah</span></a>
-          </li>
+        <?php if ($_SESSION['groupuser'] == 1 || $_SESSION['groupuser'] == 2 && $_SESSION['grupindeks'] == 0) {
+          if ($_SESSION['opd'] != 0) { ?>
+            <!-- Nav Item -->
+            <li class="nav-item pb-0" id="opd">
+              <a class="nav-link" href="?page=opd">
+                <i class="fas fa-fw fa-user-tie"></i>
+                <span>Perangkat Daerah</span></a>
+            </li>
+        <?php }
+        } ?>
 
+        <?php if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] == 0) { ?>
           <!-- Nav Item -->
           <li class="nav-item pb-0" id="grupuser">
             <a class="nav-link" href="?page=grupuser">
               <i class="fas fa-fw fa-users"></i>
               <span>Group User</span></a>
           </li>
-        <?php } else {
-          echo '';
-        }
-        ?>
+        <?php } ?>
 
         <!-- Nav Item -->
         <li class="nav-item pb-0" id="user">

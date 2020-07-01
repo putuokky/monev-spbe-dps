@@ -21,7 +21,7 @@
           <tbody>
             <?php
             $sql = "SELECT * FROM tb_indeks 
-                  WHERE nama_indeks = 'SPBE'";
+                    WHERE nama_indeks = 'SPBE' && tahun_indeks = 2018";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {

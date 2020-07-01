@@ -13,7 +13,11 @@ if (isset($_POST['update'])) {
   $nama       = $_POST['nama'];
   $email      = $_POST['email'];
   $unit       = $_POST['unit'];
-  $unitbid    = $_POST['unitbid'];
+  if (isset($_POST['unitbid'])) {
+    $unitbid    = $_POST['unitbid'];
+  } else {
+    $unitbid = 0;
+  }
   $grupuser   = $_POST['grupuser'];
   $indekss    = $_POST['indekss'];
 
@@ -184,7 +188,13 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="aktifan" class="col-md-2 col-form-label">Grup Indeks</label>
                 <div class="col-md-10">
                   <?php
-                  $sqlIndeks = "SELECT * FROM tbl_user_katindex";
+                  if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] != 0) {
+                    $sqlIndeks = "SELECT * FROM tbl_user_katindex 
+                    WHERE id_user_katindex = '$_SESSION[grupindeks]'";
+                  } else {
+                    $sqlIndeks = "SELECT * FROM tbl_user_katindex";
+                  }
+
                   $resultIndeks = mysqli_query($conn, $sqlIndeks);
 
                   while ($rowIndeks = mysqli_fetch_assoc($resultIndeks)) {
@@ -208,11 +218,13 @@ $data = mysqli_fetch_assoc($resUbah);
                       <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0" checked>
                       <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
                     </div>
-                  <?php } else { ?>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
-                      <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
-                    </div>
+                    <?php } else {
+                    if ($_SESSION['grupindeks'] == 0) { ?>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="indekss" id="inlineRadio1" value="0">
+                        <label class="form-check-label" for="inlineRadio1">Semua Indeks</label>
+                      </div>
+                    <?php } ?>
                   <?php } ?>
                 </div>
               </div>

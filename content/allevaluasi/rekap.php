@@ -10,7 +10,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else {
 
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -77,14 +77,27 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri
-                  FROM tb_eksekutif_opd a
-                  LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
-                  LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
-                  LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
-                  LEFT JOIN tb_opd e ON e.idopd = c.idopd
-                  LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
-                  LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri";
+                  if ($_SESSION['groupuser'] == 1) {
+                    $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri
+                      FROM tb_eksekutif_opd a
+                      LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                      LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                      LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                      LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                      LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                      LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri";
+                  } else {
+                    $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri
+                      FROM tb_eksekutif_opd a
+                      LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                      LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                      LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                      LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                      LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                      LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
+                      WHERE e.idopd = $_SESSION[opd]";
+                  }
+
                   $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -92,8 +105,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                       $id = $row['id_eksekutif_opd'];
-                      $nilaikematanganpusat = $row['nilaikematanganpusat'];                  
-                      $nilaipenmandiri = $row['nilaipenmandiri'];                  
+                      $nilaikematanganpusat = $row['nilaikematanganpusat'];
+                      $nilaipenmandiri = $row['nilaipenmandiri'];
                       $tahap_opd = $row['tahapan_yg_harus_dipenuhi_opd'];
                       $telah_miliki = $row['telah_miliki'];
                       $belum_miliki = $row['belum_miliki'];
@@ -102,7 +115,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       $namaopd = $row['namaopd'];
                       $nama_pendek_opd = $row['nama_pendek_opd'];
                       $tahun_penilaian = $row['tahun_penilaian'];
-                      ?>
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -117,19 +130,19 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                         </td>
                         <td><?= $tahun_penilaian; ?></td>
-                        <td><?= "Indikator ".$indikator." - ".$namaindikator; ?></td>
+                        <td><?= "Indikator " . $indikator . " - " . $namaindikator; ?></td>
                         <td><?php if (!empty($nilaikematanganpusat)) {
-                          echo $nilaikematanganpusat;
-                        } else {
-                          echo "-";
-                        }
-                        ?></td>
+                              echo $nilaikematanganpusat;
+                            } else {
+                              echo "-";
+                            }
+                            ?></td>
                         <td><?php if (!empty($nilaipenmandiri)) {
-                          echo $nilaipenmandiri;
-                        } else {
-                          echo "-";
-                        }
-                        ?></td>
+                              echo $nilaipenmandiri;
+                            } else {
+                              echo "-";
+                            }
+                            ?></td>
                         <td><?= $tahap_opd; ?></td>
                         <td><?= $telah_miliki; ?></td>
                         <td><?= $belum_miliki; ?></td>
@@ -140,7 +153,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             }
                             ?></td>
                       </tr>
-                      <?php
+                  <?php
                       $no++;
                     }
                   }
