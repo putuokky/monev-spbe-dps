@@ -8,16 +8,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
 } else {
-
-
-  ?>
-
+?>
 
   <!-- agar menu sidebar saat di klik active -->
   <script type="text/javascript">
     document.getElementById('indeks').classList.add('active');
   </script>
-
 
   <!-- isi konten -->
   <div class="container-fluid">
@@ -67,30 +63,32 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                    // SPBE
-                    if ($_SESSION['grupindeks'] == 1) {
-                      $sql = "SELECT * FROM tb_indeks
-                            WHERE id_indeks  = $_SESSION[grupindeks]";
-                      $result = mysqli_query($conn, $sql);
+                  // SPBE
+                  if ($_SESSION['grupindeks'] == 1) {
+                    $sql = "SELECT * FROM tb_indeks a 
+                      LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                      WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    $result = mysqli_query($conn, $sql);
                     // IKCI
-                    } else if($_SESSION['grupindeks'] == 2) {
-                      $sql = "SELECT * FROM tb_indeks
-                            WHERE id_indeks  = $_SESSION[grupindeks]";
-                      $result = mysqli_query($conn, $sql);
-                    } else {
-                      $sql = "SELECT * FROM tb_indeks";
-                      $result = mysqli_query($conn, $sql);
-                    }
+                  } else if ($_SESSION['grupindeks'] == 2) {
+                    $sql = "SELECT * FROM tb_indeks a 
+                      LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                      WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    $result = mysqli_query($conn, $sql);
+                  } else {
+                    $sql = "SELECT * FROM tb_indeks";
+                    $result = mysqli_query($conn, $sql);
+                  }
 
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id_indeks'];
-                        $nama_indeks = $row['nama_indeks'];
-                        $nilai_indeks = $row['nilai_indeks'];
-                        $tahun_indeks = $row['tahun_indeks'];
-                        ?>
+                  if (mysqli_num_rows($result) > 0) {
+                    $no = 1;
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $id = $row['id_indeks'];
+                      $nama_indeks = $row['nama_indeks'];
+                      $nilai_indeks = $row['nilai_indeks'];
+                      $tahun_indeks = $row['tahun_indeks'];
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -109,11 +107,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $tahun_indeks; ?></td>
                       </tr>
                   <?php
-                        $no++;
-                      }
+                      $no++;
                     }
-                    mysqli_close($conn);
-                    ?>
+                  }
+                  mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

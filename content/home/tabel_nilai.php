@@ -13,7 +13,7 @@
         </caption>
         <table class="table table-bordered table-hover">
           <thead>
-            <tr>
+            <tr class="btn-dark">
               <th>Nama Indeks</th>
               <th>Nilai</th>
             </tr>
@@ -35,7 +35,7 @@
 
                 <tr>
                   <td><?= $nama_indeks; ?></td>
-                  <td><?= $nilai_indeks; ?></td>
+                  <td><?= number_format($nilai_indeks, 2, ",", "."); ?></td>
                 </tr>
             <?php
               }
@@ -60,7 +60,7 @@
 
                 <tr>
                   <td>&nbsp;<i class="fas fa-angle-right"></i> <?= $namadomain; ?></td>
-                  <td><?= $nilai_indeks_domain; ?></td>
+                  <td><?= number_format($nilai_indeks_domain, 2, ",", "."); ?></td>
                 </tr>
 
                 <?php
@@ -79,7 +79,7 @@
 
                     <tr>
                       <td>&nbsp;&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i> <?= $nama_aspek; ?></td>
-                      <td><?= $nilai_indeks_aspek; ?></td>
+                      <td><?= number_format($nilai_indeks_aspek, 2, ",", "."); ?></td>
                     </tr>
             <?php
                   }
