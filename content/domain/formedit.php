@@ -76,6 +76,23 @@ $data = mysqli_fetch_assoc($resUbah);
           <div>
             <form method="post">
               <div class="form-group row">
+                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="tahun" name="tahun">
+                    <option value="0">-</option>
+                    <?php
+                    $thnnow = date('Y');
+                    for ($i = 2010; $i <= $thnnow; $i++) {
+                      if ($data['tahun_domain'] == $i) { ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
                 <div class="col-md-10">
                   <select class="form-control" id="namaindeks" name="namaindeks">
@@ -103,23 +120,6 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="bobot" class="col-md-2 col-form-label">Bobot (%)</label>
                 <div class="col-md-5">
                   <input type="text" class="form-control" name="bobot" id="bobot" placeholder="Enter Bobot" autocomplete="off" value="<?= number_format($data['bobot'], 2, ",", "."); ?>">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-2">
-                  <select class="form-control" id="tahun" name="tahun">
-                    <option value="0">-</option>
-                    <?php
-                    $thnnow = date('Y');
-                    for ($i = 2010; $i <= $thnnow; $i++) {
-                      if ($data['tahun_domain'] == $i) { ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php } else { ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php } ?>
-                    <?php } ?>
-                  </select>
                 </div>
               </div>
               <div class="form-group row">
