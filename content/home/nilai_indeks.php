@@ -5,11 +5,11 @@
       $caritahun = $_POST['caritahun'];
       $sql = "SELECT * FROM tb_indeks a 
               LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-              WHERE b.id_user_katindex = $_SESSION[grupindeks] && a.tahun_indeks LIKE '%$caritahun%'";
+              WHERE b.user_katindex = 'SPBE' && a.tahun_indeks LIKE '%$caritahun%'";
     } else {
       $sql = "SELECT * FROM tb_indeks a 
               LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-              WHERE b.id_user_katindex = $_SESSION[grupindeks] && a.tahun_indeks = '$thnkmrn'";
+              WHERE b.user_katindex = 'SPBE' && a.tahun_indeks = '$thnkmrn'";
     }
 
     $result = mysqli_query($conn, $sql);

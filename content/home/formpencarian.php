@@ -21,7 +21,9 @@
                   LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
                   WHERE b.id_user_katindex = $_SESSION[grupindeks]";
               } else {
-                $sql = "SELECT * FROM tb_indeks";
+                $sql = "SELECT * FROM tb_indeks a 
+                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks
+                        WHERE b.user_katindex = 'SPBE'";
               }
 
               $sql = $sql . " ORDER BY a.tahun_indeks ASC";
