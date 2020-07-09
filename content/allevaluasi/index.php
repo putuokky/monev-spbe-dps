@@ -53,12 +53,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
                     LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
                     LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
-                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]
-                    GROUP BY a.id_eksekutif_opd";
+                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]";
 
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
-                  while ($row = mysqli_fetch_assoc($result)) { ?>
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    $tahap_opd = explode(";", $row['tahapan_yg_harus_dipenuhi_opd']);
+                    $telah_miliki = explode(";", $row['telah_miliki']);
+                ?>
                     <div class="card">
                       <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
@@ -88,8 +90,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                 </tr>
                                 <tr>
                                   <th>Nilai Mandiri</th>
-                                  <td><?php if (!empty($nilaipenmandiri)) {
-                                        echo $nilaipenmandiri;
+                                  <td><?php if (!empty($row['nilaipenmandiri'])) {
+                                        echo $row['nilaipenmandiri'];
                                       } else {
                                         echo "-";
                                       }
@@ -113,12 +115,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                         <li><?= $telah_miliki[$j]; ?></li>
                                       <?php } ?>
                                     </ol>
-                                    File Pendukung : <a href="assets/file/feedback/<?= $files_feedback; ?>" target="_blank"><?= $files_feedback; ?></a>
+                                    File Pendukung : <a href="assets/file/feedback/<?= $row['files_feedback']; ?>" target="_blank"><?= $row['files_feedback']; ?></a>
                                   </td>
                                 </tr>
                                 <tr>
                                   <th>Yang Belum dimiliki</th>
-                                  <td><?= $belum_miliki; ?></td>
+                                  <td><?= $row['belum_miliki']; ?></td>
                                 </tr>
                               </tbody>
                             </table>
