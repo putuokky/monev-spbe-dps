@@ -66,14 +66,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   // SPBE
                   if ($_SESSION['grupindeks'] == 1) {
                     $sql = "SELECT * FROM tb_indeks a 
-                      LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                      WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex 
+                    WHERE b.id_user_katindex = $_SESSION[grupindeks]";
                     $result = mysqli_query($conn, $sql);
                     // IKCI
                   } else if ($_SESSION['grupindeks'] == 2) {
                     $sql = "SELECT * FROM tb_indeks a 
-                      LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                      WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex 
+                    WHERE b.id_user_katindex = $_SESSION[grupindeks]";
                     $result = mysqli_query($conn, $sql);
                   } else {
                     $sql = "SELECT * FROM tb_indeks";

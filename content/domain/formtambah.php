@@ -7,12 +7,13 @@ if (isset($_POST['input'])) {
   $tahun        = $_POST['tahun'];
   $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
   $urutandomain = $_POST['urutandomain'];
+  $katindeks    = $_POST['katindeks'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_domain (id_indeks, nilai_indeks_domain, namadomain, bobot, tahun_domain, urutan_domain)
-      VALUES ('$namaindeks', '$nilaindeks', '$namadomain', '$bobot', '$tahun', '$urutandomain')";
+    $sql = "INSERT INTO tb_domain (id_indeks, nilai_indeks_domain, namadomain, bobot, tahun_domain, urutan_domain,user_katindex)
+      VALUES ('$namaindeks', '$nilaindeks', '$namadomain', '$bobot', '$tahun', '$urutandomain','$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -55,6 +56,28 @@ if (isset($_POST['input'])) {
         <div class="card-body">
           <div>
             <form method="post">
+              <div class="form-group row">
+                <label for="katindeks" class="col-md-2 col-form-label">Kategori Indeks</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="katindeks" name="katindeks">
+                    <option value="0">-</option>
+                    <?php
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex";
+                    }
+                    $resKatindeks = mysqli_query($conn, $sqlKatindeks);
+                    while ($rowKatindeks = mysqli_fetch_assoc($resKatindeks)) { ?>
+                      <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
               <div class="form-group row">
                 <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
                 <div class="col-md-2">

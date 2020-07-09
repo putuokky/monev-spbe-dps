@@ -1,17 +1,18 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $namaindeks   = $_POST['namaindeks'];
+  $namaindekx   = $_POST['namaindekx'];
   $nilaindeks   = $_POST['nilaindeks'];
   $nilaindeks   = str_replace(",", ".", $nilaindeks);
   $tahun        = $_POST['tahun'];
   $urutanindeks = $_POST['urutanindeks'];
+  $katindeks    = $_POST['katindeks'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_indeks (nama_indeks, nilai_indeks, tahun_indeks, urutan_indeks)
-      VALUES ('$namaindeks', '$nilaindeks', '$tahun', '$urutanindeks')";
+    $sql = "INSERT INTO tb_indeks (nama_indeks, nilai_indeks, tahun_indeks, urutan_indeks,user_katindex)
+      VALUES ('$namaindekx', '$nilaindeks', '$tahun', '$urutanindeks','$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -67,9 +68,9 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
+                <label for="namaindekx" class="col-md-2 col-form-label">Nama Indeks</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="namaindeks" id="namaindeks" placeholder="Enter Nama Indeks" autocomplete="off">
+                  <input type="text" class="form-control" name="namaindekx" id="namaindekx" placeholder="Enter Nama Indeks" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">
@@ -82,6 +83,28 @@ if (isset($_POST['input'])) {
                 <label for="urutanindeks" class="col-md-2 col-form-label">Urutan</label>
                 <div class="col-md-2">
                   <input type="text" class="form-control" name="urutanindeks" id="urutanindeks" placeholder="Enter Urutan" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="katindeks" class="col-md-2 col-form-label">Kategori Indeks</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="katindeks" name="katindeks">
+                    <option value="0">-</option>
+                    <?php
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex";
+                    }
+                    $resKatindeks = mysqli_query($conn, $sqlKatindeks);
+                    while ($rowKatindeks = mysqli_fetch_assoc($resKatindeks)) { ?>
+                      <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <div class="form-group">

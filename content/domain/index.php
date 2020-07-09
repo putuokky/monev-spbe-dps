@@ -76,16 +76,17 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $sql = "SELECT * FROM tb_domain a 
                     LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
                     LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
-                    WHERE b.nama_indeks = 'SPBE'";
+                    WHERE a.user_katindex = $_SESSION[grupindeks]";
                     // IKCI
                   } else if ($_SESSION['grupindeks'] == 2) {
                     $sql = "SELECT * FROM tb_domain a 
                     LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
                     LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
-                    WHERE b.nama_indeks = 'IKCI'";
+                    WHERE a.user_katindex = $_SESSION[grupindeks]";
                   } else {
                     $sql = "SELECT * FROM tb_domain a 
-                    LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks";
+                    LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
+                    LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks";
                   }
 
                   $result = mysqli_query($conn, $sql);

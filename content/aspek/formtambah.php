@@ -57,6 +57,20 @@ if (isset($_POST['input'])) {
           <div>
             <form method="post">
               <div class="form-group row">
+                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="tahun" name="tahun">
+                    <option value="0">-</option>
+                    <?php
+                    $sqlthnDomain = "SELECT * FROM tb_domain";
+                    $resthnDomain = mysqli_query($conn, $sqlthnDomain);
+                    while ($rowthnDomain = mysqli_fetch_assoc($resthnDomain)) { ?>
+                      <option value="<?= $rowthnDomain['tahun_domain']; ?>"><?= $rowthnDomain['tahun_domain']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="namadomain" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
                   <select class="form-control" id="namadomain" name="namadomain">
@@ -86,19 +100,6 @@ if (isset($_POST['input'])) {
                 <label for="target" class="col-md-2 col-form-label">Target</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="target" id="target" placeholder="Enter Target" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-10">
-                  <select class="form-control" id="tahun" name="tahun">
-                    <option value="0">-</option>
-                    <?php
-                    $thnnow = date('Y');
-                    for ($i = 2010; $i <= $thnnow; $i++) { ?>
-                      <option value="<?= $i; ?>"><?= $i; ?></option>
-                    <?php } ?>
-                  </select>
                 </div>
               </div>
               <div class="form-group row">
