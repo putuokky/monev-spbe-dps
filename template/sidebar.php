@@ -219,7 +219,7 @@
           Add On
         </div>
 
-        <?php if ($_SESSION['groupuser'] == 1 || $_SESSION['groupuser'] == 2 && $_SESSION['grupindeks'] == 0) { ?>
+        <?php if ($_SESSION['groupuser'] == 1 || $_SESSION['groupuser'] == 2) { ?>
           <!-- Nav Item -->
           <li class="nav-item pb-0" id="opd">
             <a class="nav-link" href="?page=opd">
