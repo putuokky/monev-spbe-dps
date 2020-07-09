@@ -10,7 +10,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else {
 
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -75,19 +75,20 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   if ($_SESSION['grupindeks'] == 1) {
                     $sql = "SELECT * FROM tb_domain a 
                     LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
-                          WHERE a.id_indeks  = $_SESSION[grupindeks]";
-                    $result = mysqli_query($conn, $sql);
-                  // IKCI
-                  } else if($_SESSION['grupindeks'] == 2) {
+                    LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
+                    WHERE b.nama_indeks = 'SPBE'";
+                    // IKCI
+                  } else if ($_SESSION['grupindeks'] == 2) {
                     $sql = "SELECT * FROM tb_domain a 
                     LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
-                          WHERE a.id_indeks  = $_SESSION[grupindeks]";
-                    $result = mysqli_query($conn, $sql);
+                    LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
+                    WHERE b.nama_indeks = 'IKCI'";
                   } else {
                     $sql = "SELECT * FROM tb_domain a 
                     LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks";
-                    $result = mysqli_query($conn, $sql);
                   }
+
+                  $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
                     $no = 1;
@@ -99,7 +100,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       $bobot = $row['bobot'];
                       $tahun_domain = $row['tahun_domain'];
                       $nama_indeks = $row['nama_indeks'];
-                      ?>
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -119,7 +120,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= number_format($nilai_indeks_domain, 2, ",", "."); ?></td>
                         <td><?= $tahun_domain; ?></td>
                       </tr>
-                      <?php
+                  <?php
                       $no++;
                     }
                   }

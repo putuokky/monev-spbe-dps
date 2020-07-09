@@ -65,14 +65,17 @@ if (isset($_POST['input'])) {
                       $sql = "SELECT * FROM tb_indeks a 
                         LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
                         WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                      $result = mysqli_query($conn, $sql);
                       // IKCI
                     } else if ($_SESSION['grupindeks'] == 2) {
                       $sql = "SELECT * FROM tb_indeks a 
                         LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
                         WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                      $result = mysqli_query($conn, $sql);
+                    } else {
+                      $sql = "SELECT * FROM tb_indeks a 
+                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                        GROUP BY a.tahun_indeks";
                     }
+                    $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) { ?>
                       <option value="<?= $row['tahun_indeks']; ?>"><?= $row['tahun_indeks']; ?></option>
                     <?php
@@ -83,14 +86,8 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="namaindeks" name="namaindeks">
+                  <select class="form-control" id="namaindeks" name="namaindeks" disabled>
                     <option value="0">-</option>
-                    <?php
-                    $sqlIndeks = "SELECT * FROM tb_indeks";
-                    $resIndeks = mysqli_query($conn, $sqlIndeks);
-                    while ($rowIndeks = mysqli_fetch_assoc($resIndeks)) { ?>
-                      <option value="<?= $rowIndeks['id_indeks']; ?>"><?= $rowIndeks['nama_indeks']; ?></option>
-                    <?php } ?>
                   </select>
                 </div>
               </div>

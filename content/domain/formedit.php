@@ -81,21 +81,36 @@ $data = mysqli_fetch_assoc($resUbah);
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2010; $i <= $thnnow; $i++) {
-                      if ($data['tahun_domain'] == $i) { ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sql = "SELECT * FROM tb_indeks a 
+                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                        WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                      // IKCI
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sql = "SELECT * FROM tb_indeks a 
+                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                        WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sql = "SELECT * FROM tb_indeks a 
+                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                        GROUP BY a.tahun_indeks";
+                    }
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      if ($data['tahun_domain'] == $row['tahun_indeks']) { ?>
+                        <option value="<?= $row['tahun_indeks']; ?>" selected><?= $row['tahun_indeks']; ?></option>
                       <?php } else { ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                        <option value="<?= $row['tahun_indeks']; ?>"><?= $row['tahun_indeks']; ?></option>
                       <?php } ?>
-                    <?php } ?>
+                    <?php
+                    } ?>
                   </select>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="namaindeks" name="namaindeks">
+                  <select class="form-control" id="namaindeks" name="namaindeks" disabled>
                     <option value="0">-</option>
                     <?php
                     $sqlIndeks = "SELECT * FROM tb_indeks";

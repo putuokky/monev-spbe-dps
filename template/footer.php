@@ -265,6 +265,37 @@
   });
 </script>
 
+<script>
+  $('select[id="tahun"]').on('change', function() {
+    var id = $('#tahun').val();
+    if (id == '') {
+      id = '0';
+    }
+
+    $('#loader5').show();
+    $("#namaindeks").prop('disabled', true);
+    if (id != null) {
+      $.ajax({
+        type: 'GET',
+        url: 'api/data-indeks.php?id=' + id,
+        data: '',
+        success: function(result) {
+          $('select[id="namaindeks"]').empty();
+          $('select[id="namaindeks"]').append('<option value="-">-</option>');
+          $.each(JSON.parse(result), function(i, val) {
+            $('#namaindeks').append($('<option></option>').attr('value', val.id_indeks).text(val.nama_indeks));
+          });
+
+          $("#namaindeks").prop('disabled', false);
+          $('#loader5').hide();
+        }
+      });
+    } else {
+      $('#loader5').hide();
+    }
+  });
+</script>
+
 </body>
 
 </html>
