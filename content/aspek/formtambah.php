@@ -57,12 +57,48 @@ if (isset($_POST['input'])) {
           <div>
             <form method="post">
               <div class="form-group row">
+                <label for="katindeks" class="col-md-2 col-form-label">Kategori Indeks</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="katindeks" name="katindeks">
+                    <option value="0">-</option>
+                    <?php
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex";
+                    }
+                    $resKatindeks = mysqli_query($conn, $sqlKatindeks);
+                    while ($rowKatindeks = mysqli_fetch_assoc($resKatindeks)) { ?>
+                      <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
                 <div class="col-md-2">
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $sqlthnDomain = "SELECT * FROM tb_domain";
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
+                          WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
+                          WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex";
+                    }
+
+                    $sqlthnDomain = $sqlthnDomain . " GROUP BY a.tahun_domain";
+
                     $resthnDomain = mysqli_query($conn, $sqlthnDomain);
                     while ($rowthnDomain = mysqli_fetch_assoc($resthnDomain)) { ?>
                       <option value="<?= $rowthnDomain['tahun_domain']; ?>"><?= $rowthnDomain['tahun_domain']; ?></option>
@@ -73,14 +109,8 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="namadomain" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="namadomain" name="namadomain">
+                  <select class="form-control" id="namadomain" name="namadomain" disabled>
                     <option value="0">-</option>
-                    <?php
-                    $sqlDomain = "SELECT * FROM tb_domain ORDER BY namadomain ASC";
-                    $resDomain = mysqli_query($conn, $sqlDomain);
-                    while ($rowDomain = mysqli_fetch_assoc($resDomain)) { ?>
-                      <option value="<?= $rowDomain['iddomain']; ?>"><?= $rowDomain['namadomain']; ?></option>
-                    <?php } ?>
                   </select>
                 </div>
               </div>

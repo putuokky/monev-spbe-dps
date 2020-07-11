@@ -296,6 +296,37 @@
   });
 </script>
 
+<script>
+  $('select[id="tahun"]').on('change', function() {
+    var id = $('#tahun').val();
+    if (id == '') {
+      id = '0';
+    }
+
+    $('#loader5').show();
+    $("#namadomain").prop('disabled', true);
+    if (id != null) {
+      $.ajax({
+        type: 'GET',
+        url: 'api/data-domain.php?id=' + id,
+        data: '',
+        success: function(result) {
+          $('select[id="namadomain"]').empty();
+          $('select[id="namadomain"]').append('<option value="-">-</option>');
+          $.each(JSON.parse(result), function(i, val) {
+            $('#namadomain').append($('<option></option>').attr('value', val.iddomain).text(val.namadomain));
+          });
+
+          $("#namadomain").prop('disabled', false);
+          $('#loader5').hide();
+        }
+      });
+    } else {
+      $('#loader5').hide();
+    }
+  });
+</script>
+
 </body>
 
 </html>
