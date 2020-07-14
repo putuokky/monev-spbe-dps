@@ -6,20 +6,56 @@
   <!-- Card Body -->
   <div class="card-body">
     <div id="grafikpenilaian"></div>
+    <?php
+    if (isset($_POST['cari'])) {
+      $caritahun = $_POST['caritahun'];
+      $sqlNilai = "SELECT a.tahun_penilaian, b.indikator,c.nilaimadiri AS nilaimandiri, f.nilaimadiri AS nilaipusat FROM tb_penilaian a 
+      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
+      LEFT JOIN tb_level c ON c.idlevel = a.penilaianmandiri 
+      LEFT JOIN tb_opdterkait d ON d.idpenilaian = a.idpenilaian 
+      LEFT JOIN tb_opd e ON e.idopd = d.idopd
+      LEFT JOIN tb_level f ON f.idlevel = a.nilaikematangan
+    WHERE a.tahun_penilaian LIKE '%$caritahun%'";
+    } else {
+      $sqlNilai = "SELECT a.tahun_penilaian, b.indikator,c.nilaimadiri AS nilaimandiri, f.nilaimadiri AS nilaipusat FROM tb_penilaian a 
+      LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
+      LEFT JOIN tb_level c ON c.idlevel = a.penilaianmandiri 
+      LEFT JOIN tb_opdterkait d ON d.idpenilaian = a.idpenilaian 
+      LEFT JOIN tb_opd e ON e.idopd = d.idopd
+      LEFT JOIN tb_level f ON f.idlevel = a.nilaikematangan
+    WHERE a.tahun_penilaian = $thnkmrn";
+    }
+
+    $sqlNilai = $sqlNilai . " ORDER BY b.idindikator ASC";
+
+    $resultNilai = mysqli_query($conn, $sqlNilai);
+    while ($rowNilai = mysqli_fetch_assoc($resultNilai)) {
+      $thnPenilaian = $rowNilai['tahun_penilaian'];
+      $indikator[] = '"Indikator ' . $rowNilai['indikator'] . '"';
+      if (!empty($rowNilai['nilaimandiri']) && !empty($rowNilai['nilaipusat'])) {
+        $nilaimandiri[] = $rowNilai['nilaimandiri'];
+        $nilaipusat[] = $rowNilai['nilaipusat'];
+      } else {
+        $nilaimandiri[] = 0;
+        $nilaipusat[] = 0;
+      }
+    }
+
+    ?>
 
     <script>
       Highcharts.chart('grafikpenilaian', {
         chart: {
-          type: 'line'
+          type: 'column'
         },
         title: {
-          text: 'Grafik Penilaian Kematangan Tahun 2018'
+          text: 'Grafik Penilaian Kematangan Tahun <?= $thnPenilaian; ?>'
         },
         subtitle: {
           text: ''
         },
         xAxis: {
-          categories: ['Indikator 1', 'Indikator 2', 'Indikator 3', 'Indikator 4', 'Indikator 5', 'Indikator 6', 'Indikator 7', 'Indikator 8', 'Indikator 9', 'Indikator 10', 'Indikator 11', 'Indikator 12']
+          categories: [<?= join($indikator, ','); ?>]
         },
         yAxis: {
           title: {
@@ -36,10 +72,10 @@
         },
         series: [{
           name: 'Nilai Pusat',
-          data: [1, 1, 2, 2, 2, 3, 0, 1, 0, 0, 0, 2]
+          data: [<?= join($nilaipusat, ','); ?>]
         }, {
           name: 'Nilai Mandiri',
-          data: [1, 3, 1, 3, 3, 3, 0, 2, 3, 3, 6, 2]
+          data: [<?= join($nilaimandiri, ','); ?>]
         }]
       });
     </script>
