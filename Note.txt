@@ -1,7 +1,8 @@
-- table belum dibuat di aplikasi/sistem, yaitu :
+* table belum dibuat di aplikasi/sistem, yaitu :
     - table kategori_aplikasi
     - table kategori_database
     - table kategori_media
     - table klasifikasi_aplikasi
     - table tbl_kategori_monev
     - table respon_tl
+* fitur manual book di aplikasi (data aplikasi) belum ada

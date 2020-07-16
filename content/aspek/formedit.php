@@ -13,7 +13,7 @@ if (isset($_POST['update'])) {
   $namaaspek    = $_POST['namaaspek'];
   $bobot        = str_replace(",", ".", $_POST['bobot']);
   $target       = $_POST['target'];
-  $tahun        = $_POST['tahun'];
+  $tahunaspek   = $_POST['tahunaspek'];
   $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
   $urutanaspek  = $_POST['urutanaspek'];
   $katindeks    = $_POST['katindeks'];
@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
         target = '$target',
         urutan_aspek = '$urutanaspek',
         user_katindex = '$katindeks',
-        tahun_aspek = '$tahun'
+        tahun_aspek = '$tahunaspek'
         WHERE idaspek = '$id'";
 
     if (mysqli_query($conn, $sql)) {
@@ -106,9 +106,9 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <label for="tahunaspek" class="col-md-2 col-form-label">Tahun</label>
                 <div class="col-md-2">
-                  <select class="form-control" id="tahun" name="tahun">
+                  <select class="form-control" id="tahunaspek" name="tahunaspek">
                     <option value="0">-</option>
                     <?php
                     if ($_SESSION['grupindeks'] == 1) {

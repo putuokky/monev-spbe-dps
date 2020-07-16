@@ -5,16 +5,16 @@ if (isset($_POST['input'])) {
   $namaaspek            = $_POST['namaaspek'];
   $bobot                = str_replace(",", ".", $_POST['bobot']);
   $target               = $_POST['target'];
-  $tahun                = $_POST['tahun'];
+  $tahunaspek           = $_POST['tahunaspek'];
   $nilaindeks           = str_replace(",", ".", $_POST['nilaindeks']);
   $urutanaspek          = $_POST['urutanaspek'];
-  $katindeks          = $_POST['katindeks'];
+  $katindeks            = $_POST['katindeks'];
 
   $res = true;
 
   if ($res) {
     $sql = "INSERT INTO tb_aspek (nilai_indeks_aspek, iddomain, nama_aspek, bobot_aspek, target, tahun_aspek, urutan_aspek, user_katindex)
-      VALUES ('$nilaindeks', '$namadomainforaspek', '$namaaspek', '$bobot', '$target', '$tahun', '$urutanaspek', '$katindeks')";
+      VALUES ('$nilaindeks', '$namadomainforaspek', '$namaaspek', '$bobot', '$target', '$tahunaspek', '$urutanaspek', '$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -80,9 +80,9 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <label for="tahunaspek" class="col-md-2 col-form-label">Tahun</label>
                 <div class="col-md-2">
-                  <select class="form-control" id="tahun" name="tahun">
+                  <select class="form-control" id="tahunaspek" name="tahunaspek">
                     <option value="0">-</option>
                     <?php
                     if ($_SESSION['grupindeks'] == 1) {

@@ -297,8 +297,8 @@
 </script>
 
 <script>
-  $('select[id="tahun"]').on('change', function() {
-    var id = $('#tahun').val();
+  $('select[id="tahunaspek"]').on('change', function() {
+    var id = $('#tahunaspek').val();
     if (id == '') {
       id = '0';
     }
