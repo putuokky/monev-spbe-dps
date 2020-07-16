@@ -1,19 +1,20 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $namadomain   = $_POST['namadomain'];
-  $namaaspek    = $_POST['namaaspek'];
-  $bobot        = str_replace(",", ".", $_POST['bobot']);
-  $target       = $_POST['target'];
-  $tahun        = $_POST['tahun'];
-  $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
-  $urutanaspek  = $_POST['urutanaspek'];
+  $namadomainforaspek   = $_POST['namadomainforaspek'];
+  $namaaspek            = $_POST['namaaspek'];
+  $bobot                = str_replace(",", ".", $_POST['bobot']);
+  $target               = $_POST['target'];
+  $tahun                = $_POST['tahun'];
+  $nilaindeks           = str_replace(",", ".", $_POST['nilaindeks']);
+  $urutanaspek          = $_POST['urutanaspek'];
+  $katindeks          = $_POST['katindeks'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_aspek (nilai_indeks_aspek, iddomain, nama_aspek, bobot_aspek, target, tahun_aspek, urutan_aspek)
-      VALUES ('$nilaindeks', '$namadomain', '$namaaspek', '$bobot', '$target', '$tahun', '$urutanaspek')";
+    $sql = "INSERT INTO tb_aspek (nilai_indeks_aspek, iddomain, nama_aspek, bobot_aspek, target, tahun_aspek, urutan_aspek, user_katindex)
+      VALUES ('$nilaindeks', '$namadomainforaspek', '$namaaspek', '$bobot', '$target', '$tahun', '$urutanaspek', '$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -107,9 +108,9 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="namadomain" class="col-md-2 col-form-label">Nama Domain</label>
+                <label for="namadomainforaspek" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="namadomain" name="namadomain" disabled>
+                  <select class="form-control" id="namadomainforaspek" name="namadomainforaspek" disabled>
                     <option value="0">-</option>
                   </select>
                 </div>

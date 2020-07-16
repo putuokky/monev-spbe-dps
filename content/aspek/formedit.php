@@ -16,6 +16,7 @@ if (isset($_POST['update'])) {
   $tahun        = $_POST['tahun'];
   $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
   $urutanaspek  = $_POST['urutanaspek'];
+  $katindeks    = $_POST['katindeks'];
 
   $res = true;
 
@@ -27,6 +28,7 @@ if (isset($_POST['update'])) {
         bobot_aspek = '$bobot',
         target = '$target',
         urutan_aspek = '$urutanaspek',
+        user_katindex = '$katindeks',
         tahun_aspek = '$tahun'
         WHERE idaspek = '$id'";
 
@@ -78,6 +80,64 @@ $data = mysqli_fetch_assoc($resUbah);
           <div>
             <form method="post">
               <div class="form-group row">
+                <label for="katindeks" class="col-md-2 col-form-label">Kategori Indeks</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="katindeks" name="katindeks">
+                    <option value="0">-</option>
+                    <?php
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex
+                      WHERE id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sqlKatindeks = "SELECT * FROM tbl_user_katindex";
+                    }
+                    $resKatindeks = mysqli_query($conn, $sqlKatindeks);
+                    while ($rowKatindeks = mysqli_fetch_assoc($resKatindeks)) {
+                      if ($data['user_katindex'] == $rowKatindeks['id_user_katindex']) { ?>
+                        <option value="<?= $rowKatindeks['id_user_katindex']; ?>" selected><?= $rowKatindeks['user_katindex']; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="tahun" name="tahun">
+                    <option value="0">-</option>
+                    <?php
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
+                          WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
+                          WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex";
+                    }
+
+                    $sqlthnDomain = $sqlthnDomain . " GROUP BY a.tahun_domain";
+
+                    $resthnDomain = mysqli_query($conn, $sqlthnDomain);
+                    while ($rowthnDomain = mysqli_fetch_assoc($resthnDomain)) {
+                      if ($data['tahun_aspek'] == $rowthnDomain['tahun_domain']) { ?>
+                        <option value="<?= $rowthnDomain['tahun_domain']; ?>" selected><?= $rowthnDomain['tahun_domain']; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $rowthnDomain['tahun_domain']; ?>"><?= $rowthnDomain['tahun_domain']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="namadomain" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
                   <select class="form-control" id="namadomain" name="namadomain">
@@ -111,23 +171,6 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="target" class="col-md-2 col-form-label">Target</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="target" id="target" placeholder="Enter Target" autocomplete="off" value="<?= $data['target']; ?>">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-10">
-                  <select class="form-control" id="tahun" name="tahun">
-                    <option value="0">-</option>
-                    <?php
-                    $thnnow = date('Y');
-                    for ($i = 2010; $i <= $thnnow; $i++) {
-                      if ($data['tahun_aspek'] == $i) { ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php } else { ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php } ?>
-                    <?php } ?>
-                  </select>
                 </div>
               </div>
               <div class="form-group row">
