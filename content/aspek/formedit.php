@@ -112,26 +112,26 @@ $data = mysqli_fetch_assoc($resUbah);
                     <option value="0">-</option>
                     <?php
                     if ($_SESSION['grupindeks'] == 1) {
-                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                      $sqlThnDomain = "SELECT * FROM tb_domain a 
                           LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
                           WHERE b.id_user_katindex = $_SESSION[grupindeks]";
                     } else if ($_SESSION['grupindeks'] == 2) {
-                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                      $sqlThnDomain = "SELECT * FROM tb_domain a 
                           LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
                           WHERE b.id_user_katindex = $_SESSION[grupindeks]";
                     } else {
-                      $sqlthnDomain = "SELECT * FROM tb_domain a 
+                      $sqlThnDomain = "SELECT * FROM tb_domain a 
                           LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex";
                     }
 
-                    $sqlthnDomain = $sqlthnDomain . " GROUP BY a.tahun_domain";
+                    $sqlThnDomain = $sqlThnDomain . " GROUP BY a.tahun_domain";
 
-                    $resthnDomain = mysqli_query($conn, $sqlthnDomain);
-                    while ($rowthnDomain = mysqli_fetch_assoc($resthnDomain)) {
-                      if ($data['tahun_aspek'] == $rowthnDomain['tahun_domain']) { ?>
-                        <option value="<?= $rowthnDomain['tahun_domain']; ?>" selected><?= $rowthnDomain['tahun_domain']; ?></option>
+                    $resThnDomain = mysqli_query($conn, $sqlThnDomain);
+                    while ($rowThnDomain = mysqli_fetch_assoc($resThnDomain)) {
+                      if ($data['tahun_aspek'] == $rowThnDomain['tahun_domain']) { ?>
+                        <option value="<?= $rowThnDomain['tahun_domain']; ?>" selected><?= $rowThnDomain['tahun_domain']; ?></option>
                       <?php } else { ?>
-                        <option value="<?= $rowthnDomain['tahun_domain']; ?>"><?= $rowthnDomain['tahun_domain']; ?></option>
+                        <option value="<?= $rowThnDomain['tahun_domain']; ?>"><?= $rowThnDomain['tahun_domain']; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>

@@ -5,4 +5,7 @@
     - table klasifikasi_aplikasi
     - table tbl_kategori_monev
     - table respon_tl
+    - table indeks nilai
+    - table domain nilai
+    - table aspek nilai
 * fitur manual book di aplikasi (data aplikasi) belum ada
