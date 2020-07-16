@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 01 Jul 2020 pada 17.51
--- Versi server: 5.7.27
--- Versi PHP: 7.3.6
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 16 Jul 2020 pada 10.52
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -289,7 +288,8 @@ INSERT INTO `detail_aplikasi` (`id_detail_aplikasi`, `id_aplikasi`, `input`, `ou
 (13, 77, '- menginputkan pejabat pengadaan (Pejaban penatausahaan keuangan, pejabat pembuat komitmen, PPTK)\r\n- manage kegiatan berdasarkan jenis kegiatan ( fisik dan non fisik) dan target kegiatan dalam setahun\r\n- menginputkan persentase progres realisasi fisik kegiatan perbulan di lengkapi dengan bukti pendukung\r\n- menginputkan data tender', ' -Ranking OPD berdasarkan Realisasi Keuangan\r\n -Ranking OPD berdasarkan Realisasi Fisik\r\n- Rekapitulasi DPA Seluruh OPD\r\n- Laporan Keaktifan OPD\r\n -Jumlah Kegiatan Per OPD\r\n -Laporan Anggaran Per OPD\r\n- Laporan Realisasi Program/Kegiatan\r\n -Laporan Detail Pagu dan Realisasi', '1.0', 1, 'PHP', 'belum', '-', '2018', 'Celeron', '4GB', '500GB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:25:14'),
 (14, 142, 'Menginputkan data kejadian baik rawan bencana, kriminal, maupun kecelakaan suatu wilayah di Kota Denpasar.', '- Laporan Kejadian Per Desa/Kelurahan\r\n- Laporan Kejadian per Kategori\r\n -Laporan Kejadian per Periode\r\n -Laporan Kejadian per Hari\r\n -Laporan Rekap Kejadian Per Kelurahan', '1.0', 1, 'PHP', 'sudah', 'Sudah Terintegrasi dengan Data Center di Dinas Komunikasi, Informatika dan Statistik Pemerintah Kota Denpasar', '2020', 'Dual XeonÂ® Processor Silver 4110(8 Core)', '32GB', '4TB', 'Linux CenOs 7', 'PHP 5.6 dan PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:32:36'),
 (15, 147, '-menginputkan buku yang dilengkapi dengan informasi seperti pengerang, penerbit, judul, jumlah halaman dan lokasi rak buku.\r\n-menginputkan ebook ', '-informasi buku\r\n- informasi ebook', '1.0', 1, 'PHP', 'belum', '-', '2016', 'Intel(R) Xeon (R) CPU E5-649 @ 2.53 GHz (8 Core)', '4GB', '146GB', 'Linux CenOs 6', 'PHP 5.6', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-06-25 13:38:17'),
-(16, 140, 'Input data agenda\r\nInput data berita terbaru\r\nInput data keuangan\r\nInput foto dan video\r\nInput pelayanan\r\nInput Tupoksi\r\nInput Struktur Organisasi\r\nInput Pengumuman', 'Data agenda\r\nData berita terbaru\r\nData keuangan\r\nData video dan foto\r\nData pelayanan\r\nData Tupoksi\r\nData Struktur Organisasi\r\nData pengumuman', '1.0', 1, 'PHP', 'belum', '-', '2019', 'Intel(R) Xeon(R) CPU E5-630 @ 2.53GHz (8 Core)', '4GB', '60GB', 'Linux CenOs 7', 'PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-07-01 13:32:01');
+(16, 140, 'Input data agenda\r\nInput data berita terbaru\r\nInput data keuangan\r\nInput foto dan video\r\nInput pelayanan\r\nInput Tupoksi\r\nInput Struktur Organisasi\r\nInput Pengumuman', 'Data agenda\r\nData berita terbaru\r\nData keuangan\r\nData video dan foto\r\nData pelayanan\r\nData Tupoksi\r\nData Struktur Organisasi\r\nData pengumuman', '1.0', 1, 'PHP', 'belum', '-', '2019', 'Intel(R) Xeon(R) CPU E5-630 @ 2.53GHz (8 Core)', '4GB', '60GB', 'Linux CenOs 7', 'PHP 7', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-07-01 13:32:01'),
+(17, 141, 'Menginput identitas lengkap terkait pengurusan sim', 'Dapat melihat no antrian yang telah di dapatkan ', '1.0', 1, 'PHP', 'belum', '-', '2018', 'Dual Intel(R) Xeon(R) CPU E5-2620v3 @ 2.40GHz (6 Core)', '16GB', '200GB', 'Windows Server 2012', 'PHP 5.6', 'Apache', 'Mysql', 'javascript', '-', 0, '-', '-', '-', 'krisna', '2020-07-07 12:10:53');
 
 -- --------------------------------------------------------
 
@@ -461,7 +461,7 @@ CREATE TABLE `tbl_monev_app` (
   `nama_team` varchar(50) NOT NULL,
   `status_monev` int(11) NOT NULL,
   `dlu_monev` datetime NOT NULL,
-  `respon_koor` mediumtext,
+  `respon_koor` mediumtext DEFAULT NULL,
   `nama_koor` varchar(50) DEFAULT NULL,
   `dlu_respon_koor` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -521,10 +521,7 @@ CREATE TABLE `tbl_user_katindex` (
 INSERT INTO `tbl_user_katindex` (`id_user_katindex`, `user_katindex`) VALUES
 (1, 'SPBE'),
 (2, 'IKCI'),
-(3, 'Aplikasi'),
-(4, 'SPBE & IKCI'),
-(5, 'SPBE & Aplikasi'),
-(6, 'IKCI & Aplikasi');
+(3, 'Aplikasi');
 
 -- --------------------------------------------------------
 
@@ -533,46 +530,97 @@ INSERT INTO `tbl_user_katindex` (`id_user_katindex`, `user_katindex`) VALUES
 --
 
 CREATE TABLE `tb_aspek` (
-  `idaspek` int(11) NOT NULL,
-  `nilai_indeks_aspek` decimal(10,2) NOT NULL,
-  `iddomain` int(11) NOT NULL,
+  `id_aspek` int(11) NOT NULL,
+  `domain` int(11) NOT NULL,
   `nama_aspek` varchar(100) NOT NULL,
   `bobot_aspek` decimal(10,2) NOT NULL,
-  `target` int(11) NOT NULL,
-  `tahun_aspek` varchar(5) NOT NULL,
-  `urutan_aspek` int(11) NOT NULL
+  `target_aspek` int(11) NOT NULL,
+  `urutan_aspek` int(11) NOT NULL,
+  `user_katindex` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_aspek`
 --
 
-INSERT INTO `tb_aspek` (`idaspek`, `nilai_indeks_aspek`, `iddomain`, `nama_aspek`, `bobot_aspek`, `target`, `tahun_aspek`, `urutan_aspek`) VALUES
-(1, 2.00, 1, 'Kebijakan Tata Kelola SPBE', 7.00, 3, '2018', 1),
-(2, 2.10, 1, 'Kebijakan Layanan SPBE', 10.00, 3, '2018', 2),
-(3, 2.00, 2, 'Kelembagaan', 8.00, 3, '2018', 3),
-(4, 2.50, 2, 'Strategi dan Perencanaan', 8.00, 3, '2018', 4),
-(5, 2.33, 2, 'Teknologi Informasi dan Komunikasi', 12.00, 3, '2018', 5),
-(6, 3.29, 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', 35.00, 3, '2018', 6),
-(7, 2.50, 3, 'Layanan Publik Berbasis Elektronik', 20.00, 3, '2018', 7),
-(8, 0.83, 4, 'Bangunan Cerdas Cerdas', 0.08, 0, '2018', 1),
-(9, 2.88, 4, 'Manajemen Sumber Daya', 0.29, 0, '2018', 2),
-(10, 6.29, 4, 'Perencanaan Berkelanjutan', 0.63, 0, '2018', 3),
-(11, 2.67, 5, 'Transportasi yang Efisien', 0.36, 0, '2018', 1),
-(12, 2.99, 5, 'Akses Multi Moda', 0.40, 0, '2018', 2),
-(13, 1.84, 5, 'Infrastruktur Teknologi', 0.25, 0, '2018', 3),
-(14, 2.91, 6, 'Layanan Daring', 0.32, 0, '2018', 1),
-(15, 2.57, 6, 'Infrastruktur Pendukung Sistem', 0.28, 0, '2018', 2),
-(16, 3.57, 6, 'Keterbukaan Data Pemerintahan', 0.39, 0, '2018', 3),
-(17, 2.56, 7, 'Kewirausahaan dan Inovasi', 0.37, 0, '2018', 1),
-(18, 1.84, 7, 'Produktivitas', 0.27, 0, '2018', 2),
-(19, 2.49, 7, 'Jaringan Bisnis Dalam dan Luar Negeri', 0.36, 0, '2018', 3),
-(20, 2.58, 8, 'Inklusivitas Sosial', 0.25, 0, '2018', 1),
-(21, 2.13, 8, 'Pendidikan', 0.20, 0, '2018', 2),
-(22, 5.79, 8, 'Kreativitas', 0.55, 0, '2018', 3),
-(23, 3.17, 9, 'Budaya dan Kesejahteraan', 0.30, 0, '2018', 1),
-(24, 2.51, 9, 'Keamanan', 0.24, 0, '2018', 2),
-(25, 4.77, 9, 'Kesehatan', 0.46, 0, '2018', 3);
+INSERT INTO `tb_aspek` (`id_aspek`, `domain`, `nama_aspek`, `bobot_aspek`, `target_aspek`, `urutan_aspek`, `user_katindex`) VALUES
+(1, 1, 'Kebijakan Tata Kelola SPBE', '7.00', 3, 1, 1),
+(2, 1, 'Kebijakan Layanan SPBE', '10.00', 3, 2, 1),
+(3, 2, 'Kelembagaan', '8.00', 3, 3, 1),
+(4, 2, 'Strategi dan Perencanaan', '8.00', 3, 4, 1),
+(5, 2, 'Teknologi Informasi dan Komunikasi', '12.00', 3, 5, 1),
+(6, 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', '35.00', 3, 6, 1),
+(7, 3, 'Layanan Publik Berbasis Elektronik', '20.00', 3, 7, 1),
+(8, 4, 'Bangunan Cerdas Cerdas', '0.08', 0, 1, 0),
+(9, 4, 'Manajemen Sumber Daya', '0.29', 0, 2, 0),
+(10, 4, 'Perencanaan Berkelanjutan', '0.63', 0, 3, 0),
+(11, 5, 'Transportasi yang Efisien', '0.36', 0, 1, 0),
+(12, 5, 'Akses Multi Moda', '0.40', 0, 2, 0),
+(13, 5, 'Infrastruktur Teknologi', '0.25', 0, 3, 0),
+(14, 6, 'Layanan Daring', '0.32', 0, 1, 0),
+(15, 6, 'Infrastruktur Pendukung Sistem', '0.28', 0, 2, 0),
+(16, 6, 'Keterbukaan Data Pemerintahan', '0.39', 0, 3, 0),
+(17, 7, 'Kewirausahaan dan Inovasi', '0.37', 0, 1, 0),
+(18, 7, 'Produktivitas', '0.27', 0, 2, 0),
+(19, 7, 'Jaringan Bisnis Dalam dan Luar Negeri', '0.36', 0, 3, 0),
+(20, 8, 'Inklusivitas Sosial', '0.25', 0, 1, 0),
+(21, 8, 'Pendidikan', '0.20', 0, 2, 0),
+(22, 8, 'Kreativitas', '0.55', 0, 3, 0),
+(23, 9, 'Budaya dan Kesejahteraan', '0.30', 0, 1, 0),
+(24, 9, 'Keamanan', '0.24', 0, 2, 0),
+(25, 9, 'Kesehatan', '0.46', 0, 3, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_aspek_nilai`
+--
+
+CREATE TABLE `tb_aspek_nilai` (
+  `id_aspek_nilai` int(11) NOT NULL,
+  `aspek` int(11) NOT NULL,
+  `nilai_aspek` decimal(10,2) NOT NULL,
+  `tahun_aspek` varchar(5) NOT NULL,
+  `domain` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_aspek_nilai`
+--
+
+INSERT INTO `tb_aspek_nilai` (`id_aspek_nilai`, `aspek`, `nilai_aspek`, `tahun_aspek`, `domain`) VALUES
+(1, 1, '2.00', '2018', 1),
+(2, 2, '2.10', '2018', 1),
+(3, 3, '2.00', '2018', 2),
+(4, 4, '2.50', '2018', 2),
+(5, 5, '2.33', '2018', 2),
+(6, 6, '3.29', '2018', 3),
+(7, 7, '2.50', '2018', 3),
+(8, 8, '0.83', '2018', 4),
+(9, 9, '2.88', '2018', 4),
+(10, 10, '6.29', '2018', 4),
+(11, 11, '2.67', '2018', 5),
+(12, 12, '2.99', '2018', 5),
+(13, 13, '1.84', '2018', 5),
+(14, 14, '2.91', '2018', 6),
+(15, 15, '2.57', '2018', 6),
+(16, 16, '3.57', '2018', 6),
+(17, 17, '2.56', '2018', 7),
+(18, 18, '1.84', '2018', 7),
+(19, 19, '2.49', '2018', 7),
+(20, 20, '2.58', '2018', 8),
+(21, 21, '2.13', '2018', 8),
+(22, 22, '5.79', '2018', 8),
+(23, 23, '3.17', '2018', 9),
+(24, 24, '2.51', '2018', 9),
+(25, 25, '4.77', '2018', 9),
+(26, 1, '2.00', '2019', 1),
+(27, 2, '2.10', '2019', 1),
+(28, 3, '2.00', '2019', 2),
+(29, 4, '2.50', '2019', 2),
+(30, 5, '2.33', '2019', 2),
+(31, 6, '3.29', '2019', 3),
+(32, 7, '2.50', '2019', 3);
 
 -- --------------------------------------------------------
 
@@ -694,29 +742,60 @@ INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, 
 --
 
 CREATE TABLE `tb_domain` (
-  `iddomain` int(11) NOT NULL,
-  `id_indeks` int(11) NOT NULL,
-  `nilai_indeks_domain` decimal(10,2) NOT NULL,
-  `namadomain` varchar(100) NOT NULL,
-  `bobot` decimal(10,2) NOT NULL,
-  `tahun_domain` varchar(5) NOT NULL,
-  `urutan_domain` int(11) NOT NULL
+  `id_domain` int(11) NOT NULL,
+  `indeks` int(11) NOT NULL,
+  `nama_domain` varchar(100) NOT NULL,
+  `bobot_domain` decimal(10,2) NOT NULL,
+  `urutan_domain` int(11) NOT NULL,
+  `user_katindex` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_domain`
 --
 
-INSERT INTO `tb_domain` (`iddomain`, `id_indeks`, `nilai_indeks_domain`, `namadomain`, `bobot`, `tahun_domain`, `urutan_domain`) VALUES
-(1, 1, 2.06, 'Kebijakan SPBE', 17.00, '2018', 1),
-(2, 1, 2.29, 'Tata Kelola SPBE', 28.00, '2018', 2),
-(3, 1, 3.00, 'Layanan SPBE', 55.00, '2018', 3),
-(4, 2, 0.00, 'Dimensi Lingkungan (Smart Environment)', 0.16, '2018', 1),
-(5, 2, 0.00, 'Dimensi Mobilitas (Smart Mobility)', 0.11, '2018', 2),
-(6, 2, 0.00, 'Dimensi Pemerintahan (Smart Government)', 0.12, '2018', 3),
-(7, 2, 0.00, 'Dimensi Ekonomi (Smart Economy)', 0.12, '2018', 4),
-(8, 2, 0.00, 'Dimensi Masyarakat (Smart People)', 0.29, '2018', 5),
-(9, 2, 0.00, 'Dimensi Kualitas Hidup (Smart Living)', 0.20, '2018', 6);
+INSERT INTO `tb_domain` (`id_domain`, `indeks`, `nama_domain`, `bobot_domain`, `urutan_domain`, `user_katindex`) VALUES
+(1, 1, 'Kebijakan SPBE', '17.00', 1, 1),
+(2, 1, 'Tata Kelola SPBE', '28.00', 2, 1),
+(3, 1, 'Layanan SPBE', '55.00', 3, 1),
+(4, 2, 'Dimensi Lingkungan (Smart Environment)', '0.16', 1, 2),
+(5, 2, 'Dimensi Mobilitas (Smart Mobility)', '0.11', 2, 2),
+(6, 2, 'Dimensi Pemerintahan (Smart Government)', '0.12', 3, 2),
+(7, 2, 'Dimensi Ekonomi (Smart Economy)', '0.12', 4, 2),
+(8, 2, 'Dimensi Masyarakat (Smart People)', '0.29', 5, 2),
+(9, 2, 'Dimensi Kualitas Hidup (Smart Living)', '0.20', 6, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_domain_nilai`
+--
+
+CREATE TABLE `tb_domain_nilai` (
+  `id_domain_nilai` int(11) NOT NULL,
+  `domain` varchar(100) NOT NULL,
+  `nilai_domain` decimal(10,2) NOT NULL,
+  `tahun_domain` varchar(5) NOT NULL,
+  `indeks` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_domain_nilai`
+--
+
+INSERT INTO `tb_domain_nilai` (`id_domain_nilai`, `domain`, `nilai_domain`, `tahun_domain`, `indeks`) VALUES
+(1, '1', '2.06', '2018', 1),
+(2, '2', '2.29', '2018', 1),
+(3, '3', '3.00', '2018', 1),
+(4, '4', '0.00', '2018', 2),
+(5, '5', '0.00', '2018', 2),
+(6, '6', '0.00', '2018', 2),
+(7, '7', '0.00', '2018', 2),
+(8, '8', '0.00', '2018', 2),
+(9, '9', '0.00', '2018', 2),
+(11, '1', '2.06', '2019', 1),
+(12, '2', '2.29', '2019', 1),
+(13, '3', '3.00', '2019', 1);
 
 -- --------------------------------------------------------
 
@@ -730,7 +809,7 @@ CREATE TABLE `tb_eksekutif_opd` (
   `tahapan_yg_harus_dipenuhi_opd` text NOT NULL,
   `telah_miliki` text NOT NULL,
   `belum_miliki` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_eksekutif_opd`
@@ -773,7 +852,9 @@ INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_h
 (34, 75, '1. Optimalisasi  Penerapan dan Pengembangan Layanan WBS, apakah Layanan WBS tetap berada di dalam PRO Denpasar atau berdiri sendiri? Dan dapat diintegrasikan dengan SPBE lainnya. 2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Whistle Blowing System di Pemerintah Kota Denpasar, saat ini termasuk di dalam sistem layanan pengaduan publik yaitu PRO Denpasar dengan website http://pengaduan.denpasarkota.go.id', 'Hasil monitoring dan evaluasi terhadap layanan WBS'),
 (35, 76, '1. Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain. 2. Membuat Kebijakan Internal Layanan Perpajakan serta memuat pengaturan terintegrasi dengan SPBE lainnya. 3. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem integrasi PHR dengan Perijinan. Sistem integrasi PBB dengan Perijinan. Sistem integrasi BPHTB denganKantor BPN tujuannya (Perwali No 17 Tahun 2016). E-SPTPD  Sistem pelaporan pajak secara online (Perwali No. 16 Tahun 2016). I-PBB (informasi pelayanan Pajak Bumi dan Bangunan). Aplikasi integrasi Kasda online Penerimaan PAD Kota Denpasar', 'Hasil monitoring dan evaluasi terhadap layanan pajak'),
 (36, 77, '1. Optimalisasi Penerapan dan Pengembangan Layanan Bursa Kerja,  diintegrasikan dengan layanan SPBE lain. ;2. Revisi Kebijakan Internal Layanan Bursa Kerja Online karena dibuat tahun 2011, serta dapat terintegrasi dengan SPBE lainnya. ;3. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Perwali Denpasar No 31/2011 Tentang Tata Cara dan Persyaratan Pelaksanaan Bursa Kerja Online Kota Denpasar. ;Sudah terintegrasi dengan data kependudukan saat melakukan registrasi dengan mengekitkan NIK Kota Denpasar, otomatis data akan muncul.', 'Hasil monitoring dan evaluasi terhadap layanan bursa kerja online'),
-(37, 78, '1. Optimalisasi Penerapan dan Pengembangan Layanan Perijinan,  diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem Informasi Perijinan Online http://perijinan.denpasarkota.go.id. ;Proses integrasi dengan OSS (BKPM) dan Sicantik Cloud (Kemenkominfo). ;Berkolaborasi dengan BSSN menggunakan tanda tangan digital. Perwali No 39 Tahun 2019 tentang Penyelenggaraan Perizinan dan Non Perizinan', 'Hasil monitoring dan evaluasi terhadap layanan perijinan online');
+(37, 78, '1. Optimalisasi Penerapan dan Pengembangan Layanan Perijinan,  diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem Informasi Perijinan Online http://perijinan.denpasarkota.go.id. ;Proses integrasi dengan OSS (BKPM) dan Sicantik Cloud (Kemenkominfo). ;Berkolaborasi dengan BSSN menggunakan tanda tangan digital. Perwali No 39 Tahun 2019 tentang Penyelenggaraan Perizinan dan Non Perizinan', 'Hasil monitoring dan evaluasi terhadap layanan perijinan online'),
+(39, 1, '-	Kebijakan Tim Pengarah SPBE  memuat pengaturan tugas-tugas yang mendukung penerapan SPBE  yang terpadu pada semua unit kerja;\r\n-	Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala', 'SK Walikota Denpasar No. 188.45/1195/HK tentang Tim Pengarah SPBE', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
+(40, 2, '-	Kebijakan Proses Bisnis Integrasi  memuat pengaturan tersusunnya proses bisnis yang terintegrasi antar unit kerja;\r\n-	Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala kan', 'SK Walikota Denpasar Nomor 188.45/1689/HK/2019 tentang Peta Proses Bisnis Pemerintah Kota Denpasar', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.');
 
 -- --------------------------------------------------------
 
@@ -843,7 +924,7 @@ CREATE TABLE `tb_feedback` (
   `idfeedback` int(11) NOT NULL,
   `idpenilaian` int(11) NOT NULL,
   `ket_feedback` text NOT NULL,
-  `files_feedback` text,
+  `files_feedback` text DEFAULT NULL,
   `userid_created` varchar(50) NOT NULL,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1031,19 +1112,39 @@ INSERT INTO `tb_groupuser` (`id_groupuser`, `nama_groupuser`, `keterangan`) VALU
 CREATE TABLE `tb_indeks` (
   `id_indeks` int(11) NOT NULL,
   `nama_indeks` varchar(100) NOT NULL,
-  `nilai_indeks` decimal(10,2) NOT NULL,
-  `tahun_indeks` varchar(5) NOT NULL,
-  `urutan_indeks` int(11) NOT NULL
+  `urutan_indeks` int(11) NOT NULL,
+  `user_katindex` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_indeks`
 --
 
-INSERT INTO `tb_indeks` (`id_indeks`, `nama_indeks`, `nilai_indeks`, `tahun_indeks`, `urutan_indeks`) VALUES
-(1, 'SPBE', 2.64, '2018', 1),
-(2, 'IKCI', 61.70, '2018', 2),
-(3, 'SPBE', 3.33, '2019', 2);
+INSERT INTO `tb_indeks` (`id_indeks`, `nama_indeks`, `urutan_indeks`, `user_katindex`) VALUES
+(1, 'SPBE', 1, 1),
+(2, 'IKCI', 2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_indeks_nilai`
+--
+
+CREATE TABLE `tb_indeks_nilai` (
+  `id_indeks_nilai` int(11) NOT NULL,
+  `indeks` int(11) NOT NULL,
+  `nilai_indeks` decimal(10,2) NOT NULL,
+  `tahun_indeks` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_indeks_nilai`
+--
+
+INSERT INTO `tb_indeks_nilai` (`id_indeks_nilai`, `indeks`, `nilai_indeks`, `tahun_indeks`) VALUES
+(1, 1, '2.64', '2018'),
+(2, 2, '61.70', '2018'),
+(3, 1, '3.33', '2019');
 
 -- --------------------------------------------------------
 
@@ -1065,57 +1166,43 @@ CREATE TABLE `tb_indikator` (
 --
 
 INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`, `bobot_indikator`) VALUES
-(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, 1.0),
-(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, 1.0),
-(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, 1.0),
-(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, 1.0),
-(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, 1.0),
-(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, 1.0),
-(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, 1.0),
-(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, 1.0),
-(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, 1.0),
-(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, 1.0),
-(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, 1.0),
-(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, 1.0),
-(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, 1.0),
-(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, 1.0),
-(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, 1.0),
-(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, 1.0),
-(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, 1.0),
-(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, 4.0),
-(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, 4.0),
-(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, 4.0),
-(21, 4, 'Anggaran dan Belanja TIK', '21', 21, 4.0),
-(22, 5, 'Pengoperasian Pusat Data', '22', 22, 4.0),
-(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, 4.0),
-(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, 4.0),
-(25, 6, 'Layanan Naskah Dinas', '25', 25, 5.0),
-(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, 5.0),
-(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, 5.0),
-(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, 5.0),
-(29, 6, 'Layanan Manajemen Keuangan', '29', 29, 5.0),
-(30, 6, 'Layanan Manajemen Kinerja', '30', 30, 5.0),
-(31, 6, 'Layanan Pengadaan', '31', 31, 5.0),
-(32, 7, 'Layanan Pengaduan Publik', '32', 32, 3.3),
-(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, 3.3),
-(34, 7, 'Layanan Whistle-Blowing System', '34', 34, 3.3),
-(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, 3.3),
-(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, 3.3),
-(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, 3.3);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_lemah_kuat`
---
-
-CREATE TABLE `tb_lemah_kuat` (
-  `id_lemah_kuat` int(11) NOT NULL,
-  `idaspek` int(11) NOT NULL,
-  `kelemahan` text NOT NULL,
-  `kekuatan` text NOT NULL,
-  `tahun_lemah_kuat` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, '1.0'),
+(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, '1.0'),
+(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, '1.0'),
+(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, '1.0'),
+(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, '1.0'),
+(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, '1.0'),
+(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, '1.0'),
+(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, '1.0'),
+(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, '1.0'),
+(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, '1.0'),
+(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, '1.0'),
+(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, '1.0'),
+(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, '1.0'),
+(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, '1.0'),
+(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, '1.0'),
+(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, '1.0'),
+(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, '1.0'),
+(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, '4.0'),
+(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, '4.0'),
+(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, '4.0'),
+(21, 4, 'Anggaran dan Belanja TIK', '21', 21, '4.0'),
+(22, 5, 'Pengoperasian Pusat Data', '22', 22, '4.0'),
+(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, '4.0'),
+(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, '4.0'),
+(25, 6, 'Layanan Naskah Dinas', '25', 25, '5.0'),
+(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, '5.0'),
+(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, '5.0'),
+(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, '5.0'),
+(29, 6, 'Layanan Manajemen Keuangan', '29', 29, '5.0'),
+(30, 6, 'Layanan Manajemen Kinerja', '30', 30, '5.0'),
+(31, 6, 'Layanan Pengadaan', '31', 31, '5.0'),
+(32, 7, 'Layanan Pengaduan Publik', '32', 32, '3.3'),
+(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, '3.3'),
+(34, 7, 'Layanan Whistle-Blowing System', '34', 34, '3.3'),
+(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, '3.3'),
+(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, '3.3'),
+(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, '3.3');
 
 -- --------------------------------------------------------
 
@@ -1583,10 +1670,10 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 CREATE TABLE `tb_penilaian` (
   `idpenilaian` int(11) NOT NULL,
   `idindikator` int(11) NOT NULL,
-  `rekomendasi` text,
+  `rekomendasi` text DEFAULT NULL,
   `nilaikematangan` varchar(5) DEFAULT NULL,
   `penilaianmandiri` varchar(5) NOT NULL,
-  `tindaklanjut` text,
+  `tindaklanjut` text DEFAULT NULL,
   `target_waktu` varchar(5) NOT NULL,
   `tahun_penilaian` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1602,17 +1689,17 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (4, 4, 'Kebijakan internal rencana dan anggaran TIK sebaiknya dilengkapi dengan memuat pengaturan terkait penyelarasan dengan rencana induk SPBE, pengendalian rencana dan anggaran TIK yang terpadu di dalam Instansi Pusat/Pemerintah Daerah, dan mendukung penerapan SPBE yang terpadu tidak hanya di dalam Instansi Pusat/Pemerintah Daerah, tetapi juga antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '21', '22', 'Membuat Kebijakan Anggaran dan  Belanja TIK', '2019', '2018'),
 (5, 5, 'Kebijakan internal pengoperasian pusat data sebaiknya dilengkapi dengan memuat pengaturan pengoperasian dan pernanfaatan pusat data bagi semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '27', '28', 'Revisi Perwali eGov  atau Arsitektur SPBE (Pusat Data)', '2019', '2018'),
 (6, 6, 'Kebijakan internal integrasi sistem aplikasi sebaiknya dilengkapi dengan memuat pengaturan integrasi sistem aplikasi antar Instansi Pusat/Pemerintah Daerah yang didasarkan pada integrasi proses bisnis antar Instansi Pusat/Pemerintah Daerah', '34', '34', 'Revisi Perwali eGov  atau Arsitektur SPBE (Integrasi Sistem)', '2019', '2018'),
-(7, 7, 'Kebijakan internal penggunaan aplikasi umum berbagi pakai sebaiknya dilengkapi dengan memuat pengaturan integrasi dengan layanan SPBE lain yang telah tersedia di Instansi Pusat/Pemerintah Daerah', '-', '-', 'Revisi Perwali eGov  atau Arsitektur SPBE (Aplikasi Umum Berbagi Pakai)', '2019', '2018'),
+(7, 7, 'Kebijakan internal penggunaan aplikasi umum berbagi pakai sebaiknya dilengkapi dengan memuat pengaturan integrasi dengan layanan SPBE lain yang telah tersedia di Instansi Pusat/Pemerintah Daerah', '40', '40', 'Revisi Perwali eGov  atau Arsitektur SPBE (Aplikasi Umum Berbagi Pakai)', '2019', '2018'),
 (8, 8, 'Kebijakan internal layanan naskah dinas sebaiknya dilengkapi dengan memuat pengaturan kebutuhan dan penggunaan layanan naskah dinas secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '2', '3', 'Membuat Kebijakan Layanan Naskah Dinas', '2019', '2018'),
-(9, 9, 'Kebijakan Internal Layanan Manajemen Kepegawaian sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen pegawai secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '1', '0', 'Membuat Kebijakan Layanan Manajemen Kepegawaian', '2019', '2018'),
-(10, 10, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen perencanaan dan penganggaran secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '1', '0', 'Membuat Kebijakan  Layanan Manajemen Perencanaaan dan Penganggaran', '2019', '2018'),
-(11, 11, 'Kebijakan Internal Layanan Manajemen Keuangan sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen keuangan secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '1', '0', 'Membuat Kebijakan Layanan Manajemen Keuangan', '2019', '2018'),
+(9, 9, 'Kebijakan Internal Layanan Manajemen Kepegawaian sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen pegawai secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '50', '49', 'Membuat Kebijakan Layanan Manajemen Kepegawaian', '2019', '2018'),
+(10, 10, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen perencanaan dan penganggaran secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '56', '55', 'Membuat Kebijakan  Layanan Manajemen Perencanaaan dan Penganggaran', '2019', '2018'),
+(11, 11, 'Kebijakan Internal Layanan Manajemen Keuangan sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan manajemen keuangan secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '62', '61', 'Membuat Kebijakan Layanan Manajemen Keuangan', '2019', '2018'),
 (12, 12, 'Kebijakan Internal Layanan Manajemen Kinerja sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan layanan manajemen kinerja secara elektronik dengan layanan SPBE lain yang sudah tersedia di Instansi Pusat/Pemerintah Daerah atau integrasi layanan manajemen kinerja secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '3', '3', 'Kebijakan Layanan Manajemen Kinerja', '2019', '2018'),
 (13, 13, 'Kebijakan Internal Layanan Pengadaan sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan manajemen pengadaan secara elektronik dengan layanan SPBE lain yang sudah tersedia di Instansi Pusat/Pemerintah Daerah atau integrasi layanan pengadaan secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '3', '5', 'Revisi Perwali No 2 Tahun 2018 Tentang Layanan Pengadaan (Integrasi dengan Layanan SPBE lainnya)', '2019', '2018'),
 (15, 14, 'Kebijakan Internal Layanan Pengaduan Publik sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan pengaduan publik secara elektronik dengan layanan SPBE lain yang sudah tersedia di Instansi Pusat/Pemerintah Daerah atau integrasi layanan pengaduan publik secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '3', '5', 'Revisi Perwali No 45 Tahun 2014 Tentang Pengaduan Publik (Integrasi dengan Layanan SPBE lainnya)', '2019', '2018'),
-(16, 15, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan dokumentasi dan informasi hukum secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '1', '0', 'Membuat Kebijakan Layanan JDIH', '2019', '2018'),
+(16, 15, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum sebaiknya ditetapkan dengan memuat pengaturan kebutuhan dan penggunaan layanan dokumentasi dan informasi hukum secara elektronik pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah', '86', '85', 'Membuat Kebijakan Layanan JDIH', '2019', '2018'),
 (18, 17, 'Kebijakan Internal Layanan Publik sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan publik secara elektronik dengan layanan SPBE lain yang sudah tersedia di Instansi Pusat/Pemerintah Daerah atau integrasi layanan publik secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '3', '5', 'Setiap Layanan Publik dibuatkan Kebijakan (Integrasi dengan Layanan SPBE lainnya)', '2019', '2018'),
-(19, 18, 'Kebijakan Internal Layanan Publik sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan publik secara elektronik dengan layanan SPBE lain yang sudah tersedia di Instansi Pusat/Pemerintah Daerah atau integrasi layanan publik secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '1', '1', 'Membentuk Tim Pengarah SPBE', '2019', '2018'),
+(19, 18, 'Kebijakan Internal Layanan Publik sebaiknya dilengkapi dengan memuat pengaturan kebutuhan integrasi layanan publik secara elektronik dengan layanan SPBE lain yang sudah tersedia di Instansi Pusat/Pemerintah Daerah atau integrasi layanan publik secara elektronik antar Instansi Pusat/Pemerintah Daerah dan/atau antar Instansi Pusat dengan Pemerintah Daerah', '104', '104', 'Membentuk Tim Pengarah SPBE', '2019', '2018'),
 (20, 19, 'Tim Pengarah SPBE atau Tim Pengarah TIK atau sejenisnya sebaiknya ditetapkan, serta menjalankan tugas dan fungsinya secara menyeluruh sesuai dengan kebijakan internal yang telah ditetapkan', '3', '5', 'Membuat Arsitektur SPBE (Proses Bisnis Integrasi)', '2019', '2018'),
 (21, 20, 'Penerapan proses bisnis yang terintegrasi dengan sistem elektronik sebaiknya dapat diukur, dipantau, dan dievaluasi secara berkala', '2', '3', 'Membuat Rencana Induk SPBE', '2019', '2018'),
 (22, 21, 'Rencana induk SPBE sebaiknya dilengkapi dengan mencakup visi, misi, strategi, sasaran, arsitektur, dan peta rencana SPBE sesuai dengan kebijakan internal yang telah ditetapkan.', '3', '3', 'Anggaran Belanja TIK diukur, dipantau dan dievaluasi berkala', '2019', '2018'),
@@ -1620,7 +1707,7 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (24, 23, 'Perencanaan kapasitas, pengendalian, dan pemantauan layanan dari satu atau beberapa pusat data (data center) sebaiknya dapat dilakukan secara berkala dan terpusat (manajemen tunggal)', '2', '5', 'Integrasi sesuai arsitektur dari Rencana Induk SPBE', '2019', '2018'),
 (25, 24, 'Integrasi sistem aplikasi sebaiknya diterapkan secara menyeluruh berdasarkan pada arsitektur dan peta rencana dari rencana induk SPBE', '2', '5', 'Aplikasi Umum sesuai arsitektur dari Rencana Induk SPBE', '2019', '2018'),
 (26, 25, 'Aplikasi umum sebaiknya diterapkan dan digunakan oleh seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah berdasarkan arsitektur dan peta rencana dari rencana induk SPBE', '3', '2', 'Integrasi Layanan Naskah Dinas dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
-(27, 26, 'Layanan naskah dinas elektronik sebaiknya ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '1', '1', 'Layanan Manajemen Kepegawaian ditingkatkan menjadi transaski dua arah berbasis online dan terintegrasi dengan SPBE lainnya', '2019', '2018'),
+(27, 26, 'Layanan naskah dinas elektronik sebaiknya ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '152', '152', 'Layanan Manajemen Kepegawaian ditingkatkan menjadi transaski dua arah berbasis online dan terintegrasi dengan SPBE lainnya', '2019', '2018'),
 (28, 27, 'Layanan manajemen kepegawaian sebaiknya ditingkatkan menjadi layanan transaksi dimana proses-proses pada manajemen kepegawaian dilaksanakan secara otomasi seperti tindakan persetujuan dan verifikasi terhadap transaksi kenaikan pangkat, pengajuan cuti, dan sebagainya', '4', '5', 'Optimalisasi Layanan Manajemen Perencanaan dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (29, 28, 'Layanan manajemen perencanaan kegiatan yang terintegrasi sebaiknya ditingkatkan menjadi layanan optimalisasi dimana dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahan-perubahan internal dan eksternal di Instansi Pusat/Pemerintah Daerah, dan penerapan manajemen perubahan', '4', '5', 'Optimalisasi Layanan Manajemen Penganggaran dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (30, 29, 'Layanan manajemen penganggaran yang terintegrasi sebaiknya ditingkatkan menjadi layanan optimalisasi dimana dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahanperubahan internal dan eksternal di Instansi Pusat/Pemerintah Daerah, dan penerapan manajemen perubahan', '4', '5', 'Optimalisasi Layanan Manajemen Keuangan dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
@@ -1629,7 +1716,7 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (34, 32, 'Layanan pengadaan yang terintegrasi sebaiknya ditingkatkan menjadi layanan optimalisasi dimana dapat melakukan pemenuhan permintaan perubahan layanan, penyesuaian terhadap perubahan-perubahan internal dan eksternal di Instansi Pusat/Pemerintah Daerah, dan penerapan manajemen perubahan', '3', '5', 'Optimalisasi Layanan Pengaduan Publik dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (35, 33, 'Layanan pengaduan publik ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '2', '2', 'Optimalisasi Layanan Dokumentasi dan Informasi Hukum agar proses layanan dari awal pengajuan hingga akhir berbasis  online ', '2019', '2018'),
 (36, 34, 'Layanan jaringan dokumentasi dan informasi hukum (JDIH) sebaiknya ditingkatkan menjadi layanan transaksi dimana proses-proses pada layanan dokumendasi dan informasi hukum dilaksanakan secara otomasi seperti mengunduh atau mengunggah informasi terkait dokumentasi clan informasi hukum, melakukan pengajuan penambahan informasi dokumentasi hukum baru, proses validasi serta persetujuan dokumentasi informasi hukum baru yang diajukan, dan pencarian informasi hukum berbasis kecerdasan', '3', '5', 'Optimalisasi Layanan Whistle Blowing System dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
-(37, 35, '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya', '-', '-', '-	Sistem integrasi PHR dengan Perijinan\r\n-	Sistem integrasi PBB dengan Perijinan\r\n-	Sistem integrasi BPHTB denganKantor BPN tujuannya (Perwali No 17 Tahun 2016)\r\n-	E-SPTPD  Sistem pelaporan pajak secara online (Perwali No. 16 Tahun 2016)\r\n-	I-PBB (informasi pelayanan Pajak Bumi dan Bangunan)\r\n-	Aplikasi integrasi Kasda online Penerimaan PAD Kota Denpasar', '2019', '2018'),
+(37, 35, '-	Optimalisasi  Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n-	Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n-	Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya', '206', '210', '-	Sistem integrasi PHR dengan Perijinan\r\n-	Sistem integrasi PBB dengan Perijinan\r\n-	Sistem integrasi BPHTB denganKantor BPN tujuannya (Perwali No 17 Tahun 2016)\r\n-	E-SPTPD  Sistem pelaporan pajak secara online (Perwali No. 16 Tahun 2016)\r\n-	I-PBB (informasi pelayanan Pajak Bumi dan Bangunan)\r\n-	Aplikasi integrasi Kasda online Penerimaan PAD Kota Denpasar', '2019', '2018'),
 (38, 36, 'Layanan publik sebaiknya ditingkatkan menjadi layanan transaksi dimana pengguna dapat dengan mudah mendapatkan layanan dan sistem dapat menjalankan otomasi proses bisnis layanan dan menerapkan transaksi layanan ke dalam basis data secara daring (on-line)', '214', '215', 'Optimalisasi Layanan Bursa Kerja dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (39, 37, 'Layanan publik sebaiknya ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut dikolaborasikan/diintegrasikan dengan layanan SPBE lain berdasarkan arsitektur SPBE dan integrasi proses bisnis di dalam maupun antar Instansi Pusat/Pemerintah Daerah', '3', '5', 'Optimalisasi Layanan Perijinan dengan SPBE lainnya sesuai arsitektur SPBE', '2019', '2018'),
 (42, 1, 'Masih Menunggu Hasil Kemenpan 2019', '4', '4', '-	Kebijakan Tim Pengarah SPBE \r\n-	Monev Kebijakan', '2020', '2019'),
@@ -1751,24 +1838,24 @@ CREATE TABLE `tb_user` (
 INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`, `groupuser`, `grupindeks`, `is_active`) VALUES
 ('198311232012121004', 'I Nyoman Suardana', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080102', 3, 3, 1),
 ('198404062009031006', 'Dewa Ngakan Ketut Rama Sanjaya', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080103', 3, 3, 1),
-('Adbang', 'Bagian Administrasi Pembangunan', '3c69c0ffe7026314919b56c9448563fd', '', '012001', '', 2, 1, 1),
+('Adbang', 'Bagian Administrasi Pembangunan', 'e48c3b0ddced61f8d9fb9a4e7c5f0751', '', '012001', '', 2, 1, 1),
 ('adminapps', 'Admin Aplikasi', '21232f297a57a5a743894a0e4a801fc3', '', '0', '', 1, 3, 1),
 ('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '0', '', 1, 1, 1),
 ('agungpriambada', 'Agung Priambada', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
 ('anggita', 'Ni Luh Made Anggita Damayanti', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
-('bagianhukum', 'Bagian Hukum', 'b843c6ea6077bd1eb27548e07d591c35', '', '011201', '', 2, 1, 1),
-('bagianorganisasi', 'Bagian Organisasi', '1efd3dee0c257f51ac4c75f168353ed5', '', '011301', '', 2, 1, 1),
-('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'b7dd088116d13dfa902001bf49870105', '', '013301', '', 2, 1, 1),
-('Bapenda', 'Badan Pendapatan Daerah', '1503ff71ca16d26a7e4f16b24e0eb984', '', '031601', '', 2, 1, 1),
-('bappeda', 'bappeda2019', 'e2e3d13348a5e908baa2a4b76fe83e89', '', '040201', '', 2, 1, 1),
-('bkpsdm', 'Admin BKPSDM', 'b87b2975180902190afb65d3bedfd7a0', '', '040301', '', 2, 1, 1),
-('bpkad', 'BPKAD', '6575228571e0e356f4f64f2f8f41f53d', '', '300005', '', 2, 1, 1),
-('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', '61eefc16e73f03267a6e5fc48c14f59a', '', '030901', '', 2, 1, 1),
-('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '2d62de33b8e7c8335ca02fff330e82ac', '', '030801', '', 2, 1, 1),
+('bagianhukum', 'Bagian Hukum', 'd1ec53636aeea280330aa7e329b2becc', '', '011201', '', 2, 1, 1),
+('bagianorganisasi', 'Bagian Organisasi', '76c113f6e2473bf70163708158b82fc8', '', '011301', '0', 2, 1, 1),
+('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'e4e86adfc9728e8135651a4fa1c2fbad', '', '013301', '', 2, 1, 1),
+('Bapenda', 'Badan Pendapatan Daerah', 'ef7574f54684ae860d71040a6ba899ea', '', '031601', '', 2, 1, 1),
+('bappeda', 'bappeda', 'cdb5073f441bd9969de925b630957e20', '', '040201', '0', 2, 1, 1),
+('bkpsdm', 'bkpsdm', '015def04364a92c60c568078f52bbabd', '', '040301', '0', 2, 1, 1),
+('bpkad', 'BPKAD', '4d9335495d0c52e9587d0a438781f76b', '', '300005', '', 2, 1, 1),
+('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'dacf5c981232c96bd66a40120f42cffe', '', '030901', '', 2, 1, 1),
+('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '49b4d56538513749ef194c4783fb5e43', '', '030801', '', 2, 1, 1),
 ('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', '', '030601', '', 2, 1, 1),
-('Inspektorat', 'Inspektorat', '6639d469acc63b64d15b6c97d17c904c', '', '040101', '', 2, 1, 1),
+('Inspektorat', 'Inspektorat', '515a1d422b848c53b406b6ec592be6a0', '', '040101', '', 2, 1, 1),
 ('krisna', 'Dewa Ayu Krisna', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
-('perijinan', 'Dinas Perijinan', 'df4ccea2ce576678c6382dfcc76a6b87', '', '140018', '', 2, 1, 1),
+('perijinan', 'Dinas Perijinan', 'f1e84563b4bf455802c917147c7074bd', '', '140018', '', 2, 1, 1),
 ('Pimpinan_adbang', 'Bagian Administrasi Pembangunan (Asisten II)', 'b4ae4d8cf01a692897356c7167f10565', '', '012001', '', 4, 1, 1),
 ('Pimpinan_bapenda', 'Badan Pendapatan Daerah', '2a14fbccc46372e127492c153703ea31', '', '031601', '', 4, 1, 1),
 ('Pimpinan_bkpsdm', 'Badan Kepegawaian dan Pengembangan Sumber Daya Manusia', '0ccb609865eab19115534b2130eb2922', '', '040301', '', 4, 1, 1),
@@ -1863,7 +1950,13 @@ ALTER TABLE `tbl_user_katindex`
 -- Indeks untuk tabel `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
-  ADD PRIMARY KEY (`idaspek`);
+  ADD PRIMARY KEY (`id_aspek`);
+
+--
+-- Indeks untuk tabel `tb_aspek_nilai`
+--
+ALTER TABLE `tb_aspek_nilai`
+  ADD PRIMARY KEY (`id_aspek_nilai`);
 
 --
 -- Indeks untuk tabel `tb_datapendukung`
@@ -1881,7 +1974,19 @@ ALTER TABLE `tb_detail_indikator`
 -- Indeks untuk tabel `tb_domain`
 --
 ALTER TABLE `tb_domain`
-  ADD PRIMARY KEY (`iddomain`);
+  ADD PRIMARY KEY (`id_domain`);
+
+--
+-- Indeks untuk tabel `tb_domain_nilai`
+--
+ALTER TABLE `tb_domain_nilai`
+  ADD PRIMARY KEY (`id_domain_nilai`);
+
+--
+-- Indeks untuk tabel `tb_eksekutif_opd`
+--
+ALTER TABLE `tb_eksekutif_opd`
+  ADD PRIMARY KEY (`id_eksekutif_opd`);
 
 --
 -- Indeks untuk tabel `tb_evaluasi`
@@ -1908,16 +2013,16 @@ ALTER TABLE `tb_indeks`
   ADD PRIMARY KEY (`id_indeks`);
 
 --
+-- Indeks untuk tabel `tb_indeks_nilai`
+--
+ALTER TABLE `tb_indeks_nilai`
+  ADD PRIMARY KEY (`id_indeks_nilai`);
+
+--
 -- Indeks untuk tabel `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
   ADD PRIMARY KEY (`idindikator`);
-
---
--- Indeks untuk tabel `tb_lemah_kuat`
---
-ALTER TABLE `tb_lemah_kuat`
-  ADD PRIMARY KEY (`id_lemah_kuat`);
 
 --
 -- Indeks untuk tabel `tb_level`
@@ -1969,7 +2074,7 @@ ALTER TABLE `aplikasi`
 -- AUTO_INCREMENT untuk tabel `detail_aplikasi`
 --
 ALTER TABLE `detail_aplikasi`
-  MODIFY `id_detail_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_detail_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori_aplikasi`
@@ -2035,7 +2140,13 @@ ALTER TABLE `tbl_user_katindex`
 -- AUTO_INCREMENT untuk tabel `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
-  MODIFY `idaspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_aspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_aspek_nilai`
+--
+ALTER TABLE `tb_aspek_nilai`
+  MODIFY `id_aspek_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_datapendukung`
@@ -2053,7 +2164,19 @@ ALTER TABLE `tb_detail_indikator`
 -- AUTO_INCREMENT untuk tabel `tb_domain`
 --
 ALTER TABLE `tb_domain`
-  MODIFY `iddomain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_domain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_domain_nilai`
+--
+ALTER TABLE `tb_domain_nilai`
+  MODIFY `id_domain_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_eksekutif_opd`
+--
+ALTER TABLE `tb_eksekutif_opd`
+  MODIFY `id_eksekutif_opd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_evaluasi`
@@ -2077,19 +2200,19 @@ ALTER TABLE `tb_groupuser`
 -- AUTO_INCREMENT untuk tabel `tb_indeks`
 --
 ALTER TABLE `tb_indeks`
-  MODIFY `id_indeks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_indeks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_indeks_nilai`
+--
+ALTER TABLE `tb_indeks_nilai`
+  MODIFY `id_indeks_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
   MODIFY `idindikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT untuk tabel `tb_lemah_kuat`
---
-ALTER TABLE `tb_lemah_kuat`
-  MODIFY `id_lemah_kuat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_level`

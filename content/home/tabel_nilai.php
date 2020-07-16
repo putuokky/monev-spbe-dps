@@ -22,12 +22,14 @@
           if (isset($_POST['cari'])) {
             $caritahun = $_POST['caritahun'];
             $sql = "SELECT * FROM tb_indeks a 
-                    LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                    WHERE b.user_katindex = 'SPBE' && a.tahun_indeks LIKE '%$caritahun%'";
+              LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks
+              LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+              WHERE c.user_katindex = 'SPBE' && b.tahun_indeks LIKE '%$caritahun%'";
           } else {
             $sql = "SELECT * FROM tb_indeks a 
-                    LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                    WHERE b.user_katindex = 'SPBE' && a.tahun_indeks = '$thnkmrn'";
+              LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks
+              LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+              WHERE c.user_katindex = 'SPBE' && b.tahun_indeks = '$thnkmrn'";
           }
 
           $result = mysqli_query($conn, $sql);
@@ -52,16 +54,18 @@
           <?php
           if (isset($_POST['cari'])) {
             $caritahun = $_POST['caritahun'];
-            $sqlDomain = "SELECT * FROM tb_domain a
-                          JOIN tb_indeks b ON a.id_indeks = b.id_indeks
-                          WHERE a.id_indeks = $id && a.tahun_domain LIKE '%$caritahun%'";
+            $sqlDomain = "SELECT * FROM tb_domain_nilai a
+                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks
+                          LEFT JOIN tb_domain c ON c.id_domain = a.domain
+                          WHERE b.id_indeks = $id && a.tahun_domain LIKE '%$caritahun%'";
           } else {
-            $sqlDomain = "SELECT * FROM tb_domain a
-                          JOIN tb_indeks b ON a.id_indeks = b.id_indeks
-                          WHERE a.id_indeks = $id && a.tahun_domain = '$thnkmrn'";
+            $sqlDomain = "SELECT * FROM tb_domain_nilai a
+                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks
+                          LEFT JOIN tb_domain c ON c.id_domain = a.domain
+                          WHERE b.id_indeks = $id && a.tahun_domain = '$thnkmrn'";
           }
 
-          $sqlDomain = $sqlDomain . " ORDER BY a.urutan_domain ASC";
+          $sqlDomain = $sqlDomain . " ORDER BY c.urutan_domain ASC";
 
           $resDomain = mysqli_query($conn, $sqlDomain);
 
@@ -69,42 +73,44 @@
             // $no = 1;
             // output data of each row
             while ($rowDomain = mysqli_fetch_assoc($resDomain)) {
-              $domain = $rowDomain['iddomain'];
-              $nilai_indeks_domain = $rowDomain['nilai_indeks_domain'];
-              $namadomain = $rowDomain['namadomain'];
+              $domain = $rowDomain['id_domain'];
+              $nilai_domain = $rowDomain['nilai_domain'];
+              $namadomain = $rowDomain['nama_domain'];
               $tahun_domain = $rowDomain['tahun_domain'];
           ?>
 
               <tr>
                 <td>&nbsp;<i class="fas fa-angle-right"></i> <?= $namadomain; ?></td>
-                <td><?= number_format($nilai_indeks_domain, 2, ",", "."); ?></td>
+                <td><?= number_format($nilai_domain, 2, ",", "."); ?></td>
               </tr>
 
               <?php
               if (isset($_POST['cari'])) {
                 $caritahun = $_POST['caritahun'];
-                $sqlAspek = "SELECT * FROM tb_aspek a 
-                              JOIN tb_domain b ON a.iddomain = b.iddomain 
-                              WHERE a.iddomain = $domain && a.tahun_aspek LIKE '%$caritahun%'";
+                $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
+                            LEFT JOIN tb_domain b ON b.id_domain = a.domain
+                            LEFT JOIN tb_aspek c ON c.id_aspek = a.aspek
+                            WHERE a.domain = $domain && a.tahun_aspek LIKE '%$caritahun%'";
               } else {
-                $sqlAspek = "SELECT * FROM tb_aspek a 
-                              JOIN tb_domain b ON a.iddomain = b.iddomain 
-                              WHERE a.iddomain = $domain && a.tahun_aspek = '$thnkmrn'";
+                $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
+                            LEFT JOIN tb_domain b ON b.id_domain = a.domain
+                            LEFT JOIN tb_aspek c ON c.id_aspek = a.aspek
+                            WHERE a.domain = $domain && a.tahun_aspek = '$thnkmrn'";
               }
 
-              $sqlAspek = $sqlAspek . " ORDER BY a.urutan_aspek ASC";
+              $sqlAspek = $sqlAspek . " ORDER BY c.urutan_aspek ASC";
               $resAspek = mysqli_query($conn, $sqlAspek);
 
               if (mysqli_num_rows($resAspek) > 0) {
                 while ($rowAspek = mysqli_fetch_assoc($resAspek)) {
-                  $nilai_indeks_aspek = $rowAspek['nilai_indeks_aspek'];
+                  $nilai_aspek = $rowAspek['nilai_aspek'];
                   $nama_aspek = $rowAspek['nama_aspek'];
                   $tahun_aspek = $rowAspek['tahun_aspek'];
               ?>
 
                   <tr>
                     <td>&nbsp;&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i> <?= $nama_aspek; ?></td>
-                    <td><?= number_format($nilai_indeks_aspek, 2, ",", "."); ?></td>
+                    <td><?= number_format($nilai_aspek, 2, ",", "."); ?></td>
                   </tr>
           <?php
                 }

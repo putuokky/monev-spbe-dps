@@ -4,12 +4,14 @@
     if (isset($_POST['cari'])) {
       $caritahun = $_POST['caritahun'];
       $sql = "SELECT * FROM tb_indeks a 
-              LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-              WHERE b.user_katindex = 'SPBE' && a.tahun_indeks LIKE '%$caritahun%'";
+              LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks
+              LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+              WHERE c.user_katindex = 'SPBE' && b.tahun_indeks LIKE '%$caritahun%'";
     } else {
       $sql = "SELECT * FROM tb_indeks a 
-              LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-              WHERE b.user_katindex = 'SPBE' && a.tahun_indeks = '$thnkmrn'";
+              LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks
+              LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+              WHERE c.user_katindex = 'SPBE' && b.tahun_indeks = '$thnkmrn'";
     }
 
     $result = mysqli_query($conn, $sql);

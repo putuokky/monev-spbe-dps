@@ -15,22 +15,25 @@
     // deklarasi ambil nama aspek
     if (isset($_POST['cari'])) {
       $caritahun = $_POST['caritahun'];
-      $sqlAspek = "SELECT * FROM tb_aspek a 
-                    JOIN tb_domain b ON a.iddomain = b.iddomain 
-                    JOIN tb_indeks c ON c.id_indeks = b.id_indeks
-                    WHERE a.tahun_aspek LIKE '%$caritahun%' && c.nama_indeks = '" . $indeks . "'";
+      $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
+                  JOIN tb_domain_nilai b ON b.id_domain_nilai = a.domain 
+                  JOIN tb_indeks_nilai c ON c.id_indeks_nilai = b.indeks
+                  JOIN tb_indeks d ON d.id_indeks = c.indeks
+                  JOIN tb_aspek e ON e.id_aspek = a.aspek
+                  WHERE a.tahun_aspek LIKE '%$caritahun%' && d.nama_indeks = '" . $indeks . "'";
     } else {
-      $sqlAspek = "SELECT * FROM tb_aspek a 
-                    JOIN tb_domain b ON a.iddomain = b.iddomain 
-                    JOIN tb_indeks c ON c.id_indeks = b.id_indeks
-                    WHERE a.tahun_aspek = $thnkmrn && c.nama_indeks = '" . $indeks . "'";
+      $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
+                  JOIN tb_domain_nilai b ON b.id_domain_nilai = a.domain 
+                  JOIN tb_indeks_nilai c ON c.id_indeks_nilai = b.indeks
+                  JOIN tb_indeks d ON d.id_indeks = c.indeks
+                  JOIN tb_aspek e ON e.id_aspek = a.aspek
+                  WHERE a.tahun_aspek = $thnkmrn && d.nama_indeks = '" . $indeks . "'";
     }
     $resultAspek = mysqli_query($conn, $sqlAspek);
     while ($rowAspek = mysqli_fetch_assoc($resultAspek)) {
-      $idAspek = $rowAspek['idaspek'];
       $nama_aspek[] = '"' . $rowAspek['nama_aspek'] . '"';
-      $target[] = $rowAspek['target'];
-      $nilai_indeks_aspek[] = $rowAspek['nilai_indeks_aspek'];
+      $target_aspek[] = $rowAspek['target_aspek'];
+      $nilai_aspek[] = $rowAspek['nilai_aspek'];
       $tahun_aspek = $rowAspek['tahun_aspek'];
     }
 
@@ -81,11 +84,11 @@
 
         series: [{
           name: 'Target',
-          data: [<?= join($target, ','); ?>],
+          data: [<?= join($target_aspek, ','); ?>],
           pointPlacement: 'on'
         }, {
           name: 'Nilai',
-          data: [<?= join($nilai_indeks_aspek, ','); ?>],
+          data: [<?= join($nilai_aspek, ','); ?>],
           pointPlacement: 'on'
         }],
 

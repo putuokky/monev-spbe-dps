@@ -29,6 +29,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
       <div class="col-xl-12 col-lg-12">
 
+        <?php include 'formpencarian.php'; ?>
+
         <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=indeks&act=tambah">
           <span class="icon">
             <i class="fas fa-fw fa-plus"></i>
@@ -63,22 +65,49 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  // SPBE
-                  if ($_SESSION['grupindeks'] == 1) {
-                    $sql = "SELECT * FROM tb_indeks a 
-                    LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex 
-                    WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                    $result = mysqli_query($conn, $sql);
-                    // IKCI
-                  } else if ($_SESSION['grupindeks'] == 2) {
-                    $sql = "SELECT * FROM tb_indeks a 
-                    LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex 
-                    WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                    $result = mysqli_query($conn, $sql);
+                  if (isset($_POST['cari'])) {
+                    $thn_indeks = $_POST['thn_indeks'];
+                    // SPBE
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sql = "SELECT * FROM tb_indeks a 
+                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
+                            WHERE b.id_user_katindex = $_SESSION[grupindeks] && c.tahun_indeks LIKE '%" . $thn_indeks . "%'";
+                      // IKCI
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sql = "SELECT * FROM tb_indeks a 
+                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
+                            WHERE b.id_user_katindex = $_SESSION[grupindeks] && c.tahun_indeks LIKE '%" . $thn_indeks . "%'";
+                    } else {
+                      $nama_indeks = $_POST['nama_indeks'];
+
+                      $sql = "SELECT * FROM tb_indeks a 
+                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
+                            WHERE c.tahun_indeks LIKE '%" . $thn_indeks . "%' || a.id_indeks = $nama_indeks";
+                    }
                   } else {
-                    $sql = "SELECT * FROM tb_indeks";
-                    $result = mysqli_query($conn, $sql);
+                    // SPBE
+                    if ($_SESSION['grupindeks'] == 1) {
+                      $sql = "SELECT * FROM tb_indeks a 
+                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
+                            WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                      // IKCI
+                    } else if ($_SESSION['grupindeks'] == 2) {
+                      $sql = "SELECT * FROM tb_indeks a 
+                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
+                            WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                    } else {
+                      $sql = "SELECT * FROM tb_indeks a 
+                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
+                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks";
+                    }
                   }
+
+                  $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
                     $no = 1;
