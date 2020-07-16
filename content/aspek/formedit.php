@@ -9,7 +9,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
-  $namadomain   = $_POST['namadomain'];
+  $namadomainforaspek   = $_POST['namadomainforaspek'];
   $namaaspek    = $_POST['namaaspek'];
   $bobot        = str_replace(",", ".", $_POST['bobot']);
   $target       = $_POST['target'];
@@ -22,7 +22,7 @@ if (isset($_POST['update'])) {
 
   if ($res) {
     $sql = "UPDATE tb_aspek 
-        SET iddomain = '$namadomain',
+        SET iddomain = '$namadomainforaspek',
         nilai_indeks_aspek = '$nilaindeks',
         nama_aspek = '$namaaspek',
         bobot_aspek = '$bobot',
@@ -138,9 +138,9 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="namadomain" class="col-md-2 col-form-label">Nama Domain</label>
+                <label for="namadomainforaspek" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="namadomain" name="namadomain">
+                  <select class="form-control" id="namadomainforaspek" name="namadomainforaspek">
                     <option value="0">-</option>
                     <?php
                     $sqlDomain = "SELECT * FROM tb_domain ORDER BY namadomain ASC";
