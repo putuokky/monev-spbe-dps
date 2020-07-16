@@ -3,44 +3,45 @@ class model_indikator
 {
 
     public $bobot_aspek;
-    public $bobot_domain=0;
+    public $bobot_domain = 0;
 
     function tampilDataAspek($id_domain)
     {
         include "config/config.php";
 
         $sqlAspek = "SELECT * FROM tb_aspek a 
-                    LEFT JOIN tb_domain b ON a.iddomain = b.iddomain 
-                    WHERE a.iddomain = '$id_domain'
+                    LEFT JOIN tb_domain b ON b.id_domain = a.domain 
+                    WHERE a.domain = '$id_domain' 
                     ORDER BY a.urutan_aspek ASC";
+
         $resultAspek = mysqli_query($conn, $sqlAspek);
-        
+
         return $resultAspek;
     }
 
     function all($id_aspek)
     {
         include "config/config.php";
-        
+
         $sql = "SELECT * FROM tb_indikator a 
-                LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
-                LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail
-                WHERE b.idaspek = '$id_aspek'";
+            LEFT JOIN tb_aspek b ON b.id_aspek = a.idaspek 
+            LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail
+            WHERE b.id_aspek = '$id_aspek'";
         $result = mysqli_query($conn, $sql);
         return $result;
     }
-    
+
     function jumlahBobotIndikator($id_aspek)
     {
         include "config/config.php";
 
         $sqlBotAspek = "SELECT SUM(a.bobot_indikator) AS bobot_indi 
                     FROM tb_indikator a 
-                    LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
+                    LEFT JOIN tb_aspek b ON b.id_aspek = a.idaspek 
                     LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail 
-                    WHERE b.idaspek = '$id_aspek'";
+                    WHERE b.id_aspek = '$id_aspek'";
         $resultBotAspek = mysqli_query($conn, $sqlBotAspek);
-        $rowBotAspek = mysqli_fetch_assoc($resultBotAspek); 
+        $rowBotAspek = mysqli_fetch_assoc($resultBotAspek);
 
         return $rowBotAspek['bobot_indi'];
     }
@@ -50,10 +51,10 @@ class model_indikator
         include "config/config.php";
 
         $sqlBotAspek = "SELECT SUM(a.bobot_indikator) AS bobot_indi 
-                        FROM tb_indikator a 
-                        LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek 
-                        LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail 
-                        WHERE b.iddomain = '$id_domain'";
+                    FROM tb_indikator a 
+                    LEFT JOIN tb_aspek b ON b.id_aspek = a.idaspek 
+                    LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail 
+                    WHERE b.domain = '$id_domain'";
         $resultBotAspek = mysqli_query($conn, $sqlBotAspek);
         $rowBotAspek = mysqli_fetch_assoc($resultBotAspek);
 
@@ -69,7 +70,7 @@ class model_indikator
         while ($row = mysqli_fetch_assoc($result)) {
 
             $adj = 0;
-            $indeks_akhir=0;
+            $indeks_akhir = 0;
             $caritahun = $tahun;
             $sqlNilai = "SELECT * FROM tb_penilaian a 
                         LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
@@ -78,19 +79,16 @@ class model_indikator
             $resultNilai = mysqli_query($conn, $sqlNilai);
             if (mysqli_num_rows($resultNilai) > 0) {
                 while ($rowNilai = mysqli_fetch_assoc($resultNilai)) {
-                $adj = $rowNilai['nilaimadiri'];
+                    $adj = $rowNilai['nilaimadiri'];
                 }
             } else {
                 $adj = 0;
             }
 
-            $indeks_akhir = $row['bobot_indikator']/($this->jumlahBobotIndikator($id_aspek))*$adj;
+            $indeks_akhir = $row['bobot_indikator'] / ($this->jumlahBobotIndikator($id_aspek)) * $adj;
 
-            $total_ia += $indeks_akhir+$indeks_akhir;
+            $total_ia += $indeks_akhir + $indeks_akhir;
         }
         return $total_ia;
-
     }
-
-    
 }

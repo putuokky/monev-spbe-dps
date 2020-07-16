@@ -45,6 +45,17 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
               <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                 <thead>
                   <tr>
+                    <th colspan="6" class="align-content-center">
+                      <h1 class="font-weight-bold text-center">
+                        Tabel Nilai Indikator
+                        <?php if (isset($_POST['cari'])) :
+                          $caritahun = $_POST['caritahun']; ?>
+                          Tahun <?= $caritahun; ?>
+                        <?php endif; ?>
+                      </h1>
+                    </th>
+                  </tr>
+                  <tr>
                     <th>Domain/Aspek/Indikator</th>
                     <th>Deskripsi</th>
                     <th>Bobot (%)</th>
@@ -60,8 +71,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   if (mysqli_num_rows($resultDomain) > 0) {
                     // output data of each row
                     while ($rowDomain = mysqli_fetch_assoc($resultDomain)) {
-                      $id_domain = $rowDomain['iddomain'];
-                      $namadomain = $rowDomain['namadomain'];
+                      $id_domain = $rowDomain['id_domain'];
+                      $namadomain = $rowDomain['nama_domain'];
                       $urutan_domain = $rowDomain['urutan_domain'];
                   ?>
 
@@ -83,7 +94,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       if (mysqli_num_rows($resultAspek) > 0) {
                         // output data of each row
                         while ($rowAspek = mysqli_fetch_assoc($resultAspek)) {
-                          $id_aspek = $rowAspek['idaspek'];
+                          $id_aspek = $rowAspek['id_aspek'];
                           $nama_aspek = $rowAspek['nama_aspek'];
                           $urutan_aspek = $rowAspek['urutan_aspek'];
                       ?>

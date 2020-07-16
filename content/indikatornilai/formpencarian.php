@@ -16,7 +16,7 @@
               $thnskrg = date('Y');
               for ($i = 2018; $i <= $thnskrg; $i++) { ?>
                 <option value="<?= $i; ?>"><?= $i; ?></option>
-              <?php 
+              <?php
               } ?>
             </select>
           </div>
