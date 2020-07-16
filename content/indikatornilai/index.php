@@ -68,9 +68,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       <tr style="background-color:#79e5cb;">
                         <td><?= "Domain " . $urutan_domain; ?></td>
                         <td><?= $namadomain; ?></td>
+                        <!-- bobot domain -->
                         <td>
                           <?php $total_hasil_domain += ceil($model_indikator->jumlahBobotDomain($id_domain));
                           echo number_format($model_indikator->jumlahBobotDomain($id_domain), 0, ",", ".") . "%"; ?></td>
+                        <!-- end bobot domain -->
                         <td></td>
                         <td></td>
                         <td>Indeks Akhir utk domain</td>
@@ -89,16 +91,36 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <tr style="background-color:#efefef;">
                             <td><?= "Aspek " . $urutan_aspek; ?></td>
                             <td><?= $nama_aspek; ?></td>
+                            <!-- Bobot (Aspek) -->
                             <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek), 1, ",", ".") . "%"; ?>
                             </td>
-                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek) / $model_indikator->jumlahBobotDomain($id_domain) * 100, 2, ",", "."); ?>%</td>
+                            <!-- end Bobot (Aspek) -->
+
+                            <!-- Bobot Aspek (Aspek) -->
+                            <td><?= $bobotaspek = number_format($model_indikator->jumlahBobotIndikator($id_aspek) / $model_indikator->jumlahBobotDomain($id_domain) * 100, 2, ",", "."); ?>%
+                            </td>
+                            <!-- end Bobot Aspek (Aspek) -->
+
+                            <!-- TK Final Adj (Aspek) -->
                             <td>
                               <?php
                               if (isset($_POST['cari'])) {
-                                echo $model_indikator->totalAdj($_POST['caritahun'], $id_aspek);
+                                echo $tkfinaladjAspek = number_format($model_indikator->totalAdj($_POST['caritahun'], $id_aspek), 2, ",", ".");
+                              } else {
+                                echo "-";
                               }
                               ?> </td>
-                            <td>Indeks Akhir utk aspek</td>
+                            <!-- end TK Final Adj (Aspek) -->
+
+                            <!-- Indeks Akhir (Aspek) -->
+                            <td><?php
+                                if (isset($_POST['cari'])) {
+                                  echo $tkfinaladjAspek . " / " . $bobotaspek;
+                                } else {
+                                  echo "-";
+                                }
+                                ?></td>
+                            <!-- end Indeks Akhir (Aspek) -->
                           </tr>
                           <?php
                           $result = $model_indikator->all($id_aspek);
@@ -145,6 +167,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                   ?>
                                 </td>
                                 <td>
+                                  <!-- Indeks Akhir (Indikator) -->
                                   <?php
                                   if (isset($_POST['cari'])) {
                                     $ba_for_indi_indeks = $bobot_indikator / ($model_indikator->jumlahBobotIndikator($id_aspek));
@@ -153,7 +176,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                     echo "-";
                                   }
                                   ?>
-
+                                  <!-- Indeks Akhir (Indikator) -->
                                 </td>
                               </tr>
                   <?php
