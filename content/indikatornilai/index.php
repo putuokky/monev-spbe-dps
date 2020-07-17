@@ -46,13 +46,13 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 <thead>
                   <tr>
                     <th colspan="6" class="align-content-center">
-                      <h1 class="font-weight-bold text-center">
+                      <h3 class="font-weight-bold text-center">
                         Tabel Nilai Indikator
                         <?php if (isset($_POST['cari'])) :
                           $caritahun = $_POST['caritahun']; ?>
                           Tahun <?= $caritahun; ?>
                         <?php endif; ?>
-                      </h1>
+                      </h3>
                     </th>
                   </tr>
                   <tr>
@@ -103,12 +103,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             <td><?= "Aspek " . $urutan_aspek; ?></td>
                             <td><?= $nama_aspek; ?></td>
                             <!-- Bobot (Aspek) -->
-                            <td><?= number_format($model_indikator->jumlahBobotIndikator($id_aspek), 1, ",", ".") . "%"; ?>
+                            <td><?php $bobotaspek = round($model_indikator->jumlahBobotIndikator($id_aspek));
+                                echo number_format($bobotaspek); ?>%
                             </td>
                             <!-- end Bobot (Aspek) -->
 
                             <!-- Bobot Aspek (Aspek) -->
-                            <td><?= $bobotaspek = number_format($model_indikator->jumlahBobotIndikator($id_aspek) / $model_indikator->jumlahBobotDomain($id_domain) * 100, 2, ",", "."); ?>%
+                            <td><?php $bobotaspekAspek = round($model_indikator->jumlahBobotIndikator($id_aspek) / $model_indikator->jumlahBobotDomain($id_domain) * 100, 1);
+                                echo number_format($bobotaspekAspek, 1, ",", "."); ?>%
                             </td>
                             <!-- end Bobot Aspek (Aspek) -->
 
@@ -126,7 +128,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                             <!-- Indeks Akhir (Aspek) -->
                             <td><?php
                                 if (isset($_POST['cari'])) {
-                                  echo $tkfinaladjAspek . " / " . $bobotaspek;
+                                  echo $tkfinaladjAspek . " / " . $bobotaspekAspek;
                                 } else {
                                   echo "-";
                                 }
