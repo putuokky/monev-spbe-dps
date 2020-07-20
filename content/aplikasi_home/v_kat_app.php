@@ -22,7 +22,14 @@
           $KatAppGrf[] = '"' . $rowKatAppGrf['kat_aplikasi'] . '"';
 
           // deklarasi count
-          $sqlAplikasi = "SELECT COUNT(kategori_aplikasi) as katapp FROM aplikasi WHERE kategori_aplikasi = '$idkatapp'";
+          if ($_SESSION['opd'] == '0') {
+            $sqlAplikasi = "SELECT COUNT(kategori_aplikasi) as katapp FROM aplikasi 
+            WHERE kategori_aplikasi = '$idkatapp'";
+          } else {
+            $sqlAplikasi = "SELECT COUNT(kategori_aplikasi) as katapp FROM aplikasi 
+            WHERE kategori_aplikasi = '$idkatapp' && unit = $_SESSION[opd]";
+          }
+
           $resultAplikasi = mysqli_query($conn, $sqlAplikasi);
           while ($rowAplikasi = mysqli_fetch_assoc($resultAplikasi)) {
             $aplikasi[] = $rowAplikasi['katapp'];

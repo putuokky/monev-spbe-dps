@@ -22,7 +22,14 @@
           $platform[] = '"' . $rowPlatform['nama_kat_media'] . '"';
 
           // deklarasi count
-          $sqlAplikasi = "SELECT COUNT(media) as media FROM aplikasi WHERE media = '$idmedia'";
+          if ($_SESSION['opd'] == '0') {
+            $sqlAplikasi = "SELECT COUNT(media) as media FROM aplikasi 
+            WHERE media = '$idmedia'";
+          } else {
+            $sqlAplikasi = "SELECT COUNT(media) as media FROM aplikasi 
+            WHERE media = '$idmedia' && unit = $_SESSION[opd]";
+          }
+
           $resultAplikasi = mysqli_query($conn, $sqlAplikasi);
           while ($rowAplikasi = mysqli_fetch_assoc($resultAplikasi)) {
             $aplikasi[] = $rowAplikasi['media'];

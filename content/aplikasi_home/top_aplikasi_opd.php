@@ -15,12 +15,20 @@
     </tfoot> -->
     <tbody>
       <?php
-      $sqlAppTopApp = "SELECT COUNT(a.id_app) as jml_top_app ,a.unit 
-                      FROM aplikasi a 
-                      LEFT JOIN tb_opd b ON b.idopd = a.unit 
-                      GROUP BY a.unit 
-                      ORDER BY COUNT(a.id_app) DESC 
-                      LIMIT 10";
+      if ($_SESSION['opd'] == '0') {
+        $sqlAppTopApp = "SELECT COUNT(a.id_app) as jml_top_app ,a.unit 
+                        FROM aplikasi a 
+                        LEFT JOIN tb_opd b ON b.idopd = a.unit 
+                        GROUP BY a.unit";
+      } else {
+        $sqlAppTopApp = "SELECT COUNT(a.id_app) as jml_top_app ,a.unit 
+                        FROM aplikasi a 
+                        LEFT JOIN tb_opd b ON b.idopd = a.unit 
+                        WHERE a.unit = $_SESSION[opd]
+                        GROUP BY a.unit";
+      }
+      $sqlAppTopApp = $sqlAppTopApp . " ORDER BY COUNT(a.id_app) DESC";
+
       $resultAppTopApp = mysqli_query($conn, $sqlAppTopApp);
       if (mysqli_num_rows($resultAppTopApp) > 0) {
         $no = 1;
@@ -38,11 +46,15 @@
               <td><?= $opd; ?></td>
               <td><?= $top_app; ?></td>
             </tr>
-      <?php
+        <?php
           }
           $no++;
         }
-      }
+      } else { ?>
+        <tr>
+          <th colspan="3" class="text-center">Tidak Memiliki Aplikasi Yang Dikelola</th>
+        </tr>
+      <?php }
       mysqli_close($conn);
       ?>
     </tbody>

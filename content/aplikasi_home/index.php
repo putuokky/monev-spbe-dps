@@ -20,7 +20,10 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Aplikasi</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-900"><?= $rowApp['jml_aplikasi']; ?></div>
+              <div class="h5 mb-0 font-weight-bold text-gray-900">
+                <?= $rowApp['jml_aplikasi'];
+                ?>
+              </div>
             </div>
             <div class="col-auto">
               <i class="fas fa-globe fa-2x text-primary"></i>
@@ -82,23 +85,17 @@
   <!-- Content Row -->
   <div class="row">
 
-    <?php
-    include 'v_sifat_app.php';
-    ?>
+    <?php include 'v_sifat_app.php'; ?>
 
-    <?php
-    include 'v_kat_app.php';
-    ?>
+    <?php include 'v_kat_app.php'; ?>
 
-    <?php
-    include 'v_data_jns_app.php';
-    ?>
+    <?php include 'v_data_jns_app.php'; ?>
 
     <div class="col-xl-12 col-lg-12">
       <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#collapseCardTopOpdAplikasi" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTopOpdAplikasi">
-          <h6 class="m-0 font-weight-bold text-primary">TOP OPD Pengelola Aplikasi</h6>
+          <h6 class="m-0 font-weight-bold text-primary">OPD Pengelola Aplikasi</h6>
         </a>
         <!-- Card Content - Collapse -->
         <div class="collapse show" id="collapseCardTopOpdAplikasi">

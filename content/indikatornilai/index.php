@@ -157,6 +157,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                     echo number_format(round($bobot_aspek_for_indi, 1), 1, ",", ".") . "%";
                                     ?></td>
                                 <td>
+                                  <!-- TK Final Adj (Indikator) -->
                                   <?php
                                   if (isset($_POST['cari'])) {
                                     $adj = 0;
@@ -178,6 +179,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                     echo "-";
                                   }
                                   ?>
+                                  <!-- end TK Final Adj (Indikator) -->
                                 </td>
                                 <td>
                                   <!-- Indeks Akhir (Indikator) -->

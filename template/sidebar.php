@@ -22,11 +22,11 @@
             <span>Dashboard SPBE</span></a>
         </li>
       <?php } else if ($_SESSION['grupindeks'] == 2) { ?>
-        <li class="nav-item" id="dashboardikci">
+        <!-- <li class="nav-item" id="dashboardikci">
           <a class="nav-link" href="?page=homeikci">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard IKCI</span></a>
-        </li>
+        </li> -->
       <?php } else if ($_SESSION['grupindeks'] == 3) { ?>
         <li class="nav-item" id="dashboardapp">
           <a class="nav-link" href="?page=homeapp">
@@ -39,11 +39,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard SPBE</span></a>
         </li>
-        <li class="nav-item" id="dashboardikci">
+        <!-- <li class="nav-item" id="dashboardikci">
           <a class="nav-link" href="?page=homeikci">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard IKCI</span></a>
-        </li>
+        </li> -->
       <?php } else if ($_SESSION['grupindeks'] == 5) { ?>
         <li class="nav-item" id="dashboard">
           <a class="nav-link" href="?page=home">
@@ -56,11 +56,11 @@
             <span>Dashboard Aplikasi</span></a>
         </li>
       <?php } else if ($_SESSION['grupindeks'] == 6) { ?>
-        <li class="nav-item" id="dashboardikci">
+        <!-- <li class="nav-item" id="dashboardikci">
           <a class="nav-link" href="?page=homeikci">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard IKCI</span></a>
-        </li>
+        </li> -->
         <li class="nav-item" id="dashboardapp">
           <a class="nav-link" href="?page=homeapp">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -72,11 +72,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard SPBE</span></a>
         </li>
-        <li class="nav-item" id="dashboardikci">
+        <!-- <li class="nav-item" id="dashboardikci">
           <a class="nav-link" href="?page=homeikci">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard IKCI</span></a>
-        </li>
+        </li> -->
         <li class="nav-item" id="dashboardapp">
           <a class="nav-link" href="?page=homeapp">
             <i class="fas fa-fw fa-tachometer-alt"></i>

@@ -31,7 +31,13 @@ if (isset($_POST['login'])) {
     $_SESSION['is_active']    = $dataUser['is_active'];
 
     if ($_SESSION['groupuser'] == 1) {
-      header("location:t.php?page=home");
+      if ($_SESSION['grupindeks'] == 1) {
+        header("location:t.php?page=home");
+      } else if ($_SESSION['grupindeks'] == 2) {
+        header("location:t.php?page=homeikci");
+      } else {
+        header("location:t.php?page=homeapp");
+      }
     } else if ($_SESSION['groupuser'] == 2 || $_SESSION['groupuser'] == 3) {
       header("location:t.php?page=profile");
     } else if ($_SESSION['groupuser'] == 4) {
