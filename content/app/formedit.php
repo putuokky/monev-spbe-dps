@@ -20,12 +20,6 @@ if (isset($_POST['update'])) {
   $status           = $_POST['status'];
   $thnbuat          = $_POST['thnbuat'];
 
-  if (isset($_POST['dashinternal'])) {
-    $dashinternal = $_POST['dashinternal'];
-  } else {
-    $dashinternal = 0;
-  }
-
   $res = true;
 
   if ($res) {
@@ -36,7 +30,6 @@ if (isset($_POST['update'])) {
         infofungsi = '$infofungsi',
         media = '$platform',
         link = '$alamaturl',
-        dash_internal = '$dashinternal',
         unit = '$opdpengelolaaapp',
         unit_pengguna = '$opdpenggunaapp',
         sts_aktif = '$status',
@@ -198,21 +191,6 @@ $data = mysqli_fetch_assoc($resUbah);
                   Anda dapat mengupload format <b>JPG, JPEG, PNG</b>. Maximum file size <b>5 MB</b>. <br>Ukuran gambar tampilan terbaik <b>100px X 100px</b>.
                 </div>
               </div> -->
-              <div class="form-group row">
-                <label for="dashinternal" class="col-md-2 col-form-label">Dashboard</label>
-                <div class="col-md-10">
-                  <div class="form-check form-check-inline">
-                    <?php
-                    if ($data['dash_internal'] == "1") { ?>
-                      <input class="form-check-input" type="checkbox" id="dashinternal" name="dashinternal" value="1" checked>
-                      <label class="form-check-label" for="dashinternal">Centang Jika Masuk Daftar Dashboard</label>
-                    <?php } else { ?>
-                      <input class="form-check-input" type="checkbox" id="dashinternal" name="dashinternal" value="1">
-                      <label class="form-check-label" for="dashinternal">Centang Jika Masuk Daftar Dashboard</label>
-                    <?php } ?>
-                  </div>
-                </div>
-              </div>
               <div class="form-group row">
                 <label for="opdpengelolaaapp" class="col-md-2 col-form-label">OPD Pengelola Aplikasi</label>
                 <div class="col-md-10">

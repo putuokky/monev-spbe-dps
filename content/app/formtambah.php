@@ -12,18 +12,12 @@ if (isset($_POST['input'])) {
   $status           = $_POST['status'];
   $thnbuat          = $_POST['thnbuat'];
 
-  if (isset($_POST['dashinternal'])) {
-    $dashinternal = $_POST['dashinternal'];
-  } else {
-    $dashinternal = 0;
-  }
-
   $res = true;
 
   if ($res) {
     if (!empty($judul) && !empty($opdpengelolaaapp) && !empty($opdpenggunaapp)) {
-      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,dash_internal,unit,unit_pengguna,sts_aktif,integrasi,thn_pembuatan,usr,dlu)
-    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$dashinternal','$opdpengelolaaapp','$opdpenggunaapp','$status','belum','$thnbuat','$_SESSION[userid]','$datenow2')";
+      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,unit,unit_pengguna,sts_aktif,integrasi,thn_pembuatan,usr,dlu)
+    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$opdpengelolaaapp','$opdpenggunaapp','$status','belum','$thnbuat','$_SESSION[userid]','$datenow2')";
 
       if (mysqli_query($conn, $sql)) {
         echo '<script type="text/javascript">
@@ -167,15 +161,6 @@ if (isset($_POST['input'])) {
                   Anda dapat mengupload format <b>JPG, JPEG, PNG</b>. Maximum file size <b>5 MB</b>. <br>Ukuran gambar tampilan terbaik <b>100px X 100px</b>.
                 </div>
               </div> -->
-              <div class="form-group row">
-                <label for="dashinternal" class="col-md-2 col-form-label">Dashboard</label>
-                <div class="col-md-10">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="dashinternal" name="dashinternal" value="1">
-                    <label class="form-check-label" for="dashinternal">Centang Jika Masuk Daftar Dashboard</label>
-                  </div>
-                </div>
-              </div>
               <div class="form-group row">
                 <label for="opdpengelolaaapp" class="col-md-2 col-form-label">OPD Pengelola Aplikasi</label>
                 <div class="col-md-10">

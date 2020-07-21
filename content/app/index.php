@@ -11,6 +11,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'upload_icon.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "upfile") {
   include 'upload_file.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "upinfoapp") {
+  include 'upload_infoapp.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "detail") {
   include 'detail.php';
 } else {
@@ -62,6 +64,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>OPD Pengguna</th>
                     <th>Tahun Pembuatan</th>
                     <th>Status</th>
+                    <th>Integrasi</th>
                     <th>User/DLU</th>
                 </thead>
                 <tfoot>
@@ -76,31 +79,34 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>OPD Pengguna</th>
                     <th>Tahun Pembuatan</th>
                     <th>Status</th>
+                    <th>Integrasi</th>
                     <th>User/DLU</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
                   if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 3) {
-                    $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.dash_internal,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna 
-                    FROM aplikasi a 
-                    LEFT JOIN kategori_media b ON b.id_media = a.media
-                    LEFT JOIN tb_opd c ON c.idopd = a.unit 
-                    LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
-                    LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
-                    LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna";
-                  } else {
-                    $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.dash_internal,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna 
+                    $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
                     FROM aplikasi a 
                     LEFT JOIN kategori_media b ON b.id_media = a.media
                     LEFT JOIN tb_opd c ON c.idopd = a.unit 
                     LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
                     LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
                     LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                    LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app ";
+                  } else {
+                    $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                    FROM aplikasi a 
+                    LEFT JOIN kategori_media b ON b.id_media = a.media
+                    LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                    LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                    LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                    LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                    LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app 
                     WHERE c.idopd = $_SESSION[opd]";
                   }
 
-                  $sql = $sql . " ORDER BY a.id_app DESC";
+                  $sql = $sql . " GROUP BY a.id_app ORDER BY a.id_app DESC";
 
                   $result = mysqli_query($conn, $sql);
 
@@ -117,6 +123,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <!-- <a class="btn btn-dark btn-sm" title="Info" href="?page=app&act=info&id=<?= $id; ?>"><i class="fas fa-fw fa-info"></i></a> -->
                           <a class="btn btn-primary btn-sm" title="Detail" href="?page=app&act=detail&id=<?= $id; ?>"><i class="fas fa-fw fa-file"></i></a>
                           <a class="btn btn-info btn-sm" title="Upload Gambar Icon" href="?page=app&act=upicon&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
+                          <a class="btn btn-success btn-sm" title="Upload Info Aplikasi" href="?page=app&act=upinfoapp&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
                           <a class="btn btn-secondary btn-sm" title="Upload File Dasar Hukum" href="?page=app&act=upfile&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
                           <a class="btn btn-warning btn-sm" title="Edit" href="?page=app&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger btn-sm" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
@@ -137,6 +144,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               echo '<span class="badge badge-success">Aktif</span>';
                             } else {
                               echo '<span class="badge badge-danger">Tidak Aktif</span>';
+                            } ?>
+                        </td>
+                        <td><?php if ($row['integrasi'] == 'sudah') {
+                              echo '<span class="badge badge-success">Sudah</span>';
+                            } else {
+                              echo '<span class="badge badge-danger">Belum</span>';
                             } ?>
                         </td>
                         <td><?= $row['usr']; ?><br><?= $row['dlu']; ?></td>
