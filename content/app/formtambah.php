@@ -16,8 +16,8 @@ if (isset($_POST['input'])) {
 
   if ($res) {
     if (!empty($judul) && !empty($opdpengelolaaapp) && !empty($opdpenggunaapp)) {
-      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,unit,unit_pengguna,sts_aktif,integrasi,thn_pembuatan,usr,dlu)
-    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$opdpengelolaaapp','$opdpenggunaapp','$status','belum','$thnbuat','$_SESSION[userid]','$datenow2')";
+      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,unit,unit_pengguna,sts_aktif,thn_pembuatan,usr,dlu)
+    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$opdpengelolaaapp','$opdpenggunaapp','$status','$thnbuat','$_SESSION[userid]','$datenow2')";
 
       if (mysqli_query($conn, $sql)) {
         echo '<script type="text/javascript">
