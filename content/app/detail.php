@@ -91,7 +91,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "hapusdetail") {
                 </tfoot>
                 <tbody>
                   <?php
-                  if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] == 0) {
+                  if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 3) {
                     $sql = "SELECT a.id_detail_aplikasi,a.id_aplikasi,a.input,a.output,a.version,a.db,a.pemrograman,a.pemrograman,a.integrasi,a.thn_pengembangan,a.cpu_server,a.ram_server,a.harddisk_server,a.os_server,a.bp_server,a.web_server,a.database_server,a.bplain_server,a.judul_spk,a.nilai_spk,a.sumberdana_spk,a.vendor,a.kontak_vendor,a.usr,a.dlu,b.judul,b.unit,c.nama_kat_database 
                     FROM detail_aplikasi a 
                     LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
