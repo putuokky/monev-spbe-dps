@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "indeksdp_user_indeks";
-$password = "!s7Jl3856+zM";
+$username = "root";
+$password = "";
 $dbname = "indeksdp_db_indeks";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
