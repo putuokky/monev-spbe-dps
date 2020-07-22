@@ -1,8 +1,8 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $id_nilai      = $_POST['id_nilai'];
-  $tahapopd      = $_POST['tahapopd'];
+  $id_nilai        = $_POST['id_nilai'];
+  $tahapopd   = $_POST['tahapopd'];
   $telahdimiliki = $_POST['telahdimiliki'];
   $belumdimiliki = $_POST['belumdimiliki'];
 
@@ -59,10 +59,10 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="tahun-alleva" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $sqlGroupNilai = "SELECT tahun_penilaian FROM tb_penilaian GROUP BY tahun_penilaian";
-                    $resultGroupNilai = mysqli_query($conn, $sqlGroupNilai);
-                    while ($rowGroupNilai = mysqli_fetch_assoc($resultGroupNilai)) { ?>
-                      <option value="<?= $rowGroupNilai['tahun_penilaian']; ?>"><?= $rowGroupNilai['tahun_penilaian']; ?></option>
+                      $sqlGroupNilai = "SELECT tahun_penilaian FROM tb_penilaian GROUP BY tahun_penilaian";
+                      $resultGroupNilai = mysqli_query($conn, $sqlGroupNilai);
+                      while ($rowGroupNilai = mysqli_fetch_assoc($resultGroupNilai)) { ?>
+                        <option value="<?= $rowGroupNilai['tahun_penilaian']; ?>"><?= $rowGroupNilai['tahun_penilaian']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -70,8 +70,9 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="id_nilai" class="col-md-2 col-form-label">Penilaian</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="id_nilai" name="id_nilai" disabled>
+                  <select class="form-control" id="id_nilai" name="id_nilai" disabled> 
                     <option value="0">-</option>
+
                   </select>
                 </div>
               </div>

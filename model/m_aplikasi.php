@@ -46,7 +46,6 @@ if ($_SESSION['opd'] == '0') {
     LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
     WHERE a.integrasi = 'sudah' && b.unit = $_SESSION[opd]";
 }
-$sqlAppIntegrasi = $sqlAppIntegrasi . "";
 $resultAppIntegrasi = mysqli_query($conn, $sqlAppIntegrasi);
 $rowAppIntegrasi = mysqli_fetch_assoc($resultAppIntegrasi);
 // end query count aplikasi integrasi

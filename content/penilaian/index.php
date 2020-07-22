@@ -5,20 +5,15 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'delete.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "tambah") {
   include 'formtambah.php';
-}
-else if (isset($_GET['act']) && $_GET['act'] == "plusfeedbackopd") {
+} else if (isset($_GET['act']) && $_GET['act'] == "plusfeedbackopd") {
   include 'formtambahfeedbackopd.php';
-}
-else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
+} else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
-}
-else if (isset($_GET['act']) && $_GET['act'] == "hapusfeedback") {
+} else if (isset($_GET['act']) && $_GET['act'] == "hapusfeedback") {
   include 'delete_feedback.php';
-}
-else if (isset($_GET['act']) && $_GET['act'] == "editfeedback") {
+} else if (isset($_GET['act']) && $_GET['act'] == "editfeedback") {
   include 'edit_feedback.php';
-}
-else {
+} else {
 
 ?>
 
@@ -173,12 +168,12 @@ else {
                               echo '-';
                             }
                             ?></td>
-                        <td><?php
+                        <td><?php 
                             $sqlNilaiMatang = "SELECT * FROM tb_level
                                     WHERE idlevel = '$nilaikematangan'";
-                            $resultNilaiMatang = mysqli_query($conn, $sqlNilaiMatang);
+                            $resultNilaiMatang = mysqli_query($conn, $sqlNilaiMatang); 
                             $rowNilaiMatang = mysqli_fetch_assoc($resultNilaiMatang);
-
+                            
                             if ($nilaikematangan != '-') {
                               echo $rowNilaiMatang['nilaimadiri'];
                             } else {
