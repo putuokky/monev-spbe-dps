@@ -12,7 +12,7 @@ if (isset($_POST['update'])) {
   $tahun          = $_POST['tahun'];
   $nama_indikator = $_POST['nama_indikator'];
   $rekomen        = $_POST['rekomen'];
-  // $nilaimatang    = $_POST['nilaimatang'];
+  $nilaimatang    = $_POST['nilaimatang'];
   $nilaimandiri   = $_POST['nilaimandiri'];
   $tindaklanjut   = $_POST['tindaklanjut'];
   $targetwkt      = $_POST['targetwkt'];
@@ -24,6 +24,7 @@ if (isset($_POST['update'])) {
     $sql = "UPDATE tb_penilaian 
         SET idindikator = '$nama_indikator',
         rekomendasi = '$rekomen',
+        nilaikematangan = '$nilaimatang',
         penilaianmandiri = '$nilaimandiri',
         tindaklanjut = '$tindaklanjut',
         target_waktu = '$targetwkt',
@@ -134,7 +135,7 @@ $data = mysqli_fetch_assoc($resUbah);
                   <textarea class="form-control" id="rekomen" name="rekomen" rows="4" placeholder="Enter Rekomendasi"><?= $data['rekomendasi']; ?></textarea>
                 </div>
               </div>
-              <!-- <div class="form-group row">
+              <div class="form-group row">
                 <label for="nilaimatang" class="col-md-2 col-form-label">Nilai Kematangan (Nilai Pusat)</label>
                 <div class="col-md-3">
                   <select class="form-control" id="nilaimatang" name="nilaimatang">
@@ -154,7 +155,7 @@ $data = mysqli_fetch_assoc($resUbah);
                     <?php } ?>
                   </select>
                 </div>
-              </div> -->
+              </div>
               <div class="form-group row">
                 <label for="nilaimandiri" class="col-md-2 col-form-label">Penilaian Mandiri</label>
                 <div class="col-md-3">
