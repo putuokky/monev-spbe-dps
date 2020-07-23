@@ -4,7 +4,7 @@ if (isset($_POST['input'])) {
   $tahun          = $_POST['tahun'];
   $nama_indikator = $_POST['nama_indikator'];
   $rekomen        = $_POST['rekomen'];
-  $nilaimatang    = $_POST['nilaimatang'];
+  // $nilaimatang    = $_POST['nilaimatang'];
   $nilaimandiri   = $_POST['nilaimandiri'];
   $tindaklanjut   = $_POST['tindaklanjut'];
   $targetwkt      = $_POST['targetwkt'];
@@ -13,8 +13,8 @@ if (isset($_POST['input'])) {
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_penilaian (idindikator, rekomendasi, nilaikematangan,penilaianmandiri,tindaklanjut,target_waktu,tahun_penilaian)
-      VALUES ('$nama_indikator', '$rekomen', '$nilaimatang','$nilaimandiri','$tindaklanjut','$targetwkt','$tahun')";
+    $sql = "INSERT INTO tb_penilaian (idindikator, rekomendasi, penilaianmandiri,tindaklanjut,target_waktu,tahun_penilaian)
+      VALUES ('$nama_indikator', '$rekomen','$nilaimandiri','$tindaklanjut','$targetwkt','$tahun')";
     mysqli_query($conn, $sql);
 
     $query2 = mysqli_query($conn, "SELECT idpenilaian FROM tb_penilaian ORDER BY idpenilaian DESC LIMIT 1");
@@ -97,14 +97,14 @@ if (isset($_POST['input'])) {
                   <textarea class="form-control" id="rekomen" name="rekomen" rows="4" placeholder="Enter Rekomendasi"></textarea>
                 </div>
               </div>
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <label for="nilaimatang" class="col-md-2 col-form-label">Nilai Kematangan (Nilai Pusat)</label>
                 <div class="col-md-3">
                   <select class="form-control" id="nilaimatang" name="nilaimatang" disabled>
                     <option value="0">-</option>
                   </select>
                 </div>
-              </div>
+              </div> -->
               <div class="form-group row">
                 <label for="nilaimandiri" class="col-md-2 col-form-label">Penilaian Mandiri</label>
                 <div class="col-md-3">

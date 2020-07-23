@@ -63,7 +63,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Tahun</th>
                     <th>Indikator</th>
                     <th>Rekomendasi</th>
-                    <th>Nilai Kematangan (Nilai Pusat)</th>
                     <th>Penilaian Mandiri</th>
                     <th>Yang Harus Di Kerjakan</th>
                     <th>Target Waktu</th>
@@ -76,7 +75,6 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Tahun</th>
                     <th>Indikator</th>
                     <th>Rekomendasi</th>
-                    <th>Nilai Kematangan (Nilai Pusat)</th>
                     <th>Penilaian Mandiri</th>
                     <th>Yang Harus Di Kerjakan</th>
                     <th>Target Waktu</th>
@@ -168,19 +166,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               echo '-';
                             }
                             ?></td>
-                        <td><?php 
-                            $sqlNilaiMatang = "SELECT * FROM tb_level
-                                    WHERE idlevel = '$nilaikematangan'";
-                            $resultNilaiMatang = mysqli_query($conn, $sqlNilaiMatang); 
-                            $rowNilaiMatang = mysqli_fetch_assoc($resultNilaiMatang);
-                            
-                            if ($nilaikematangan != '-') {
-                              echo $rowNilaiMatang['nilaimadiri'];
+                        <td><?php if (!empty($nilaimadiri)) {
+                              echo $nilaimadiri;
                             } else {
                               echo '-';
                             }
                             ?></td>
-                        <td><?= $nilaimadiri; ?></td>
                         <td><?php if (!empty($tindaklanjut)) {
                               echo $tindaklanjut;
                             } else {

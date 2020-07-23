@@ -54,7 +54,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Tahun</th>
                     <th>Indikator</th>
-                    <th>Nilai Pusat</th>
+                    <!-- <th>Nilai Pusat</th> -->
                     <th>Nilai Mandiri</th>
                     <th>Tahapan yang harus dipenuhi OPD untuk menaikkan nilai SPBE</th>
                     <th>Data Dukung Telah dimiliki</th>
@@ -67,7 +67,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Tahun</th>
                     <th>Indikator</th>
-                    <th>Nilai Pusat</th>
+                    <!-- <th>Nilai Pusat</th> -->
                     <th>Nilai Mandiri</th>
                     <th>Tahapan yang harus dipenuhi OPD untuk menaikkan nilai SPBE</th>
                     <th>Data Dukung Telah dimiliki</th>
@@ -131,12 +131,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         </td>
                         <td><?= $tahun_penilaian; ?></td>
                         <td><?= "Indikator " . $indikator . " - " . $namaindikator; ?></td>
-                        <td><?php if (!empty($nilaikematanganpusat)) {
-                              echo $nilaikematanganpusat;
-                            } else {
-                              echo "-";
-                            }
-                            ?></td>
+                        <!-- <td><?php if (!empty($nilaikematanganpusat)) {
+                                    echo $nilaikematanganpusat;
+                                  } else {
+                                    echo "-";
+                                  }
+                                  ?></td> -->
                         <td><?php if (!empty($nilaipenmandiri)) {
                               echo $nilaipenmandiri;
                             } else {

@@ -16,7 +16,7 @@
         LEFT JOIN tb_opdterkait d ON d.idpenilaian = a.idpenilaian 
         LEFT JOIN tb_opd e ON e.idopd = d.idopd
         LEFT JOIN tb_level f ON f.idlevel = a.nilaikematangan
-      WHERE a.tahun_penilaian LIKE '%$caritahun%' && d.idopd = '$_SESSION[opd]'";
+      WHERE a.tahun_penilaian LIKE '2018' && d.idopd = '$_SESSION[opd]'";
       } else {
         $sqlNilai = "SELECT a.tahun_penilaian, b.indikator,c.nilaimadiri AS nilaimandiri, f.nilaimadiri AS nilaipusat FROM tb_penilaian a 
         LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
@@ -27,24 +27,13 @@
       WHERE a.tahun_penilaian = $thnkmrn && d.idopd = '$_SESSION[opd]'";
       }
     } else {
-      if (isset($_POST['cari'])) {
-        $caritahun = $_POST['caritahun'];
-        $sqlNilai = "SELECT a.tahun_penilaian, b.indikator,c.nilaimadiri AS nilaimandiri, f.nilaimadiri AS nilaipusat FROM tb_penilaian a 
-        LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
-        LEFT JOIN tb_level c ON c.idlevel = a.penilaianmandiri 
-        LEFT JOIN tb_opdterkait d ON d.idpenilaian = a.idpenilaian 
-        LEFT JOIN tb_opd e ON e.idopd = d.idopd
-        LEFT JOIN tb_level f ON f.idlevel = a.nilaikematangan
-      WHERE a.tahun_penilaian LIKE '%$caritahun%'";
-      } else {
-        $sqlNilai = "SELECT a.tahun_penilaian, b.indikator,c.nilaimadiri AS nilaimandiri, f.nilaimadiri AS nilaipusat FROM tb_penilaian a 
+      $sqlNilai = "SELECT a.tahun_penilaian, b.indikator,c.nilaimadiri AS nilaimandiri, f.nilaimadiri AS nilaipusat FROM tb_penilaian a 
         LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
         LEFT JOIN tb_level c ON c.idlevel = a.penilaianmandiri 
         LEFT JOIN tb_opdterkait d ON d.idpenilaian = a.idpenilaian 
         LEFT JOIN tb_opd e ON e.idopd = d.idopd
         LEFT JOIN tb_level f ON f.idlevel = a.nilaikematangan
       WHERE a.tahun_penilaian = $thnkmrn";
-      }
     }
 
     $sqlNilai = $sqlNilai . " ORDER BY b.idindikator ASC";
