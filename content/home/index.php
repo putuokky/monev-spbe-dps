@@ -39,13 +39,17 @@
   <div class="row">
     <div class="col-xl-12 col-lg-12">
       <?php
-      if (isset($_POST['cari']) == 2018) {
-        include_once "grafik_penilaian.php";
-      } else if (isset($_POST['cari']) >= 2019) {
-        echo 'aa';
+      if (isset($_POST['cari'])) {
+        $cari = $_POST['caritahun'];
+        if ($cari == 2018) {
+          include_once "grafik_penilaian.php";
+        } else if ($cari <= 2019) {
+          echo '';
+        }
       } else {
         include_once "grafik_penilaian.php";
-      } ?>
+      }
+      ?>
     </div>
 
   </div>

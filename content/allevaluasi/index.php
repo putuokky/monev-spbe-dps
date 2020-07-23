@@ -8,16 +8,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
 } else {
-
-
 ?>
-
 
   <!-- agar menu sidebar saat di klik active -->
   <script type="text/javascript">
     document.getElementById('alleva').classList.add('active');
   </script>
-
 
   <!-- isi konten -->
   <div class="container-fluid">
@@ -45,16 +41,17 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 <?php
                 $var = 0;
                 $sql = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri, h.files_feedback
-                    FROM tb_eksekutif_opd a
-                    LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
-                    LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
-                    LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
-                    LEFT JOIN tb_opd e ON e.idopd = c.idopd
-                    LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
-                    LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
-                    LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
-                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]
-                    ORDER BY d.idindikator ASC";
+                FROM tb_eksekutif_opd a
+                LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
+                LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
+              WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi]
+              GROUP BY d.indikator
+              ORDER BY d.idindikator ASC";
 
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
@@ -65,8 +62,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <div class="card">
                       <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?= $var; ?>">
-                            <?= "Indikator " . $row['indikator']; ?>
+                          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<?= $var; ?>">
+                            Indikator <?= $row['indikator']; ?>
                           </button>
                         </h2>
                       </div>
@@ -116,7 +113,25 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                                         <li><?= $telah_miliki[$j]; ?></li>
                                       <?php } ?>
                                     </ol>
-                                    File Pendukung : <a href="assets/file/feedback/<?= $row['files_feedback']; ?>" target="_blank"><?= $row['files_feedback']; ?></a>
+                                    <?php
+                                    $sqlList = "SELECT a.id_eksekutif_opd, a.tahapan_yg_harus_dipenuhi_opd,a.telah_miliki, a.belum_miliki, b.tahun_penilaian, d.indikator, d.namaindikator, e.idopd, e.namaopd, e.nama_pendek_opd, f.nilaimadiri AS nilaikematanganpusat, g.nilaimadiri AS nilaipenmandiri, h.files_feedback
+                                    FROM tb_eksekutif_opd a
+                                    LEFT JOIN tb_penilaian b ON b.idpenilaian = a.idpenilaian  
+                                    LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
+                                    LEFT JOIN tb_indikator d ON d.idindikator = b.idindikator
+                                    LEFT JOIN tb_opd e ON e.idopd = c.idopd
+                                    LEFT JOIN tb_level f ON f.idlevel = b.nilaikematangan
+                                    LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
+                                    LEFT JOIN tb_feedback h ON h.idpenilaian = b.idpenilaian
+                                    WHERE e.idopd = $_SESSION[opd] && b.tahun_penilaian = $_POST[thnevaluasi] 
+                                    && d.indikator = $row[indikator]
+                                    ORDER BY d.idindikator ASC";
+
+                                    $resultList = mysqli_query($conn, $sqlList);
+                                    while ($rowList = mysqli_fetch_assoc($resultList)) {
+                                    ?>
+                                      File Pendukung : <a href="assets/file/feedback/<?= $rowList['files_feedback']; ?>" target="_blank"><?= $rowList['files_feedback']; ?></a><br>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                                 <tr>
@@ -133,8 +148,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   }
                 } else {
                   echo "<h5>Data Belum tersedia</h5>";
-                }
-                ?>
+                } ?>
               </div>
             </div>
           </div>
