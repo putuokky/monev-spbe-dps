@@ -15,6 +15,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'upload_infoapp.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "detail") {
   include 'detail.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "info") {
+  include 'info.php';
 } else {
 ?>
 
@@ -93,7 +95,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
                     LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
                     LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
-                    LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app ";
+                    LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app";
                   } else {
                     $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
                     FROM aplikasi a 
@@ -120,7 +122,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       <tr>
                         <td><?= $no; ?></td>
                         <td>
-                          <!-- <a class="btn btn-dark btn-sm" title="Info" href="?page=app&act=info&id=<?= $id; ?>"><i class="fas fa-fw fa-info"></i></a> -->
+                          <a class="btn btn-dark btn-sm" title="Info" href="?page=app&act=info&id=<?= $id; ?>"><i class="fas fa-fw fa-info"></i></a>
                           <a class="btn btn-primary btn-sm" title="Detail" href="?page=app&act=detail&id=<?= $id; ?>"><i class="fas fa-fw fa-file"></i></a>
                           <a class="btn btn-info btn-sm" title="Upload Gambar Icon" href="?page=app&act=upicon&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
                           <a class="btn btn-success btn-sm" title="Upload Info Aplikasi" href="?page=app&act=upinfoapp&id=<?= $id; ?>"><i class="fas fa-fw fa-file-upload"></i></a>
