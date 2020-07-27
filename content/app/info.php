@@ -9,7 +9,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 
 // query menampilkan data dengan id
-$sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.infofungsi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+$sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.infofungsi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna,g.version,g.db,g.pemrograman,g.integrasi,g.info_integrasi,g.thn_pengembangan,g.cpu_server,g.ram_server,g.harddisk_server,g.os_server,g.bp_server,g.web_server,g.database_server,g.bplain_server,g.judul_spk,g.nilai_spk,g.sumberdana_spk,g.vendor,g.kontak_vendor
 FROM aplikasi a 
 LEFT JOIN kategori_media b ON b.id_media = a.media
 LEFT JOIN tb_opd c ON c.idopd = a.unit 
@@ -57,6 +57,9 @@ $row = mysqli_fetch_assoc($result);
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="infodetail-tab" data-toggle="tab" href="#infodetail" role="tab" aria-controls="info" aria-selected="true">Info Detail</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="iconapp-tab" data-toggle="tab" href="#iconapp" role="tab" aria-controls="iconapp" aria-selected="false">Icon Aplikasi</a>
@@ -134,6 +137,133 @@ $row = mysqli_fetch_assoc($result);
                           } else {
                             echo '<span class="badge badge-danger">Belum</span>';
                           } ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="infodetail" role="tabpanel" aria-labelledby="infodetail-tab">
+                <h3 class="text-gray-900 border-bottom-info mt-3">Informasi Umum</h3>
+                <table class="table table-striped table-hover">
+                  <!-- <thead>
+                    <tr>
+                      <th></th>
+                    </tr>
+                  </thead> -->
+                  <tbody>
+                    <tr>
+                      <th>Version</th>
+                      <td><?php while ($a <= 10) {
+                            # code...
+                          }
+                          ?></td>
+                    </tr>
+                    <tr>
+                      <th>Tahun Pengembangan</th>
+                      <td><?= $row['thn_pengembangan']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Info Integrasi</th>
+                      <td><?= $row['info_integrasi']; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 class="text-gray-900 border-bottom-info">Informasi Software</h3>
+                <table class="table table-striped table-hover">
+                  <tbody>
+                    <tr>
+                      <th>Database</th>
+                      <td><?php if (!empty($row['db'])) {
+                            echo $row['db'];
+                          } else {
+                            echo "-";
+                          } ?></td>
+                    </tr>
+                    <tr>
+                      <th>Bahasa Pemrograman</th>
+                      <td><?= $row['pemrograman']; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 class="text-gray-900 border-bottom-info">Kebutuhan Server Fisik</h3>
+                <table class="table table-striped table-hover">
+                  <tbody>
+                    <tr>
+                      <th>CPU</th>
+                      <td><?php if (!empty($row['cpu_server'])) {
+                            echo $row['cpu_server'];
+                          } else {
+                            echo "-";
+                          } ?></td>
+                    </tr>
+                    <tr>
+                      <th>RAM</th>
+                      <td><?= $row['ram_server']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Hard Disk</th>
+                      <td><?= $row['harddisk_server']; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 class="text-gray-900 border-bottom-info">Kebutuhan Lingkungan Server</h3>
+                <table class="table table-striped table-hover">
+                  <tbody>
+                    <tr>
+                      <th>OS Server</th>
+                      <td><?php if (!empty($row['os_server'])) {
+                            echo $row['os_server'];
+                          } else {
+                            echo "-";
+                          } ?></td>
+                    </tr>
+                    <tr>
+                      <th>Bahasa Pemrograman Server</th>
+                      <td><?= $row['bp_server']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Web Server</th>
+                      <td><?= $row['web_server']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Database Server</th>
+                      <td><?= $row['database_server']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Bahasa Pendukung Lainnya</th>
+                      <td><?= $row['bplain_server']; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 class="text-gray-900 border-bottom-info">Informasi Surat Perintah Kerja</h3>
+                <table class="table table-striped table-hover">
+                  <tbody>
+                    <tr>
+                      <th>SPK</th>
+                      <td><?php if (!empty($row['judul_spk'])) {
+                            echo $row['judul_spk'];
+                          } else {
+                            echo "-";
+                          } ?></td>
+                    </tr>
+                    <tr>
+                      <th>Sumber Dana</th>
+                      <td><?= $row['sumberdana_spk']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Nilai SPK</th>
+                      <td><?= $row['nilai_spk']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Pengembang</th>
+                      <td><?= $row['vendor']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Kontak Pengembang</th>
+                      <td><?= $row['kontak_vendor']; ?></td>
                     </tr>
                   </tbody>
                 </table>

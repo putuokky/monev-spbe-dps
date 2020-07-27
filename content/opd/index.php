@@ -53,16 +53,16 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>No</th>
                     <th>Action</th>
                     <th>Kode</th>
-                    <th>Nama OPD</th>
-                    <th>Nama Pendek OPD</th>
+                    <th>Nama Struktur OPD</th>
+                    <th>Nama Pendek Struktur OPD</th>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>No</th>
                     <th>Action</th>
                     <th>Kode</th>
-                    <th>Nama OPD</th>
-                    <th>Nama Pendek OPD</th>
+                    <th>Nama Struktur OPD</th>
+                    <th>Nama Pendek Struktur OPD</th>
                   </tr>
                 </tfoot>
                 <tbody>

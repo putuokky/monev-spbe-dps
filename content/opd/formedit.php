@@ -74,15 +74,15 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="namaopd" class="col-md-2 col-form-label">Nama OPD</label>
+                <label for="namaopd" class="col-md-2 col-form-label">Nama Struktur OPD</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="namaopd" id="namaopd" placeholder="Enter Nama OPD" autocomplete="off" value="<?= $data['namaopd']; ?>">
+                  <input type="text" class="form-control" name="namaopd" id="namaopd" placeholder="Enter Nama Struktur OPD" autocomplete="off" value="<?= $data['namaopd']; ?>">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="ketopd" class="col-md-2 col-form-label">Nama Pendek OPD</label>
+                <label for="ketopd" class="col-md-2 col-form-label">Nama Pendek Struktur OPD</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="ketopd" id="ketopd" placeholder="Enter Nama Pendek OPD" autocomplete="off" value="<?= $data['nama_pendek_opd']; ?>">
+                  <input type="text" class="form-control" name="ketopd" id="ketopd" placeholder="Enter Nama Pendek Struktur OPD" autocomplete="off" value="<?= $data['nama_pendek_opd']; ?>">
                 </div>
               </div>
               <div class="form-group">
