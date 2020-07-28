@@ -21,6 +21,18 @@ LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+
+$sqlDetail = "SELECT * FROM detail_aplikasi a 
+LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
+LEFT JOIN kategori_database c ON c.id_kat_database = a.db
+WHERE a.id_aplikasi = '$id'
+ORDER BY a.id_detail_aplikasi DESC";
+$resultInfoUmum = mysqli_query($conn, $sqlDetail);
+$resultInfoSoft = mysqli_query($conn, $sqlDetail);
+$resultServerFisik = mysqli_query($conn, $sqlDetail);
+$resultLingkServer = mysqli_query($conn, $sqlDetail);
+$resultInfoSPK = mysqli_query($conn, $sqlDetail);
+
 ?>
 
 <!-- agar menu sidebar saat di klik active -->
@@ -143,130 +155,120 @@ $row = mysqli_fetch_assoc($result);
               </div>
               <div class="tab-pane fade" id="infodetail" role="tabpanel" aria-labelledby="infodetail-tab">
                 <h3 class="text-gray-900 border-bottom-info mt-3">Informasi Umum</h3>
-                <table class="table table-striped table-hover">
-                  <!-- <thead>
-                    <tr>
-                      <th></th>
-                    </tr>
-                  </thead> -->
-                  <tbody>
-                    <tr>
-                      <th>Version</th>
-                      <td><?php while ($a <= 10) {
-                            # code...
-                          }
-                          ?></td>
-                    </tr>
-                    <tr>
-                      <th>Tahun Pengembangan</th>
-                      <td><?= $row['thn_pengembangan']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Info Integrasi</th>
-                      <td><?= $row['info_integrasi']; ?></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                    <thead>
+                      <tr class="btn-dark">
+                        <th>Version</th>
+                        <th>Tahun Pengembangan</th>
+                        <th>Info Integrasi</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while ($rowInfoUmum = mysqli_fetch_assoc($resultInfoUmum)) { ?>
+                        <tr>
+                          <td><?= $rowInfoUmum['version']; ?></td>
+                          <td><?= $rowInfoUmum['thn_pengembangan']; ?></td>
+                          <td><?= $rowInfoUmum['info_integrasi']; ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
 
                 <h3 class="text-gray-900 border-bottom-info">Informasi Software</h3>
-                <table class="table table-striped table-hover">
-                  <tbody>
-                    <tr>
-                      <th>Database</th>
-                      <td><?php if (!empty($row['db'])) {
-                            echo $row['db'];
-                          } else {
-                            echo "-";
-                          } ?></td>
-                    </tr>
-                    <tr>
-                      <th>Bahasa Pemrograman</th>
-                      <td><?= $row['pemrograman']; ?></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                    <thead>
+                      <tr class="btn-dark">
+                        <th>Database</th>
+                        <th>Bahasa Pemrograman</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while ($rowInfoSoft = mysqli_fetch_assoc($resultInfoSoft)) { ?>
+                        <tr>
+                          <td><?= $rowInfoSoft['nama_kat_database']; ?></td>
+                          <td><?= $rowInfoSoft['pemrograman']; ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
 
                 <h3 class="text-gray-900 border-bottom-info">Kebutuhan Server Fisik</h3>
-                <table class="table table-striped table-hover">
-                  <tbody>
-                    <tr>
-                      <th>CPU</th>
-                      <td><?php if (!empty($row['cpu_server'])) {
-                            echo $row['cpu_server'];
-                          } else {
-                            echo "-";
-                          } ?></td>
-                    </tr>
-                    <tr>
-                      <th>RAM</th>
-                      <td><?= $row['ram_server']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Hard Disk</th>
-                      <td><?= $row['harddisk_server']; ?></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                    <thead>
+                      <tr class="btn-dark">
+                        <th>CPU</th>
+                        <th>RAM</th>
+                        <th>Hard Disk</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while ($rowServerFisik = mysqli_fetch_assoc($resultServerFisik)) { ?>
+                        <tr>
+                          <td><?= $rowServerFisik['cpu_server']; ?></td>
+                          <td><?= $rowServerFisik['ram_server']; ?></td>
+                          <td><?= $rowServerFisik['harddisk_server']; ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
 
                 <h3 class="text-gray-900 border-bottom-info">Kebutuhan Lingkungan Server</h3>
-                <table class="table table-striped table-hover">
-                  <tbody>
-                    <tr>
-                      <th>OS Server</th>
-                      <td><?php if (!empty($row['os_server'])) {
-                            echo $row['os_server'];
-                          } else {
-                            echo "-";
-                          } ?></td>
-                    </tr>
-                    <tr>
-                      <th>Bahasa Pemrograman Server</th>
-                      <td><?= $row['bp_server']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Web Server</th>
-                      <td><?= $row['web_server']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Database Server</th>
-                      <td><?= $row['database_server']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Bahasa Pendukung Lainnya</th>
-                      <td><?= $row['bplain_server']; ?></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                    <thead>
+                      <tr class="btn-dark">
+                        <th>OS Server</th>
+                        <th>Bahasa Pemrograman Server</th>
+                        <th>Web Server</th>
+                        <th>Database Server</th>
+                        <th>Bahasa Pendukung Lainnya</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while ($rowLingkServer = mysqli_fetch_assoc($resultLingkServer)) { ?>
+                        <tr>
+                          <td><?= $rowLingkServer['os_server']; ?></td>
+                          <td><?= $rowLingkServer['bp_server']; ?></td>
+                          <td><?= $rowLingkServer['web_server']; ?></td>
+                          <td><?= $rowLingkServer['database_server']; ?></td>
+                          <td><?= $rowLingkServer['bplain_server']; ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
 
                 <h3 class="text-gray-900 border-bottom-info">Informasi Surat Perintah Kerja</h3>
-                <table class="table table-striped table-hover">
-                  <tbody>
-                    <tr>
-                      <th>SPK</th>
-                      <td><?php if (!empty($row['judul_spk'])) {
-                            echo $row['judul_spk'];
-                          } else {
-                            echo "-";
-                          } ?></td>
-                    </tr>
-                    <tr>
-                      <th>Sumber Dana</th>
-                      <td><?= $row['sumberdana_spk']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Nilai SPK</th>
-                      <td><?= $row['nilai_spk']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Pengembang</th>
-                      <td><?= $row['vendor']; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Kontak Pengembang</th>
-                      <td><?= $row['kontak_vendor']; ?></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                    <thead>
+                      <tr class="btn-dark">
+                        <th>SPK</th>
+                        <th>Sumber Dana</th>
+                        <th>Nilai SPK</th>
+                        <th>Pengembang</th>
+                        <th>Kontak Pengembang</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while ($rowInfoSPK = mysqli_fetch_assoc($resultInfoSPK)) { ?>
+                        <tr>
+                          <td><?= $rowInfoSPK['judul_spk']; ?></td>
+                          <td><?= $rowInfoSPK['sumberdana_spk']; ?></td>
+                          <td><?= $rowInfoSPK['nilai_spk']; ?></td>
+                          <td><?= $rowInfoSPK['vendor']; ?></td>
+                          <td><?= $rowInfoSPK['kontak_vendor']; ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="tab-pane fade" id="iconapp" role="tabpanel" aria-labelledby="iconapp-tab">
                 <div class="card-body">
