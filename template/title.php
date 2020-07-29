@@ -79,4 +79,7 @@ switch ($page) {
   case "katapps":
     echo "Kategori Aplikasi";
     break;
+  case "katdb":
+    echo "Kategori Database";
+    break;
 }
