@@ -6,12 +6,12 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
   $id = "";
 }
 
-$sql = "DELETE FROM kategori_aplikasi WHERE id_kat_aplikasi = $id";
+$sql = "DELETE FROM kategori_media WHERE id_media = $id";
 
 if (mysqli_query($conn, $sql)) {
   echo '<script type="text/javascript">
-  alert("Data Kategori Aplikasi Berhasil Dihapus");
-  window.location.href="t.php?page=katapps";
+  alert("Data Kategori Media Berhasil Dihapus");
+  window.location.href="t.php?page=katmedia";
   </script>';
 } else {
   echo "Error deleting record: " . mysqli_error($conn);

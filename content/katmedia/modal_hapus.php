@@ -7,10 +7,10 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= $row['kat_aplikasi']; ?></b> ini.</div>
+      <div class="modal-body">Pilih "Hapus" jika memang ingin menghapus data <?php include 'template/title.php'; ?> <b><?= $row['nama_kat_media']; ?></b> ini.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger" href="?page=katapps&act=hapus&id=<?= $id; ?>">Hapus</a>
+        <a class="btn btn-danger" href="?page=katmedia&act=hapus&id=<?= $id; ?>">Hapus</a>
       </div>
     </div>
   </div>
