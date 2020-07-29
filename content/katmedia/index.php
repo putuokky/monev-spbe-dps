@@ -9,15 +9,12 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formedit.php';
 } else {
 
-
 ?>
-
 
   <!-- agar menu sidebar saat di klik active -->
   <script type="text/javascript">
-    document.getElementById('katapps').classList.add('active');
+    document.getElementById('katmedia').classList.add('active');
   </script>
-
 
   <!-- isi konten -->
   <div class="container-fluid">
@@ -33,7 +30,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
       <div class="col-xl-12 col-lg-12">
 
-        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=katapps&act=tambah">
+        <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=katmedia&act=tambah">
           <span class="icon">
             <i class="fas fa-fw fa-plus"></i>
           </span>
@@ -52,32 +49,32 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Action</th>
-                    <th>Kategori Aplikasi</th>
+                    <th>Kategori Media</th>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Action</th>
-                    <th>Kategori Aplikasi</th>
+                    <th>Kategori Media</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
-                  $sql = "SELECT * FROM kategori_aplikasi";
+                  $sql = "SELECT * FROM kategori_media";
                   $result = mysqli_query($conn, $sql);
 
                   if (mysqli_num_rows($result) > 0) {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $id = $row['id_kat_aplikasi'];
+                      $id = $row['id_media'];
                   ?>
 
                       <tr>
                         <td><?= $no; ?></td>
                         <td>
                           <!-- <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
-                          <a class="btn btn-warning" title="Edit" href="?page=katapps&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                          <a class="btn btn-warning" title="Edit" href="?page=katmedia&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
                           <!-- Modal Detail -->
@@ -89,7 +86,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                           <!-- Modal Hapus -->
 
                         </td>
-                        <td><?= $row['kat_aplikasi']; ?></td>
+                        <td><?= $row['nama_kat_media']; ?></td>
                       </tr>
                   <?php
                       $no++;

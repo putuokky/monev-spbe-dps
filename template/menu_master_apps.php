@@ -8,6 +8,7 @@
       <h6 class="collapse-header">Sub Menu:</h6>
       <a class="collapse-item" href="?page=katapps" id="katapps">Kategori Aplikasi</a>
       <a class="collapse-item" href="?page=katdb" id="katdb">Kategori Database</a>
+      <a class="collapse-item" href="?page=katmedia" id="katmedia">Kategori Media</a>
     </div>
   </div>
 </li>

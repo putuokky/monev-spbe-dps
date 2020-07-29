@@ -26,7 +26,7 @@ if (isset($_POST['update'])) {
     } else {
       echo '<script type="text/javascript">
             alert("Data Kategori Database Gagal Diedit");
-            window.location.href="t.php?page=katdb&act=ubah&id=$id";
+            window.location.href="t.php?page=katdb&act=ubah&id=' . $id . '";";
             </script>';
     }
   }

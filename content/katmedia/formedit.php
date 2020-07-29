@@ -9,38 +9,38 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
-  $kateapp   = $_POST['kateapp'];
+  $katemedia   = $_POST['katemedia'];
 
   $res = true;
 
   if ($res) {
-    $sql = "UPDATE kategori_aplikasi 
-        SET kat_aplikasi = '$kateapp'
-        WHERE id_kat_aplikasi = '$id'";
+    $sql = "UPDATE kategori_media 
+        SET nama_kat_media = '$katemedia'
+        WHERE id_media = '$id'";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
-            alert("Data Kategori Aplikasi Berhasil Diedit");
-            window.location.href="t.php?page=katapps";
+            alert("Data Kategori Media Berhasil Diedit");
+            window.location.href="t.php?page=katmedia";
             </script>';
     } else {
       echo '<script type="text/javascript">
-            alert("Data Kategori Aplikasi Gagal Diedit");
-            window.location.href="t.php?page=katapps&act=ubah&id=' . $id . '";";
+            alert("Data Kategori Media Gagal Diedit");
+            window.location.href="t.php?page=katmedia&act=ubah&id=' . $id . '";
             </script>';
     }
   }
 }
 
 // query menampilkan data dengan id
-$sqlUbah = "SELECT * FROM kategori_aplikasi WHERE id_kat_aplikasi = '$id'";
+$sqlUbah = "SELECT * FROM kategori_media WHERE id_media = '$id'";
 $resUbah = mysqli_query($conn, $sqlUbah);
 $data = mysqli_fetch_assoc($resUbah);
 ?>
 
 <!-- agar menu sidebar saat di klik active -->
 <script type="text/javascript">
-  document.getElementById('katapps').classList.add('active');
+  document.getElementById('katmedia').classList.add('active');
 </script>
 
 <!-- isi konten -->
@@ -65,13 +65,13 @@ $data = mysqli_fetch_assoc($resUbah);
           <div>
             <form method="post">
               <div class="form-group row">
-                <label for="kateapp" class="col-md-2 col-form-label">Kategori Aplikasi</label>
+                <label for="katemedia" class="col-md-2 col-form-label">Kategori Media</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="kateapp" id="kateapp" placeholder="Enter Kategori Aplikasi" autocomplete="off" value="<?= $data['kat_aplikasi']; ?>">
+                  <input type="text" class="form-control" name="katemedia" id="katemedia" placeholder="Enter Kategori Media" autocomplete="off" value="<?= $data['nama_kat_media']; ?>">
                 </div>
               </div>
               <div class="form-group">
-                <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=katapps">
+                <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=katmedia">
                   <span class="text">Kembali</span>
                 </a>
                 <button type="submit" class="btn btn-primary" name="update">Simpan</button>

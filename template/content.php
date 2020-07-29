@@ -82,4 +82,7 @@ switch ($page) {
   case "katdb":
     include 'content/katdb/index.php';
     break;
+  case "katmedia":
+    include 'content/katmedia/index.php';
+    break;
 }
