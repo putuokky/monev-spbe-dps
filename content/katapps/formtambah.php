@@ -1,0 +1,73 @@
+<?php
+// query tambah
+if (isset($_POST['input'])) {
+  $kateapp = $_POST['kateapp'];
+
+  $res = true;
+
+  if ($res) {
+    $sql = "INSERT INTO kategori_aplikasi (kat_aplikasi)
+      VALUES ('$kateapp')";
+
+    if (mysqli_query($conn, $sql)) {
+      echo '<script type="text/javascript">
+            alert("Data Kategori Aplikasi Berhasil Ditambah");
+            window.location.href="t.php?page=katapps";
+            </script>';
+    } else {
+      echo '<script type="text/javascript">
+            alert("Data Kategori Aplikasi Gagal Ditambah");
+            window.location.href="t.php?page=katapps&act=tambah";
+            </script>';
+    }
+  }
+}
+?>
+
+<!-- agar menu sidebar saat di klik active -->
+<script type="text/javascript">
+  document.getElementById('katapps').classList.add('active');
+</script>
+
+<!-- isi konten -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+    <h1 class="h3 mb-0 text-gray-800"><?php include 'template/title.php'; ?></h1>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xl-12 col-lg-12">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Form Tambah <?php include 'template/title.php'; ?></h6>
+        </div>
+        <div class="card-body">
+          <div>
+            <form method="post">
+              <div class="form-group row">
+                <label for="kateapp" class="col-md-2 col-form-label">Kategori Aplikasi</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="kateapp" id="kateapp" placeholder="Enter Kategori Aplikasi" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group">
+                <a class="btn btn-dark btn-icon-split" title="Kembali" href="?page=katapps">
+                  <span class="text">Kembali</span>
+                </a>
+                <button type="submit" class="btn btn-primary" name="input">Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

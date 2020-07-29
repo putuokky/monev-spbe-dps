@@ -178,24 +178,70 @@
           Master
         </div>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMaster" aria-expanded="true" aria-controls="collapsePagesMaster" id="master">
-            <i class="fas fa-fw fa-archway"></i>
-            <span>Master</span>
-          </a>
-          <div id="collapsePagesMaster" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Sub Menu:</h6>
-              <a class="collapse-item" href="?page=indeks" id="indeks">Indeks</a>
-              <a class="collapse-item" href="?page=domain" id="domain">Domain</a>
-              <a class="collapse-item" href="?page=aspek" id="aspek">Aspek</a>
-              <a class="collapse-item" href="?page=indikator" id="indikator">Indikator</a>
-              <a class="collapse-item" href="?page=pertanyaan" id="pertanyaan">Pertanyaan</a>
-              <a class="collapse-item" href="?page=level" id="level">Level</a>
-              <a class="collapse-item" href="?page=feedbackopd" id="feedbackopd">Feedback OPD</a>
+        <?php if ($_SESSION['grupindeks'] == 1) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMaster" aria-expanded="true" aria-controls="collapsePagesMaster" id="master">
+              <i class="fas fa-fw fa-archway"></i>
+              <span>Master SPBE</span>
+            </a>
+            <div id="collapsePagesMaster" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Sub Menu:</h6>
+                <a class="collapse-item" href="?page=indeks" id="indeks">Indeks</a>
+                <a class="collapse-item" href="?page=domain" id="domain">Domain</a>
+                <a class="collapse-item" href="?page=aspek" id="aspek">Aspek</a>
+                <a class="collapse-item" href="?page=indikator" id="indikator">Indikator</a>
+                <a class="collapse-item" href="?page=pertanyaan" id="pertanyaan">Pertanyaan</a>
+                <a class="collapse-item" href="?page=level" id="level">Level</a>
+                <a class="collapse-item" href="?page=feedbackopd" id="feedbackopd">Feedback OPD</a>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <?php } else if ($_SESSION['grupindeks'] == 3) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMasterApps" aria-expanded="true" aria-controls="collapsePagesMasterApps" id="master">
+              <i class="fas fa-fw fa-archway"></i>
+              <span>Master Aplikasi</span>
+            </a>
+            <div id="collapsePagesMasterApps" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Sub Menu:</h6>
+                <a class="collapse-item" href="?page=katapps" id="katapps">Kateori Aplikasi</a>
+              </div>
+            </div>
+          </li>
+        <?php } else { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMaster" aria-expanded="true" aria-controls="collapsePagesMaster" id="master">
+              <i class="fas fa-fw fa-archway"></i>
+              <span>Master SPBE</span>
+            </a>
+            <div id="collapsePagesMaster" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Sub Menu:</h6>
+                <a class="collapse-item" href="?page=indeks" id="indeks">Indeks</a>
+                <a class="collapse-item" href="?page=domain" id="domain">Domain</a>
+                <a class="collapse-item" href="?page=aspek" id="aspek">Aspek</a>
+                <a class="collapse-item" href="?page=indikator" id="indikator">Indikator</a>
+                <a class="collapse-item" href="?page=pertanyaan" id="pertanyaan">Pertanyaan</a>
+                <a class="collapse-item" href="?page=level" id="level">Level</a>
+                <a class="collapse-item" href="?page=feedbackopd" id="feedbackopd">Feedback OPD</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesMasterApps" aria-expanded="true" aria-controls="collapsePagesMasterApps" id="master">
+              <i class="fas fa-fw fa-archway"></i>
+              <span>Master Aplikasi</span>
+            </a>
+            <div id="collapsePagesMasterApps" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Sub Menu:</h6>
+                <a class="collapse-item" href="?page=katapps" id="katapps">Kateori Aplikasi</a>
+              </div>
+            </div>
+          </li>
+        <?php } ?>
 
       <?php } else {
         echo '';

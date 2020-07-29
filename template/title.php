@@ -76,4 +76,7 @@ switch ($page) {
   case "lapormasalah":
     echo "Lapor Permasalahan";
     break;
+  case "katapps":
+    echo "Kategori Aplikasi";
+    break;
 }

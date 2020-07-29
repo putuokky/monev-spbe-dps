@@ -76,4 +76,7 @@ switch ($page) {
   case "lapormasalah":
     include 'content/lapormasalah/index.php';
     break;
+  case "katapps":
+    include 'content/katapps/index.php';
+    break;
 }
