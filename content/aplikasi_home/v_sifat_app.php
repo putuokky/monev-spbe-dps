@@ -2,7 +2,7 @@
   <div class="card shadow mb-4">
     <!-- Card Header - Accordion -->
     <a href="#collapseCardSifatAplikasi" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardSifatAplikasi">
-      <h6 class="m-0 font-weight-bold text-primary">Sifat Aplikasi</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Grafik Sifat Aplikasi</h6>
     </a>
     <!-- Card Content - Collapse -->
     <div class="collapse show" id="collapseCardSifatAplikasi">
@@ -44,7 +44,7 @@
               type: 'column'
             },
             title: {
-              text: 'Grafik Aplikasi Berdasarkan Klasifikasi'
+              text: 'Grafik Aplikasi Berdasarkan Sifat'
             },
             subtitle: {
               text: ''

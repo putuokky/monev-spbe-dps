@@ -3,7 +3,7 @@
     <thead>
       <tr class="btn-dark">
         <th>No</th>
-        <th>Nama OPD</th>
+        <th>Nama Perangkat Daerah</th>
         <th>Jumlah Aplikasi</th>
     </thead>
     <!-- <tfoot>

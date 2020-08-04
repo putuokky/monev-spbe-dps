@@ -1,56 +1,56 @@
 <div class="col-xl-12 col-lg-12">
   <div class="card shadow mb-4">
     <!-- Card Header - Accordion -->
-    <a href="#collapseCardDataJenisAplikasi" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardDataJenisAplikasi">
-      <h6 class="m-0 font-weight-bold text-primary">Grafik Platform Aplikasi</h6>
+    <a href="#collapseCardTahunBuatAplikasi" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTahunBuatAplikasi">
+      <h6 class="m-0 font-weight-bold text-primary">Grafik Tahun Pembuatan Aplikasi</h6>
     </a>
     <!-- Card Content - Collapse -->
-    <div class="collapse show" id="collapseCardDataJenisAplikasi">
+    <div class="collapse show" id="collapseCardTahunBuatAplikasi">
       <div class="card-body">
-        <div id="datajnsapp"></div>
+        <div id="thnBuatApps"></div>
 
         <?php
         // variabel kosong dengan array
-        $platform = array();
+        $thnBuat = array();
         $aplikasi = array();
 
         // deklarasi untuk nama
-        $sqlPlatform = "SELECT * FROM kategori_media";
-        $resultPlatform = mysqli_query($conn, $sqlPlatform);
-        while ($rowPlatform = mysqli_fetch_assoc($resultPlatform)) {
-          $idmedia = $rowPlatform['id_media'];
-          $platform[] = '"' . $rowPlatform['nama_kat_media'] . '"';
+        $sqlTahunBuat = "SELECT thn_pembuatan FROM aplikasi GROUP BY thn_pembuatan";
+        $resultTahunBuat = mysqli_query($conn, $sqlTahunBuat);
+        while ($rowTahunBuat = mysqli_fetch_assoc($resultTahunBuat)) {
+          $idmedia = $rowTahunBuat['thn_pembuatan'];
+          $thnBuat[] = '"' . $rowTahunBuat['thn_pembuatan'] . '"';
 
           // deklarasi count
           if ($_SESSION['opd'] == '0') {
-            $sqlAplikasi = "SELECT COUNT(media) as media FROM aplikasi 
-            WHERE media = '$idmedia'";
+            $sqlAplikasi = "SELECT COUNT(id_app) AS jmlh_aplikasi, thn_pembuatan FROM aplikasi 
+            WHERE thn_pembuatan = '$idmedia'";
           } else {
-            $sqlAplikasi = "SELECT COUNT(media) as media FROM aplikasi 
-            WHERE media = '$idmedia' && unit = $_SESSION[opd]";
+            $sqlAplikasi = "SELECT COUNT(id_app) AS jmlh_aplikasi, thn_pembuatan FROM aplikasi 
+            WHERE thn_pembuatan = '$idmedia' && unit = $_SESSION[opd]";
           }
 
           $resultAplikasi = mysqli_query($conn, $sqlAplikasi);
           while ($rowAplikasi = mysqli_fetch_assoc($resultAplikasi)) {
-            $aplikasi[] = $rowAplikasi['media'];
+            $aplikasi[] = $rowAplikasi['jmlh_aplikasi'];
           }
         }
 
         ?>
 
         <script>
-          Highcharts.chart('datajnsapp', {
+          Highcharts.chart('thnBuatApps', {
             chart: {
-              type: 'column'
+              type: 'line'
             },
             title: {
-              text: 'Grafik Aplikasi Berdasarkan Platform'
+              text: 'Grafik Aplikasi Berdasarkan Tahun Pembuatan'
             },
             subtitle: {
               text: ''
             },
             xAxis: {
-              categories: [<?= join($platform, ','); ?>]
+              categories: [<?= join($thnBuat, ','); ?>]
             },
             yAxis: {
               min: 0,

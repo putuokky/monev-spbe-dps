@@ -60,10 +60,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Judul</th>
                     <th>Platform</th>
-                    <th>Sifat Klasifikasi</th>
+                    <th>Sifat</th>
                     <th>Kategori</th>
-                    <th>OPD Pengelola</th>
-                    <th>OPD Pengguna</th>
+                    <th>Perangkat Daerah Pengelola</th>
+                    <th>Perangkat Daerah Pengguna</th>
                     <th>Tahun Pembuatan</th>
                     <th>Status</th>
                     <th>Integrasi</th>
@@ -75,10 +75,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Judul</th>
                     <th>Platform</th>
-                    <th>Sifat Klasifikasi</th>
+                    <th>Sifat</th>
                     <th>Kategori</th>
-                    <th>OPD Pengelola</th>
-                    <th>OPD Pengguna</th>
+                    <th>Perangkat Daerah Pengelola</th>
+                    <th>Perangkat Daerah Pengguna</th>
                     <th>Tahun Pembuatan</th>
                     <th>Status</th>
                     <th>Integrasi</th>

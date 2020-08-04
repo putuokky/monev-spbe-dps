@@ -91,11 +91,13 @@
 
     <?php include 'v_data_jns_app.php'; ?>
 
+    <?php include 'v_thn_buat_app.php'; ?>
+
     <div class="col-xl-12 col-lg-12">
       <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#collapseCardTopOpdAplikasi" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTopOpdAplikasi">
-          <h6 class="m-0 font-weight-bold text-primary">OPD Pengelola Aplikasi</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Perangkat Daerah Pengelola Aplikasi</h6>
         </a>
         <!-- Card Content - Collapse -->
         <div class="collapse show" id="collapseCardTopOpdAplikasi">

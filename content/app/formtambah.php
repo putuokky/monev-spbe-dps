@@ -162,7 +162,7 @@ if (isset($_POST['input'])) {
                 </div>
               </div> -->
               <div class="form-group row">
-                <label for="opdpengelolaaapp" class="col-md-2 col-form-label">OPD Pengelola Aplikasi</label>
+                <label for="opdpengelolaaapp" class="col-md-2 col-form-label">Perangkat Daerah Pengelola Aplikasi</label>
                 <div class="col-md-10">
                   <select class="form-control" id="opdpengelolaaapp" name="opdpengelolaaapp">
                     <option>-</option>
@@ -176,7 +176,7 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="opdpenggunaapp" class="col-md-2 col-form-label">OPD Pengguna Aplikasi</label>
+                <label for="opdpenggunaapp" class="col-md-2 col-form-label">Perangkat Daerah Pengguna Aplikasi</label>
                 <div class="col-md-10">
                   <select class="form-control" id="opdpenggunaapp" name="opdpenggunaapp">
                     <option>-</option>
