@@ -123,7 +123,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       <td><?php if ($row['link'] == '') {
                             echo '-';
                           } else {
-                            echo $row['link'];
+                            echo '<a href="' . $row['link'] . '" target="_blank">' . $row['link'] . '</a>';
                           } ?></td>
                     </tr>
                     <tr>
@@ -165,12 +165,16 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                     </thead>
                     <tbody>
                       <?php
-                      while ($rowInfoUmum = mysqli_fetch_assoc($resultInfoUmum)) { ?>
-                        <tr>
-                          <td><?= $rowInfoUmum['version']; ?></td>
-                          <td><?= $rowInfoUmum['thn_pengembangan']; ?></td>
-                          <td><?= $rowInfoUmum['info_integrasi']; ?></td>
-                        </tr>
+                      if (mysqli_num_rows($resultInfoUmum) > 0) {
+                        while ($rowInfoUmum = mysqli_fetch_assoc($resultInfoUmum)) { ?>
+                          <tr>
+                            <td><?= $rowInfoUmum['version']; ?></td>
+                            <td><?= $rowInfoUmum['thn_pengembangan']; ?></td>
+                            <td><?= $rowInfoUmum['info_integrasi']; ?></td>
+                          </tr>
+                        <?php }
+                      } else { ?>
+                        <th colspan="3" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -186,11 +190,15 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                     </thead>
                     <tbody>
                       <?php
-                      while ($rowInfoSoft = mysqli_fetch_assoc($resultInfoSoft)) { ?>
-                        <tr>
-                          <td><?= $rowInfoSoft['nama_kat_database']; ?></td>
-                          <td><?= $rowInfoSoft['pemrograman']; ?></td>
-                        </tr>
+                      if (mysqli_num_rows($resultInfoSoft) > 0) {
+                        while ($rowInfoSoft = mysqli_fetch_assoc($resultInfoSoft)) { ?>
+                          <tr>
+                            <td><?= $rowInfoSoft['nama_kat_database']; ?></td>
+                            <td><?= $rowInfoSoft['pemrograman']; ?></td>
+                          </tr>
+                        <?php }
+                      } else { ?>
+                        <th colspan="2" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -207,12 +215,16 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                     </thead>
                     <tbody>
                       <?php
-                      while ($rowServerFisik = mysqli_fetch_assoc($resultServerFisik)) { ?>
-                        <tr>
-                          <td><?= $rowServerFisik['cpu_server']; ?></td>
-                          <td><?= $rowServerFisik['ram_server']; ?></td>
-                          <td><?= $rowServerFisik['harddisk_server']; ?></td>
-                        </tr>
+                      if (mysqli_num_rows($resultServerFisik) > 0) {
+                        while ($rowServerFisik = mysqli_fetch_assoc($resultServerFisik)) { ?>
+                          <tr>
+                            <td><?= $rowServerFisik['cpu_server']; ?></td>
+                            <td><?= $rowServerFisik['ram_server']; ?></td>
+                            <td><?= $rowServerFisik['harddisk_server']; ?></td>
+                          </tr>
+                        <?php }
+                      } else { ?>
+                        <th colspan="3" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -231,14 +243,18 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                     </thead>
                     <tbody>
                       <?php
-                      while ($rowLingkServer = mysqli_fetch_assoc($resultLingkServer)) { ?>
-                        <tr>
-                          <td><?= $rowLingkServer['os_server']; ?></td>
-                          <td><?= $rowLingkServer['bp_server']; ?></td>
-                          <td><?= $rowLingkServer['web_server']; ?></td>
-                          <td><?= $rowLingkServer['database_server']; ?></td>
-                          <td><?= $rowLingkServer['bplain_server']; ?></td>
-                        </tr>
+                      if (mysqli_num_rows($resultServerFisik) > 0) {
+                        while ($rowLingkServer = mysqli_fetch_assoc($resultLingkServer)) { ?>
+                          <tr>
+                            <td><?= $rowLingkServer['os_server']; ?></td>
+                            <td><?= $rowLingkServer['bp_server']; ?></td>
+                            <td><?= $rowLingkServer['web_server']; ?></td>
+                            <td><?= $rowLingkServer['database_server']; ?></td>
+                            <td><?= $rowLingkServer['bplain_server']; ?></td>
+                          </tr>
+                        <?php }
+                      } else { ?>
+                        <th colspan="5" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -257,14 +273,18 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                     </thead>
                     <tbody>
                       <?php
-                      while ($rowInfoSPK = mysqli_fetch_assoc($resultInfoSPK)) { ?>
-                        <tr>
-                          <td><?= $rowInfoSPK['judul_spk']; ?></td>
-                          <td><?= $rowInfoSPK['sumberdana_spk']; ?></td>
-                          <td><?= $rowInfoSPK['nilai_spk']; ?></td>
-                          <td><?= $rowInfoSPK['vendor']; ?></td>
-                          <td><?= $rowInfoSPK['kontak_vendor']; ?></td>
-                        </tr>
+                      if (mysqli_num_rows($resultInfoSPK) > 0) {
+                        while ($rowInfoSPK = mysqli_fetch_assoc($resultInfoSPK)) { ?>
+                          <tr>
+                            <td><?= $rowInfoSPK['judul_spk']; ?></td>
+                            <td><?= $rowInfoSPK['sumberdana_spk']; ?></td>
+                            <td><?= $rowInfoSPK['nilai_spk']; ?></td>
+                            <td><?= $rowInfoSPK['vendor']; ?></td>
+                            <td><?= $rowInfoSPK['kontak_vendor']; ?></td>
+                          </tr>
+                        <?php }
+                      } else { ?>
+                        <th colspan="5" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>

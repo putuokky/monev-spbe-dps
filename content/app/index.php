@@ -87,7 +87,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 </tfoot>
                 <tbody>
                   <?php
-                  if ($_SESSION['groupuser'] == 1 && $_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 3) {
+                  if ($_SESSION['groupuser'] == 1) {
                     $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
                     FROM aplikasi a 
                     LEFT JOIN kategori_media b ON b.id_media = a.media
