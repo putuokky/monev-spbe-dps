@@ -15,7 +15,12 @@
         $aplikasi = array();
 
         // deklarasi untuk nama
-        $sqlTahunBuat = "SELECT thn_pembuatan FROM aplikasi GROUP BY thn_pembuatan";
+        if ($_SESSION['opd'] == '0') {
+          $sqlTahunBuat = "SELECT thn_pembuatan FROM aplikasi GROUP BY thn_pembuatan";
+        } else {
+          $sqlTahunBuat = "SELECT thn_pembuatan FROM aplikasi
+          WHERE unit = $_SESSION[opd] GROUP BY thn_pembuatan ";
+        }
         $resultTahunBuat = mysqli_query($conn, $sqlTahunBuat);
         while ($rowTahunBuat = mysqli_fetch_assoc($resultTahunBuat)) {
           $idmedia = $rowTahunBuat['thn_pembuatan'];

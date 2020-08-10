@@ -38,6 +38,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
     <div class="row">
 
       <div class="col-xl-12 col-lg-12">
+        <?php include 'formpencarian.php'; ?>
 
         <a class="btn btn-primary btn-icon-split h3 mb-4" title="Tambah" href="?page=app&act=tambah">
           <span class="icon">
@@ -88,14 +89,27 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                 <tbody>
                   <?php
                   if ($_SESSION['groupuser'] == 1) {
-                    $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
-                    FROM aplikasi a 
-                    LEFT JOIN kategori_media b ON b.id_media = a.media
-                    LEFT JOIN tb_opd c ON c.idopd = a.unit 
-                    LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
-                    LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
-                    LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
-                    LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app";
+                    if (isset($_GET['cari'])) {
+                      $thnbuat = $_GET['thnbuat'];
+                      $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                      FROM aplikasi a 
+                      LEFT JOIN kategori_media b ON b.id_media = a.media
+                      LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                      LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                      LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                      LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                      LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app
+                      WHERE thn_pembuatan = $thnbuat";
+                    } else {
+                      $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                      FROM aplikasi a 
+                      LEFT JOIN kategori_media b ON b.id_media = a.media
+                      LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                      LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                      LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                      LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                      LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app";
+                    }
                   } else {
                     $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
                     FROM aplikasi a 
