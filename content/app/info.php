@@ -9,7 +9,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 
 // query menampilkan data dengan id
-$sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.infofungsi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna,g.version,g.db,g.pemrograman,g.integrasi,g.info_integrasi,g.thn_pengembangan,g.cpu_server,g.ram_server,g.harddisk_server,g.os_server,g.bp_server,g.web_server,g.database_server,g.bplain_server,g.judul_spk,g.nilai_spk,g.sumberdana_spk,g.vendor,g.kontak_vendor
+$sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.infofungsi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna,g.version,g.db,g.pemrograman,g.integrasi,g.info_integrasi,g.inte_app_lain,g.info_inte_app_lain,g.thn_pengembangan,g.cpu_server,g.ram_server,g.harddisk_server,g.os_server,g.bp_server,g.web_server,g.database_server,g.bplain_server,g.judul_spk,g.nilai_spk,g.sumberdana_spk,g.vendor,g.kontak_vendor
 FROM aplikasi a 
 LEFT JOIN kategori_media b ON b.id_media = a.media
 LEFT JOIN tb_opd c ON c.idopd = a.unit 
@@ -152,11 +152,11 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                     </tr>
                     <tr>
                       <th>Terintegrasi dengan Aplikasi Lainnya</th>
-                      <td><span class="badge badge-success">Ada</span><br>
-                        <span class="badge badge-danger">Tidak Ada</span>
-                        <div class="alert alert-dark" role="alert">
-                          A simple dark alert—check it out!
-                        </div>
+                      <td><?php if ($row['inte_app_lain'] == 'ada') {
+                            echo '<span class="badge badge-success">Ada</span>';
+                          } else {
+                            echo '<span class="badge badge-danger">Tidak Ada</span>';
+                          } ?>
                       </td>
                     </tr>
                   </tbody>
@@ -171,6 +171,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                         <th>Version</th>
                         <th>Tahun Pengembangan</th>
                         <th>Info Versi</th>
+                        <th>Info Terintegrasi Aplikasi Lain</th>
                     </thead>
                     <tbody>
                       <?php
@@ -180,6 +181,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                             <td><?= $rowInfoUmum['version']; ?></td>
                             <td><?= $rowInfoUmum['thn_pengembangan']; ?></td>
                             <td><?= $rowInfoUmum['info_integrasi']; ?></td>
+                            <td><?= $rowInfoUmum['info_inte_app_lain']; ?></td>
                           </tr>
                         <?php }
                       } else { ?>

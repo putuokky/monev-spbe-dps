@@ -28,6 +28,8 @@ if (isset($_POST['updatedetail'])) {
   $output             = $_POST['output'];
   $integrasi          = $_POST['integrasi'];
   $infointegrasi      = $_POST['infointegrasi'];
+  $inte_app_lain      = $_POST['inte_app_lain'];
+  $info_inte_app_lain = $_POST['info_inte_app_lain'];
   $db                 = $_POST['db'];
   $bhsprogram         = $_POST['bhsprogram'];
   $cpu                = $_POST['cpu'];
@@ -55,6 +57,8 @@ if (isset($_POST['updatedetail'])) {
         pemrograman = '$bhsprogram',
         integrasi = '$integrasi',
         info_integrasi = '$infointegrasi',
+        inte_app_lain = '$inte_app_lain',
+        info_inte_app_lain = '$info_inte_app_lain',
         thn_pengembangan = '$thnkembang',
         cpu_server = '$cpu',
         ram_server = '$ram',
@@ -190,6 +194,32 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="infointegrasi" class="col-md-2 col-form-label">Info Versi</label>
                 <div class="col-md-10">
                   <textarea class="form-control" id="infointegrasi" name="infointegrasi" rows="3" placeholder="Enter Info Versi"><?= $data['info_integrasi']; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inte_app_lain" class="col-md-2 col-form-label">Terintegrasi dengan Aplikasi Lain</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="inte_app_lain" name="inte_app_lain">
+                    <?php if ($data['inte_app_lain'] == 'ada') { ?>
+                      <option>-</option>
+                      <option value="ada" selected>Ada</option>
+                      <option value="noada">Tidak Ada</option>
+                    <?php } else if ($data['inte_app_lain'] == 'noada') { ?>
+                      <option>-</option>
+                      <option value="ada">Ada</option>
+                      <option value="noada" selected>Tidak Ada</option>
+                    <?php } else { ?>
+                      <option>-</option>
+                      <option value="ada">Ada</option>
+                      <option value="noada">Tidak Ada</option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="info_inte_app_lain" class="col-md-2 col-form-label">Info Terintegrasi dengan Aplikasi Lain</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="info_inte_app_lain" name="info_inte_app_lain" rows="3" placeholder="Enter Info Terintegrasi dengan Aplikasi Lain (Gunakan Koma (,) untuk memisahkan)"><?= $data['info_inte_app_lain']; ?></textarea>
                 </div>
               </div>
               <nav aria-label="breadcrumb">

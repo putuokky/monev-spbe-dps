@@ -22,6 +22,8 @@ if (isset($_POST['inputdetail'])) {
   $output             = $_POST['output'];
   $integrasi          = $_POST['integrasi'];
   $infointegrasi      = $_POST['infointegrasi'];
+  $inte_app_lain      = $_POST['inte_app_lain'];
+  $info_inte_app_lain = $_POST['info_inte_app_lain'];
   $db                 = $_POST['db'];
   $bhsprogram         = $_POST['bhsprogram'];
   $cpu                = $_POST['cpu'];
@@ -41,8 +43,8 @@ if (isset($_POST['inputdetail'])) {
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO detail_aplikasi (id_aplikasi,input,output,version,db,pemrograman,integrasi,info_integrasi,thn_pengembangan,cpu_server,ram_server,harddisk_server,os_server,bp_server,web_server,database_server,bplain_server,judul_spk,nilai_spk,sumberdana_spk,vendor,kontak_vendor,usr,dlu)
-          VALUES ('$judul','$input','$output','$version','$db','$bhsprogram','$integrasi','$infointegrasi','$thnkembang','$cpu','$ram','$harddisk','$osserver','$bhsprogramserver','$webserver','$dbserver','$bhspendukunglain','$judulspk','$nilaispk','$sumberdana','$vendor','$kontakvendor','$_SESSION[userid]','$datenow2')";
+    $sql = "INSERT INTO detail_aplikasi (id_aplikasi,input,output,version,db,pemrograman,integrasi,info_integrasi,inte_app_lain,info_inte_app_lain,thn_pengembangan,cpu_server,ram_server,harddisk_server,os_server,bp_server,web_server,database_server,bplain_server,judul_spk,nilai_spk,sumberdana_spk,vendor,kontak_vendor,usr,dlu)
+          VALUES ('$judul','$input','$output','$version','$db','$bhsprogram','$integrasi','$infointegrasi','$inte_app_lain','$info_inte_app_lain','$thnkembang','$cpu','$ram','$harddisk','$osserver','$bhsprogramserver','$webserver','$dbserver','$bhspendukunglain','$judulspk','$nilaispk','$sumberdana','$vendor','$kontakvendor','$_SESSION[userid]','$datenow2')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -143,6 +145,22 @@ if (isset($_POST['inputdetail'])) {
                 <label for="infointegrasi" class="col-md-2 col-form-label">Info Versi</label>
                 <div class="col-md-10">
                   <textarea class="form-control" id="infointegrasi" name="infointegrasi" rows="3" placeholder="Enter Info Versi"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inte_app_lain" class="col-md-2 col-form-label">Terintegrasi dengan Aplikasi Lain</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="inte_app_lain" name="inte_app_lain">
+                    <option>-</option>
+                    <option value="ada">Ada</option>
+                    <option value="noada">Tidak Ada</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="info_inte_app_lain" class="col-md-2 col-form-label">Info Terintegrasi dengan Aplikasi Lain</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="info_inte_app_lain" name="info_inte_app_lain" rows="3" placeholder="Enter Info Terintegrasi dengan Aplikasi Lain (Gunakan Koma (,) untuk memisahkan)"></textarea>
                 </div>
               </div>
               <nav aria-label="breadcrumb">
