@@ -130,7 +130,7 @@ if (isset($_POST['inputdetail'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="integrasi" class="col-md-2 col-form-label">Integrasi</label>
+                <label for="integrasi" class="col-md-2 col-form-label">Terintegrasi</label>
                 <div class="col-md-2">
                   <select class="form-control" id="integrasi" name="integrasi">
                     <option>-</option>
@@ -140,9 +140,9 @@ if (isset($_POST['inputdetail'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="infointegrasi" class="col-md-2 col-form-label">Info Integrasi</label>
+                <label for="infointegrasi" class="col-md-2 col-form-label">Info Versi</label>
                 <div class="col-md-10">
-                  <textarea class="form-control" id="infointegrasi" name="infointegrasi" rows="3" placeholder="Enter Info Integrasi"></textarea>
+                  <textarea class="form-control" id="infointegrasi" name="infointegrasi" rows="3" placeholder="Enter Info Versi"></textarea>
                 </div>
               </div>
               <nav aria-label="breadcrumb">

@@ -67,7 +67,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Perangkat Daerah Pengguna</th>
                     <th>Tahun Pembuatan</th>
                     <th>Status</th>
-                    <th>Integrasi</th>
+                    <th>Terintegrasi dgn Pusat Data</th>
+                    <th>Terintegrasi dgn App Lainnya</th>
                     <th>User/DLU</th>
                 </thead>
                 <tfoot>
@@ -82,15 +83,19 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Perangkat Daerah Pengguna</th>
                     <th>Tahun Pembuatan</th>
                     <th>Status</th>
-                    <th>Integrasi</th>
+                    <th>Terintegrasi dgn Pusat Data</th>
+                    <th>Terintegrasi dgn App Lainnya</th>
                     <th>User/DLU</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
-                  if ($_SESSION['groupuser'] == 1) {
-                    if (isset($_GET['cari'])) {
-                      $thnbuat = $_GET['thnbuat'];
+                  if (isset($_GET['cari'])) {
+                    // $thnbuat = $_GET['thnbuat'];
+                    // $katakunci = $_GET['katakunci'];
+                    $status = $_GET['status'];
+
+                    if ($_SESSION['groupuser'] == 1) {
                       $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
                       FROM aplikasi a 
                       LEFT JOIN kategori_media b ON b.id_media = a.media
@@ -99,7 +104,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
                       LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
                       LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app
-                      WHERE thn_pembuatan = $thnbuat";
+                      WHERE sts_aktif = '$status'";
                     } else {
                       $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
                       FROM aplikasi a 
@@ -108,19 +113,70 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
                       LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
                       LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
-                      LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app";
+                      LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app 
+                      WHERE c.idopd = $_SESSION[opd] && sts_aktif = '$status'";
                     }
                   } else {
-                    $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
-                    FROM aplikasi a 
-                    LEFT JOIN kategori_media b ON b.id_media = a.media
-                    LEFT JOIN tb_opd c ON c.idopd = a.unit 
-                    LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
-                    LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
-                    LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
-                    LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app 
-                    WHERE c.idopd = $_SESSION[opd]";
+                    if ($_SESSION['groupuser'] == 1) {
+                      $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                      FROM aplikasi a 
+                      LEFT JOIN kategori_media b ON b.id_media = a.media
+                      LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                      LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                      LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                      LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                      LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app";
+                    } else {
+                      $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                      FROM aplikasi a 
+                      LEFT JOIN kategori_media b ON b.id_media = a.media
+                      LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                      LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                      LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                      LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                      LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app 
+                      WHERE c.idopd = $_SESSION[opd]";
+                    }
                   }
+
+
+
+                  // if ($_SESSION['groupuser'] == 1) {
+                  //   if (isset($_GET['cari'])) {
+                  //     // $thnbuat = $_GET['thnbuat'];
+                  //     // $katakunci = $_GET['katakunci'];
+                  //     $status = $_GET['status'];
+
+                  //     $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                  //     FROM aplikasi a 
+                  //     LEFT JOIN kategori_media b ON b.id_media = a.media
+                  //     LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                  //     LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                  //     LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                  //     LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                  //     LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app
+                  //     WHERE sts_aktif = '$status'";
+                  //   } else {
+                  //     $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                  //     FROM aplikasi a 
+                  //     LEFT JOIN kategori_media b ON b.id_media = a.media
+                  //     LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                  //     LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                  //     LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                  //     LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                  //     LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app";
+                  //   }
+                  // } else {
+                  //   $sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna, g.integrasi
+                  //   FROM aplikasi a 
+                  //   LEFT JOIN kategori_media b ON b.id_media = a.media
+                  //   LEFT JOIN tb_opd c ON c.idopd = a.unit 
+                  //   LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikasi 
+                  //   LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
+                  //   LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
+                  //   LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app 
+                  //   WHERE c.idopd = $_SESSION[opd]";
+                  // }
 
                   $sql = $sql . " GROUP BY a.id_app ORDER BY a.id_app DESC";
 
@@ -168,6 +224,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               echo '<span class="badge badge-danger">Belum</span>';
                             } ?>
                         </td>
+                        <td>1</td>
                         <td><?= $row['usr']; ?><br><?= $row['dlu']; ?></td>
                       </tr>
                   <?php

@@ -143,12 +143,21 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                           } ?></td>
                     </tr>
                     <tr>
-                      <th>Integrasi</th>
+                      <th>Terintegrasi dengan Pusat Data</th>
                       <td><?php if ($row['integrasi'] == 'sudah') {
                             echo '<span class="badge badge-success">Sudah</span>';
                           } else {
                             echo '<span class="badge badge-danger">Belum</span>';
                           } ?></td>
+                    </tr>
+                    <tr>
+                      <th>Terintegrasi dengan Aplikasi Lainnya</th>
+                      <td><span class="badge badge-success">Ada</span><br>
+                        <span class="badge badge-danger">Tidak Ada</span>
+                        <div class="alert alert-dark" role="alert">
+                          A simple dark alert—check it out!
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -161,7 +170,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       <tr class="btn-dark">
                         <th>Version</th>
                         <th>Tahun Pengembangan</th>
-                        <th>Info Integrasi</th>
+                        <th>Info Versi</th>
                     </thead>
                     <tbody>
                       <?php
@@ -185,6 +194,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                   <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                     <thead>
                       <tr class="btn-dark">
+                        <th>Version</th>
                         <th>Database</th>
                         <th>Bahasa Pemrograman</th>
                     </thead>
@@ -193,6 +203,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       if (mysqli_num_rows($resultInfoSoft) > 0) {
                         while ($rowInfoSoft = mysqli_fetch_assoc($resultInfoSoft)) { ?>
                           <tr>
+                            <td><?= $rowInfoSoft['version']; ?></td>
                             <td><?= $rowInfoSoft['nama_kat_database']; ?></td>
                             <td><?= $rowInfoSoft['pemrograman']; ?></td>
                           </tr>
@@ -209,6 +220,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                   <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                     <thead>
                       <tr class="btn-dark">
+                        <th>Version</th>
                         <th>CPU</th>
                         <th>RAM</th>
                         <th>Hard Disk</th>
@@ -218,6 +230,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       if (mysqli_num_rows($resultServerFisik) > 0) {
                         while ($rowServerFisik = mysqli_fetch_assoc($resultServerFisik)) { ?>
                           <tr>
+                            <td><?= $rowServerFisik['version']; ?></td>
                             <td><?= $rowServerFisik['cpu_server']; ?></td>
                             <td><?= $rowServerFisik['ram_server']; ?></td>
                             <td><?= $rowServerFisik['harddisk_server']; ?></td>
@@ -235,6 +248,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                   <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                     <thead>
                       <tr class="btn-dark">
+                        <th>Version</th>
                         <th>OS Server</th>
                         <th>Bahasa Pemrograman Server</th>
                         <th>Web Server</th>
@@ -246,6 +260,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       if (mysqli_num_rows($resultServerFisik) > 0) {
                         while ($rowLingkServer = mysqli_fetch_assoc($resultLingkServer)) { ?>
                           <tr>
+                            <td><?= $rowLingkServer['version']; ?></td>
                             <td><?= $rowLingkServer['os_server']; ?></td>
                             <td><?= $rowLingkServer['bp_server']; ?></td>
                             <td><?= $rowLingkServer['web_server']; ?></td>
@@ -265,6 +280,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                   <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
                     <thead>
                       <tr class="btn-dark">
+                        <th>Version</th>
                         <th>SPK</th>
                         <th>Sumber Dana</th>
                         <th>Nilai SPK</th>
@@ -276,9 +292,10 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       if (mysqli_num_rows($resultInfoSPK) > 0) {
                         while ($rowInfoSPK = mysqli_fetch_assoc($resultInfoSPK)) { ?>
                           <tr>
+                            <td><?= $rowInfoSPK['version']; ?></td>
                             <td><?= $rowInfoSPK['judul_spk']; ?></td>
                             <td><?= $rowInfoSPK['sumberdana_spk']; ?></td>
-                            <td><?= $rowInfoSPK['nilai_spk']; ?></td>
+                            <td><?= "Rp " . number_format($rowInfoSPK['nilai_spk'], 0, ',', '.'); ?></td>
                             <td><?= $rowInfoSPK['vendor']; ?></td>
                             <td><?= $rowInfoSPK['kontak_vendor']; ?></td>
                           </tr>

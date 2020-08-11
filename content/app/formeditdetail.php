@@ -167,7 +167,7 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="integrasi" class="col-md-2 col-form-label">Integrasi</label>
+                <label for="integrasi" class="col-md-2 col-form-label">Terintegrasi</label>
                 <div class="col-md-2">
                   <select class="form-control" id="integrasi" name="integrasi">
                     <?php if ($data['integrasi'] == 'belum') { ?>
@@ -187,9 +187,9 @@ $data = mysqli_fetch_assoc($resUbah);
                 </div>
               </div>
               <div class="form-group row">
-                <label for="infointegrasi" class="col-md-2 col-form-label">Info Integrasi</label>
+                <label for="infointegrasi" class="col-md-2 col-form-label">Info Versi</label>
                 <div class="col-md-10">
-                  <textarea class="form-control" id="infointegrasi" name="infointegrasi" rows="3" placeholder="Enter Info Integrasi"><?= $data['info_integrasi']; ?></textarea>
+                  <textarea class="form-control" id="infointegrasi" name="infointegrasi" rows="3" placeholder="Enter Info Versi"><?= $data['info_integrasi']; ?></textarea>
                 </div>
               </div>
               <nav aria-label="breadcrumb">
