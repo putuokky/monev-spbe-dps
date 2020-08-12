@@ -87,7 +87,7 @@ if (isset($_POST['updatedetail'])) {
     } else {
       echo '<script type="text/javascript">
             alert("Data Detail Aplikasi Gagal Diedit");
-            window.location.href="t.php?page=app&act=detail&id=' . $id . '&aksi=tambahdetail&idx=' . $idx . '";
+            window.location.href="t.php?page=app&act=detail&id=' . $id . '";
             </script>';
     }
   }
@@ -233,7 +233,7 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="db" class="col-md-2 col-form-label">Database</label>
                 <div class="col-md-2">
                   <select class="form-control" id="db" name="db">
-                    <option>-</option>
+                    <option value="0">-</option>
                     <?php
                     $sqlDb = "SELECT * FROM kategori_database";
                     $resDb = mysqli_query($conn, $sqlDb);
@@ -315,7 +315,7 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="lokserver" class="col-md-2 col-form-label">Lokasi Server</label>
                 <div class="col-md-5">
                   <select class="form-control" id="lokserver" name="lokserver">
-                    <option>-</option>
+                    <option value="0">-</option>
                     <?php
                     $sqlKatLokSer = "SELECT * FROM kategori_lok_server";
                     $resKatLokSer = mysqli_query($conn, $sqlKatLokSer);

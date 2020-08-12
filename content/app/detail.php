@@ -133,7 +133,12 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == "hapusdetail") {
                         <td><?= $row['integrasi']; ?></td>
                         <td><?= $row['thn_pengembangan']; ?></td>
                         <td><?= $row['pemrograman']; ?></td>
-                        <td><?= $row['nama_kat_database']; ?></td>
+                        <td><?php if ($row['db'] == 0) {
+                              echo "-";
+                            } else {
+                              echo $row['nama_kat_database'];
+                            }
+                            ?></td>
                         <td><?= $row['vendor']; ?></td>
                         <td><?= $row['kontak_vendor']; ?></td>
                         <td><?= $row['usr']; ?><br><?= $row['dlu']; ?></td>
