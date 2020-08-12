@@ -40,6 +40,7 @@ if (isset($_POST['updatedetail'])) {
   $webserver          = $_POST['webserver'];
   $dbserver           = $_POST['dbserver'];
   $bhspendukunglain   = $_POST['bhspendukunglain'];
+  $lokserver          = $_POST['lokserver'];
   $judulspk           = $_POST['judulspk'];
   $sumberdana         = $_POST['sumberdana'];
   $nilaispk           = $_POST['nilaispk'];
@@ -68,6 +69,7 @@ if (isset($_POST['updatedetail'])) {
         web_server = '$webserver',
         database_server = '$dbserver',
         bplain_server = '$bhspendukunglain',
+        loka_server = '$lokserver',
         judul_spk = '$judulspk',
         nilai_spk = '$nilaispk',
         sumberdana_spk = '$sumberdana',
@@ -307,6 +309,24 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="bhspendukunglain" class="col-md-2 col-form-label">Bahasa Pendukung Lainnya</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="bhspendukunglain" id="bhspendukunglain" placeholder="Enter Bahasa Pendukung Lainnya" autocomplete="off" value="<?= $data['bplain_server']; ?>">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="lokserver" class="col-md-2 col-form-label">Lokasi Server</label>
+                <div class="col-md-5">
+                  <select class="form-control" id="lokserver" name="lokserver">
+                    <option>-</option>
+                    <?php
+                    $sqlKatLokSer = "SELECT * FROM kategori_lok_server";
+                    $resKatLokSer = mysqli_query($conn, $sqlKatLokSer);
+                    while ($rowKatLokSer = mysqli_fetch_assoc($resKatLokSer)) {
+                      if ($rowKatLokSer['id_lok_server'] == $data['loka_server']) : ?>
+                        <option value="<?= $rowKatLokSer['id_lok_server']; ?>" selected><?= $rowKatLokSer['nama_lok_server']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $rowKatLokSer['id_lok_server']; ?>"><?= $rowKatLokSer['nama_lok_server']; ?></option>
+                      <?php endif; ?>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <nav aria-label="breadcrumb">

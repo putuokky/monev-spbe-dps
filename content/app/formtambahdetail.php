@@ -34,6 +34,7 @@ if (isset($_POST['inputdetail'])) {
   $webserver          = $_POST['webserver'];
   $dbserver           = $_POST['dbserver'];
   $bhspendukunglain   = $_POST['bhspendukunglain'];
+  $lokserver          = $_POST['lokserver'];
   $judulspk           = $_POST['judulspk'];
   $sumberdana         = $_POST['sumberdana'];
   $nilaispk           = $_POST['nilaispk'];
@@ -43,8 +44,8 @@ if (isset($_POST['inputdetail'])) {
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO detail_aplikasi (id_aplikasi,input,output,version,db,pemrograman,integrasi,info_integrasi,inte_app_lain,info_inte_app_lain,thn_pengembangan,cpu_server,ram_server,harddisk_server,os_server,bp_server,web_server,database_server,bplain_server,judul_spk,nilai_spk,sumberdana_spk,vendor,kontak_vendor,usr,dlu)
-          VALUES ('$judul','$input','$output','$version','$db','$bhsprogram','$integrasi','$infointegrasi','$inte_app_lain','$info_inte_app_lain','$thnkembang','$cpu','$ram','$harddisk','$osserver','$bhsprogramserver','$webserver','$dbserver','$bhspendukunglain','$judulspk','$nilaispk','$sumberdana','$vendor','$kontakvendor','$_SESSION[userid]','$datenow2')";
+    $sql = "INSERT INTO detail_aplikasi (id_aplikasi,input,output,version,db,pemrograman,integrasi,info_integrasi,inte_app_lain,info_inte_app_lain,thn_pengembangan,cpu_server,ram_server,harddisk_server,os_server,bp_server,web_server,database_server,bplain_server,loka_server,judul_spk,nilai_spk,sumberdana_spk,vendor,kontak_vendor,usr,dlu)
+          VALUES ('$judul','$input','$output','$version','$db','$bhsprogram','$integrasi','$infointegrasi','$inte_app_lain','$info_inte_app_lain','$thnkembang','$cpu','$ram','$harddisk','$osserver','$bhsprogramserver','$webserver','$dbserver','$bhspendukunglain','$lokserver','$judulspk','$nilaispk','$sumberdana','$vendor','$kontakvendor','$_SESSION[userid]','$datenow2')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -244,6 +245,20 @@ if (isset($_POST['inputdetail'])) {
                 <label for="bhspendukunglain" class="col-md-2 col-form-label">Bahasa Pendukung Lainnya</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="bhspendukunglain" id="bhspendukunglain" placeholder="Enter Bahasa Pendukung Lainnya" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="lokserver" class="col-md-2 col-form-label">Lokasi Server</label>
+                <div class="col-md-5">
+                  <select class="form-control" id="lokserver" name="lokserver">
+                    <option>-</option>
+                    <?php
+                    $sqlKatLokSer = "SELECT * FROM kategori_lok_server";
+                    $resKatLokSer = mysqli_query($conn, $sqlKatLokSer);
+                    while ($rowKatLokSer = mysqli_fetch_assoc($resKatLokSer)) { ?>
+                      <option value="<?= $rowKatLokSer['id_lok_server']; ?>"><?= $rowKatLokSer['nama_lok_server']; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <nav aria-label="breadcrumb">

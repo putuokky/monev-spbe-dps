@@ -25,6 +25,7 @@ $row = mysqli_fetch_assoc($result);
 $sqlDetail = "SELECT * FROM detail_aplikasi a 
 LEFT JOIN aplikasi b ON b.id_app = a.id_aplikasi 
 LEFT JOIN kategori_database c ON c.id_kat_database = a.db
+LEFT JOIN kategori_lok_server d ON d.id_lok_server = a.loka_server
 WHERE a.id_aplikasi = '$id'
 ORDER BY a.id_detail_aplikasi DESC";
 $resultInfoUmum = mysqli_query($conn, $sqlDetail);
@@ -185,7 +186,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                           </tr>
                         <?php }
                       } else { ?>
-                        <th colspan="3" class="text-center">Belum Tersedia</th>
+                        <th colspan="4" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -211,7 +212,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                           </tr>
                         <?php }
                       } else { ?>
-                        <th colspan="2" class="text-center">Belum Tersedia</th>
+                        <th colspan="3" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -239,7 +240,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                           </tr>
                         <?php }
                       } else { ?>
-                        <th colspan="3" class="text-center">Belum Tersedia</th>
+                        <th colspan="4" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -256,6 +257,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                         <th>Web Server</th>
                         <th>Database Server</th>
                         <th>Bahasa Pendukung Lainnya</th>
+                        <th>Lokasi Server</th>
                     </thead>
                     <tbody>
                       <?php
@@ -268,10 +270,11 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                             <td><?= $rowLingkServer['web_server']; ?></td>
                             <td><?= $rowLingkServer['database_server']; ?></td>
                             <td><?= $rowLingkServer['bplain_server']; ?></td>
+                            <td><?= $rowLingkServer['nama_lok_server']; ?></td>
                           </tr>
                         <?php }
                       } else { ?>
-                        <th colspan="5" class="text-center">Belum Tersedia</th>
+                        <th colspan="7" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -303,7 +306,7 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                           </tr>
                         <?php }
                       } else { ?>
-                        <th colspan="5" class="text-center">Belum Tersedia</th>
+                        <th colspan="6" class="text-center">Belum Tersedia</th>
                       <?php } ?>
                     </tbody>
                   </table>
