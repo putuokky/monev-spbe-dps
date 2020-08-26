@@ -124,7 +124,7 @@ if (isset($_POST['input'])) {
               <div class="form-group row">
                 <label for="alamaturl" class="col-md-2 col-form-label">Alamat URL</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="alamaturl" id="alamaturl" placeholder="Enter Alamat URL" autocomplete="off">
+                  <textarea class="form-control" id="alamaturl" name="alamaturl" rows="5" placeholder="Enter Alamat URL"></textarea>
                 </div>
               </div>
               <div class="form-group row">

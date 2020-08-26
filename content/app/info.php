@@ -133,7 +133,10 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                       <td><?php if ($row['link'] == '') {
                             echo '-';
                           } else {
-                            echo '<a href="' . $row['link'] . '" target="_blank">' . $row['link'] . '</a>';
+                            $link = explode(",", $row['link']);
+                            foreach ($link as $lk) {
+                              echo '<ul><li><a href="' . $lk . '" target="_blank">' . $lk . '</a></li></ul>';
+                            }
                           } ?></td>
                     </tr>
                     <tr>
@@ -337,12 +340,13 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
               <div class="tab-pane fade" id="dasar-hukum" role="tabpanel" aria-labelledby="dasar-hukum-tab">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <?php if ($manual_book == '') { ?>
+                    <?php if ($row['dasarhukum'] == '') { ?>
                       <div class="alert alert-danger" role="alert">
                         <b>Dasar Hukum</b> Belum Tersedia!
                       </div>
                     <?php } else {
-                      echo $manual_book;
+                      $pathfile = "assets/file/aplikasi/dasarhukum/";
+                      echo "<ul><li><a href='" . $pathfile . "" . $row['dasarhukum'] . "' target='_blank'>" . $row['dasarhukum'] . "</a></li></ul>";
                     } ?>
                   </h5>
                 </div>

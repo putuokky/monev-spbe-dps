@@ -155,7 +155,7 @@ $data = mysqli_fetch_assoc($resUbah);
               <div class="form-group row">
                 <label for="alamaturl" class="col-md-2 col-form-label">Alamat URL</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="alamaturl" id="alamaturl" value="<?= $data['link']; ?>" placeholder="Enter Alamat URL" autocomplete="off">
+                  <textarea class="form-control" id="alamaturl" name="alamaturl" rows="5" placeholder="Enter Alamat URL"><?= $data['link']; ?></textarea>
                 </div>
               </div>
               <div class="form-group row">

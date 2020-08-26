@@ -23,7 +23,7 @@ if (isset($_POST['update'])) {
   $space = 5242880;
 
   // direct penempatan file
-  $lokasi = "assets/file/aplikasi/";
+  $lokasi = "assets/file/aplikasi/dasarhukum/";
 
   // path lokasi gambar
   $file = $lokasi . "" . $data['dasarhukum'];
@@ -47,12 +47,12 @@ if (isset($_POST['update'])) {
 
             if (mysqli_query($conn, $sql)) {
               echo '<script type="text/javascript">
-                    alert("File Dasar Hukum Data Aplikasi Berhasil Diedit");
+                    alert("File Dasar Hukum Data Aplikasi Berhasil Ditambah");
                     window.location.href="t.php?page=app";
                     </script>';
             } else {
               echo '<script type="text/javascript">
-                    alert("File Dasar Hukum Data Aplikasi Gagal Diedit");
+                    alert("File Dasar Hukum Data Aplikasi Gagal Ditambah");
                     window.location.href="t.php?page=app&act=upfile&id=' . $id . '";
                     </script>';
             }
