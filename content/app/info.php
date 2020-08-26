@@ -9,7 +9,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 
 // query menampilkan data dengan id
-$sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.infofungsi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna,g.version,g.db,g.pemrograman,g.integrasi,g.info_integrasi,g.inte_app_lain,g.info_inte_app_lain,g.thn_pengembangan,g.cpu_server,g.ram_server,g.harddisk_server,g.os_server,g.bp_server,g.web_server,g.database_server,g.bplain_server,g.judul_spk,g.nilai_spk,g.sumberdana_spk,g.vendor,g.kontak_vendor
+$sql = "SELECT a.id_app,a.judul,a.klasifikasi_aplikasi,a.kategori_aplikasi,a.infofungsi,a.dasarhukum,a.media,a.link,a.pict,a.infoapp,a.unit,a.unit_pengguna,a.sts_aktif,a.thn_pembuatan,a.usr,a.dlu,b.nama_kat_media,c.namaopd,d.nama_klasifikasi_app, e.kat_aplikasi,f.namaopd as unitpengguna,g.version,g.db,g.pemrograman,g.integrasi,g.info_integrasi,g.inte_app_lain,g.info_inte_app_lain,g.thn_pengembangan,g.cpu_server,g.ram_server,g.harddisk_server,g.os_server,g.bp_server,g.web_server,g.database_server,g.bplain_server,g.judul_spk,g.nilai_spk,g.sumberdana_spk,g.vendor,g.kontak_vendor,h.namaopd as unitpengembang
 FROM aplikasi a 
 LEFT JOIN kategori_media b ON b.id_media = a.media
 LEFT JOIN tb_opd c ON c.idopd = a.unit 
@@ -17,6 +17,7 @@ LEFT JOIN klasifikasi_aplikasi d ON d.id_klasifikasi_app = a.klasifikasi_aplikas
 LEFT JOIN kategori_aplikasi e ON e.id_kat_aplikasi = a.kategori_aplikasi 
 LEFT JOIN tb_opd f ON f.idopd = a.unit_pengguna
 LEFT JOIN detail_aplikasi g ON g.id_aplikasi = a.id_app
+LEFT JOIN tb_opd h ON h.idopd = a.unit_pengembang
         WHERE id_app = '$id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
@@ -104,12 +105,20 @@ $resultInfoSPK = mysqli_query($conn, $sqlDetail);
                           } ?></td>
                     </tr>
                     <tr>
+                      <th>Platform</th>
+                      <td><?= $row['nama_kat_media']; ?></td>
+                    </tr>
+                    <tr>
                       <th>Sifat</th>
                       <td><?= $row['nama_klasifikasi_app']; ?></td>
                     </tr>
                     <tr>
                       <th>Kategori</th>
                       <td><?= $row['kat_aplikasi']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Pengembang</th>
+                      <td><?= $row['unitpengembang']; ?></td>
                     </tr>
                     <tr>
                       <th>Pengelola</th>

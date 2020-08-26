@@ -7,6 +7,7 @@ if (isset($_POST['input'])) {
   $infofungsi       = $_POST['infofungsi'];
   $platform         = $_POST['platform'];
   $alamaturl        = $_POST['alamaturl'];
+  $opdpengembangapp = $_POST['opdpengembangapp'];
   $opdpengelolaaapp = $_POST['opdpengelolaaapp'];
   $opdpenggunaapp   = $_POST['opdpenggunaapp'];
   $status           = $_POST['status'];
@@ -16,8 +17,8 @@ if (isset($_POST['input'])) {
 
   if ($res) {
     if (!empty($judul) && !empty($opdpengelolaaapp) && !empty($opdpenggunaapp)) {
-      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,unit,unit_pengguna,sts_aktif,thn_pembuatan,usr,dlu)
-    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$opdpengelolaaapp','$opdpenggunaapp','$status','$thnbuat','$_SESSION[userid]','$datenow2')";
+      $sql = "INSERT INTO aplikasi (judul,klasifikasi_aplikasi,kategori_aplikasi,infofungsi,media,link,unit_pengembang,unit,unit_pengguna,sts_aktif,thn_pembuatan,usr,dlu)
+    VALUES ('$judul','$klasifikasi','$katapp','$infofungsi','$platform','$alamaturl','$opdpengembangapp','$opdpengelolaaapp','$opdpenggunaapp','$status','$thnbuat','$_SESSION[userid]','$datenow2')";
 
       if (mysqli_query($conn, $sql)) {
         echo '<script type="text/javascript">
@@ -106,22 +107,6 @@ if (isset($_POST['input'])) {
                   <textarea class="form-control" id="infofungsi" name="infofungsi" rows="5" placeholder="Enter Info / Fungsi"></textarea>
                 </div>
               </div>
-              <!-- <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label">Dasar Hukum</label>
-                <div class="col-md-10">
-                  <div class="custom-file"> -->
-              <!-- upload cek footer -->
-              <!-- <input type="file" class="custom-file-input" id="dasarhukum" name="dasarhukum">
-                    <label class="custom-file-label" for="dasarhukum">Choose file</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label"></label>
-                <div class="col-md-10">
-                  Anda dapat mengupload format <b>PDF</b>. Maximum file size <b>5 MB</b>.
-                </div>
-              </div> -->
               <div class="form-group row">
                 <label for="platform" class="col-md-2 col-form-label">Platform</label>
                 <div class="col-md-2">
@@ -138,29 +123,24 @@ if (isset($_POST['input'])) {
               </div>
               <div class="form-group row">
                 <label for="alamaturl" class="col-md-2 col-form-label">Alamat URL</label>
-                <div class="col-md-8">
-                  <input type="text" class="form-control" name="alamaturl" id="alamaturl" placeholder="Enter Alamat URL" autocomplete="off">
-                </div>
-                <div class="col-md-2">
-                  * Khusus Platform Website
-                </div>
-              </div>
-              <!-- <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label">Gambar Icon</label>
                 <div class="col-md-10">
-                  <div class="custom-file"> -->
-              <!-- upload cek footer -->
-              <!-- <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                    <label class="custom-file-label" for="gambar">Choose file</label>
-                  </div>
+                  <input type="text" class="form-control" name="alamaturl" id="alamaturl" placeholder="Enter Alamat URL" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label"></label>
+                <label for="opdpengembangapp" class="col-md-2 col-form-label">Perangkat Daerah Pengembang Aplikasi</label>
                 <div class="col-md-10">
-                  Anda dapat mengupload format <b>JPG, JPEG, PNG</b>. Maximum file size <b>5 MB</b>. <br>Ukuran gambar tampilan terbaik <b>100px X 100px</b>.
+                  <select class="form-control" id="opdpengembangapp" name="opdpengembangapp">
+                    <option>-</option>
+                    <?php
+                    $sqlUnitPengembang = "SELECT * FROM tb_opd WHERE LENGTH(idopd)=6 ORDER BY namaopd ASC";
+                    $resUnitPengembang = mysqli_query($conn, $sqlUnitPengembang);
+                    while ($rowUnitPengembang = mysqli_fetch_assoc($resUnitPengembang)) { ?>
+                      <option value="<?= $rowUnitPengembang['idopd']; ?>"><?= $rowUnitPengembang['namaopd']; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
-              </div> -->
+              </div>
               <div class="form-group row">
                 <label for="opdpengelolaaapp" class="col-md-2 col-form-label">Perangkat Daerah Pengelola Aplikasi</label>
                 <div class="col-md-10">

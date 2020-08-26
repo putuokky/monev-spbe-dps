@@ -15,6 +15,7 @@ if (isset($_POST['update'])) {
   $infofungsi       = $_POST['infofungsi'];
   $platform         = $_POST['platform'];
   $alamaturl        = $_POST['alamaturl'];
+  $opdpengembangapp = $_POST['opdpengembangapp'];
   $opdpengelolaaapp = $_POST['opdpengelolaaapp'];
   $opdpenggunaapp   = $_POST['opdpenggunaapp'];
   $status           = $_POST['status'];
@@ -30,6 +31,7 @@ if (isset($_POST['update'])) {
         infofungsi = '$infofungsi',
         media = '$platform',
         link = '$alamaturl',
+        unit_pengembang = '$opdpengembangapp',
         unit = '$opdpengelolaaapp',
         unit_pengguna = '$opdpenggunaapp',
         sts_aktif = '$status',
@@ -132,22 +134,6 @@ $data = mysqli_fetch_assoc($resUbah);
                   <textarea class="form-control" id="infofungsi" name="infofungsi" rows="5" placeholder="Enter Info / Fungsi"><?= $data['infofungsi']; ?></textarea>
                 </div>
               </div>
-              <!-- <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label">Dasar Hukum</label>
-                <div class="col-md-10">
-                  <div class="custom-file"> -->
-              <!-- upload cek footer -->
-              <!-- <input type="file" class="custom-file-input" id="dasarhukum" name="dasarhukum">
-                    <label class="custom-file-label" for="dasarhukum">Choose file</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label"></label>
-                <div class="col-md-10">
-                  Anda dapat mengupload format <b>PDF</b>. Maximum file size <b>5 MB</b>.
-                </div>
-              </div> -->
               <div class="form-group row">
                 <label for="platform" class="col-md-2 col-form-label">Platform</label>
                 <div class="col-md-2">
@@ -168,29 +154,28 @@ $data = mysqli_fetch_assoc($resUbah);
               </div>
               <div class="form-group row">
                 <label for="alamaturl" class="col-md-2 col-form-label">Alamat URL</label>
-                <div class="col-md-8">
-                  <input type="text" class="form-control" name="alamaturl" id="alamaturl" value="<?= $data['link']; ?>" placeholder="Enter Alamat URL" autocomplete="off">
-                </div>
-                <div class="col-md-2">
-                  * Khusus Platform Website
-                </div>
-              </div>
-              <!-- <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label">Gambar Icon</label>
                 <div class="col-md-10">
-                  <div class="custom-file"> -->
-              <!-- upload cek footer -->
-              <!-- <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                    <label class="custom-file-label" for="gambar">Choose file</label>
-                  </div>
+                  <input type="text" class="form-control" name="alamaturl" id="alamaturl" value="<?= $data['link']; ?>" placeholder="Enter Alamat URL" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="namakatapp" class="col-md-2 col-form-label"></label>
+                <label for="opdpengembangapp" class="col-md-2 col-form-label">Perangkat Daerah Pengembang Aplikasi</label>
                 <div class="col-md-10">
-                  Anda dapat mengupload format <b>JPG, JPEG, PNG</b>. Maximum file size <b>5 MB</b>. <br>Ukuran gambar tampilan terbaik <b>100px X 100px</b>.
+                  <select class="form-control" id="opdpengembangapp" name="opdpengembangapp">
+                    <option>-</option>
+                    <?php
+                    $sqlUnitPengembang = "SELECT * FROM tb_opd WHERE LENGTH(idopd)=6 ORDER BY namaopd ASC";
+                    $resUnitPengembang = mysqli_query($conn, $sqlUnitPengembang);
+                    while ($rowUnitPengembang = mysqli_fetch_assoc($resUnitPengembang)) {
+                      if ($rowUnitPengembang['idopd'] == $data['unit_pengembang']) : ?>
+                        <option value="<?= $rowUnitPengembang['idopd']; ?>" selected><?= $rowUnitPengembang['namaopd']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $rowUnitPengembang['idopd']; ?>"><?= $rowUnitPengembang['namaopd']; ?></option>
+                      <?php endif; ?>
+                    <?php } ?>
+                  </select>
                 </div>
-              </div> -->
+              </div>
               <div class="form-group row">
                 <label for="opdpengelolaaapp" class="col-md-2 col-form-label">Perangkat Daerah Pengelola Aplikasi</label>
                 <div class="col-md-10">
