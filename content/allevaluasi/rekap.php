@@ -97,6 +97,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       LEFT JOIN tb_level g ON g.idlevel = b.penilaianmandiri
                       WHERE e.idopd = $_SESSION[opd]";
                   }
+                  $sql = $sql . " ORDER BY b.tahun_penilaian ASC";
 
                   $result = mysqli_query($conn, $sql);
 
