@@ -165,6 +165,19 @@
             <span>Lapor Permasalahan</span></a>
         </li>
       <?php } ?>
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Data Inbis
+      </div>
+
+      <!-- Nav Item -->
+      <li class="nav-item pb-0" id="sudigi">
+        <a class="nav-link" href="?page=sudigi">
+          <i class="fas fa-fw fa-globe"></i>
+          <span>Start Up Digital</span></a>
+      </li>
 
       <?php
       // grupuser user admin
@@ -185,6 +198,7 @@
         <?php } else { ?>
           <?php include_once "template/menu_master_spbe.php"; ?>
           <?php include_once "template/menu_master_apps.php"; ?>
+          <?php include_once "template/menu_master_inbis.php"; ?>
         <?php } ?>
 
       <?php } else {

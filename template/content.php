@@ -85,4 +85,10 @@ switch ($page) {
   case "katmedia":
     include 'content/katmedia/index.php';
     break;
+  case "sudigi":
+    include 'content/sudigi/index.php';
+    break;
+  case "inbis":
+    include 'content/inbis/index.php';
+    break;
 }

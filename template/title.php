@@ -85,4 +85,10 @@ switch ($page) {
   case "katmedia":
     echo "Kategori Media";
     break;
+  case "sudigi":
+    echo "Start Up Digital";
+    break;
+  case "inbis":
+    echo "Kategori Inbis";
+    break;
 }

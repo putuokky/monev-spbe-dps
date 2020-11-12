@@ -1,9 +1,0 @@
-* table belum dibuat di aplikasi/sistem, yaitu :
-    - table klasifikasi_aplikasi
-    - table tbl_kategori_monev
-    - table respon_tl
-    - table indeks nilai
-    - table domain nilai
-    - table aspek nilai
-    - table kategori lok server
-* fitur manual book di aplikasi (data aplikasi) belum ada
