@@ -6,13 +6,12 @@
         <th>Nama Inkubator Bisnis</th>
         <th>Jumlah Start Up Digital</th>
     </thead>
-    <!-- <tfoot>
-      <tr class="btn-dark">
-        <th>No</th>
-        <th>Nama OPD</th>
-        <th>Jumlah Aplikasi</th>
+    <tfoot>
+      <tr>
+        <th colspan="2" class="text-center">Jumlah Keseluruhan</th>
+        <th><?= $rowStartupDigital['jml_startUp']; ?></th>
       </tr>
-    </tfoot> -->
+    </tfoot>
     <tbody>
       <?php
       $sqlStartUpDigi = "SELECT COUNT(a.id_tenant) as jml_startup, nm_inbis
