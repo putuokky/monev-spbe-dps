@@ -2,12 +2,13 @@
 // query tambah
 if (isset($_POST['input'])) {
   $katinbis = $_POST['katinbis'];
+  $ketinbis = $_POST['ketinbis'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_inbis (nama_inbis)
-      VALUES ('$katinbis')";
+    $sql = "INSERT INTO tb_inbis (nama_inbis,ket_inbis)
+      VALUES ('$katinbis','$ketinbis')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -54,6 +55,12 @@ if (isset($_POST['input'])) {
                 <label for="katinbis" class="col-md-2 col-form-label">Kategori Inbis</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="katinbis" id="katinbis" placeholder="Enter Kategori Inbis" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="ketinbis" class="col-md-2 col-form-label">Keterangan Inbis</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="ketinbis" name="ketinbis" rows="3" placeholder="Enter Keterangan Inbis"></textarea>
                 </div>
               </div>
               <div class="form-group">

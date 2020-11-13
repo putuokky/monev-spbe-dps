@@ -53,12 +53,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>No</th>
                     <th>Action</th>
                     <th>Nama Inbis</th>
+                    <th>Keterangan Inbis</th>
                 </thead>
                 <tfoot>
                   <tr class="btn-dark">
                     <th>No</th>
                     <th>Action</th>
                     <th>Nama Inbis</th>
+                    <th>Keterangan Inbis</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -85,6 +87,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                         </td>
                         <td><?= $row['nama_inbis']; ?></td>
+                        <td><?= $row['ket_inbis']; ?></td>
                       </tr>
                   <?php
                       $no++;

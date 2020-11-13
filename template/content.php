@@ -91,4 +91,7 @@ switch ($page) {
   case "inbis":
     include 'content/inbis/index.php';
     break;
+  case "homeinbis":
+    include 'content/inbis_home/index.php';
+    break;
 }

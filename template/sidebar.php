@@ -22,11 +22,11 @@
             <span>Dashboard SPBE</span></a>
         </li>
       <?php } else if ($_SESSION['grupindeks'] == 2) { ?>
-        <!-- <li class="nav-item" id="dashboardikci">
+        <li class="nav-item" id="dashboardikci">
           <a class="nav-link" href="?page=homeikci">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard IKCI</span></a>
-        </li> -->
+        </li>
       <?php } else if ($_SESSION['grupindeks'] == 3) { ?>
         <li class="nav-item" id="dashboardapp">
           <a class="nav-link" href="?page=homeapp">
@@ -34,37 +34,10 @@
             <span>Dashboard Aplikasi</span></a>
         </li>
       <?php } else if ($_SESSION['grupindeks'] == 4) { ?>
-        <li class="nav-item" id="dashboard">
-          <a class="nav-link" href="?page=home">
+        <li class="nav-item" id="dashboardinbis">
+          <a class="nav-link" href="?page=homeinbis">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard SPBE</span></a>
-        </li>
-        <!-- <li class="nav-item" id="dashboardikci">
-          <a class="nav-link" href="?page=homeikci">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard IKCI</span></a>
-        </li> -->
-      <?php } else if ($_SESSION['grupindeks'] == 5) { ?>
-        <li class="nav-item" id="dashboard">
-          <a class="nav-link" href="?page=home">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard SPBE</span></a>
-        </li>
-        <li class="nav-item" id="dashboardapp">
-          <a class="nav-link" href="?page=homeapp">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard Aplikasi</span></a>
-        </li>
-      <?php } else if ($_SESSION['grupindeks'] == 6) { ?>
-        <!-- <li class="nav-item" id="dashboardikci">
-          <a class="nav-link" href="?page=homeikci">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard IKCI</span></a>
-        </li> -->
-        <li class="nav-item" id="dashboardapp">
-          <a class="nav-link" href="?page=homeapp">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard Aplikasi</span></a>
+            <span>Dashboard Start Up Digital</span></a>
         </li>
       <?php } else { ?>
         <li class="nav-item" id="dashboard">
@@ -82,11 +55,16 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard Aplikasi</span></a>
         </li>
+        <li class="nav-item" id="dashboardinbis">
+          <a class="nav-link" href="?page=homeinbis">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard Start Up Digital</span></a>
+        </li>
       <?php } ?>
 
       <?php
       // SPBE
-      if ($_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 1 || $_SESSION['grupindeks'] == 4 || $_SESSION['grupindeks'] == 5) { ?>
+      if ($_SESSION['grupindeks'] == 0 || $_SESSION['grupindeks'] == 1) { ?>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -175,7 +153,7 @@
       <!-- Nav Item -->
       <li class="nav-item pb-0" id="sudigi">
         <a class="nav-link" href="?page=sudigi">
-          <i class="fas fa-fw fa-globe"></i>
+          <i class="fas fa-fw fa-rocket"></i>
           <span>Start Up Digital</span></a>
       </li>
 
@@ -195,6 +173,8 @@
           <?php include_once "template/menu_master_spbe.php"; ?>
         <?php } else if ($_SESSION['grupindeks'] == 3) { ?>
           <?php include_once "template/menu_master_apps.php"; ?>
+        <?php } else if ($_SESSION['grupindeks'] == 4) { ?>
+          <?php include_once "template/menu_master_inbis.php"; ?>
         <?php } else { ?>
           <?php include_once "template/menu_master_spbe.php"; ?>
           <?php include_once "template/menu_master_apps.php"; ?>

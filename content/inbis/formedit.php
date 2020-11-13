@@ -10,12 +10,14 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 // query edit
 if (isset($_POST['update'])) {
   $katinbis   = $_POST['katinbis'];
+  $ketinbis   = $_POST['ketinbis'];
 
   $res = true;
 
   if ($res) {
     $sql = "UPDATE tb_inbis 
-        SET nama_inbis = '$katinbis'
+        SET nama_inbis = '$katinbis',
+        ket_inbis = '$ketinbis'
         WHERE id_inbis = '$id'";
 
     if (mysqli_query($conn, $sql)) {
@@ -68,6 +70,12 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="katinbis" class="col-md-2 col-form-label">Kategori Inbis</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="katinbis" id="katinbis" placeholder="Enter Kategori Inbis" autocomplete="off" value="<?= $data['nama_inbis']; ?>">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="ketinbis" class="col-md-2 col-form-label">Keterangan Inbis</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" id="ketinbis" name="ketinbis" rows="3" placeholder="Enter Keterangan Inbis"><?= $data['ket_inbis']; ?></textarea>
                 </div>
               </div>
               <div class="form-group">

@@ -91,4 +91,7 @@ switch ($page) {
   case "inbis":
     echo "Kategori Inbis";
     break;
+  case "homeinbis":
+    echo "Dashboard Start Up Digital";
+    break;
 }
