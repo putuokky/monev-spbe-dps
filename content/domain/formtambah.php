@@ -86,17 +86,20 @@ if (isset($_POST['input'])) {
                     <?php
                     if ($_SESSION['grupindeks'] == 1) {
                       $sql = "SELECT * FROM tb_indeks a 
-                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                        WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                      LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+                      WHERE c.id_user_katindex = $_SESSION[grupindeks]";
                       // IKCI
                     } else if ($_SESSION['grupindeks'] == 2) {
                       $sql = "SELECT * FROM tb_indeks a 
-                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                        WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                      LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+                      WHERE c.id_user_katindex = $_SESSION[grupindeks]";
                     } else {
                       $sql = "SELECT * FROM tb_indeks a 
-                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                        GROUP BY a.tahun_indeks";
+                      LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
+                        GROUP BY b.tahun_indeks";
                     }
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) { ?>
