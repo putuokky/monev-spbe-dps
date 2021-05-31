@@ -55,8 +55,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks</th>
                     <th>Nama Domain</th>
                     <th>Bobot (%)</th>
-                    <th>Nilai</th>
-                    <th>Tahun Domain</th>
+                    <!-- <th>Nilai</th>
+                    <th>Tahun Domain</th> -->
                 </thead>
                 <tfoot>
                   <tr>
@@ -65,8 +65,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks</th>
                     <th>Nama Domain</th>
                     <th>Bobot (%)</th>
-                    <th>Nilai</th>
-                    <th>Tahun Domain</th>
+                    <!-- <th>Nilai</th>
+                    <th>Tahun Domain</th> -->
                   </tr>
                 </tfoot>
                 <tbody>
@@ -74,19 +74,25 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   // SPBE
                   if ($_SESSION['grupindeks'] == 1) {
                     $sql = "SELECT * FROM tb_domain a 
-                    LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
+                    LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
                     LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
-                    WHERE a.user_katindex = $_SESSION[grupindeks]";
+                    LEFT JOIN tb_domain_nilai d ON d.domain= a.id_domain
+                    WHERE a.user_katindex = $_SESSION[grupindeks]
+                    GROUP BY a.id_domain";
                     // IKCI
                   } else if ($_SESSION['grupindeks'] == 2) {
                     $sql = "SELECT * FROM tb_domain a 
-                    LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
+                    LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
                     LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
-                    WHERE a.user_katindex = $_SESSION[grupindeks]";
+                    LEFT JOIN tb_domain_nilai d ON d.domain= a.id_domain
+                    WHERE a.user_katindex = $_SESSION[grupindeks]
+                    GROUP BY a.id_domain";
                   } else {
                     $sql = "SELECT * FROM tb_domain a 
-                    LEFT JOIN tb_indeks b ON b.id_indeks = a.id_indeks
-                    LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks";
+                    LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                    LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
+                    LEFT JOIN tb_domain_nilai d ON d.domain= a.id_domain
+                    GROUP BY a.id_domain";
                   }
 
                   $result = mysqli_query($conn, $sql);
@@ -95,10 +101,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $id = $row['iddomain'];
-                      $nilai_indeks_domain = $row['nilai_indeks_domain'];
-                      $namadomain = $row['namadomain'];
-                      $bobot = $row['bobot'];
+                      $id = $row['id_domain'];
+                      $nilai_domain = $row['nilai_domain'];
+                      $nama_domain = $row['nama_domain'];
+                      $bobot_domain = $row['bobot_domain'];
                       $tahun_domain = $row['tahun_domain'];
                       $nama_indeks = $row['nama_indeks'];
                   ?>
@@ -116,10 +122,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
                         </td>
                         <td><?= $nama_indeks; ?></td>
-                        <td><?= $namadomain; ?></td>
-                        <td><?= number_format($bobot, 2, ",", "."); ?></td>
-                        <td><?= number_format($nilai_indeks_domain, 2, ",", "."); ?></td>
-                        <td><?= $tahun_domain; ?></td>
+                        <td><?= $nama_domain; ?></td>
+                        <td><?= number_format($bobot_domain, 2, ",", "."); ?></td>
+                        <!-- <td><?= number_format($nilai_domain, 2, ",", "."); ?></td> -->
+                        <!-- <td><?= $tahun_domain; ?></td> -->
                       </tr>
                   <?php
                       $no++;

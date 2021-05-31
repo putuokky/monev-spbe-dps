@@ -22,9 +22,9 @@ switch ($page) {
   case "grupuser":
     include 'content/grupuser/index.php';
     break;
-    // case "domain":
-    //   include 'content/domain/index.php';
-    //   break;
+  case "domain":
+    include 'content/domain/index.php';
+    break;
     // case "aspek":
     //   include 'content/aspek/index.php';
     //   break;
@@ -46,9 +46,9 @@ switch ($page) {
   case "evaluasi":
     include 'content/evaluasi/index.php';
     break;
-    // case "indeks":
-    //   include 'content/indeks/index.php';
-    //   break;
+  case "indeks":
+    include 'content/indeks/index.php';
+    break;
   case "nilaikematangan":
     include 'content/penilaian/index.php';
     break;

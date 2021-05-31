@@ -69,41 +69,41 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $thn_indeks = $_POST['thn_indeks'];
                     // SPBE
                     if ($_SESSION['grupindeks'] == 1) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
-                            WHERE b.id_user_katindex = $_SESSION[grupindeks] && c.tahun_indeks LIKE '%" . $thn_indeks . "%'";
+                      $sql = "SELECT * FROM tb_indeks_nilai a 
+                      LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks 
+                      WHERE c.id_user_katindex = $_SESSION[grupindeks] && c.tahun_indeks LIKE '%" . $thn_indeks . "%'";
                       // IKCI
                     } else if ($_SESSION['grupindeks'] == 2) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
-                            WHERE b.id_user_katindex = $_SESSION[grupindeks] && c.tahun_indeks LIKE '%" . $thn_indeks . "%'";
+                      $sql = "SELECT * FROM tb_indeks_nilai a 
+                      LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks 
+                      WHERE c.id_user_katindex = $_SESSION[grupindeks] && c.tahun_indeks LIKE '%" . $thn_indeks . "%'";
                     } else {
                       $nama_indeks = $_POST['nama_indeks'];
 
-                      $sql = "SELECT * FROM tb_indeks a 
-                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
+                      $sql = "SELECT * FROM tb_indeks_nilai a 
+                      LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
                             WHERE c.tahun_indeks LIKE '%" . $thn_indeks . "%' || a.id_indeks = $nama_indeks";
                     }
                   } else {
                     // SPBE
                     if ($_SESSION['grupindeks'] == 1) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
-                            WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                      $sql = "SELECT * FROM tb_indeks_nilai a 
+                      LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks 
+                      WHERE c.id_user_katindex = $_SESSION[grupindeks]";
                       // IKCI
                     } else if ($_SESSION['grupindeks'] == 2) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks
-                            WHERE b.id_user_katindex = $_SESSION[grupindeks]";
+                      $sql = "SELECT * FROM tb_indeks_nilai a 
+                      LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks 
+                      WHERE c.id_user_katindex = $_SESSION[grupindeks]";
                     } else {
-                      $sql = "SELECT * FROM tb_indeks a 
-                            LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                            LEFT JOIN tb_indeks_nilai c ON c.indeks = a.id_indeks";
+                      $sql = "SELECT * FROM tb_indeks_nilai a 
+                      LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks";
                     }
                   }
 
@@ -113,7 +113,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $id = $row['id_indeks'];
+                      $id = $row['id_indeks_nilai'];
                       $nama_indeks = $row['nama_indeks'];
                       $nilai_indeks = $row['nilai_indeks'];
                       $tahun_indeks = $row['tahun_indeks'];

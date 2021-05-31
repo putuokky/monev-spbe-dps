@@ -9,23 +9,18 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
-  $namaindeks   = $_POST['namaindeks'];
-  $nilaindeks   = $_POST['nilaindeks'];
-  $nilaindeks   = str_replace(",", ".", $nilaindeks);
-  $tahun        = $_POST['tahun'];
-  $urutanindeks = $_POST['urutanindeks'];
   $katindeks    = $_POST['katindeks'];
+  $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);;
+  $tahun        = $_POST['tahun'];
 
   $res = true;
 
   if ($res) {
-    $sql = "UPDATE tb_indeks 
-        SET nama_indeks = '$namaindeks',
-        tahun_indeks = '$tahun',
-        urutan_indeks = '$urutanindeks',
+    $sql = "UPDATE tb_indeks_nilai 
+        SET indeks = '$katindeks',
         nilai_indeks = '$nilaindeks',
-        user_katindex = '$katindeks'
-        WHERE id_indeks = '$id'";
+        tahun_indeks = '$tahun'
+        WHERE id_indeks_nilai = '$id'";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -35,14 +30,16 @@ if (isset($_POST['update'])) {
     } else {
       echo '<script type="text/javascript">
             alert("Data Indeks Gagal Diedit");
-            window.location.href="t.php?page=indeks&act=ubah&id=$id";
+            window.location.href="t.php?page=domain&act=ubah&id=' . $id . '";
             </script>';
     }
   }
 }
 
 // query menampilkan data dengan id
-$sqlUbah = "SELECT * FROM tb_indeks WHERE id_indeks = '$id'";
+$sqlUbah = "SELECT * FROM tb_indeks_nilai 
+LEFT JOIN tb_indeks ON tb_indeks.id_indeks = tb_indeks_nilai.indeks 
+WHERE id_indeks_nilai = '$id'";
 $resUbah = mysqli_query($conn, $sqlUbah);
 $data = mysqli_fetch_assoc($resUbah);
 
@@ -75,41 +72,6 @@ $data = mysqli_fetch_assoc($resUbah);
           <div>
             <form method="post">
               <div class="form-group row">
-                <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
-                <div class="col-md-10">
-                  <input type="text" class="form-control" name="namaindeks" id="namaindeks" placeholder="Enter Nama Indeks" autocomplete="off" value="<?= $data['nama_indeks']; ?>">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="nilaindeks" class="col-md-2 col-form-label">Nilai Indeks</label>
-                <div class="col-md-10">
-                  <input type="text" class="form-control" name="nilaindeks" id="nilaindeks" placeholder="Enter Nilai Indeks" autocomplete="off" value="<?= number_format($data['nilai_indeks'], 2, ",", "."); ?>">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-10">
-                  <select class="form-control" id="tahun" name="tahun">
-                    <option value="0">-</option>
-                    <?php
-                    $thnnow = date('Y');
-                    for ($i = 2010; $i <= $thnnow; $i++) {
-                      if ($data['tahun_indeks'] == $i) { ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php } else { ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php } ?>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="urutanindeks" class="col-md-2 col-form-label">Urutan</label>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" name="urutanindeks" id="urutanindeks" placeholder="Enter Urutan" autocomplete="off" value="<?= $data['urutan_indeks']; ?>">
-                </div>
-              </div>
-              <div class="form-group row">
                 <label for="katindeks" class="col-md-2 col-form-label">Kategori Indeks</label>
                 <div class="col-md-2">
                   <select class="form-control" id="katindeks" name="katindeks">
@@ -130,6 +92,29 @@ $data = mysqli_fetch_assoc($resUbah);
                         <option value="<?= $rowKatindeks['id_user_katindex']; ?>" selected><?= $rowKatindeks['user_katindex']; ?></option>
                       <?php } else { ?>
                         <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nilaindeks" class="col-md-2 col-form-label">Nilai Indeks</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="nilaindeks" id="nilaindeks" placeholder="Enter Nilai Indeks" autocomplete="off" value="<?= number_format($data['nilai_indeks'], 2, ",", "."); ?>">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="tahun" name="tahun">
+                    <option value="0">-</option>
+                    <?php
+                    $thnnow = date('Y');
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) {
+                      if ($data['tahun_indeks'] == $i) { ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>
