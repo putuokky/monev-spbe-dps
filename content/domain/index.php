@@ -55,8 +55,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks</th>
                     <th>Nama Domain</th>
                     <th>Bobot (%)</th>
-                    <!-- <th>Nilai</th>
-                    <th>Tahun Domain</th> -->
+                    <!-- <th>Nilai</th> -->
+                    <!-- <th>Tahun Domain</th> -->
                 </thead>
                 <tfoot>
                   <tr>
@@ -65,8 +65,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks</th>
                     <th>Nama Domain</th>
                     <th>Bobot (%)</th>
-                    <!-- <th>Nilai</th>
-                    <th>Tahun Domain</th> -->
+                    <!-- <th>Nilai</th> -->
+                    <!-- <th>Tahun Domain</th> -->
                   </tr>
                 </tfoot>
                 <tbody>
@@ -105,7 +105,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                       $nilai_domain = $row['nilai_domain'];
                       $nama_domain = $row['nama_domain'];
                       $bobot_domain = $row['bobot_domain'];
-                      $tahun_domain = $row['tahun_domain'];
+                      $thn_domain = $row['thn_domain'];
                       $nama_indeks = $row['nama_indeks'];
                   ?>
 
@@ -125,7 +125,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $nama_domain; ?></td>
                         <td><?= number_format($bobot_domain, 2, ",", "."); ?></td>
                         <!-- <td><?= number_format($nilai_domain, 2, ",", "."); ?></td> -->
-                        <!-- <td><?= $tahun_domain; ?></td> -->
+                        <!-- <td><?= $thn_domain; ?></td> -->
                       </tr>
                   <?php
                       $no++;

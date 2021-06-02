@@ -6,7 +6,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
   $id = "";
 }
 
-$sql = "DELETE FROM tb_domain WHERE iddomain = $id";
+$sql = "DELETE FROM tb_domain WHERE id_domain = $id";
 
 if (mysqli_query($conn, $sql)) {
   echo '<script type="text/javascript">

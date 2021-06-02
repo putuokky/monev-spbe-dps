@@ -1,19 +1,17 @@
 <?php
 // query tambah
 if (isset($_POST['input'])) {
-  $namaindeks   = $_POST['namaindeks'];
+  $katindeks    = $_POST['katindeks'];
+  $tahun        = $_POST['tahun'];
   $namadomain   = $_POST['namadomain'];
   $bobot        = str_replace(",", ".", $_POST['bobot']);
-  $tahun        = $_POST['tahun'];
-  $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
+  // $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
   $urutandomain = $_POST['urutandomain'];
-  $katindeks    = $_POST['katindeks'];
-
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_domain (id_indeks, nilai_indeks_domain, namadomain, bobot, tahun_domain, urutan_domain,user_katindex)
-      VALUES ('$namaindeks', '$nilaindeks', '$namadomain', '$bobot', '$tahun', '$urutandomain','$katindeks')";
+    $sql = "INSERT INTO tb_domain (indeks, nama_domain, thn_domain, bobot_domain, urutan_domain, user_katindex)
+      VALUES ('$katindeks', '$namadomain', '$tahun', '$bobot', '$urutandomain','$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -23,7 +21,6 @@ if (isset($_POST['input'])) {
     } else {
       echo '<script type="text/javascript">
             alert("Data Domain Gagal Ditambah");
-            window.location.href="t.php?page=domain&act=tambah";
             </script>';
     }
   }
@@ -84,36 +81,9 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    if ($_SESSION['grupindeks'] == 1) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                      LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks 
-                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
-                      WHERE c.id_user_katindex = $_SESSION[grupindeks]";
-                      // IKCI
-                    } else if ($_SESSION['grupindeks'] == 2) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                      LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks 
-                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
-                      WHERE c.id_user_katindex = $_SESSION[grupindeks]";
-                    } else {
-                      $sql = "SELECT * FROM tb_indeks a 
-                      LEFT JOIN tb_indeks_nilai b ON b.indeks = a.id_indeks 
-                      LEFT JOIN tbl_user_katindex c ON c.user_katindex = a.nama_indeks 
-                        GROUP BY b.tahun_indeks";
-                    }
-                    $result = mysqli_query($conn, $sql);
-                    while ($row = mysqli_fetch_assoc($result)) { ?>
-                      <option value="<?= $row['tahun_indeks']; ?>"><?= $row['tahun_indeks']; ?></option>
-                    <?php
-                    } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
-                <div class="col-md-10">
-                  <select class="form-control" id="namaindeks" name="namaindeks" disabled>
-                    <option value="0">-</option>
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) { ?>
+                      <option value="<?= $i; ?>"><?= $i; ?></option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
@@ -129,12 +99,12 @@ if (isset($_POST['input'])) {
                   <input type="text" class="form-control" name="bobot" id="bobot" placeholder="Enter Bobot" autocomplete="off">
                 </div>
               </div>
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <label for="nilaindeks" class="col-md-2 col-form-label">Nilai</label>
                 <div class="col-md-5">
                   <input type="text" class="form-control" name="nilaindeks" id="nilaindeks" placeholder="Enter Nilai Indeks" autocomplete="off">
                 </div>
-              </div>
+              </div> -->
               <div class="form-group row">
                 <label for="urutandomain" class="col-md-2 col-form-label">Urutan</label>
                 <div class="col-md-2">

@@ -9,26 +9,26 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 // query edit
 if (isset($_POST['update'])) {
-  $namaindeks   = $_POST['namaindeks'];
-  $namadomain   = $_POST['namadomain'];
-  $bobot        = str_replace(",", ".", $_POST['bobot']);
-  $tahun        = $_POST['tahun'];
-  $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
-  $urutandomain = $_POST['urutandomain'];
   $katindeks    = $_POST['katindeks'];
+  $tahun        = $_POST['tahun'];
+  $namadomain   = $_POST['namadomain'];
+  $urutandomain = $_POST['urutandomain'];
+  $bobot        = str_replace(",", ".", $_POST['bobot']);
+
+  // $namaindeks   = $_POST['namaindeks'];
+  // $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
 
   $res = true;
 
   if ($res) {
     $sql = "UPDATE tb_domain 
-        SET namadomain = '$namadomain',
-        id_indeks = '$namaindeks',
-        bobot = '$bobot',
-        nilai_indeks_domain = '$nilaindeks',
+        SET indeks = '$katindeks',
+        nama_domain = '$namadomain',
+        thn_domain = '$tahun',
+        bobot_domain = '$bobot',
         urutan_domain = '$urutandomain',
-        user_katindex = '$katindeks',
-        tahun_domain = '$tahun'
-        WHERE iddomain = '$id'";
+        user_katindex = '$katindeks'
+        WHERE id_domain = '$id'";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -38,14 +38,14 @@ if (isset($_POST['update'])) {
     } else {
       echo '<script type="text/javascript">
             alert("Data Domain Gagal Diedit");
-            window.location.href="t.php?page=domain&act=ubah&id=$id";
+            window.location.href="t.php?page=domain&act=ubah&id=' . $id . '";
             </script>';
     }
   }
 }
 
 // query menampilkan data dengan id
-$sqlUbah = "SELECT * FROM tb_domain WHERE iddomain = '$id'";
+$sqlUbah = "SELECT * FROM tb_domain WHERE id_domain = '$id'";
 $resUbah = mysqli_query($conn, $sqlUbah);
 $data = mysqli_fetch_assoc($resUbah);
 
@@ -109,45 +109,12 @@ $data = mysqli_fetch_assoc($resUbah);
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    if ($_SESSION['grupindeks'] == 1) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                        WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                      // IKCI
-                    } else if ($_SESSION['grupindeks'] == 2) {
-                      $sql = "SELECT * FROM tb_indeks a 
-                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                        WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                    } else {
-                      $sql = "SELECT * FROM tb_indeks a 
-                        LEFT JOIN tbl_user_katindex b ON b.user_katindex = a.nama_indeks 
-                        GROUP BY a.tahun_indeks";
-                    }
-                    $result = mysqli_query($conn, $sql);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      if ($data['tahun_domain'] == $row['tahun_indeks']) { ?>
-                        <option value="<?= $row['tahun_indeks']; ?>" selected><?= $row['tahun_indeks']; ?></option>
+                    $thnnow = date('Y');
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) {
+                      if ($data['thn_domain'] == $i) { ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
                       <?php } else { ?>
-                        <option value="<?= $row['tahun_indeks']; ?>"><?= $row['tahun_indeks']; ?></option>
-                      <?php } ?>
-                    <?php
-                    } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="namaindeks" class="col-md-2 col-form-label">Nama Indeks</label>
-                <div class="col-md-10">
-                  <select class="form-control" id="namaindeks" name="namaindeks" disabled>
-                    <option value="0">-</option>
-                    <?php
-                    $sqlIndeks = "SELECT * FROM tb_indeks";
-                    $resIndeks = mysqli_query($conn, $sqlIndeks);
-                    while ($rowIndeks = mysqli_fetch_assoc($resIndeks)) {
-                      if ($rowIndeks['id_indeks'] == $data['id_indeks']) { ?>
-                        <option value="<?= $rowIndeks['id_indeks']; ?>" selected><?= $rowIndeks['nama_indeks']; ?></option>
-                      <?php } else { ?>
-                        <option value="<?= $rowIndeks['id_indeks']; ?>"><?= $rowIndeks['nama_indeks']; ?></option>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>
@@ -156,19 +123,13 @@ $data = mysqli_fetch_assoc($resUbah);
               <div class="form-group row">
                 <label for="namadomain" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="namadomain" id="namadomain" placeholder="Enter Nama Domain" autocomplete="off" value="<?= $data['namadomain']; ?>">
+                  <input type="text" class="form-control" name="namadomain" id="namadomain" placeholder="Enter Nama Domain" autocomplete="off" value="<?= $data['nama_domain']; ?>">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="bobot" class="col-md-2 col-form-label">Bobot (%)</label>
                 <div class="col-md-5">
-                  <input type="text" class="form-control" name="bobot" id="bobot" placeholder="Enter Bobot" autocomplete="off" value="<?= number_format($data['bobot'], 2, ",", "."); ?>">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="nilaindeks" class="col-md-2 col-form-label">Nilai</label>
-                <div class="col-md-5">
-                  <input type="text" class="form-control" name="nilaindeks" id="nilaindeks" placeholder="Enter Nilai Indeks" autocomplete="off" value="<?= number_format($data['nilai_indeks_domain'], 2, ",", "."); ?>">
+                  <input type="text" class="form-control" name="bobot" id="bobot" placeholder="Enter Bobot" autocomplete="off" value="<?= number_format($data['bobot_domain'], 2, ",", "."); ?>">
                 </div>
               </div>
               <div class="form-group row">
