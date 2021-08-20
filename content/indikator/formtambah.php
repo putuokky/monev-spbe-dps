@@ -5,12 +5,13 @@ if (isset($_POST['input'])) {
   $namaindikator          = $_POST['namaindikator'];
   $indikator              = $_POST['indikator'];
   $bobotindikator         = $_POST['bobotindikator'];
+  $tahun                  = $_POST['tahun'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_indikator (idaspek, namaindikator, indikator, bobot_indikator)
-      VALUES ('$namaaspek', '$namaindikator', '$indikator', '$bobotindikator')";
+    $sql = "INSERT INTO tb_indikator (idaspek, namaindikator, indikator, bobot_indikator, tahun_indikator)
+      VALUES ('$namaaspek', '$namaindikator', '$indikator', '$bobotindikator', '$tahun')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -61,21 +62,21 @@ if (isset($_POST['input'])) {
                     <?php
                     if ($_SESSION['grupindeks'] == 1) {
                       $sqlAspek = "SELECT * FROM tb_aspek a 
-                                  LEFT JOIN tb_domain b ON b.iddomain = a.iddomain 
-                                  LEFT JOIN tb_indeks c ON c.id_indeks = b.id_indeks 
+                      LEFT JOIN tb_domain b ON b.id_domain = a.domain 
+                      LEFT JOIN tb_indeks c ON c.id_indeks = b.indeks
                                   WHERE c.id_indeks = $_SESSION[grupindeks]";
                     } else if ($_SESSION['grupindeks'] == 2) {
                       $sqlAspek = "SELECT * FROM tb_aspek a 
-                                LEFT JOIN tb_domain b ON b.iddomain = a.iddomain 
-                                LEFT JOIN tb_indeks c ON c.id_indeks = b.id_indeks 
+                      LEFT JOIN tb_domain b ON b.id_domain = a.domain 
+                      LEFT JOIN tb_indeks c ON c.id_indeks = b.indeks
                                 WHERE c.id_indeks = $_SESSION[grupindeks]";
                     } else {
                       $sqlAspek = "SELECT * FROM tb_aspek";
-                    }                    
-                    $sqlAspek = $sqlAspek. " ORDER BY nama_aspek ASC";
+                    }
+                    $sqlAspek = $sqlAspek . " ORDER BY nama_aspek ASC";
                     $resAspek = mysqli_query($conn, $sqlAspek);
                     while ($rowAspek = mysqli_fetch_assoc($resAspek)) { ?>
-                      <option value="<?= $rowAspek['idaspek']; ?>"><?= $rowAspek['nama_aspek']; ?></option>
+                      <option value="<?= $rowAspek['id_aspek']; ?>"><?= $rowAspek['nama_aspek']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -96,6 +97,18 @@ if (isset($_POST['input'])) {
                 <label for="bobotindikator" class="col-md-2 col-form-label">Bobot (%)</label>
                 <div class="col-md-3">
                   <input type="text" class="form-control" name="bobotindikator" id="bobotindikator" placeholder="Enter Bobot Indikator" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="tahun" name="tahun">
+                    <option value="0">-</option>
+                    <?php
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) { ?>
+                      <option value="<?= $i; ?>"><?= $i; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <div class="form-group">

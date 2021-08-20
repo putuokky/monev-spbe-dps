@@ -11,7 +11,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formjelas.php';
 } else {
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -57,6 +57,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indikator</th>
                     <th>Nama Indikator</th>
                     <th>Bobot (%)</th>
+                    <th>Tahun Indikator</th>
                     <th>Penjelasan Indikator</th>
                 </thead>
                 <tfoot>
@@ -67,31 +68,33 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indikator</th>
                     <th>Nama Indikator</th>
                     <th>Bobot (%)</th>
+                    <th>Tahun Indikator</th>
                     <th>Penjelasan Indikator</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
 
-                    $sql = "SELECT * FROM tb_indikator a 
-                        LEFT JOIN tb_aspek b ON a.idaspek = b.idaspek
-                        LEFT JOIN tb_detail_indikator c ON a.idindikator = c.idindikator_detail";
-                    $result = mysqli_query($conn, $sql);
+                  $sql = "SELECT * FROM tb_indikator a 
+                  LEFT JOIN tb_aspek b ON b.id_aspek = a.idaspek
+                  LEFT JOIN tb_detail_indikator c ON c.idindikator_detail =  a.idindikator";
+                  $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['idindikator'];
-                        $namaindikator = $row['namaindikator'];
-                        $indikator = $row['indikator'];
-                        $penjelasanindikator = $row['penjelasanindikator'];
-                        $bobot_indikator = $row['bobot_indikator'];
-                        $nama_aspek = $row['nama_aspek'];
-                        $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
-                        $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
-                        $penjelasan_indikator_tambahan = $row['penjelasan_indikator_tambahan'];
-                        ?>
+                  if (mysqli_num_rows($result) > 0) {
+                    $no = 1;
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $id = $row['idindikator'];
+                      $namaindikator = $row['namaindikator'];
+                      $indikator = $row['indikator'];
+                      $penjelasanindikator = $row['penjelasanindikator'];
+                      $bobot_indikator = $row['bobot_indikator'];
+                      $nama_aspek = $row['nama_aspek'];
+                      $penjelasan_indikator_list = $row['penjelasan_indikator_list'];
+                      $penjelasan_indikator_level = $row['penjelasan_indikator_level'];
+                      $penjelasan_indikator_tambahan = $row['penjelasan_indikator_tambahan'];
+                      $thn_indikator = $row['tahun_indikator'];
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -113,6 +116,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $indikator; ?></td>
                         <td><?= $namaindikator; ?></td>
                         <td><?= number_format($bobot_indikator, 1, ",", "."); ?></td>
+                        <td><?= $thn_indikator; ?></td>
                         <td>
                           <?php if (empty($penjelasanindikator)) : ?>
                             <a class="btn btn-primary" title="Tambah Penjelasan" href="?page=indikator&act=addjelas&id=<?= $id; ?>"><i class="fas fa-fw fa-plus"></i></a>
@@ -122,11 +126,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         </td>
                       </tr>
                   <?php
-                        $no++;
-                      }
+                      $no++;
                     }
-                    mysqli_close($conn);
-                    ?>
+                  }
+                  mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

@@ -18,7 +18,7 @@ if (isset($_POST['simpanjelas'])) {
 
   if ($res) {
     $sql = "UPDATE tb_indikator 
-        SET penjelasanindikator = '$kode'
+        SET penjelasanindikator = '1'
         WHERE idindikator = '$id'";
 
     $sql2 = "INSERT INTO tb_detail_indikator (idindikator_detail, penjelasan_indikator_list, penjelasan_indikator_level,penjelasan_indikator_tambahan)
@@ -80,8 +80,8 @@ $data = mysqli_fetch_assoc($resUbah);
                     $sqlAspek = "SELECT * FROM tb_aspek ORDER BY nama_aspek ASC";
                     $resAspek = mysqli_query($conn, $sqlAspek);
                     while ($rowAspek = mysqli_fetch_assoc($resAspek)) {
-                      if ($rowAspek['idaspek'] == $data['idaspek']) { ?>
-                        <option value="<?= $rowAspek['idaspek']; ?>" selected><?= $rowAspek['nama_aspek']; ?></option>
+                      if ($rowAspek['id_aspek'] == $data['idaspek']) { ?>
+                        <option value="<?= $rowAspek['id_aspek']; ?>" selected><?= $rowAspek['nama_aspek']; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>

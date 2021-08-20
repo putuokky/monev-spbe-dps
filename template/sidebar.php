@@ -101,11 +101,11 @@
           </li>
 
           <!-- Nav Item -->
-          <li class="nav-item pb-0" id="indikatornilai">
+          <!-- <li class="nav-item pb-0" id="indikatornilai">
             <a class="nav-link" href="?page=nilai-indikator">
               <i class="fas fa-fw fa-clipboard"></i>
               <span>Penilaian Indikator</span></a>
-          </li>
+          </li> -->
 
           <!-- Nav Item -->
           <li class="nav-item pb-0" id="rekaptingkat">
@@ -143,19 +143,17 @@
             <span>Lapor Permasalahan</span></a>
         </li>
       <?php } ?>
-      <hr class="sidebar-divider">
-
+      <!-- <hr class="sidebar-divider"> -->
       <!-- Heading -->
-      <div class="sidebar-heading">
+      <!-- <div class="sidebar-heading">
         Data Inbis
-      </div>
-
+      </div> -->
       <!-- Nav Item -->
-      <li class="nav-item pb-0" id="sudigi">
+      <!-- <li class="nav-item pb-0" id="sudigi">
         <a class="nav-link" href="?page=sudigi">
           <i class="fas fa-fw fa-rocket"></i>
           <span>Start Up Digital</span></a>
-      </li>
+      </li> -->
 
       <?php
       // grupuser user admin
