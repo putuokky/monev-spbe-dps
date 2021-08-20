@@ -7,6 +7,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formtambah.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "detildomain") {
+  include 'detail-domain.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "tambahnilai") {
+  include 'tambah-nilai.php';
 } else {
 
 
@@ -55,8 +59,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks</th>
                     <th>Nama Domain</th>
                     <th>Bobot (%)</th>
-                    <!-- <th>Nilai</th> -->
-                    <!-- <th>Tahun Domain</th> -->
+                    <!-- <th>Nilai</th>
+                    <th>Tahun Domain</th> -->
                 </thead>
                 <tfoot>
                   <tr>
@@ -65,8 +69,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Indeks</th>
                     <th>Nama Domain</th>
                     <th>Bobot (%)</th>
-                    <!-- <th>Nilai</th> -->
-                    <!-- <th>Tahun Domain</th> -->
+                    <!-- <th>Nilai</th>
+                    <th>Tahun Domain</th> -->
                   </tr>
                 </tfoot>
                 <tbody>
@@ -76,9 +80,26 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $sql = "SELECT * FROM tb_domain a 
                     LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
                     LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
-                    LEFT JOIN tb_domain_nilai d ON d.domain= a.id_domain
-                    WHERE a.user_katindex = $_SESSION[grupindeks]
-                    GROUP BY a.id_domain";
+                    WHERE a.user_katindex = $_SESSION[grupindeks]";
+
+                    // $sql = "SELECT * FROM tb_domain a 
+                    // LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                    // LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
+                    // LEFT JOIN tb_domain_nilai d ON d.domain= a.id_domain
+                    // WHERE a.user_katindex = $_SESSION[grupindeks]
+                    // GROUP BY a.id_domain";
+
+                    // $sql = "SELECT * FROM tb_domain a 
+                    // LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                    // LEFT JOIN tbl_user_katindex c ON c.user_katindex = b.nama_indeks
+                    // LEFT JOIN tb_domain_nilai d ON d.domain= a.id_domain
+                    // WHERE a.user_katindex = $_SESSION[grupindeks]";
+
+                    // $sql = "SELECT * FROM tb_domain_nilai a 
+                    // LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks 
+                    // LEFT JOIN tb_domain c ON c.id_domain = a.domain 
+                    // WHERE b.id_indeks = $_SESSION[grupindeks]";
+
                     // IKCI
                   } else if ($_SESSION['grupindeks'] == 2) {
                     $sql = "SELECT * FROM tb_domain a 
@@ -102,10 +123,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                       $id = $row['id_domain'];
-                      $nilai_domain = $row['nilai_domain'];
+                      // $nilai_domain = $row['nilai_domain'];
                       $nama_domain = $row['nama_domain'];
                       $bobot_domain = $row['bobot_domain'];
-                      $thn_domain = $row['thn_domain'];
+                      // $thn_domain = $row['tahun_domain'];
                       $nama_indeks = $row['nama_indeks'];
                   ?>
 
@@ -113,6 +134,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $no; ?></td>
                         <td>
                           <!-- <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
+                          <a class="btn btn-info" title="Detail" href="?page=domain&act=detildomain&id=<?= $id; ?>"><i class="fas fa-fw fa-file"></i></a>
                           <a class="btn btn-warning" title="Edit" href="?page=domain&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
