@@ -100,13 +100,12 @@ $data = mysqli_fetch_assoc($resUbah);
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2015; $i <= $thnnow; $i++) {
-                      if ($data['tahun_penilaian'] == $i) : ?>
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) {
+                      if ($data['tahun_penilaian'] == $i) { ?>
                         <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php else : ?>
+                      <?php } else { ?>
                         <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php endif; ?>
+                      <?php } ?>
                     <?php } ?>
                   </select>
                 </div>
@@ -121,9 +120,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resIndikator = mysqli_query($conn, $sqlIndikator);
                     while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) {
                       if ($data['idindikator'] == $rowIndikator['idindikator']) : ?>
-                        <option value="<?= $rowIndikator['idindikator']; ?>" selected><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                        <option value="<?= $rowIndikator['idindikator']; ?>" selected><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator'] . " (" . $rowIndikator['tahun_indikator'] . ")"; ?></option>
                       <?php else : ?>
-                        <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                        <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator'] . " (" . $rowIndikator['tahun_indikator'] . ")"; ?></option>
                       <?php endif; ?>
                     <?php } ?>
                   </select>
@@ -189,13 +188,12 @@ $data = mysqli_fetch_assoc($resUbah);
                   <select class="form-control" id="targetwkt" name="targetwkt">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2015; $i <= $thnnow + 1; $i++) {
-                      if ($data['target_waktu'] == $i) : ?>
+                    for ($i = $tahun_old; $i <= $thnnow + 1; $i++) {
+                      if ($data['target_waktu'] == $i) { ?>
                         <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php else : ?>
+                      <?php } else { ?>
                         <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php endif; ?>
+                      <?php } ?>
                     <?php } ?>
                   </select>
                 </div>

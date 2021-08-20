@@ -99,9 +99,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resIndikator = mysqli_query($conn, $sqlIndikator);
                     while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) {
                       if ($rowIndikator['idindikator'] == $data['idindikator']) : ?>
-                        <option value="<?= $rowIndikator['idindikator']; ?>" selected><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                        <option value="<?= $rowIndikator['idindikator']; ?>" selected><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator'] . " (" . $rowIndikator['tahun_indikator'] . ")"; ?></option>
                       <?php else : ?>
-                        <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                        <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator'] . " (" . $rowIndikator['tahun_indikator'] . ")"; ?></option>
                       <?php endif; ?>
                     <?php } ?>
                   </select>
@@ -112,19 +112,19 @@ $data = mysqli_fetch_assoc($resUbah);
                 <div class="col-md-10 ">
                   <select class="form-control" id="nama_level" name="nama_level">
                     <option value="0">-</option>
-                      <?php
-                      $sqlLevel = "SELECT * FROM tb_level a 
+                    <?php
+                    $sqlLevel = "SELECT * FROM tb_level a 
                                   LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan 
                                   LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator
                                   WHERE c.idindikator = $data[idindikator]";
-                      $resLevel = mysqli_query($conn, $sqlLevel);
-                      while ($rowLevel = mysqli_fetch_assoc($resLevel)) {
-                        if ($rowLevel['idlevel'] == $data['idlevel']) : ?>
-                          <option value="<?= $rowLevel['idlevel']; ?>" selected><?= $rowLevel['namalevel']; ?></option>
-                        <?php else : ?>
-                          <option value="<?= $rowLevel['idlevel']; ?>"><?= $rowLevel['namalevel']; ?></option>
-                        <?php endif; ?>
-                      <?php } ?>
+                    $resLevel = mysqli_query($conn, $sqlLevel);
+                    while ($rowLevel = mysqli_fetch_assoc($resLevel)) {
+                      if ($rowLevel['idlevel'] == $data['idlevel']) : ?>
+                        <option value="<?= $rowLevel['idlevel']; ?>" selected><?= $rowLevel['namalevel']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $rowLevel['idlevel']; ?>"><?= $rowLevel['namalevel']; ?></option>
+                      <?php endif; ?>
+                    <?php } ?>
                   </select>
                 </div>
               </div>

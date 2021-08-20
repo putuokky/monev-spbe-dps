@@ -60,13 +60,8 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2015; $i <= $thnnow; $i++) {
-                      if ($i == $thnnow) { ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php } else { ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
-                      <?php } ?>
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) { ?>
+                      <option value="<?= $i; ?>"><?= $i; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -80,7 +75,7 @@ if (isset($_POST['input'])) {
                     $sqlIndikator = "SELECT * FROM tb_indikator";
                     $resIndikator = mysqli_query($conn, $sqlIndikator);
                     while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) { ?>
-                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator'] . " (" . $rowIndikator['tahun_indikator'] . ")"; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -90,7 +85,7 @@ if (isset($_POST['input'])) {
                 <div class="col-md-10 ">
                   <select class="form-control" id="nama_level" name="nama_level" disabled>
                     <option value="0">-</option>
-                    
+
                   </select>
                 </div>
               </div>

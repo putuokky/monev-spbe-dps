@@ -70,8 +70,7 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="tahun" name="tahun">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2015; $i <= $thnnow; $i++) { ?>
+                    for ($i = $tahun_old; $i <= $thnnow; $i++) { ?>
                       <option value="<?= $i; ?>"><?= $i; ?></option>
                     <?php } ?>
                   </select>
@@ -86,7 +85,7 @@ if (isset($_POST['input'])) {
                     $sqlIndikator = "SELECT * FROM tb_indikator";
                     $resIndikator = mysqli_query($conn, $sqlIndikator);
                     while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) { ?>
-                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator']; ?></option>
+                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= "Indikator " . $rowIndikator['indikator'] . " : " . $rowIndikator['namaindikator'] . " (" . $rowIndikator['tahun_indikator'] . ")"; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -125,8 +124,7 @@ if (isset($_POST['input'])) {
                   <select class="form-control" id="targetwkt" name="targetwkt">
                     <option value="0">-</option>
                     <?php
-                    $thnnow = date('Y');
-                    for ($i = 2015; $i <= $thnnow + 1; $i++) { ?>
+                    for ($i = $tahun_old; $i <= $thnnow + 1; $i++) { ?>
                       <option value="<?= $i; ?>"><?= $i; ?></option>
                     <?php } ?>
                   </select>
