@@ -55,17 +55,19 @@
           if (isset($_POST['cari'])) {
             $caritahun = $_POST['caritahun'];
             $sqlDomain = "SELECT * FROM tb_domain_nilai a
-                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks
+                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks_nilai
                           LEFT JOIN tb_domain c ON c.id_domain = a.domain
-                          WHERE b.id_indeks = $id && a.tahun_domain LIKE '%$caritahun%'";
+                          LEFT JOIN tb_indeks_nilai d ON d.indeks = b.id_indeks
+                          WHERE b.id_indeks = $id && d.tahun_indeks LIKE '%$caritahun%'";
           } else {
             $sqlDomain = "SELECT * FROM tb_domain_nilai a
-                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks
+                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks_nilai
                           LEFT JOIN tb_domain c ON c.id_domain = a.domain
-                          WHERE b.id_indeks = $id && a.tahun_domain = '$thnkmrn'";
+                          LEFT JOIN tb_indeks_nilai d ON d.indeks = b.id_indeks
+                          WHERE b.id_indeks = $id && d.tahun_indeks = '$thnkmrn'";
           }
 
-          $sqlDomain = $sqlDomain . " ORDER BY c.urutan_domain ASC";
+          // $sqlDomain = $sqlDomain . " ORDER BY c.urutan_domain ASC";
 
           $resDomain = mysqli_query($conn, $sqlDomain);
 
@@ -76,7 +78,7 @@
               $domain = $rowDomain['id_domain'];
               $nilai_domain = $rowDomain['nilai_domain'];
               $namadomain = $rowDomain['nama_domain'];
-              $tahun_domain = $rowDomain['tahun_domain'];
+              // $tahun_domain = $rowDomain['tahun_indeks'];
           ?>
 
               <tr>
