@@ -77,9 +77,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resIndikator = mysqli_query($conn, $sqlIndikator);
                     while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) {
                       if ($rowIndikator['idindikator'] == $data['idindikator']) { ?>
-                        <option value="<?= $rowIndikator['idindikator']; ?>" selected><?= $rowIndikator['namaindikator']; ?></option>
+                        <option value="<?= $rowIndikator['idindikator']; ?>" selected>Indikator <?= $rowIndikator['indikator']; ?> - <?= $rowIndikator['namaindikator']; ?> (<?= $rowIndikator['tahun_indikator']; ?>)</option>
                       <?php } else { ?>
-                        <option value="<?= $rowIndikator['idindikator']; ?>"><?= $rowIndikator['namaindikator']; ?></option>
+                        <option value="<?= $rowIndikator['idindikator']; ?>">Indikator <?= $rowIndikator['indikator']; ?> - <?= $rowIndikator['namaindikator']; ?> (<?= $rowIndikator['tahun_indikator']; ?>)</option>
                       <?php } ?>
                     <?php } ?>
                   </select>

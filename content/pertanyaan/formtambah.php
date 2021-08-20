@@ -60,7 +60,7 @@ if (isset($_POST['input'])) {
                     $sqlIndikator = "SELECT * FROM tb_indikator";
                     $resIndikator = mysqli_query($conn, $sqlIndikator);
                     while ($rowIndikator = mysqli_fetch_assoc($resIndikator)) { ?>
-                      <option value="<?= $rowIndikator['idindikator']; ?>"><?= $rowIndikator['namaindikator']; ?></option>
+                      <option value="<?= $rowIndikator['idindikator']; ?>">Indikator <?= $rowIndikator['indikator']; ?> - <?= $rowIndikator['namaindikator']; ?> (<?= $rowIndikator['tahun_indikator']; ?>)</option>
                     <?php } ?>
                   </select>
                 </div>
