@@ -109,9 +109,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resDomain = mysqli_query($conn, $sqlDomain);
                     while ($rowDomain = mysqli_fetch_assoc($resDomain)) {
                       if ($rowDomain['id_domain'] == $data['domain']) { ?>
-                        <option value="<?= $rowDomain['id_domain']; ?>" selected><?= $rowDomain['nama_domain']; ?></option>
+                        <option value="<?= $rowDomain['id_domain']; ?>" selected><?= "Domain " . $rowDomain['urutan_domain'] . " - " . $rowDomain['nama_domain']; ?></option>
                       <?php } else { ?>
-                        <option value="<?= $rowDomain['id_domain']; ?>"><?= $rowDomain['nama_domain']; ?></option>
+                        <option value="<?= $rowDomain['id_domain']; ?>"><?= "Domain " . $rowDomain['urutan_domain'] . " - " . $rowDomain['nama_domain']; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>
