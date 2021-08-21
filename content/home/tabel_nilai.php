@@ -38,7 +38,7 @@
             // $no = 1;
             // output data of each row
             while ($row = mysqli_fetch_assoc($result)) {
-              $id = $row['id_indeks'];
+              $id = $row['id_indeks_nilai'];
               $nama_indeks = $row['nama_indeks'];
               $nilai_indeks = $row['nilai_indeks'];
           ?>
@@ -55,16 +55,14 @@
           if (isset($_POST['cari'])) {
             $caritahun = $_POST['caritahun'];
             $sqlDomain = "SELECT * FROM tb_domain_nilai a
-                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks_nilai
-                          LEFT JOIN tb_domain c ON c.id_domain = a.domain
-                          LEFT JOIN tb_indeks_nilai d ON d.indeks = b.id_indeks
-                          WHERE b.id_indeks = $id && d.tahun_indeks LIKE '%$caritahun%'";
+                          JOIN tb_indeks_nilai b ON b.id_indeks_nilai = a.indeks_nilai
+                          JOIN tb_domain c ON c.id_domain = a.domain
+                          WHERE a.indeks_nilai = $id && b.tahun_indeks LIKE '%$caritahun%'";
           } else {
             $sqlDomain = "SELECT * FROM tb_domain_nilai a
-                          LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks_nilai
-                          LEFT JOIN tb_domain c ON c.id_domain = a.domain
-                          LEFT JOIN tb_indeks_nilai d ON d.indeks = b.id_indeks
-                          WHERE b.id_indeks = $id && d.tahun_indeks = '$thnkmrn'";
+                          JOIN tb_indeks_nilai b ON b.id_indeks_nilai = a.indeks_nilai
+                          JOIN tb_domain c ON c.id_domain = a.domain
+                          WHERE a.indeks_nilai = $id && b.tahun_indeks = '$thnkmrn'";
           }
 
           // $sqlDomain = $sqlDomain . " ORDER BY c.urutan_domain ASC";
