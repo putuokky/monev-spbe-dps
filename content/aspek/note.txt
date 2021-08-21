@@ -1,2 +1,3 @@
 - form ubah untuk nilai aspek
 - delete untuk nilai aspek
+- form tambah aspek untuk kolom domain belum sesuai keinginan seperti 'domain 1 - namadomain', sekarang masih dgn tampilakan 'namadomain'

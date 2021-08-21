@@ -9,7 +9,6 @@
             <select class="form-control" id="caritahun" name="caritahun" required>
               <option value="">Pilih Tahun</option>
               <?php
-              $thnskrg = date('Y');
 
               if ($_SESSION['grupindeks'] == 1) {
                 $sql = "SELECT * FROM tb_indeks a 
@@ -32,12 +31,12 @@
               $sql = $sql . " ORDER BY c.tahun_indeks ASC";
               $result = mysqli_query($conn, $sql);
 
-              $row = mysqli_fetch_assoc($result);
-              $thnindeks = $row['tahun_indeks'];
-
-              for ($i = $thnindeks; $i < $thnskrg; $i++) { ?>
-                <option value="<?= $i; ?>"><?= $i; ?></option>
-              <?php
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $thnindeks = $row['tahun_indeks'];
+              ?>
+                  <option value="<?= $thnindeks; ?>"><?= $thnindeks; ?></option>
+              <?php }
               } ?>
             </select>
           </div>
