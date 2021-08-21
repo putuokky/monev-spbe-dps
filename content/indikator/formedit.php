@@ -109,9 +109,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resAspek = mysqli_query($conn, $sqlAspek);
                     while ($rowAspek = mysqli_fetch_assoc($resAspek)) {
                       if ($rowAspek['id_aspek'] == $data['idaspek']) { ?>
-                        <option value="<?= $rowAspek['id_aspek']; ?>" selected><?= $rowAspek['nama_aspek']; ?></option>
+                        <option value="<?= $rowAspek['id_aspek']; ?>" selected>Aspek <?= $rowAspek['urutan_aspek'] . " - " . $rowAspek['nama_aspek']; ?></option>
                       <?php } else { ?>
-                        <option value="<?= $rowAspek['id_aspek']; ?>"><?= $rowAspek['nama_aspek']; ?></option>
+                        <option value="<?= $rowAspek['id_aspek']; ?>">Aspek <?= $rowAspek['urutan_aspek'] . " - " . $rowAspek['nama_aspek']; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>

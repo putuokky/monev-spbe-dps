@@ -73,10 +73,10 @@ if (isset($_POST['input'])) {
                     } else {
                       $sqlAspek = "SELECT * FROM tb_aspek";
                     }
-                    $sqlAspek = $sqlAspek . " ORDER BY nama_aspek ASC";
+                    $sqlAspek = $sqlAspek . " ORDER BY id_aspek ASC";
                     $resAspek = mysqli_query($conn, $sqlAspek);
                     while ($rowAspek = mysqli_fetch_assoc($resAspek)) { ?>
-                      <option value="<?= $rowAspek['id_aspek']; ?>"><?= $rowAspek['nama_aspek']; ?></option>
+                      <option value="<?= $rowAspek['id_aspek']; ?>">Aspek <?= $rowAspek['urutan_aspek'] . " - " . $rowAspek['nama_aspek']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
