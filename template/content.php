@@ -28,9 +28,9 @@ switch ($page) {
   case "domain":
     include 'content/domain/index.php';
     break;
-    // case "aspek":
-    //   include 'content/aspek/index.php';
-    //   break;
+  case "aspek":
+    include 'content/aspek/index.php';
+    break;
   case "indikator":
     include 'content/indikator/index.php';
     break;
