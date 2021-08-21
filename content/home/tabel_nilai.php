@@ -78,7 +78,6 @@
               $domain = $rowDomain['id_domain'];
               $nilai_domain = $rowDomain['nilai_domain'];
               $namadomain = $rowDomain['nama_domain'];
-              // $tahun_domain = $rowDomain['tahun_indeks'];
           ?>
 
               <tr>
@@ -90,14 +89,16 @@
               if (isset($_POST['cari'])) {
                 $caritahun = $_POST['caritahun'];
                 $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
-                            LEFT JOIN tb_domain b ON b.id_domain = a.domain
-                            LEFT JOIN tb_aspek c ON c.id_aspek = a.aspek
-                            WHERE a.domain = $domain && a.tahun_aspek LIKE '%$caritahun%'";
+                            JOIN tb_domain b ON b.id_domain = a.domain
+                            JOIN tb_aspek c ON c.id_aspek = a.aspek
+                            JOIN tb_indeks_nilai d ON d.id_indeks_nilai = a.indeks_nilai
+                            WHERE a.domain = $domain && d.tahun_indeks LIKE '%$caritahun%'";
               } else {
                 $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
-                            LEFT JOIN tb_domain b ON b.id_domain = a.domain
-                            LEFT JOIN tb_aspek c ON c.id_aspek = a.aspek
-                            WHERE a.domain = $domain && a.tahun_aspek = '$thnkmrn'";
+                            JOIN tb_domain b ON b.id_domain = a.domain
+                            JOIN tb_aspek c ON c.id_aspek = a.aspek
+                            JOIN tb_indeks_nilai d ON d.id_indeks_nilai = a.indeks_nilai
+                            WHERE a.domain = $domain && d.tahun_indeks = '$thnkmrn'";
               }
 
               $sqlAspek = $sqlAspek . " ORDER BY c.urutan_aspek ASC";
@@ -107,7 +108,6 @@
                 while ($rowAspek = mysqli_fetch_assoc($resAspek)) {
                   $nilai_aspek = $rowAspek['nilai_aspek'];
                   $nama_aspek = $rowAspek['nama_aspek'];
-                  $tahun_aspek = $rowAspek['tahun_aspek'];
               ?>
 
                   <tr>

@@ -16,25 +16,25 @@
     if (isset($_POST['cari'])) {
       $caritahun = $_POST['caritahun'];
       $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
-                  JOIN tb_domain_nilai b ON b.id_domain_nilai = a.domain 
-                  JOIN tb_indeks_nilai c ON c.id_indeks_nilai = b.indeks_nilai
-                  JOIN tb_indeks d ON d.id_indeks = c.indeks
-                  JOIN tb_aspek e ON e.id_aspek = a.aspek
-                  WHERE a.tahun_aspek LIKE '%$caritahun%' && d.nama_indeks = '" . $indeks . "'";
+                  JOIN tb_domain_nilai b ON b.id_domain_nilai = a.domain
+                  JOIN tb_indeks_nilai c ON c.id_indeks_nilai = a.indeks_nilai
+                  JOIN tb_indeks d ON d.id_indeks = c.indeks 
+                  JOIN tb_aspek e ON e.id_aspek = a.aspek 
+                  WHERE c.tahun_indeks LIKE '%$caritahun%' && d.nama_indeks = '" . $indeks . "'";
     } else {
       $sqlAspek = "SELECT * FROM tb_aspek_nilai a 
-                  JOIN tb_domain_nilai b ON b.id_domain_nilai = a.domain 
-                  JOIN tb_indeks_nilai c ON c.id_indeks_nilai = b.indeks_nilai
-                  JOIN tb_indeks d ON d.id_indeks = c.indeks
-                  JOIN tb_aspek e ON e.id_aspek = a.aspek
-                  WHERE a.tahun_aspek = $thnkmrn && d.nama_indeks = '" . $indeks . "'";
+                  JOIN tb_domain_nilai b ON b.id_domain_nilai = a.domain
+                  JOIN tb_indeks_nilai c ON c.id_indeks_nilai = a.indeks_nilai
+                  JOIN tb_indeks d ON d.id_indeks = c.indeks 
+                  JOIN tb_aspek e ON e.id_aspek = a.aspek 
+                  WHERE c.tahun_indeks = $thnkmrn && d.nama_indeks = '" . $indeks . "'";
     }
     $resultAspek = mysqli_query($conn, $sqlAspek);
     while ($rowAspek = mysqli_fetch_assoc($resultAspek)) {
       $nama_aspek[] = '"' . $rowAspek['nama_aspek'] . '"';
       $target_aspek[] = $rowAspek['target_aspek'];
       $nilai_aspek[] = $rowAspek['nilai_aspek'];
-      $tahun_aspek = $rowAspek['tahun_aspek'];
+      $tahun_indeks = $rowAspek['tahun_indeks'];
     }
 
     ?>
@@ -52,7 +52,7 @@
         },
 
         title: {
-          text: 'Nilai Indeks Aspek SPBE <?= $tahun_aspek; ?>',
+          text: 'Nilai Indeks Aspek SPBE <?= $tahun_indeks; ?>',
           x: 0
         },
 
