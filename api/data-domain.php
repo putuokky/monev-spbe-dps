@@ -3,7 +3,7 @@ include '../config/config.php';
 
 $id = $_GET['id'];
 
-$sql = "SELECT * FROM tb_domain WHERE tahun_domain LIKE '%$id%'";
+$sql = "SELECT * FROM tb_domain WHERE indeks LIKE '%$id%'";
 
 $result = mysqli_query($conn, $sql);
 

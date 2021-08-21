@@ -1,1 +1,2 @@
-- rusak
+- form ubah untuk nilai aspek
+- delete untuk nilai aspek

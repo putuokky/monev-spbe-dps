@@ -16,7 +16,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 <!-- agar menu sidebar saat di klik active -->
 <script type="text/javascript">
-  document.getElementById('domain').classList.add('active');
+  document.getElementById('aspek').classList.add('active');
 </script>
 
 <!-- isi konten -->
@@ -38,10 +38,10 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
           <h6 class="m-0 font-weight-bold text-primary">Data Nilai <?php include 'template/title.php'; ?></h6>
         </div>
         <div class="card-body">
-          <a class="btn btn-dark btn-icon-split mb-3" title="Kembali" href="?page=domain">
+          <a class="btn btn-dark btn-icon-split mb-3" title="Kembali" href="?page=aspek">
             <span class="text">Kembali</span>
           </a>
-          <a class="btn btn-primary btn-icon-split h3 mb-3" title="Tambah" href="?page=domain&act=tambahnilai&id=<?= $id; ?>">
+          <a class="btn btn-primary btn-icon-split h3 mb-3" title="Tambah" href="?page=aspek&act=tambahnilai&id=<?= $id; ?>">
             <span class="icon">
               <i class="fas fa-fw fa-plus"></i>
             </span>
@@ -54,31 +54,34 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
                   <th>No</th>
                   <th>Action</th>
                   <th>Indeks</th>
-                  <th>Nama Domain</th>
-                  <th>Bobot (%)</th>
-                  <th>Nilai</th>
-                  <th>Tahun Domain</th>
+                  <th>Domain</th>
+                  <th>Nama Aspek</th>
+                  <th>Bobot Aspek (%)</th>
+                  <th>Nilai Aspek</th>
+                  <th>Tahun Aspek</th>
               </thead>
               <tfoot>
                 <tr>
                   <th>No</th>
                   <th>Action</th>
                   <th>Indeks</th>
-                  <th>Nama Domain</th>
-                  <th>Bobot (%)</th>
-                  <th>Nilai</th>
-                  <th>Tahun Domain</th>
+                  <th>Domain</th>
+                  <th>Nama Aspek</th>
+                  <th>Bobot Aspek (%)</th>
+                  <th>Nilai Aspek</th>
+                  <th>Tahun Aspek</th>
                 </tr>
               </tfoot>
               <tbody>
                 <?php
                 // SPBE
                 if ($_SESSION['grupindeks'] == 1) {
-                  $sql = "SELECT * FROM tb_domain_nilai a 
-                  LEFT JOIN tb_domain b ON b.id_domain = a.domain
-                  LEFT JOIN tb_indeks c ON c.id_indeks = b.indeks
-                  LEFT JOIN tb_indeks_nilai d ON d.id_indeks_nilai = a.indeks_nilai
-                  WHERE a.domain = $id";
+                  $sql = "SELECT * FROM tb_aspek_nilai a 
+                  LEFT JOIN tb_aspek b ON b.id_aspek = a.aspek
+                  LEFT JOIN tb_domain c ON c.id_domain = a.domain
+                  LEFT JOIN tb_indeks d ON d.id_indeks = c.indeks
+                  LEFT JOIN tb_indeks_nilai e ON e.id_indeks_nilai = a.indeks_nilai
+                  WHERE a.aspek = $id";
 
                   // IKCI
                   // } else if ($_SESSION['grupindeks'] == 2) {
@@ -102,12 +105,13 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $id = $row['id_domain_nilai'];
-                      $nilai_domain = $row['nilai_domain'];
+                      $id = $row['id_aspek_nilai'];
+                      $indeks = $row['nama_indeks'];
+                      $nilai_aspek = $row['nilai_aspek'];
                       $nama_domain = $row['nama_domain'];
-                      $bobot_domain = $row['bobot_domain'];
-                      $thn_domain = $row['tahun_indeks'];
-                      $nama_indeks = $row['nama_indeks'];
+                      $bobot_aspek = $row['bobot_aspek'];
+                      $tahun_indeks = $row['tahun_indeks'];
+                      $nama_aspek = $row['nama_aspek'];
                 ?>
 
                       <tr>
@@ -121,11 +125,12 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
                           <!-- Modal Hapus -->
 
                         </td>
-                        <td><?= $nama_indeks; ?></td>
+                        <td><?= $indeks; ?></td>
                         <td><?= $nama_domain; ?></td>
-                        <td><?= number_format($bobot_domain, 2, ",", "."); ?></td>
-                        <td><?= number_format($nilai_domain, 2, ",", "."); ?></td>
-                        <td><?= $thn_domain; ?></td>
+                        <td><?= $nama_aspek; ?></td>
+                        <td><?= number_format($bobot_aspek, 2, ",", "."); ?></td>
+                        <td><?= number_format($nilai_aspek, 2, ",", "."); ?></td>
+                        <td><?= $tahun_indeks; ?></td>
                       </tr>
                   <?php
                       $no++;

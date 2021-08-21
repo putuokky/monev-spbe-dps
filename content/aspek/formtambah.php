@@ -4,17 +4,15 @@ if (isset($_POST['input'])) {
   $namadomainforaspek   = $_POST['namadomainforaspek'];
   $namaaspek            = $_POST['namaaspek'];
   $bobot                = str_replace(",", ".", $_POST['bobot']);
-  $target               = $_POST['target'];
-  $tahunaspek           = $_POST['tahunaspek'];
-  $nilaindeks           = str_replace(",", ".", $_POST['nilaindeks']);
+  $targetaspek          = $_POST['targetaspek'];
   $urutanaspek          = $_POST['urutanaspek'];
   $katindeks            = $_POST['katindeks'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_aspek (nilai_indeks_aspek, iddomain, nama_aspek, bobot_aspek, target, tahun_aspek, urutan_aspek, user_katindex)
-      VALUES ('$nilaindeks', '$namadomainforaspek', '$namaaspek', '$bobot', '$target', '$tahunaspek', '$urutanaspek', '$katindeks')";
+    $sql = "INSERT INTO tb_aspek (domain, nama_aspek, bobot_aspek, target_aspek, urutan_aspek, user_katindex)
+      VALUES ('$namadomainforaspek', '$namaaspek', '$bobot', '$targetaspek', '$urutanaspek', '$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -80,34 +78,6 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="tahunaspek" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-2">
-                  <select class="form-control" id="tahunaspek" name="tahunaspek">
-                    <option value="0">-</option>
-                    <?php
-                    if ($_SESSION['grupindeks'] == 1) {
-                      $sqlThnDomain = "SELECT * FROM tb_domain a 
-                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
-                          WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                    } else if ($_SESSION['grupindeks'] == 2) {
-                      $sqlThnDomain = "SELECT * FROM tb_domain a 
-                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex
-                          WHERE b.id_user_katindex = $_SESSION[grupindeks]";
-                    } else {
-                      $sqlThnDomain = "SELECT * FROM tb_domain a 
-                          LEFT JOIN tbl_user_katindex b ON b.id_user_katindex = a.user_katindex";
-                    }
-
-                    $sqlThnDomain = $sqlThnDomain . " GROUP BY a.tahun_domain";
-
-                    $resThnDomain = mysqli_query($conn, $sqlThnDomain);
-                    while ($rowThnDomain = mysqli_fetch_assoc($resThnDomain)) { ?>
-                      <option value="<?= $rowThnDomain['tahun_domain']; ?>"><?= $rowThnDomain['tahun_domain']; ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
                 <label for="namadomainforaspek" class="col-md-2 col-form-label">Nama Domain</label>
                 <div class="col-md-10">
                   <select class="form-control" id="namadomainforaspek" name="namadomainforaspek" disabled>
@@ -128,15 +98,9 @@ if (isset($_POST['input'])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label for="target" class="col-md-2 col-form-label">Target</label>
+                <label for="targetaspek" class="col-md-2 col-form-label">Target Aspek</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="target" id="target" placeholder="Enter Target" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="nilaindeks" class="col-md-2 col-form-label">Nilai</label>
-                <div class="col-md-10">
-                  <input type="text" class="form-control" name="nilaindeks" id="nilaindeks" placeholder="Enter Nilai Indeks" autocomplete="off">
+                  <input type="text" class="form-control" name="targetaspek" id="targetaspek" placeholder="Enter Target Aspek" autocomplete="off">
                 </div>
               </div>
               <div class="form-group row">

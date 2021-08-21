@@ -6,7 +6,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
   $id = "";
 }
 
-$sql = "DELETE FROM tb_aspek WHERE idaspek = $id";
+$sql = "DELETE FROM tb_aspek WHERE id_aspek = $id";
 
 if (mysqli_query($conn, $sql)) {
   echo '<script type="text/javascript">

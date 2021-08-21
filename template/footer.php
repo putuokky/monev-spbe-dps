@@ -297,8 +297,8 @@
 </script>
 
 <script>
-  $('select[id="tahunaspek"]').on('change', function() {
-    var id = $('#tahunaspek').val();
+  $('select[id="katindeks"]').on('change', function() {
+    var id = $('#katindeks').val();
     if (id == '') {
       id = '0';
     }
@@ -314,7 +314,7 @@
           $('select[id="namadomainforaspek"]').empty();
           $('select[id="namadomainforaspek"]').append('<option value="-">-</option>');
           $.each(JSON.parse(result), function(i, val) {
-            $('#namadomainforaspek').append($('<option></option>').attr('value', val.iddomain).text(val.namadomain));
+            $('#namadomainforaspek').append($('<option></option>').attr('value', val.id_domain).text(val.nama_domain));
           });
 
           $("#namadomainforaspek").prop('disabled', false);

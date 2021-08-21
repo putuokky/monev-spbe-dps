@@ -7,10 +7,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formtambah.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "ubah") {
   include 'formedit.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "detilaspek") {
+  include 'detail-aspek.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "tambahnilai") {
+  include 'tambah-nilai.php';
 } else {
 
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -56,8 +60,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Nama Aspek</th>
                     <th>Bobot (%)</th>
                     <th>Target</th>
-                    <th>Nilai</th>
-                    <th>Tahun Aspek</th>
+                    <!-- <th>Nilai</th>
+                    <th>Tahun Aspek</th> -->
                 </thead>
                 <tfoot>
                   <tr>
@@ -67,8 +71,8 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Nama Aspek</th>
                     <th>Bobot (%)</th>
                     <th>Target</th>
-                    <th>Nilai</th>
-                    <th>Tahun Aspek</th>
+                    <!-- <th>Nilai</th>
+                    <th>Tahun Aspek</th> -->
                   </tr>
                 </tfoot>
                 <tbody>
@@ -76,18 +80,18 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                   // SPBE
                   if ($_SESSION['grupindeks'] == 1) {
                     $sql = "SELECT * FROM tb_aspek a 
-                          LEFT JOIN tb_domain b ON a.iddomain = b.iddomain 
-                          WHERE b.id_indeks = $_SESSION[grupindeks]";
+                          LEFT JOIN tb_domain b ON b.id_domain = a.domain
+                          WHERE b.indeks = $_SESSION[grupindeks]";
                     $result = mysqli_query($conn, $sql);
-                  // IKCI
-                  } else if($_SESSION['grupindeks'] == 2) {
+                    // IKCI
+                  } else if ($_SESSION['grupindeks'] == 2) {
                     $sql = "SELECT * FROM tb_aspek a 
-                          LEFT JOIN tb_domain b ON a.iddomain = b.iddomain 
-                          WHERE b.id_indeks = $_SESSION[grupindeks]";
+                          LEFT JOIN tb_domain b ON b.id_domain = a.domain
+                          WHERE b.indeks = $_SESSION[grupindeks]";
                     $result = mysqli_query($conn, $sql);
                   } else {
                     $sql = "SELECT * FROM tb_aspek a 
-                          LEFT JOIN tb_domain b ON a.iddomain = b.iddomain";
+                    LEFT JOIN tb_domain b ON b.id_domain = a.domain";
                     $result = mysqli_query($conn, $sql);
                   }
 
@@ -95,19 +99,20 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     $no = 1;
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                      $id = $row['idaspek'];
-                      $nilai_indeks_aspek = $row['nilai_indeks_aspek'];
+                      $id = $row['id_aspek'];
+                      // $nilai_indeks_aspek = $row['nilai_indeks_aspek'];
                       $nama_aspek = $row['nama_aspek'];
                       $bobot_aspek = $row['bobot_aspek'];
-                      $target = $row['target'];
-                      $tahun_aspek = $row['tahun_aspek'];
-                      $namadomain = $row['namadomain'];
-                      ?>
+                      $target_aspek = $row['target_aspek'];
+                      // $tahun_aspek = $row['tahun_aspek'];
+                      $namadomain = $row['nama_domain'];
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
                         <td>
                           <!-- <button type="button" class="btn btn-dark" title="Detail" data-toggle="modal" data-target="#modalDetail-<?= $id; ?>"><i class="fas fa-fw fa-file"></i></button> -->
+                          <a class="btn btn-info" title="Nilai" href="?page=aspek&act=detilaspek&id=<?= $id; ?>"><i class="fas fa-fw fa-file"></i></a>
                           <a class="btn btn-warning" title="Edit" href="?page=aspek&act=ubah&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
                           <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
@@ -119,11 +124,11 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $namadomain; ?></td>
                         <td><?= $nama_aspek; ?></td>
                         <td><?= number_format($bobot_aspek, 2, ",", "."); ?></td>
-                        <td><?= $target; ?></td>
-                        <td><?= number_format($nilai_indeks_aspek, 2, ",", "."); ?></td>
-                        <td><?= $tahun_aspek; ?></td>
+                        <td><?= $target_aspek; ?></td>
+                        <!-- <td><?= number_format($nilai_indeks_aspek, 2, ",", "."); ?></td>
+                        <td><?= $tahun_aspek; ?></td> -->
                       </tr>
-                      <?php
+                  <?php
                       $no++;
                     }
                   }

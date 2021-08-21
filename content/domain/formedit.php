@@ -10,13 +10,9 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 // query edit
 if (isset($_POST['update'])) {
   $katindeks    = $_POST['katindeks'];
-  $tahun        = $_POST['tahun'];
   $namadomain   = $_POST['namadomain'];
   $urutandomain = $_POST['urutandomain'];
   $bobot        = str_replace(",", ".", $_POST['bobot']);
-
-  // $namaindeks   = $_POST['namaindeks'];
-  // $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
 
   $res = true;
 
@@ -24,7 +20,6 @@ if (isset($_POST['update'])) {
     $sql = "UPDATE tb_domain 
         SET indeks = '$katindeks',
         nama_domain = '$namadomain',
-        thn_domain = '$tahun',
         bobot_domain = '$bobot',
         urutan_domain = '$urutandomain',
         user_katindex = '$katindeks'
@@ -98,23 +93,6 @@ $data = mysqli_fetch_assoc($resUbah);
                         <option value="<?= $rowKatindeks['id_user_katindex']; ?>" selected><?= $rowKatindeks['user_katindex']; ?></option>
                       <?php } else { ?>
                         <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
-                      <?php } ?>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-2">
-                  <select class="form-control" id="tahun" name="tahun">
-                    <option value="0">-</option>
-                    <?php
-                    $thnnow = date('Y');
-                    for ($i = $tahun_old; $i <= $thnnow; $i++) {
-                      if ($data['thn_domain'] == $i) { ?>
-                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
-                      <?php } else { ?>
-                        <option value="<?= $i; ?>"><?= $i; ?></option>
                       <?php } ?>
                     <?php } ?>
                   </select>

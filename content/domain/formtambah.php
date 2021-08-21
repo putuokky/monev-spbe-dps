@@ -2,16 +2,14 @@
 // query tambah
 if (isset($_POST['input'])) {
   $katindeks    = $_POST['katindeks'];
-  $tahun        = $_POST['tahun'];
   $namadomain   = $_POST['namadomain'];
   $bobot        = str_replace(",", ".", $_POST['bobot']);
-  // $nilaindeks   = str_replace(",", ".", $_POST['nilaindeks']);
   $urutandomain = $_POST['urutandomain'];
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_domain (indeks, nama_domain, thn_domain, bobot_domain, urutan_domain, user_katindex)
-      VALUES ('$katindeks', '$namadomain', '$tahun', '$bobot', '$urutandomain','$katindeks')";
+    $sql = "INSERT INTO tb_domain (indeks, nama_domain, bobot_domain, urutan_domain, user_katindex)
+      VALUES ('$katindeks', '$namadomain', '$bobot', '$urutandomain','$katindeks')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -71,18 +69,6 @@ if (isset($_POST['input'])) {
                     $resKatindeks = mysqli_query($conn, $sqlKatindeks);
                     while ($rowKatindeks = mysqli_fetch_assoc($resKatindeks)) { ?>
                       <option value="<?= $rowKatindeks['id_user_katindex']; ?>"><?= $rowKatindeks['user_katindex']; ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tahun" class="col-md-2 col-form-label">Tahun</label>
-                <div class="col-md-2">
-                  <select class="form-control" id="tahun" name="tahun">
-                    <option value="0">-</option>
-                    <?php
-                    for ($i = $tahun_old; $i <= $thnnow; $i++) { ?>
-                      <option value="<?= $i; ?>"><?= $i; ?></option>
                     <?php } ?>
                   </select>
                 </div>
