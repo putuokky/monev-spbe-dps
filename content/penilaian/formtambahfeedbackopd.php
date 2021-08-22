@@ -123,7 +123,7 @@ $data = mysqli_fetch_assoc($resUbah);
                 <div class="form-group row">
                   <label for="namaindikator" class="col-md-2 col-form-label">Indikator</label>
                   <div class="col-md-10">
-                    <textarea class="form-control" id="namaindikator" name="namaindikator" rows="3" placeholder="Enter Nama Indikator"><?= "Indikator " . $data['idindikator'] . " : " . $data['namaindikator']; ?></textarea>
+                    <textarea class="form-control" id="namaindikator" name="namaindikator" rows="3" placeholder="Enter Nama Indikator"><?= "Indikator " . $data['indikator'] . " : " . $data['namaindikator']; ?></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -142,7 +142,7 @@ $data = mysqli_fetch_assoc($resUbah);
                   while ($dataNIlai = mysqli_fetch_assoc($resNilai)) { ?>
                     <div class="form-check">
                       <?php
-                        if ($data['nilaikematangan'] == $dataNIlai['nilaimadiri']) { ?>
+                      if ($data['nilaikematangan'] == $dataNIlai['nilaimadiri']) { ?>
                         <input class="form-check-input" type="radio" name="nilaimatang" id="nilaimatang" value="option2" checked>
                         <label class="form-check-label" for="nilaimatang">
                           <?= $dataNIlai['namalevel'] . " - " . $dataNIlai['penjelasan_level']; ?>
@@ -166,7 +166,7 @@ $data = mysqli_fetch_assoc($resUbah);
                   while ($dataMandiri = mysqli_fetch_assoc($resMandiri)) { ?>
                     <div class="form-check">
                       <?php
-                        if ($data['penilaianmandiri'] == $dataMandiri['nilaimadiri']) { ?>
+                      if ($data['penilaianmandiri'] == $dataMandiri['nilaimadiri']) { ?>
                         <input class="form-check-input" type="radio" name="nilaimandiri" id="nilaimandiri" value="<?= $dataMandiri['idlevel']; ?>" checked>
                         <label class="form-check-label" for="nilaimandiri">
                           <?= $dataMandiri['namalevel'] . " - " . $dataMandiri['penjelasan_level']; ?>
