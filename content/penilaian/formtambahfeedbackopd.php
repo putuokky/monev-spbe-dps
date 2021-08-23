@@ -79,7 +79,6 @@ $sqlUbah = "SELECT * FROM tb_penilaian a
           LEFT JOIN tb_indikator b ON b.idindikator = a.idindikator 
           LEFT JOIN tb_opdterkait c ON c.idpenilaian = a.idpenilaian
           LEFT JOIN tb_opd d ON d.idopd = c.idopd 
-          LEFT JOIN tb_detail_indikator e ON e.idindikator_detail = a.idindikator
           WHERE a.idpenilaian = '$id'";
 $resUbah = mysqli_query($conn, $sqlUbah);
 $data = mysqli_fetch_assoc($resUbah);
@@ -125,24 +124,6 @@ $data = mysqli_fetch_assoc($resUbah);
                   <label for="namaindikator" class="col-md-2 col-form-label">Indikator</label>
                   <div class="col-md-10">
                     <textarea class="form-control" id="namaindikator" name="namaindikator" rows="3" placeholder="Enter Nama Indikator"><?= "Indikator " . $data['indikator'] . " : " . $data['namaindikator']; ?></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="jelas_indi_list" class="col-md-2 col-form-label">Penjelasan Indikator List</label>
-                  <div class="col-md-10">
-                    <textarea class="form-control" id="jelas_indi_list" name="jelas_indi_list" rows="5" placeholder="Enter Penjelasan Indikator List"><?= $data['penjelasan_indikator_list']; ?></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="jelas_indi_lvl" class="col-md-2 col-form-label">Penjelasan Indikator Level</label>
-                  <div class="col-md-10">
-                    <textarea class="form-control" id="jelas_indi_lvl" name="jelas_indi_lvl" rows="5" placeholder="Enter Penjelasan Indikator Level"><?= $data['penjelasan_indikator_level']; ?></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="jelas_indi_tambah" class="col-md-2 col-form-label">Penjelasan Indikator Tambahan</label>
-                  <div class="col-md-10">
-                    <textarea class="form-control" id="jelas_indi_tambah" name="jelas_indi_tambah" rows="5" placeholder="Enter Penjelasan Indikator Tambahan"><?= $data['penjelasan_indikator_tambahan']; ?></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
