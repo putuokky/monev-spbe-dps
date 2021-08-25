@@ -65,7 +65,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Rekomendasi</th>
                     <th>Nilai Kematangan (Nilai Pusat)</th>
                     <th>Penilaian Mandiri</th>
-                    <th>Yang Harus Di Kerjakan</th>
+                    <th>Tindak Lanjut</th>
                     <th>Target Waktu</th>
                     <th>OPD</th>
                 </thead>
@@ -78,7 +78,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Rekomendasi</th>
                     <th>Nilai Kematangan (Nilai Pusat)</th>
                     <th>Penilaian Mandiri</th>
-                    <th>Yang Harus Di Kerjakan</th>
+                    <th>Tindak Lanjut</th>
                     <th>Target Waktu</th>
                     <th>OPD</th>
                   </tr>
