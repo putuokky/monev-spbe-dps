@@ -113,7 +113,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
 
 
                   if (isset($_GET['cari'])) {
-                    $pengelola = trim($_GET['pengelola']);
+                    // $pengelola = trim($_GET['pengelola']);
                     // $status = $_GET['status'];
                     $judul = trim($_GET['judul']);
 
