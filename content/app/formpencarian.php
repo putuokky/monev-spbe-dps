@@ -7,12 +7,8 @@
   <div class="collapse show" id="collapseCardPencarian">
     <div class="card-body">
       <form method="GET" action="<?= $_SERVER["PHP_SELF"]; ?>">
-        <div class="form-group row">
-          <div class="col-md-5">
-            <input type="hidden" class="form-control" name="page" id="page" value="app" placeholder="Enter Page" autocomplete="off" readonly>
-          </div>
-        </div>
-        <div class="form-group row">
+        <input type="hidden" class="form-control" name="page" id="page" value="app" placeholder="Enter Page" autocomplete="off" readonly>
+        <!-- <div class="form-group row">
           <label for="pengelola" class="col-lg-2 col-form-label">Perangkat Daerah Pengelola</label>
           <div class="col-lg-10">
             <select class="form-control" id="pengelola" name="pengelola">
@@ -25,16 +21,12 @@
 
               $sqlUnitPengelola = "SELECT * FROM tb_opd WHERE LENGTH(idopd)=6 ORDER BY namaopd ASC";
               $resUnitPengelola = mysqli_query($conn, $sqlUnitPengelola);
-              while ($rowUnitPengelola = mysqli_fetch_assoc($resUnitPengelola)) {
-                if ($pengelola) { ?>
-                  <option value="<?= $rowUnitPengelola['idopd']; ?>" selected><?= $rowUnitPengelola['namaopd']; ?></option>
-                <?php } else { ?>
-                  <option value="<?= $rowUnitPengelola['idopd']; ?>"><?= $rowUnitPengelola['namaopd']; ?></option>
-                <?php } ?>
+              while ($rowUnitPengelola = mysqli_fetch_assoc($resUnitPengelola)) { ?>
+                <option value="<?= $rowUnitPengelola['idopd']; ?>"><?= $rowUnitPengelola['namaopd']; ?></option>
               <?php } ?>
             </select>
           </div>
-        </div>
+        </div> -->
         <!-- <div class="form-group row">
           <label for="status" class="col-md-2 col-form-label">Status</label>
           <div class="col-md-2">
@@ -46,19 +38,19 @@
           </div>
         </div> -->
         <div class="form-group row">
-          <label for="katakunci" class="col-md-2 col-form-label">Kata Kunci</label>
+          <label for="judul" class="col-md-2 col-form-label">Judul</label>
           <?php
-          $katakunci = "";
-          if (isset($_GET['katakunci'])) {
-            $katakunci = $_GET['katakunci'];
+          $judul = "";
+          if (isset($_GET['judul'])) {
+            $judul = $_GET['judul'];
           }
           ?>
           <div class="col-md-5">
-            <input type="text" class="form-control" value="<?= $katakunci; ?>" name="katakunci" id="katakunci" placeholder="Enter Kata Kunci" autocomplete="off">
+            <input type="text" class="form-control" value="<?= $judul; ?>" name="judul" id="judul" placeholder="Enter Judul" autocomplete="off">
           </div>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Cari</button>
+          <button type="submit" class="btn btn-primary" name="cari">Cari</button>
         </div>
       </form>
     </div>
