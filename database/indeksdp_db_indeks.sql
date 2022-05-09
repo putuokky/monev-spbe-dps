@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 12 Nov 2020 pada 21.02
--- Versi server: 5.7.27
--- Versi PHP: 7.3.6
+-- Generation Time: May 09, 2022 at 10:43 AM
+-- Server version: 5.7.27
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aplikasi`
+-- Table structure for table `aplikasi`
 --
 
 CREATE TABLE `aplikasi` (
@@ -49,7 +49,7 @@ CREATE TABLE `aplikasi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `aplikasi`
+-- Dumping data for table `aplikasi`
 --
 
 INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_aplikasi`, `infofungsi`, `dasarhukum`, `media`, `link`, `pict`, `infoapp`, `unit_pengembang`, `unit`, `unit_pengguna`, `sts_aktif`, `thn_pembuatan`, `usr`, `dlu`) VALUES
@@ -58,16 +58,16 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (3, 'ATCS_CLIENT', 1, 2, 'Untuk pengaturan traffic light kota denpasar', '', 1, '', '1.', '0', '', '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:56:42'),
 (4, 'Penilaian Kesehatan Koperasi Online', 1, 2, 'Melakukan penilaian kesehatan usaha koperasi secara online (intranet).', '', 1, '', '1.', '0', '', '031501', '031501', 'aktif', '-', 'adm', '2019-04-29 10:50:05'),
 (5, 'Bank Data', 2, 2, 'Meningkatkan kecepatan proses perubahan data dan informasi yang dinamis, meningkatkan volume data informasi yang dapat diakses dan meningkatkan kualitas dan kuantitas pengolahan informasi. Meningkatkan pelayanan kepada masyarakat/publik secara lebih professional dan modern. Pemeliharaan dokumen, data dan informasi yang berkaitan dengan perbankan secara memadai, media komunikasi, interaksi dan informasi dengan masyarakat/publik dengan dua arah agar bisa mendengar dan berbicara secara efektif. memberikan informasi resmi dan terbaru tentang aktifitas dari Pemerintah Kota Denpasar, baik mengenai informasi layanan perizinan, pengaduan masyarakat, transparansi anggaran, informasi publik, informasi layanan publik dan informasi kepada publik.', '', 1, 'https://bankdata.denpasarkota.go.id/', '1.', 'WhatsApp Image 2020-07-21 at 20.45.30 (2).jpeg', '', '030801', '000000', 'aktif', '2016', 'DKIS', '2020-07-21 10:25:19'),
-(6, 'Prodeskel', 1, 1, 'Memantau Profil Potensi dan perkembangan Desa/ Kelurahan.', '', 1, 'prodeskel.binapemdes.kemendagri.go.id', '1.', '0', '', '040501', '040501', 'aktif', '-', 'adm', '2019-03-28 14:03:17'),
+(6, 'Prodeskel', 1, 1, 'Memantau Profil Potensi dan perkembangan Desa/ Kelurahan.', '', 1, 'prodeskel.binapemdes.kemendagri.go.id', '1.', 'Aplikasi  Prodeskel.jpg', '', '040501', '040501', 'aktif', '-', 'adm', '2019-03-28 14:03:17'),
 (7, 'Basis data terpadu / SLRT', 1, 1, 'Sistem informasi basis data terpadu pendataan PMKS dan PSKS Kota Denpasar', '', 1, 'jendela.denpasarkota.go.id/bdt', '1.', '0', '', '300004', '300004', 'naktif', '-', 'adm', '2019-04-29 11:04:44'),
-(8, 'Rajakol (Rekomendasi Jasa Konstruksi Online)', 1, 2, 'Pelayanan publik pengajuan dan penerbitan rekomendasi teknis (IUJK) Ijin Usaha Jasa Konstruksi online.', '', 1, 'damamandala.denpasarkota.go.id', '1.', '0', '', '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:51:59'),
+(8, 'Rajakol (Rekomendasi Jasa Konstruksi Online)', 1, 2, 'Pelayanan publik pengajuan dan penerbitan rekomendasi teknis (IUJK) Ijin Usaha Jasa Konstruksi online.', '', 1, 'damamandala.denpasarkota.go.id', '1.', 'Aplikasi RAJAKOL (Rekomendasi Jasa Konstruksi Online).jpg', '', '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:51:59'),
 (9, 'RFID Bus Sekolah', 1, 2, 'Digunakan untuk Tap Penumpang saat siswa akan naik bus.', '', 2, '', '1.', '0', '', '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:57:13'),
 (10, 'RPKAM ', 1, 1, 'Monitoring e-rpkam.', '', 1, 'www.kesling.kesmas.kemkes.go.id', '1.', '0', '', '030201', '030201', 'aktif', '-', 'adm', '2019-03-28 14:15:23'),
 (11, 'Rujukan Online', 1, 2, 'Menerima, mengolah dan menyimpan rujukan dari faskes pertama.', '', 1, 'rujukanonline.denpasarkota.go.id', '1.', '0', '', '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:10'),
-(12, 'Rumah Belanja Denpasar', 1, 2, 'Membantu IKM dalam mempromosikan produknya melalui media digital (website Kota Denpasar).', '', 1, 'balidenpasartrading.com', '1.', '0', '', '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:01:22'),
+(12, 'Rumah Belanja Denpasar', 1, 2, 'Membantu IKM dalam mempromosikan produknya melalui media digital (website Kota Denpasar).', '', 1, 'balidenpasartrading.com', '1.', 'Aplikasi Rumah Belanja  Denpasar.jpg', '', '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:01:22'),
 (13, 'SI BUSED', 2, 2, 'Aplikasi pendukung layanan Bus Sekolah Denpasar yang digunakan untuk memantau posisi bus terkini dan memudahkan orang tua untuk memonitoring anak saat di dalam kendaraan.', '', 2, '', '1.', '0', '', '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:57:30'),
 (14, 'SIDAB (Sistem Informasi Distribusi Air Bersih)', 2, 2, 'Membantu pelayanan informasi kepada pelanggan terait dengan sistem jaringan perpipaan dan data pelanggan.', '', 1, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:08:33'),
-(15, 'Sidandaniti (Sistem Informasi Peraturan Perundnag-undangan)', 1, 2, 'Sebagai bentuk layanan internal kepada OPD di Lingkungan Pemerintah Kota Denpasar dalam Pembuatan Produk Hukum (khususnya SK) .', '', 1, 'http://sidandaniti.denpasarkota.go.id', '1.', '0', '', '011201', '011201', 'aktif', '-', 'adm', '2019-04-29 10:35:18'),
+(15, 'Sidandaniti (Sistem Informasi Peraturan Perundnag-undangan)', 1, 2, 'Sebagai bentuk layanan internal kepada OPD di Lingkungan Pemerintah Kota Denpasar dalam Pembuatan Produk Hukum (khususnya SK) .', '', 1, 'http://sidandaniti.denpasarkota.go.id', '1.', 'Aplikasi  Sidandaniti (Sistem Informasi Peraturan Perundang- undangan).jpg', '', '011201', '011201', 'aktif', '-', 'adm', '2019-04-29 10:35:18'),
 (16, 'SIDASI (Sistem Informasi Drainase dan Irigasi)', 1, 2, 'Tersedianya peta dan database drainase dan irigasi di kta denpasar.', '', 1, 'damamandala.denpasarkota.go.idsidasi', '1.', '0', '', '030301', '030301', 'aktif', '-', 'adm', '2019-04-29 10:52:34'),
 (17, 'SIDI', 1, 2, 'Mendata persebaran industri di Kota Denpasar', '', 1, 'sidi.denpasarkota.go.id', '1.', '0', '', '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:01:36'),
 (18, 'SIFA/Fixed Asset (Sistem Informasi Fixed Asset)', 1, 2, 'Membantu mebuat proyeksi dan perhitungan penyusutan aset.', '', 4, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:10:02'),
@@ -79,7 +79,7 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (24, 'SIKS-ng', 1, 1, 'Sistemuntuk pengumpulan, pengolahan, penyajian, dan penyimpanan data kesejahteraan sosial yang dilaksanakan secara berjenjang dan berkesinambungan.', '', 1, 'siks.kemsos.go.id', '1.', '0', '', '300004', '300004', 'aktif', '-', 'adm', '2019-03-28 14:50:26'),
 (25, 'SIM HP (sistem Informasi Manajemen Hasil Pemeriksa)', 1, 2, 'Mengolah, menyimpan dan menginventarisir temuan pemeriksaan', '', 3, '', '1.', '0', '', '040101', '040101', 'aktif', '-', 'adm', '2019-04-29 11:05:23'),
 (26, 'SIM PBB', 1, 2, 'Mengelola data wajib pajak bumi dan bangunan', '', 3, '', '1.', '0', '', '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:29:04'),
-(27, 'SIM Perijinan', 1, 2, 'Mengelola proses pelayanan perijinan secara elektronik.', '', 1, 'https://pelayanan.denpasarkota.go.id/portal/', '1.', '0', '-', '140018', '140018', 'aktif', '-', 'adminapps', '2020-09-04 09:44:59'),
+(27, 'SIM Perijinan', 1, 2, 'Mengelola proses pelayanan perijinan secara elektronik.', '', 1, 'https://pelayanan.denpasarkota.go.id/portal/', '1.', 'Aplikasi  SIM Perijinan.jpg', '-', '140018', '140018', 'aktif', '-', 'adminapps', '2020-09-04 09:44:59'),
 (28, 'SIMADE (Sistem Informasi Kelurahan Dangin Puri)', 1, 2, 'Mengolah data, mencatat dan melayani', '', 1, 'http://dangri.simade.co.id/', '1.', '0', '', '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:05:40'),
 (29, 'SIMADE (Sistem Informasi Kelurahan Sumerta)', 1, 2, 'Mengolah data, mencatat dan melayani.', '', 1, 'http://sumerta.simade.co.id/', '1.', '0', '', '170001', '170001', 'aktif', '-', 'adm', '2019-04-29 11:05:55'),
 (30, 'SIMADE (Sistem Pemantauan Krama Bendega)', 1, 2, 'Memberikan informasi kepada pihak terkait untuk meningkatkan tingkat keselamatan nelayan saat pergi melaut.', '', 1, 'smartcity.denpasarkota.go.id/nelayan', '1.', '0', '', '031101', '031101', 'aktif', '-', 'adm', '2019-04-29 11:00:42'),
@@ -103,13 +103,13 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (48, 'SIRAB (Sistem informasi rencana anggaran biaya)', 1, 2, 'Membantu melaksanakan kegiatan administrasi RAB Sambungan Rumah (SR)', '', 4, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:01'),
 (49, 'SIRAWAT (Sistem Informasi Perawatan)', 1, 2, 'Membantu melaksanakan kegiatan administrasi yang berkaitan dengan pelaksanaan pemasangan SR, Penyambungan kembali, rekonstruksi, pemindahan lokasi WM, Perubahan inci WM, Pergantian WM, Segel, Pencabutan dan pembaruan WM', '', 4, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:20'),
 (50, 'SIREKON (Sistem Rekomendasi Online)', 1, 2, 'SIREKON berfungsi untuk mempermudah pelayanan dalam mengurus surat rekomendasi ijin penelitian kepada masyarakat kota Denpasar secara online.', '', 1, 'sirekon.denpasarkota.go.id', '1.', '0', '-', '040601', '040601', 'aktif', '-', 'adminapps', '2020-11-09 09:44:07'),
-(51, 'SIRUP', 1, 1, 'Sarana/ alat untuk mengumumkan rencana umum pengadaan.', '', 1, 'http://sirup.lkpp.go.id/sirup', '1.', '0', '', '012001', '000000', 'aktif', '-', 'adm', '2019-03-29 08:54:43'),
+(51, 'SIRUP', 1, 1, 'Sarana/ alat untuk mengumumkan rencana umum pengadaan.', '', 1, 'http://sirup.lkpp.go.id/sirup', '1.', 'Aplikasi  SIRUP.jpg', '', '012001', '000000', 'aktif', '-', 'adm', '2019-03-29 08:54:43'),
 (52, 'SISKA (Sistem Informasi Keuangan)', 1, 2, 'Membantu operasional pelayanan pembayaran rekening air dan non air serta membuat laporan laporan guna kepentingan manajemen', '', 4, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:37'),
 (53, 'Bed Management', 1, 2, 'Mencatat dan memonitoring status ketersediaan dan penggunaan tempat tidur di RSUD Wangaya', '', 1, 'www.wangayahospital.com', '1.', '0', '', '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:25'),
 (54, 'BILLING (Sistem Informasi Billing)', 1, 2, 'Membantu operasional pembacaan meter air sampai dengan rekening air tersebut bisa dibayar serta membuat laporan laporan guna kepentingan manajemen', '', 1, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:12:55'),
 (55, 'Bima Sakti', 1, 2, 'Membaca, menghitung pemakaian air tanah', '', 1, '', '1.', '0', '', '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:30:19'),
 (56, 'Bursa Kerja Online', 1, 2, 'BKO secara umum difungsikan sebagai fasilitas untuk lebih mendekatkan fungsi layanan ketenagakerjaan kepada masyarakat agar diperuntukan sebagai sarana/penyediaan ruang atau fasilitator bagi masyarakat pencari kerja dengan perusahaan penyedia kerja dalam hal berinteraksi, berkomunikasi dan memperoleh informasi yang terkait dengan informasi pasar kerja dan kegiatan ketenagakerjaan.', '', 1, 'http://bursakerja.denpasarkota.go.id/', '1.', '0', '-', '030901', '030901', 'aktif', '-', 'adminapps', '2020-11-09 09:42:26'),
-(57, 'siskohatkes (sistem informasi dan komputerisasi haji)', 1, 1, 'mendata calon jemaah haji\r\n', '', 1, 'http://srskohatkes.kemkes.go.id', '1.', '0', '', '030201', '030201', 'naktif', '-', 'adm', '2019-03-31 10:13:31'),
+(57, 'siskohatkes (sistem informasi dan komputerisasi haji)', 1, 1, 'mendata calon jemaah haji\r\n', '', 1, 'http://siskohatkes.kemkes.go.id', '1.', '0', '-', '030201', '030201', 'aktif', '-', 'adminapps', '2021-06-09 11:28:49'),
 (58, 'Sismadak', 1, 2, 'Sebagai sarana untuk menyimpan dan mencari kembali dokumen berdasarkan elemen penilaian yang berhubungan dengan akreditasi rumah sakit\r\n', '', 1, '', '1.', '0', '', '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:14:40'),
 (59, 'Sistem Denda Piutang', 1, 2, 'Mengelola piutang dan denda retribusi\r\n', '', 1, 'perijinan.denpasarkota.go.id/dendapiutang', '1.', '0', '', '140018', '140018', 'aktif', '-', 'adm', '2019-04-29 10:53:44'),
 (60, 'Sistem Informasi Coorporate Social Responsibilities (CSR)', 1, 2, 'Mengelola informasi data CSR\r\n', '', 1, 'http://csrkotadenpasar.com/', '1.', '0', '', '013401', '013401', 'aktif', '-', 'adm', '2019-04-29 10:36:24'),
@@ -166,30 +166,30 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (111, 'e-SAKIP REVIEW (Sistem Akuntabilitas Kinerja Instansi Pemerintah)', 1, 1, 'e-SAKIP REVIU adalah sistem aplikasi yang dibangun oleh Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi sebagai upaya peningkatan kualitas pelaksanaan akuntabilitas kinerja di lingkungan instansi pemerintah untuk meningkatkan efektivitas dan efisiensi penggunaan anggaran.\r\nSistem ini bertujuan sebagai sarana pembinaan interaktif pelaksanaan Akuntabilitas kerja instansi pemerintah dan sarana penyampaian laporan kinerja secara online.', '', 1, 'www.esr.menpan.go.id', '1.', '0', '', '040201', '000000', 'aktif', '-', 'adm', '2019-04-22 15:17:46'),
 (112, 'Website e-Sewaka Dharma', 1, 2, 'Mempermudah manajemen data administrasi Desa/Kelurahan, mempercepat pelayanan kepada masyararakat yang membutuhkan administrasi Desa/Kelurahan, serta memudahkan pelaporan untuk mengetahui kondisi terkini dari data administrasi Desa/Kelurahan..\r\n\r\nAplikasi e-Sewaka Dharma bertujuan untuk mendekatkan pelayanan Desa/Kelurahan serta mengoptimalkan peran Kepala Lingkungan/Kepala Dusun dalam melayani masyarakat.', '', 1, 'https://esewakadharma.denpasarkota.go.id/', 'logo-sewaka-dharma.png', 'WhatsApp Image 2020-07-21 at 20.45.15.jpeg', '', '030801', '100000', 'aktif', '2017', 'veriandriawan', '2020-07-29 08:46:15'),
 (113, 'e-SPTPD', 1, 2, 'Pelaporan pajak hotel , restoran dan hiburan secara online', '', 1, 'e-pajak.denpasarkota.go.id/esptpd', '1.', '0', '', '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:32:31'),
-(114, 'Ewars', 1, 1, 'Untuk laporan mingguan kewaspadaan dini penyakit', '', 1, 'www.surveilans.org', '1.', '0', '', '030201', '030201', 'naktif', '-', 'adm', '2019-04-01 08:25:40'),
+(114, 'Ewars', 1, 1, 'Untuk laporan mingguan kewaspadaan dini penyakit', '', 1, 'http://skdr.surveilans.org', '1.', '0', '-', '030201', '030201', 'aktif', '-', 'adminapps', '2021-06-09 11:21:45'),
 (115, 'G Sinjab', 1, 1, 'Menginput data Analisis Jabatan dan Analisis beban keja dari perangkat daerah/ unit', '', 1, '', '1.', '0', '', '011301', '000000', 'aktif', '-', 'adm', '2019-04-29 10:37:15'),
 (116, 'Geo Portal', 1, 2, 'Sebagai sarana berbagi pakai data/informasi geo spasial', '', 1, 'geoportal.denpasarkota.go.id', '1.', '0', '', '031601', '000000', 'aktif', '-', 'adm', '2019-04-01 08:40:32'),
 (117, 'GL (General Ledger)', 1, 2, 'Membantu pengelolaan data akutansi dan keuangan', '', 1, '', '1.', '0', '', '300001', '300001', 'aktif', '-', 'adm', '2019-04-29 11:13:42'),
-(118, 'Harga Pasar', 1, 2, 'Memberikan informasi harga terkait kebutuhan pokok pada pasar-pasar di Kota Denpasar', '', 1, 'hargapasar.denpasarkota.go.id', '1.', '0', '', '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:03:17'),
+(118, 'Harga Pasar', 1, 2, 'Memberikan informasi harga terkait kebutuhan pokok pada pasar-pasar di Kota Denpasar', '', 1, 'hargapasar.denpasarkota.go.id', '1.', 'Aplikasi  Harga Pasar.jpg', '', '031401', '031401', 'aktif', '-', 'adm', '2019-04-29 11:03:17'),
 (119, 'infopasar.Denpasarkota.go.id', 1, 2, 'Memberikan informasi harga kebutuhan bahan pokok makanan kepada masyarakat', '', 1, '', '1.', '0', '', '300003', '300003', 'aktif', '-', 'adm', '2019-04-29 11:08:05'),
 (120, 'InventorX', 1, 1, 'Penatausahaan barang persediaan ', '', 1, 'http://192.166.172.2', '1.', '0', '', '300005', '000000', 'naktif', '-', 'adm', '2019-04-01 08:44:36'),
-(121, 'Jaringan Dokumentasi Informasi Hukum (JDIH)', 1, 1, 'sebagai bentuk layanan penyediaan Informasi Hukum khususnya kepada masyarakat kota Denpasar dan seluruh rakyat Indonesia pada umumnya.', '', 1, 'http://jdih.denpasarkota.go.id/', '1.', '0', '', '011201', '011201', 'aktif', '-', 'adm', '2019-04-29 10:35:54'),
+(121, 'Jaringan Dokumentasi Informasi Hukum (JDIH)', 1, 1, 'sebagai bentuk layanan penyediaan Informasi Hukum khususnya kepada masyarakat kota Denpasar dan seluruh rakyat Indonesia pada umumnya.', '', 1, 'http://jdih.denpasarkota.go.id/', '1.', 'Aplikasi  JDIH.jpg', '', '011201', '011201', 'aktif', '-', 'adm', '2019-04-29 10:35:54'),
 (122, 'Komdat Siknas online', 1, 1, 'melaporkan sarana prasarana di puskesmas, data bulanan penyakit, KIA, gizi, imunisasi, data triwulan TB dan kesling, data tahunan (farmasi, imunisasi, penyakit, kesling, SDM kes, promkes, yankes RS, Sapras), laporan standar pelayanan minimal (SPM)', '', 1, 'www.komdat.kemkes.go.id', '1.', '0', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-01 08:46:41'),
 (123, 'KRISNA (Kolaborasi Perencanaan dan Informasi Kinerja Anggaran)', 1, 1, 'Sebagai pengusulan Dana Alokasi Khusus (DAK)', '', 1, '', '1.', '0', '', '031601', '031601', 'aktif', '-', 'adm', '2019-04-01 08:47:43'),
-(124, 'Lapor KDRT PA', 1, 1, 'Menerima, mencatat, mengolah, menyimpan, dan menindaklanjuti laporan kasus kekerasan perempuan dan anak', '', 1, 'www.kekerasan.kemempan.go.id  ', '1.', '0', '', '040901', '040901', 'naktif', '-', 'adm', '2019-04-01 08:48:41'),
+(124, 'Lapor KDRT PA', 1, 1, 'Menerima, mencatat, mengolah, menyimpan, dan menindaklanjuti laporan kasus kekerasan perempuan dan anak', '', 1, 'https://kekerasan.kemenpppa.go.id/', '1.', '0', '-', '040901', '040901', 'aktif', '-', 'adminapps', '2021-07-06 09:37:37'),
 (125, 'LIVE STREAMING ATCS', 2, 2, 'Untuk memantau arus lalin di persimpangan secara real - time', '', 1, 'atcs.denpasarkota.go.id', '1.', '0', '', '030701', '030701', 'aktif', '-', 'adm', '2019-04-29 10:59:34'),
 (126, 'My Hospital X', 1, 2, 'Mencatat, mengolah, dan menyimpan serta mengintegrasikan data-data yang digunakan untuk kebutuhan accounting, HRD, Farmasi, Billing keperawatan, Aset. Inventory, sistem rekam medis', '', 1, '', '1.', '0', '', '041001', '041001', 'aktif', '-', 'adm', '2019-04-29 11:15:34'),
 (138, 'Simonev (Narkoba)', 1, 2, 'Sat gas narkoba', '', 4, '', '1.', '0', '', '041101', '041101', 'naktif', '-', 'adminapps', '2020-08-03 13:06:38'),
 (139, 'Sistem Antrian', 1, 2, 'Pengelolaan antrian pelayanan permohonan perijinan', '', 3, '', '1.', '0', '', '140018', '140018', 'aktif', '-', 'adm', '2019-04-18 08:08:31'),
 (128, 'NOTIFIKASI', 1, 2, 'Untuk pemberitahuan informasi terkini', '', 1, '', '1.', '0', '', '030701', '030701', 'naktif', '-', 'adm', '2019-04-29 10:59:51'),
 (129, 'NTPD 112 Denpasar', 1, 1, 'Menerima panggilan darurat', '', 1, 'https://202.146.132.go/index.php', '1.', '0', '', '040801', '040801', 'naktif', '-', 'adm', '2019-04-01 08:53:27'),
-(130, 'Pelaporan e-monev katalog', 1, 1, 'untuk mengetahui kebutuhan obat semua faskes yang bekerja sama dengan bpas', '', 1, 'monevkatalogobat.kemkes.go.id', '1.', '0', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-01 08:54:14'),
+(130, 'Pelaporan e-monev katalog', 1, 1, 'untuk mengetahui kebutuhan obat semua faskes yang bekerja sama dengan bpas', '', 1, 'monevkatalogobat.kemkes.go.id', '1.', 'aplikasi Pelaporan e-monev katalog.jpg', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-01 08:54:14'),
 (131, 'pelaporan e-monev kesling', 1, 1, 'untuk memonotoring laporane-monev', '', 1, 'www.kesling.kesmas.kemkes.go.id', '1.', '0', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-01 08:55:25'),
 (132, 'Pelaporan Realisasi Pajak Daerah', 1, 2, 'Mengetahui realisasi pajak daerah secara realtime', '', 1, '', '1.', '0', '', '031601', '031601', 'aktif', '-', 'adm', '2019-04-29 10:33:15'),
-(133, 'Pelaporan sipnap (sistem informasi narkotika dan psikotropika)', 1, 1, 'aplikasi yang digunakan untuk pengguna fasyankes untuk melaporkan pemakaian psiko dan narkotika', '', 1, 'http://sipnap.kemkes.go.id/', '1.', '0', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-18 10:20:17'),
+(133, 'Pelaporan sipnap (sistem informasi narkotika dan psikotropika)', 1, 1, 'aplikasi yang digunakan untuk pengguna fasyankes untuk melaporkan pemakaian psiko dan narkotika', '', 1, 'http://sipnap.kemkes.go.id/', '1.', 'Aolikasi Pelaporan sipnap (sistem informasi narkotika dan psikotropika).jpg', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-18 10:20:17'),
 (134, 'Sistem Distribusi Obat UPT Farmasi', 1, 2, '-', '', 4, '', '1.', '0', '', '030201', '030201', 'aktif', '-', 'adm', '2019-04-29 10:37:56'),
 (135, 'Sistem Implementasi Terintegrasi versi 1,0 DLHK Kota Denpasar', 1, 2, 'Sistem pembuat dan pendataan tenaga kontrak di DLHK\r\n', '', 4, '', '1.', '0', '', '030501', '030501', 'naktif', '-', 'adm', '2019-04-29 11:35:10'),
-(136, 'Siskeudes', 1, 1, 'Mengolah, mencatat, dan menyimpan data keuangan desa\r\n', '', 3, '', '1.', '0', '', '040501', '100000', 'naktif', '-', 'adm', '2019-04-04 08:16:00'),
+(136, 'Siskeudes', 1, 1, 'Mengolah, mencatat, dan menyimpan data keuangan desa\r\n', '', 3, '', '1.', '0', '-', '040501', '100000', 'aktif', '-', 'adminapps', '2021-05-18 09:51:38'),
 (137, 'NIK Koperasi', 1, 1, 'Untuk mendaftarkan koperasi binaan Kota Denpasar memperoleh sertifikat NIK Koperasi', '', 1, '', '1.', '0', '', '031501', '031501', 'aktif', '-', 'adm', '2019-04-16 09:44:13'),
 (140, 'Website Subdomain (web OPD)', 2, 2, '-', '', 4, '', '1.', '0', '', '030801', '000000', 'aktif', '2012', 'veriandriawan', '2020-08-10 14:34:10'),
 (141, 'Antrian Online MPP', 2, 2, 'Antrian online MPP berfungsi memudahkan masyarakat untuk melakukan antrian  terkait pengurusan SIM secara online', '', 4, 'http://antrianmpp.denpasarkota.go.id', '1.', '0', '', '030801', '000000', 'naktif', '2018', 'anggita', '2020-08-13 09:34:59'),
@@ -209,43 +209,44 @@ INSERT INTO `aplikasi` (`id_app`, `judul`, `klasifikasi_aplikasi`, `kategori_apl
 (158, 'PRO Denpasar Website', 2, 2, 'Website Pro Denpasar sebagai penyedia informasi berkaitan dengan aplikasi pro denpasar. Di sini juga tersedia fitur login dan registrasi untuk memudahkan pengguna yang tidak menggunakan paltform mobile Android dan IOS.  Selain itu web ini menyedia cara mendaftar, brosur dan lainnya.', '', 1, 'https://pengaduan.denpasarkota.go.id/', 'logo-prodenpasar1.png', 'WhatsApp Image 2020-07-21 at 20.45.25.jpeg', '', '030801', '000000', 'aktif', '2013', 'agungpriambada', '2020-08-14 10:26:32'),
 (159, 'E-Project Planing', 1, 2, '-', '', 4, '', '1.', '0', '', '030801', '030801', 'aktif', '2013', 'DKIS', '2020-07-20 14:14:42'),
 (160, 'Sistem Antrian Terpadu (PATEN)', 2, 2, 'Sistem Antrian berbasis dekstop', '', 3, '', '1.', '0', '', '030801', '000000', 'aktif', '2015', 'agungpriambada', '2020-08-14 10:37:05'),
-(161, 'SSPK', 1, 2, '-', '', 4, '', '1.', '0', '', '030801', '030801', 'aktif', '2014', 'DKIS', '2020-07-20 14:12:25'),
-(162, 'SME', 1, 2, '-', '', 4, '', '1.', '0', '', '030801', '030801', 'aktif', '2014', 'DKIS', '2020-07-20 13:58:57'),
+(161, 'SSPK', 1, 2, '-', '', 4, '', '1.', '0', '-', '030801', '030801', 'aktif', '2014', 'adminapps', '2021-08-02 11:27:44'),
+(162, 'SME', 1, 2, '-', '', 4, '', '1.', '0', '-', '030801', '030801', 'aktif', '2014', 'adminapps', '2021-08-02 11:27:30'),
 (163, 'Pro Denpasar IOS', 2, 2, 'Aplikasi layanan pengaduan berbasis mobile untuk platform IOS', '', 2, '', '1.', '0', '', '030801', '000000', 'naktif', '2018', 'agungpriambada', '2020-08-14 10:43:15'),
 (164, 'emonalisa (Hibah Elektronik)', 1, 2, '-', '', 1, '', '1.', '0', '', '012301', '012301', 'aktif', '-', 'adm', '2019-05-21 14:20:13'),
-(165, 'Antrian Online (Akuwaras)', 1, 2, 'Antrian online di Dinas Kependudukan Dan Pencatatan Sipil', '', 1, '', '1.', '0', '', '030601', '030601', 'aktif', '-', 'adm', '2019-05-21 14:22:04'),
+(165, 'Antrian Online (Akuwaras)', 1, 2, 'Antrian online di Dinas Kependudukan Dan Pencatatan Sipil', '', 1, '', '1.', 'Aolikasi Antrian Online Akuwaras.jpg', '', '030601', '030601', 'aktif', '-', 'adm', '2019-05-21 14:22:04'),
 (166, 'Sistem Informasi Administrasi Kependudukan (SIAK)', 1, 2, '-', '', 4, '', '1.', '0', '', '030601', '030601', 'aktif', '-', 'adm', '2019-05-21 14:24:42'),
 (167, 'Simyandes', 1, 2, 'Aplikasi untuk mendounload formulir pelayanan', '', 4, '', '1.', '0', '', '030601', '030601', 'aktif', '-', 'adm', '2020-03-10 08:37:52'),
 (168, 'Bali Denpasar Tourism', 1, 2, '-', '', 4, '', '1.', '0', '', '031301', '031301', 'aktif', '-', 'adm', '2020-03-09 15:49:21'),
 (169, 'Web Denpasar Tourism', 1, 2, '-', '', 1, '', '1.', '0', '', '031301', '031301', 'aktif', '-', 'adm', '2019-05-21 14:28:43'),
 (170, 'Web Bekraf', 1, 2, '-', 'laporan-dengan-crystal-report.pdf', 1, '', '1.', '0', '', '031301', '031301', 'aktif', '-', 'adm', '2019-05-21 14:29:32'),
-(171, 'Sidarling', 1, 2, 'sdsbjdjabdja<br />\r\n<br />\r\nsdknakldnaslkndlkasnd', 'SURAT PERNYATAAN.pdf', 1, 'https://sidarling.denpasarkota.go.id/', '1.', '0', '', '030501', '030501', 'aktif', '2019', 'adm', '2019-10-14 14:58:20'),
-(172, 'SIMAK DIHATI', 2, 2, '-', '-', 1, 'https://simpeg.denpasarkota.go.id', '', '0', '', '040301', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:04:10'),
+(171, 'Sidarling', 1, 2, 'sdsbjdjabdja<br />\r\n<br />\r\nsdknakldnaslkndlkasnd', 'SURAT PERNYATAAN.pdf', 1, 'https://sidarling.denpasarkota.go.id/', '1.', 'Aplikasi Sidarling.jpg', '', '030501', '030501', 'aktif', '2019', 'adm', '2019-10-14 14:58:20'),
+(172, 'SIMAK DIHATI', 2, 2, '-', '-', 1, 'https://simpeg.denpasarkota.go.id', '', 'Aplikasi Simak Dihati.jpg', '', '040301', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:04:10'),
 (173, 'Kota Tangguh Sosial', 2, 2, '-', '-', 1, 'https://kotatangguh.denpasarkota.go.id/', '', '0', '', '300004', '000000', 'aktif', '2019', 'adm', '2019-10-14 15:08:51'),
 (174, 'Pemantauan Kualitas Udara', 2, 1, 'Aplikasi utk pemantauan kualitas udara', '-', 1, 'http://202.73.26.177/bar/stasiun2.php?id=denpasar#', '', '0', '', '030501', '000000', 'aktif', '-', 'adm', '2019-10-24 14:56:56'),
 (175, 'Mobile e-Sewaka Dharma', 2, 2, 'Aplikasi e-Sewaka Dharma Mobile merupakan aplikasi mobile yang merupakan turunan dari Sistem Informasi Administrasi Desa dan Kelurahan di seluruh wilayah Kota Denpasar. Aplikasi ini merupakan aplikasi layanan publik bagi seluruh masyarakat dalam melakukan administrasi kependudukan, seperti permohonan surat keterangan dan surat santunan kematian, dilakukan secara online dan terhubung langsung dengan aplikasi E-Sewaka Dharma yang ada di Desa/Kelurahan di seluruh wilayah Kota Denpasar, Bali.\r\n\r\nAplikasi ini akan terus dikembangkan untuk memberikan akses kemudahan bagi masyarakat Kota Denpasar, dan aplikasi ini dipersembahkan oleh :\r\n\r\nDinas Komunikasi, Informatika dan Statistik Pemerintah Kota Denpasar', '-', 2, 'https://play.google.com/store/apps/details?id=com.esewakadharma&hl=in', '', 'WhatsApp Image 2020-07-21 at 20.45.31.jpeg', '', '030801', '100000', 'aktif', '2020', 'veriandriawan', '2020-08-06 14:18:38'),
 (176, 'Buku tamu damamaya', 1, 2, 'Sebagai aplikasi pencatatan tamu yang hadir ke ruang damamaya.', '-', 1, '', '', '0', '', '030801', '030801', 'aktif', '2019', 'DKIS', '2020-07-20 13:40:07'),
 (178, 'Sipoint', 2, 2, 'Sebagai dashboard internal aplikasi yang ada di Kota Denpasar, yang mana didalamnya terdapat aplikasi SIMPARSA, EParuman dan lain-lain.', '-', 1, 'https://sipoint.denpasarkota.go.id/', '', 'WhatsApp Image 2020-07-21 at 20.45.27 (1).jpeg', '', '030801', '-', 'aktif', '2019', 'DKIS', '2020-07-21 10:37:52'),
 (179, 'Sijuna', 2, 2, 'Sebuah aplikasi untuk pendaftaran kunjungan ke OPD yang ada di Kota Denpasar.', '', 1, 'http://sijuna.denpasarkota.go.id/', '', '0', '', '030801', '000000', 'aktif', '2020', 'adminapps', '2020-08-03 12:51:53'),
-(181, 'Divos', 2, 2, '-', '-', 1, 'https://divos.denpasarkota.go.id/', '', 'WhatsApp Image 2020-07-21 at 20.45.31 (2).jpeg', '', '030801', '000000', 'aktif', '2020', 'DKIS', '2020-07-20 12:34:32'),
+(181, 'Divos', 2, 2, 'Denpasarâ€™s Integrated Virtual Office System (DIVOS), khusus untuk pegawai Pemkot Denpasar. Divos merupakan aplikasi ruang kerja di dunia maya. Pegawai hingga pimpinan di lingkungan Pemkot Denpasar dapat bekerja darimana saja menggunakan teknologi seperti PC, laptop, ponsel dan akses internet.', '-', 1, 'https://divos.denpasarkota.go.id/', '', 'WhatsApp Image 2020-07-21 at 20.45.31 (2).jpeg', '-', '030801', '000000', 'aktif', '2020', 'adminapps', '2021-07-29 12:07:31'),
 (182, 'Cekas', 1, 2, '-', '-', 1, 'http://rkas.denpasarkota.go.id/index.php/login', '', '0', '', '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:38:44'),
 (183, 'midep', 1, 2, '-', '-', 1, 'http://midep.denpasarkota.go.id/admin/login', '', '0', '', '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:40:26'),
-(184, 'Dapodik', 1, 1, '-', '-', 1, 'http://simdik.denpasarkota.go.id/index.php/home', '', '0', '', '030101', '030101', 'aktif', '2020', 'adminapps', '2020-07-22 08:08:04'),
+(184, 'Dapodik', 1, 1, '-', '-', 1, 'http://simdik.denpasarkota.go.id/index.php/home', '', 'Aplikasi Dapodik.jpg', '', '030101', '030101', 'aktif', '2020', 'adminapps', '2020-07-22 08:08:04'),
 (185, 'Sinkrondapodik', 1, 2, '-', '-', 1, 'http://sinkrondapodik.denpasarkota.go.id/', '', '0', '', '030101', '030101', 'aktif', '2020', 'adm', '2020-03-10 15:44:04'),
 (186, 'e cheking', 1, 2, '-', '-', 1, '', '', '0', '', '031501', '031501', 'aktif', '2020', 'adm', '2020-03-10 15:46:04'),
-(187, 'Sicantik Cloud', 1, 1, '-', '-', 1, '', '', '0', '', '140018', '140018', 'aktif', '2020', 'adm', '2020-06-12 10:33:31'),
+(187, 'Sicantik Cloud', 1, 1, '-', '-', 1, '', '', 'Aplikasi Sicantik Cloud.jpg', '', '140018', '140018', 'aktif', '2020', 'adm', '2020-06-12 10:33:31'),
 (188, 'CS2', 1, 2, '-', '-', 1, '', '', '0', '', '013401', '013401', 'aktif', '2020', 'adm', '2020-03-10 15:49:18'),
 (193, 'Sistem Pengujian Kendaraan Bermotor (KIR)', 1, 2, 'Sistem informasi untuk menguji kendaraan bermotor', NULL, 4, '', NULL, NULL, '', '030701', '030701', 'aktif', '-', 'adminapps', '2020-07-23 09:58:12'),
-(192, 'Jendela Kota Denpasar (Pusat Data berbasis GIS)', 1, 2, '-', NULL, 4, '-', NULL, NULL, '', '030801', '040501', 'naktif', '2015', 'adminapps', '2020-07-22 13:51:37'),
-(194, 'Taringdukcapil (Pendaftaran Daring Dukcapil Kota Denpasar)', 1, 2, 'Aplikasi layanan untuk masyarakat berbasis website yang memuat layanan seperti pembuatan : paket akte kelahiran, paket akte perkawinan, paket akte perceraian, paket akte kematian, kartu keluarga KTP elektronik, surat pindah domisili, Kartu Identitas Anak, serta surat lainnya', NULL, 1, 'https://taringdukcapil.denpasarkota.go.id', NULL, NULL, '-', '030601', '030601', 'aktif', '2020', 'adminapps', '2020-11-09 09:45:23'),
+(192, 'Jendela Kota Denpasar (Pusat Data berbasis GIS)', 1, 2, '-', NULL, 4, 'http://jendela.denpasarkota.go.id/rtmy/index.php', NULL, NULL, '-', '030801', '040501', 'naktif', '2015', 'adminapps', '2021-07-06 09:43:24'),
+(194, 'Taringdukcapil (Pendaftaran Daring Dukcapil Kota Denpasar)', 1, 2, 'Aplikasi layanan untuk masyarakat berbasis website yang memuat layanan seperti pembuatan : paket akte kelahiran, paket akte perkawinan, paket akte perceraian, paket akte kematian, kartu keluarga KTP elektronik, surat pindah domisili, Kartu Identitas Anak, serta surat lainnya', NULL, 1, 'https://taringdukcapil.denpasarkota.go.id', NULL, 'Aolikasi taringdukcapil.jpg', '-', '030601', '030601', 'aktif', '2020', 'adminapps', '2020-11-09 09:45:23'),
 (195, 'Jagabaya', 2, 2, 'Aplikasi JAGA BAYA merupakan aplikasi yang dikembangkan oleh Pemerintah Kota Denpasar sebagai ruang partisipasi masyarakat, pelaku usaha dan penyedia jasa untuk memberikan rasa aman dalam situasi pandemi COVID-19 di Kota Denpasar saat ini.\r\n\r\nAplikasi JAGABAYA digunakan untuk melakukan check in saat warga berkunjung ke tempat makan, bar, restoran, tempat wisata, mal pelayanan publik, kantor desa kelurahan dan tempat menarik lainnya.', NULL, 1, 'https://jagabaya.denpasarkota.go.id', NULL, NULL, '', '030801', '000000', 'aktif', '2020', 'adminapps', '2020-08-06 11:55:26'),
 (196, 'Portal SPBE (Sistem Pemerintahan Berbasis Elektronik)', 1, 2, 'Sebagai media apliakasi penilaian sistem informasi berbasis elektronik (SPBE) dan juga sebagai pencatatan aplikasi.', NULL, 1, 'https://spbe.denpasarkota.go.id', NULL, NULL, '', '030801', '030801', 'aktif', '2020', 'adminapps', '2020-08-10 14:47:34'),
-(197, 'Siapel Rutilahu  (Sistem Aplikasi Rumah Tidak Layak Huni)', 1, 2, 'Memberikan Informasi tentang data Rumah Tidak Layak Huni dan Lokasi Kumuh Di Kota Denpasar.', NULL, 4, '', NULL, NULL, '030401', '030401', '030401', 'aktif', '-', 'adminapps', '2020-11-09 09:35:26');
+(197, 'Siapel Rutilahu  (Sistem Aplikasi Rumah Tidak Layak Huni)', 1, 2, 'Memberikan Informasi tentang data Rumah Tidak Layak Huni dan Lokasi Kumuh Di Kota Denpasar.', NULL, 4, '', NULL, NULL, '030401', '030401', '030401', 'aktif', '-', 'adminapps', '2020-11-09 09:35:26'),
+(198, 'ABK', 1, 1, 'Untuk mengetahui kebutuhan SDM berdasarkan beban kerja, capaian kegiatan SDM\r\n', NULL, 1, 'renbut.Kemkes.go.id ', NULL, NULL, '030201', '030201', '030201', 'aktif', '-', 'adminapps', '2021-06-09 11:43:11');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_aplikasi`
+-- Table structure for table `detail_aplikasi`
 --
 
 CREATE TABLE `detail_aplikasi` (
@@ -280,7 +281,7 @@ CREATE TABLE `detail_aplikasi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `detail_aplikasi`
+-- Dumping data for table `detail_aplikasi`
 --
 
 INSERT INTO `detail_aplikasi` (`id_detail_aplikasi`, `id_aplikasi`, `input`, `output`, `version`, `db`, `pemrograman`, `integrasi`, `info_integrasi`, `inte_app_lain`, `info_inte_app_lain`, `thn_pengembangan`, `cpu_server`, `ram_server`, `harddisk_server`, `os_server`, `bp_server`, `web_server`, `database_server`, `bplain_server`, `loka_server`, `judul_spk`, `nilai_spk`, `sumberdana_spk`, `vendor`, `kontak_vendor`, `usr`, `dlu`) VALUES
@@ -350,7 +351,7 @@ INSERT INTO `detail_aplikasi` (`id_detail_aplikasi`, `id_aplikasi`, `input`, `ou
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_aplikasi`
+-- Table structure for table `kategori_aplikasi`
 --
 
 CREATE TABLE `kategori_aplikasi` (
@@ -359,7 +360,7 @@ CREATE TABLE `kategori_aplikasi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_aplikasi`
+-- Dumping data for table `kategori_aplikasi`
 --
 
 INSERT INTO `kategori_aplikasi` (`id_kat_aplikasi`, `kat_aplikasi`) VALUES
@@ -369,7 +370,7 @@ INSERT INTO `kategori_aplikasi` (`id_kat_aplikasi`, `kat_aplikasi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_database`
+-- Table structure for table `kategori_database`
 --
 
 CREATE TABLE `kategori_database` (
@@ -378,7 +379,7 @@ CREATE TABLE `kategori_database` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_database`
+-- Dumping data for table `kategori_database`
 --
 
 INSERT INTO `kategori_database` (`id_kat_database`, `nama_kat_database`) VALUES
@@ -390,7 +391,7 @@ INSERT INTO `kategori_database` (`id_kat_database`, `nama_kat_database`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_lok_server`
+-- Table structure for table `kategori_lok_server`
 --
 
 CREATE TABLE `kategori_lok_server` (
@@ -399,7 +400,7 @@ CREATE TABLE `kategori_lok_server` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_lok_server`
+-- Dumping data for table `kategori_lok_server`
 --
 
 INSERT INTO `kategori_lok_server` (`id_lok_server`, `nama_lok_server`) VALUES
@@ -411,7 +412,7 @@ INSERT INTO `kategori_lok_server` (`id_lok_server`, `nama_lok_server`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_media`
+-- Table structure for table `kategori_media`
 --
 
 CREATE TABLE `kategori_media` (
@@ -420,7 +421,7 @@ CREATE TABLE `kategori_media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_media`
+-- Dumping data for table `kategori_media`
 --
 
 INSERT INTO `kategori_media` (`id_media`, `nama_kat_media`) VALUES
@@ -432,7 +433,7 @@ INSERT INTO `kategori_media` (`id_media`, `nama_kat_media`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `klasifikasi_aplikasi`
+-- Table structure for table `klasifikasi_aplikasi`
 --
 
 CREATE TABLE `klasifikasi_aplikasi` (
@@ -441,7 +442,7 @@ CREATE TABLE `klasifikasi_aplikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `klasifikasi_aplikasi`
+-- Dumping data for table `klasifikasi_aplikasi`
 --
 
 INSERT INTO `klasifikasi_aplikasi` (`id_klasifikasi_app`, `nama_klasifikasi_app`) VALUES
@@ -451,7 +452,7 @@ INSERT INTO `klasifikasi_aplikasi` (`id_klasifikasi_app`, `nama_klasifikasi_app`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_jenis_laporan`
+-- Table structure for table `tbl_jenis_laporan`
 --
 
 CREATE TABLE `tbl_jenis_laporan` (
@@ -461,7 +462,7 @@ CREATE TABLE `tbl_jenis_laporan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_jenis_laporan`
+-- Dumping data for table `tbl_jenis_laporan`
 --
 
 INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`, `bidang`) VALUES
@@ -474,7 +475,7 @@ INSERT INTO `tbl_jenis_laporan` (`id_jenis_laporan`, `nama_jenis_laporan`, `bida
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kategori_monev`
+-- Table structure for table `tbl_kategori_monev`
 --
 
 CREATE TABLE `tbl_kategori_monev` (
@@ -483,7 +484,7 @@ CREATE TABLE `tbl_kategori_monev` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_kategori_monev`
+-- Dumping data for table `tbl_kategori_monev`
 --
 
 INSERT INTO `tbl_kategori_monev` (`id_kat_monev`, `nama_kategori_monev`) VALUES
@@ -497,7 +498,7 @@ INSERT INTO `tbl_kategori_monev` (`id_kat_monev`, `nama_kategori_monev`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_lapormasalah`
+-- Table structure for table `tbl_lapormasalah`
 --
 
 CREATE TABLE `tbl_lapormasalah` (
@@ -513,7 +514,7 @@ CREATE TABLE `tbl_lapormasalah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_lapormasalah`
+-- Dumping data for table `tbl_lapormasalah`
 --
 
 INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `permasalahan`, `bukti_lapor`, `nama_input`, `status_lapor`, `kat_tl_lapor`, `dlu`) VALUES
@@ -525,7 +526,7 @@ INSERT INTO `tbl_lapormasalah` (`id_lapormasalah`, `jns_laporan`, `nama_app`, `p
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_monev_app`
+-- Table structure for table `tbl_monev_app`
 --
 
 CREATE TABLE `tbl_monev_app` (
@@ -544,7 +545,7 @@ CREATE TABLE `tbl_monev_app` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tbl_monev_app`
+-- Dumping data for table `tbl_monev_app`
 --
 
 INSERT INTO `tbl_monev_app` (`id_monev_app`, `nama_app`, `kategori_monev`, `masalah`, `bukti_dukung`, `solusi_pengembang`, `nama_team`, `status_monev`, `dlu_monev`, `respon_koor`, `nama_koor`, `dlu_respon_koor`) VALUES
@@ -560,7 +561,7 @@ INSERT INTO `tbl_monev_app` (`id_monev_app`, `nama_app`, `kategori_monev`, `masa
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_respon_tl`
+-- Table structure for table `tbl_respon_tl`
 --
 
 CREATE TABLE `tbl_respon_tl` (
@@ -573,7 +574,7 @@ CREATE TABLE `tbl_respon_tl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_respon_tl`
+-- Dumping data for table `tbl_respon_tl`
 --
 
 INSERT INTO `tbl_respon_tl` (`id_respon_tl`, `id_lapormasalah`, `kat_tl_respon`, `respon_tl`, `user_tl`, `dlu_tl`) VALUES
@@ -584,7 +585,7 @@ INSERT INTO `tbl_respon_tl` (`id_respon_tl`, `id_lapormasalah`, `kat_tl_respon`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user_katindex`
+-- Table structure for table `tbl_user_katindex`
 --
 
 CREATE TABLE `tbl_user_katindex` (
@@ -593,18 +594,19 @@ CREATE TABLE `tbl_user_katindex` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_user_katindex`
+-- Dumping data for table `tbl_user_katindex`
 --
 
 INSERT INTO `tbl_user_katindex` (`id_user_katindex`, `user_katindex`) VALUES
 (1, 'SPBE'),
 (2, 'IKCI'),
-(3, 'Aplikasi');
+(3, 'Aplikasi'),
+(4, 'Start Up Digital');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_aspek`
+-- Table structure for table `tb_aspek`
 --
 
 CREATE TABLE `tb_aspek` (
@@ -618,92 +620,95 @@ CREATE TABLE `tb_aspek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_aspek`
+-- Dumping data for table `tb_aspek`
 --
 
 INSERT INTO `tb_aspek` (`id_aspek`, `domain`, `nama_aspek`, `bobot_aspek`, `target_aspek`, `urutan_aspek`, `user_katindex`) VALUES
-(1, 1, 'Kebijakan Tata Kelola SPBE', 7.00, 3, 1, 1),
-(2, 1, 'Kebijakan Layanan SPBE', 10.00, 3, 2, 1),
-(3, 2, 'Kelembagaan', 8.00, 3, 3, 1),
-(4, 2, 'Strategi dan Perencanaan', 8.00, 3, 4, 1),
-(5, 2, 'Teknologi Informasi dan Komunikasi', 12.00, 3, 5, 1),
-(6, 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', 35.00, 3, 6, 1),
-(7, 3, 'Layanan Publik Berbasis Elektronik', 20.00, 3, 7, 1),
-(8, 4, 'Bangunan Cerdas Cerdas', 0.08, 0, 1, 0),
-(9, 4, 'Manajemen Sumber Daya', 0.29, 0, 2, 0),
-(10, 4, 'Perencanaan Berkelanjutan', 0.63, 0, 3, 0),
-(11, 5, 'Transportasi yang Efisien', 0.36, 0, 1, 0),
-(12, 5, 'Akses Multi Moda', 0.40, 0, 2, 0),
-(13, 5, 'Infrastruktur Teknologi', 0.25, 0, 3, 0),
-(14, 6, 'Layanan Daring', 0.32, 0, 1, 0),
-(15, 6, 'Infrastruktur Pendukung Sistem', 0.28, 0, 2, 0),
-(16, 6, 'Keterbukaan Data Pemerintahan', 0.39, 0, 3, 0),
-(17, 7, 'Kewirausahaan dan Inovasi', 0.37, 0, 1, 0),
-(18, 7, 'Produktivitas', 0.27, 0, 2, 0),
-(19, 7, 'Jaringan Bisnis Dalam dan Luar Negeri', 0.36, 0, 3, 0),
-(20, 8, 'Inklusivitas Sosial', 0.25, 0, 1, 0),
-(21, 8, 'Pendidikan', 0.20, 0, 2, 0),
-(22, 8, 'Kreativitas', 0.55, 0, 3, 0),
-(23, 9, 'Budaya dan Kesejahteraan', 0.30, 0, 1, 0),
-(24, 9, 'Keamanan', 0.24, 0, 2, 0),
-(25, 9, 'Kesehatan', 0.46, 0, 3, 0);
+(1, 1, 'Kebijakan Internal Terkait Tata Kelola SPBE', '7.00', 3, 1, 1),
+(2, 2, 'Perencanaan Strategis SPBE', '10.00', 3, 2, 1),
+(3, 2, 'Teknologi Informasi dan Komunikasi', '8.00', 3, 3, 1),
+(4, 2, 'Penyelenggara SPBE', '8.00', 3, 4, 1),
+(5, 14, 'Penerapan Manajemen SPBE', '12.00', 3, 5, 1),
+(6, 3, 'Layanan Administrasi Pemerintah Berbasis Elektronik', '35.00', 3, 6, 1),
+(7, 3, 'Layanan Publik Berbasis Elektronik', '20.00', 3, 7, 1),
+(8, 4, 'Bangunan Cerdas Cerdas', '0.08', 0, 1, 0),
+(9, 4, 'Manajemen Sumber Daya', '0.29', 0, 2, 0),
+(10, 4, 'Perencanaan Berkelanjutan', '0.63', 0, 3, 0),
+(11, 5, 'Transportasi yang Efisien', '0.36', 0, 1, 0),
+(12, 5, 'Akses Multi Moda', '0.40', 0, 2, 0),
+(13, 5, 'Infrastruktur Teknologi', '0.25', 0, 3, 0),
+(14, 6, 'Layanan Daring', '0.32', 0, 1, 0),
+(15, 6, 'Infrastruktur Pendukung Sistem', '0.28', 0, 2, 0),
+(16, 6, 'Keterbukaan Data Pemerintahan', '0.39', 0, 3, 0),
+(17, 7, 'Kewirausahaan dan Inovasi', '0.37', 0, 1, 0),
+(18, 7, 'Produktivitas', '0.27', 0, 2, 0),
+(19, 7, 'Jaringan Bisnis Dalam dan Luar Negeri', '0.36', 0, 3, 0),
+(20, 8, 'Inklusivitas Sosial', '0.25', 0, 1, 0),
+(21, 8, 'Pendidikan', '0.20', 0, 2, 0),
+(22, 8, 'Kreativitas', '0.55', 0, 3, 0),
+(23, 9, 'Budaya dan Kesejahteraan', '0.30', 0, 1, 0),
+(24, 9, 'Keamanan', '0.24', 0, 2, 0),
+(25, 9, 'Kesehatan', '0.46', 0, 3, 0),
+(27, 14, 'Audit TIK', '10.00', 3, 6, 1),
+(28, 15, 'Layanan Administrasi Pemerintahan Berbasis Elektronik', '10.00', 3, 7, 1),
+(29, 15, 'Layanan Publik Berbasis Elektronik', '10.00', 3, 8, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_aspek_nilai`
+-- Table structure for table `tb_aspek_nilai`
 --
 
 CREATE TABLE `tb_aspek_nilai` (
   `id_aspek_nilai` int(11) NOT NULL,
   `aspek` int(11) NOT NULL,
   `nilai_aspek` decimal(10,2) NOT NULL,
-  `tahun_aspek` varchar(5) NOT NULL,
-  `domain` int(11) NOT NULL
+  `domain` int(11) NOT NULL,
+  `indeks_nilai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_aspek_nilai`
+-- Dumping data for table `tb_aspek_nilai`
 --
 
-INSERT INTO `tb_aspek_nilai` (`id_aspek_nilai`, `aspek`, `nilai_aspek`, `tahun_aspek`, `domain`) VALUES
-(1, 1, 2.00, '2018', 1),
-(2, 2, 2.10, '2018', 1),
-(3, 3, 2.00, '2018', 2),
-(4, 4, 2.50, '2018', 2),
-(5, 5, 2.33, '2018', 2),
-(6, 6, 3.29, '2018', 3),
-(7, 7, 2.50, '2018', 3),
-(8, 8, 0.83, '2018', 4),
-(9, 9, 2.88, '2018', 4),
-(10, 10, 6.29, '2018', 4),
-(11, 11, 2.67, '2018', 5),
-(12, 12, 2.99, '2018', 5),
-(13, 13, 1.84, '2018', 5),
-(14, 14, 2.91, '2018', 6),
-(15, 15, 2.57, '2018', 6),
-(16, 16, 3.57, '2018', 6),
-(17, 17, 2.56, '2018', 7),
-(18, 18, 1.84, '2018', 7),
-(19, 19, 2.49, '2018', 7),
-(20, 20, 2.58, '2018', 8),
-(21, 21, 2.13, '2018', 8),
-(22, 22, 5.79, '2018', 8),
-(23, 23, 3.17, '2018', 9),
-(24, 24, 2.51, '2018', 9),
-(25, 25, 4.77, '2018', 9),
-(26, 1, 3.00, '2019', 1),
-(27, 2, 3.00, '2019', 1),
-(28, 3, 3.50, '2019', 2),
-(29, 4, 3.00, '2019', 2),
-(30, 5, 2.67, '2019', 2),
-(31, 6, 3.57, '2019', 3),
-(32, 7, 3.67, '2019', 3);
+INSERT INTO `tb_aspek_nilai` (`id_aspek_nilai`, `aspek`, `nilai_aspek`, `domain`, `indeks_nilai`) VALUES
+(1, 1, '2.00', 1, 1),
+(2, 2, '2.10', 1, 1),
+(3, 3, '2.00', 2, 1),
+(4, 4, '2.50', 2, 1),
+(5, 5, '2.33', 2, 1),
+(6, 6, '3.29', 3, 1),
+(7, 7, '2.50', 3, 1),
+(8, 8, '0.83', 4, 2),
+(9, 9, '2.88', 4, 2),
+(10, 10, '6.29', 4, 2),
+(11, 11, '2.67', 5, 2),
+(12, 12, '2.99', 5, 2),
+(13, 13, '1.84', 5, 2),
+(14, 14, '2.91', 6, 2),
+(15, 15, '2.57', 6, 2),
+(16, 16, '3.57', 6, 2),
+(17, 17, '2.56', 7, 2),
+(18, 18, '1.84', 7, 2),
+(19, 19, '2.49', 7, 2),
+(20, 20, '2.58', 8, 2),
+(21, 21, '2.13', 8, 2),
+(22, 22, '5.79', 8, 2),
+(23, 23, '3.17', 9, 2),
+(24, 24, '2.51', 9, 2),
+(25, 25, '4.77', 9, 2),
+(26, 1, '3.00', 1, 3),
+(27, 2, '3.00', 1, 3),
+(28, 3, '3.50', 2, 3),
+(29, 4, '3.00', 2, 3),
+(30, 5, '2.67', 2, 3),
+(31, 6, '3.57', 3, 3),
+(32, 7, '3.67', 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_datapendukung`
+-- Table structure for table `tb_datapendukung`
 --
 
 CREATE TABLE `tb_datapendukung` (
@@ -713,7 +718,7 @@ CREATE TABLE `tb_datapendukung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_datapendukung`
+-- Dumping data for table `tb_datapendukung`
 --
 
 INSERT INTO `tb_datapendukung` (`iddata`, `idevaluasi`, `keterangan`) VALUES
@@ -758,7 +763,7 @@ INSERT INTO `tb_datapendukung` (`iddata`, `idevaluasi`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_indikator`
+-- Table structure for table `tb_detail_indikator`
 --
 
 CREATE TABLE `tb_detail_indikator` (
@@ -770,7 +775,7 @@ CREATE TABLE `tb_detail_indikator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_indikator`
+-- Dumping data for table `tb_detail_indikator`
 --
 
 INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, `penjelasan_indikator_list`, `penjelasan_indikator_level`, `penjelasan_indikator_tambahan`) VALUES
@@ -811,12 +816,61 @@ INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, 
 (34, 34, '--Penjelasan Indikator : 	\r\nWhistle Blowing System (WBS) adalah sistem untuk memproses pengaduan/pemberian informasi yang  disampaikan  baik  secara langsung    maupun    tidak    langsung    sehubungan dengan    adanya perbuatan   yang   melanggar   perundang-undangan, peraturan/standar, kode  etik,  dan  kebijakan,  serta  tindakan  lain  yang sejenis berupa ancaman langsung atas kepentingan umum, serta Korupsi, Kolusi, dan Nepotisme (KKN) yang terjadi.\r\nLayanan Whistle Blowing System (WBS) merupakan tugas atau fungsi yang memberikan manfaat dalam pengelolaan Whistle Blowing System (WBS) kepada Instansi Pusat dan/atau Pemerintah Daerah.\r\nWhistle Blowing System (WBS) dimaksud adalah layanan Whistle Blowing System (WBS) berbasis elektronik.\r\nPenjelasan masing-masing tingkat kematangan:\r\n', ';Level 0 = Instansi Pusat/Pemerintah Daerah belum memiliki WBS.\r\n;Level 1 = Instansi Pusat/Pemerintah Daerah sudah dapat menerima informasi pengaduan dari pelapor. \r\n;Level 2 = Instansi Pusat/Pemerintah Daerah sudah memiliki WBS yang menyediakan layanan interaksi seperti mencari informasi dan \r\n                 menyampaikan laporan.\r\n;Level 3 = Instansi Pusat/Pemerintah Daerah sudah memiliki WBS yang menyediakan layanan transaksi dimana pengguna dapat menyampaikan \r\n                 laporan dan sistem dapat merespon kepada pengguna seperti kemajuan penyelesaian laporan, resolusi laporan, perlindungan \r\n                 kerahasiaan pelapor, penerapan mekanisme nirsangkal.\r\n;Level 4 = Instansi Pusat/Pemerintah Daerah sudah memiliki WBS yang menyediakan layanan kolaborasi dimana layanan WBS diintegrasikan \r\n                 dengan suatu layanan seperti layanan manajemen kinerja atau diintegrasikan dengan layanan SPBE instansi pemerintah lain.\r\n;Level 5 = Instansi Pusat/Pemerintah Daerah sudah memiliki WBS yang dapat ditingkatkan/dikembangkan menyesuaikan terhadap perubahan \r\n                 lingkungan, teknologi dan kebutuhan instansi.\r\n', ';;Data pendukung dapat berupa dokumen penggunaan aplikasi, screenshot layanan aplikasi, daftar layanan dan fitur aplikasi, arsitektur aplikasi, pengelolaan repositori API, unit kerja yang menangani manajemen layanan, dan bukti terkait lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator34a.pdf, indikator34b.pdf, indikator34c.pdf, dan seterusnya.\r\n'),
 (35, 35, '--Penjelasan Indikator : 	\r\nPelayanan Publik adalah kegiatan atau rangkaian kegiatan dalam rangka pemenuhan kebutuhan pelayanan sesuai dengan peraturan perundang-undangan bagi setiap warga negara dan penduduk atas jasa, barang, dan/atau pelayanan administratif yang disediakan oleh penyelenggara pelayanan publik, dalam hal ini yang disediakan oleh Instansi Pusat/Pemerintah Daerah.\r\nLayanan Publik Instansi Pemerintah merupakan tugas atau fungsi yang memberikan manfaat dalam pengelolaan layanan publik bagi Instansi Pusat dan/atau Pemerintah Daerah.\r\nSistem Pelayanan Publik dimaksud adalah layanan pengaduan publik berbasis elektronik yang dimiliki oleh Instansi Pusat dan/atau Pemerintah Daerah.\r\nInstansi Pusat/Pemerintah Daerah memberikan informasi paling tidak 3 (tiga) Sistem pelayanan publik yang ada pada instansinya.\r\nPenjelasan masing-masing tingkat kematangan:\r\n', ';Level 0 = Instansi Pusat/Pemerintah Daerah belum memiliki sistem pelayanan publik.\r\n;Level 1 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan diseminasi/penyebaran satu arah \r\n                 informasi seperti informasi layanan yang diberikan.\r\n;Level 2 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan interaksi seperti mencari informasi \r\n                 dan menyampaikan permohonan pelayanan.\r\n;Level 3 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan transaksi dimana pengguna dapat \r\n                 menyampaikan permohonan pelayanan dan sistem dapat merespon kepada pengguna seperti kemajuan proses permohonan pelayanan,  \r\n                 verifikasi dan validasi informasi.\r\n;Level 4 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan kolaborasi dimana layanan publik \r\n                 diintegrasikan dengan suatu layanan seperti layanan identifikasi penduduk (administrasi kependudukan) atau diintegrasikan dengan \r\n                layanan SPBE instansi pemerintah lain.\r\n;Level 5 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang dapat ditingkatkan/dikembangkan menyesuaikan \r\n                 terhadap perubahan lingkungan, teknologi dan kebutuhan instansi.\r\n\r\n', ';;Penjelasan: Layanan Publik terbaik 1\r\nNama Aplikasi : Pelayanan Rakyat Online (PRO) Denpasar\r\nTujuan : Menyediakan layanan pengaduan online\r\nPengguna : Masyarakat\r\nInput dan output : Input Laporan pengaduan. Output tindak lanjut pengaduan, map/lokasi titik pengaduan dan jenis-jenis laporan \r\nPengembang aplikasi : CV. Avatar\r\nDeskripsi pemilihan tingkat kematangan : Level 5\r\n\r\nData pendukung dapat berupa dokumen penggunaan aplikasi, screenshot layanan aplikasi, daftar layanan dan fitur aplikasi, arsitektur aplikasi, pengelolaan repositori API, unit kerja yang menangani manajemen layanan, dan bukti terkait lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator35-1a.pdf, indikator35-1b.pdf, indikator35-1c.pdf, dan seterusnya.\r\nÂ \r\n'),
 (36, 36, '--Penjelasan Indikator : 	\r\nPelayanan Publik adalah kegiatan atau rangkaian kegiatan dalam rangka pemenuhan kebutuhan pelayanan sesuai dengan peraturan perundang-undangan bagi setiap warga negara dan penduduk atas jasa, barang, dan/atau pelayanan administratif yang disediakan oleh penyelenggara pelayanan publik, dalam hal ini yang disediakan oleh Instansi Pusat/Pemerintah Daerah.\r\nLayanan Publik Instansi Pemerintah merupakan tugas atau fungsi yang memberikan manfaat dalam pengelolaan layanan publik bagi Instansi Pusat dan/atau Pemerintah Daerah.\r\nSistem Pelayanan Publik dimaksud adalah layanan pengaduan publik berbasis elektronik yang dimiliki oleh Instansi Pusat dan/atau Pemerintah Daerah.\r\nInstansi Pusat/Pemerintah Daerah memberikan informasi paling tidak 3 (tiga) Sistem pelayanan publik yang ada pada instansinya.\r\nPenjelasan masing-masing tingkat kematangan:\r\n', ';Level 0 = Instansi Pusat/Pemerintah Daerah belum memiliki sistem pelayanan publik.\r\n;Level 1 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan diseminasi/penyebaran satu arah \r\n                 informasi seperti informasi layanan yang diberikan.\r\n;Level 2 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan interaksi seperti mencari informasi \r\n                 dan menyampaikan permohonan pelayanan.\r\n;Level 3 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan transaksi dimana pengguna dapat \r\n                 menyampaikan permohonan pelayanan dan sistem dapat merespon kepada pengguna seperti kemajuan proses permohonan pelayanan,  \r\n                 verifikasi dan validasi informasi.\r\n;Level 4 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan kolaborasi dimana layanan publik \r\n                 diintegrasikan dengan suatu layanan seperti layanan identifikasi penduduk (administrasi kependudukan) atau diintegrasikan dengan \r\n                layanan SPBE instansi pemerintah lain.\r\n;Level 5 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang dapat ditingkatkan/dikembangkan menyesuaikan \r\n                 terhadap perubahan lingkungan, teknologi dan kebutuhan instansi.\r\n', ';;Penjelasan: Layanan Publik terbaik 2\r\nNama Aplikasi : Bursa Kerja Online\r\nTujuan : Meningkatkan kualitas pelayanan di bidang ketenagakerjaan\r\nPengguna : Pencari Kerja dan Penyedia Kerja\r\nInput dan output : Input lowongan kerja dari Penyedia Kerja, Output informasi lowongan kerja untuk Pencari Kerja, serta jenis-jenis laporan ketenagakerjaan.\r\nPengembang aplikasi : PT. Bamesti Prema Jaya\r\nDeskripsi pemilihan tingkat kematangan : Level 5\r\n\r\nData pendukung dapat berupa dokumen penggunaan aplikasi, screenshot layanan aplikasi, daftar layanan dan fitur aplikasi, arsitektur aplikasi, pengelolaan repositori API, unit kerja yang menangani manajemen layanan, dan bukti terkait lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator35-2a.pdf, indikator35-2b.pdf, indikator35-2c.pdf, dan seterusnya.\r\n'),
-(37, 37, '--Penjelasan Indikator : 	\r\nPelayanan Publik adalah kegiatan atau rangkaian kegiatan dalam rangka pemenuhan kebutuhan pelayanan sesuai dengan peraturan perundang-undangan bagi setiap warga negara dan penduduk atas jasa, barang, dan/atau pelayanan administratif yang disediakan oleh penyelenggara pelayanan publik, dalam hal ini yang disediakan oleh Instansi Pusat/Pemerintah Daerah.\r\nLayanan Publik Instansi Pemerintah merupakan tugas atau fungsi yang memberikan manfaat dalam pengelolaan layanan publik bagi Instansi Pusat dan/atau Pemerintah Daerah.\r\nSistem Pelayanan Publik dimaksud adalah layanan pengaduan publik berbasis elektronik yang dimiliki oleh Instansi Pusat dan/atau Pemerintah Daerah.\r\nInstansi Pusat/Pemerintah Daerah memberikan informasi paling tidak 3 (tiga) Sistem pelayanan publik yang ada pada instansinya.\r\nPenjelasan masing-masing tingkat kematangan:\r\n', ';Level 0 = Instansi Pusat/Pemerintah Daerah belum memiliki sistem pelayanan publik.\r\n;Level 1 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan diseminasi/penyebaran satu arah \r\n                 informasi seperti informasi layanan yang diberikan.\r\n;Level 2 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan interaksi seperti mencari informasi \r\n                 dan menyampaikan permohonan pelayanan.\r\n;Level 3 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan transaksi dimana pengguna dapat \r\n                 menyampaikan permohonan pelayanan dan sistem dapat merespon kepada pengguna seperti kemajuan proses permohonan pelayanan,  \r\n                 verifikasi dan validasi informasi.\r\n;Level 4 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan kolaborasi dimana layanan publik \r\n                 diintegrasikan dengan suatu layanan seperti layanan identifikasi penduduk (administrasi kependudukan) atau diintegrasikan dengan \r\n                layanan SPBE instansi pemerintah lain.\r\n;Level 5 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang dapat ditingkatkan/dikembangkan menyesuaikan \r\n                 terhadap perubahan lingkungan, teknologi dan kebutuhan instansi.\r\n', ';;Penjelasan: Layanan Publik terbaik 3\r\nNama Aplikasi : Sistem Informasi Perijinan Online\r\nTujuan : Memberikan layanan informasi dan proses perijinan yang transparan\r\nPengguna : Masyarakat\r\nInput dan output : Input data-data perijinan, Output informasi perijinan, informasi simulasi perhitungan retribusi, laporan-laporan perijinan.\r\nPengembang aplikasi : UNUD\r\nDeskripsi pemilihan tingkat kematangan : Level 5 \r\n\r\nData pendukung dapat berupa dokumen penggunaan aplikasi, screenshot layanan aplikasi, daftar layanan dan fitur aplikasi, arsitektur aplikasi, pengelolaan repositori API, unit kerja yang menangani manajemen layanan, dan bukti terkait lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator35-3a.pdf, indikator35-3b.pdf, indikator35-3c.pdf, dan seterusnya.\r\n');
+(37, 37, '--Penjelasan Indikator : 	\r\nPelayanan Publik adalah kegiatan atau rangkaian kegiatan dalam rangka pemenuhan kebutuhan pelayanan sesuai dengan peraturan perundang-undangan bagi setiap warga negara dan penduduk atas jasa, barang, dan/atau pelayanan administratif yang disediakan oleh penyelenggara pelayanan publik, dalam hal ini yang disediakan oleh Instansi Pusat/Pemerintah Daerah.\r\nLayanan Publik Instansi Pemerintah merupakan tugas atau fungsi yang memberikan manfaat dalam pengelolaan layanan publik bagi Instansi Pusat dan/atau Pemerintah Daerah.\r\nSistem Pelayanan Publik dimaksud adalah layanan pengaduan publik berbasis elektronik yang dimiliki oleh Instansi Pusat dan/atau Pemerintah Daerah.\r\nInstansi Pusat/Pemerintah Daerah memberikan informasi paling tidak 3 (tiga) Sistem pelayanan publik yang ada pada instansinya.\r\nPenjelasan masing-masing tingkat kematangan:\r\n', ';Level 0 = Instansi Pusat/Pemerintah Daerah belum memiliki sistem pelayanan publik.\r\n;Level 1 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan diseminasi/penyebaran satu arah \r\n                 informasi seperti informasi layanan yang diberikan.\r\n;Level 2 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan interaksi seperti mencari informasi \r\n                 dan menyampaikan permohonan pelayanan.\r\n;Level 3 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan transaksi dimana pengguna dapat \r\n                 menyampaikan permohonan pelayanan dan sistem dapat merespon kepada pengguna seperti kemajuan proses permohonan pelayanan,  \r\n                 verifikasi dan validasi informasi.\r\n;Level 4 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang menyediakan layanan kolaborasi dimana layanan publik \r\n                 diintegrasikan dengan suatu layanan seperti layanan identifikasi penduduk (administrasi kependudukan) atau diintegrasikan dengan \r\n                layanan SPBE instansi pemerintah lain.\r\n;Level 5 = Instansi Pusat/Pemerintah Daerah sudah memiliki sistem pelayanan publik yang dapat ditingkatkan/dikembangkan menyesuaikan \r\n                 terhadap perubahan lingkungan, teknologi dan kebutuhan instansi.\r\n', ';;Penjelasan: Layanan Publik terbaik 3\r\nNama Aplikasi : Sistem Informasi Perijinan Online\r\nTujuan : Memberikan layanan informasi dan proses perijinan yang transparan\r\nPengguna : Masyarakat\r\nInput dan output : Input data-data perijinan, Output informasi perijinan, informasi simulasi perhitungan retribusi, laporan-laporan perijinan.\r\nPengembang aplikasi : UNUD\r\nDeskripsi pemilihan tingkat kematangan : Level 5 \r\n\r\nData pendukung dapat berupa dokumen penggunaan aplikasi, screenshot layanan aplikasi, daftar layanan dan fitur aplikasi, arsitektur aplikasi, pengelolaan repositori API, unit kerja yang menangani manajemen layanan, dan bukti terkait lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator35-3a.pdf, indikator35-3b.pdf, indikator35-3c.pdf, dan seterusnya.\r\n'),
+(38, 40, 'Arsitektur SPBE adalah kerangka dasar yang mendeskripsikan integrasi proses bisnis, data dan informasi, infrastruktur SPBE, aplikasi SPBE, dan keamanan SPBE untuk menghasilkan layanan SPBE yang terintegrasi.\r\nKebijakan internal Arsitektur SPBE merupakan pengaturan mengenai Arsitektur SPBE di Instansi Pusat dan Pemerintah Daerah yang bertujuan untuk memberikan panduan dalam pelaksanaan integrasi Proses Bisnis, Data dan Informasi, Infrastruktur SPBE, Aplikasi SPBE, dan Keamanan SPBE untuk menghasilkan Layanan SPBE yang terpadu.\r\nReferensi Arsitektur dan Domain Arsitektur SPBE terdiri dari:\r\nDomain Arsitektur Proses Bisnis;\r\nDomain Arsitektur Data dan Informasi;\r\nDomain Arsitektur Layanan;\r\nDomain Arsitektur Aplikasi;\r\nDomain Arsitektur Infrastruktur SPBE; dan,\r\nDomain Arsitektur Keamanan SPBE.', 'Penjelasan indikator level :\r\nLevel 1 : Konsep kebijakan internal terkait Arsitektur SPBE Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah tersebut belum memuat secara lengkap pengaturan mengenai referensi Arsitektur dan domain Arsitektur SPBE (Proses Bisnis, Data dan Informasi, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, dan Layanan SPBE).\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah memuat secara lengkap pengaturan mengenai referensi Arsitektur dan domain Arsitektur SPBE (Proses Bisnis, Data dan Informasi, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, dan Layanan SPBE).\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, kebijakan internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah mengatur integrasi SPBE antar Instansi Pusat, antar Pemerintah Daerah, dan/atau antar Instansi Pusat dan Pemerintah Daerah, dan kebijakan internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal Arsitektur Instansi Pusat/Pemerintah Daerah SPBE telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator1a.pdf, indikator1b.pdf, indikator1c.pdf, dan seterusnya.'),
+(39, 41, 'Peta Rencana SPBE adalah dokumen yang mendeskripsikan arah dan langkah penyiapan dan pelaksanaan SPBE yang terintegrasi.\r\nKebijakan internal Peta Rencana SPBE merupakan pengaturan mengenai Peta Rencana SPBE di Instansi Pusat/Pemerintah Daerah yang bertujuan untuk memberikan panduan arah dan langkah dalam penyiapan dan pelaksanaan SPBE di Instansi Pusat/Pemerintah Daerah.\r\nPeta Rencana SPBE memuat:\r\nTata Kelola SPBE;\r\nManajemen SPBE;\r\nLayanan SPBE;\r\nInfrastruktur SPBE;\r\nAplikasi SPBE;\r\nKeamanan SPBE; dan,\r\nAudit TIK.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah tersebut belum mengatur muatan Peta Rencana SPBE secara lengkap (Tata Kelola SPBE, Manajemen SPBE, Layanan SPBE, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, dan Audit TIK).\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah mengatur seluruh muatan Peta Rencana SPBE secara lengkap (Tata Kelola SPBE, Manajemen SPBE, Layanan SPBE, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, dan Audit TIK).\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, kebijakan internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah mengatur keselarasan antara Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah dan Peta Rencana SPBE Nasional. Selain itu, Kebijakan internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal Peta Rencana SPBE Instansi', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator2a.pdf, indikator2b.pdf, indikator2c.pdf, dan seterusnya.');
+INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, `penjelasan_indikator_list`, `penjelasan_indikator_level`, `penjelasan_indikator_tambahan`) VALUES
+(40, 42, '1. Manajemen Data bertujuan untuk menjamin terwujudnya data yang akurat, mutakhir, terintegrasi, dan dapat diakses sebagai dasar perencanaan, pelaksanaan, evaluasi, dan pengendalian pembangunan nasional.\r\n2. Manajemen Data dilakukan melalui serangkaian proses pengelolaan Arsitektur Data, Data Induk, Data Referensi, Basis Data, Kualitas Data dan Interoperabilitas Data.\r\n3. Kebijakan Internal Manajemen Data merupakan pengaturan mengenai Manajemen Data di Instansi Pusat dan Pemerintah Daerah yang bertujuan untuk memberikan panduan arah dan langkah dalam pengelolaan data di Instansi Pusat dan Pemerintah Daerah.\r\n4. Instansi Pusat dan Pemerintah Daerah menyusun kebijakan internal Manajemen Data mengacu pada pedoman Manajemen Data SPBE.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Manajemen Data di Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal Manajemen Data di Instansi Pusat/Pemerintah Daerah telah ditetapkan.\r\nLevel 3 : Kondisi: Kebijakan internal Manajemen Data di Instansi Pusat/Pemerintah Daerah tersebut hanya mengatur sebagian dari rangkaian proses pengelolaan arsitektur data, data induk, data referensi, basis data, kualitas data dan interoperabilitas data.\r\nLevel 4 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal Manajemen Data di Instansi Pusat/Pemerintah Daerah telah mengatur seluruh rangkaian proses pengelolaan arsitektur data, data induk, data referensi, basis data, kualitas data dan interoperabilitas data.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal Manajemen Data di Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator3a.pdf, indikator3b.pdf, indikator3c.pdf, dan seterusnya.'),
+(41, 43, '1. Aplikasi SPBE adalah satu atau sekumpulan program komputer dan prosedur yang dirancang untuk melakukan tugas atau fungsi Layanan SPBE.\r\n2. Pembangunan Aplikasi SPBE merupakan suatu proses perancangan aplikasi melalui siklus pembangunan aplikasi.\r\n3. Kebijakan internal Aplikasi SPBE merupakan pengaturan mengenai Pembangunan Aplikasi SPBE di Instansi Pusat dan Pemerintah Daerah yang bertujuan untuk memberikan panduan dalam pelaksanaan pembangunan aplikasi SPBE untuk menghasilkan Layanan SPBE yang terpadu.\r\n4. Siklus Pembangunan Aplikasi terdiri dari:\r\nPerencanaan;\r\nAnalisis;\r\nDesain;\r\nImplementasi; dan,\r\nPemeliharaan.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait siklus Pembangunan Aplikasi SPBE di Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal terkait siklus Pembangunan Aplikasi SPBE di Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal terkait Pembangunan Aplikasi SPBE telah mengatur siklus pembangunan aplikasi.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Kebijakan internal terkait siklus Pembangunan Aplikasi SPBE telah mengatur proses konsultasi terkait siklus Pembangunan Aplikasi SPBE dengan unit kerja/perangkat daerah yang menjalankan fungsi pengelolaan TIK di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, kebijakan internal terkait siklus Pembangunan Aplikasi SPBE di Instansi Pusat/Pemerintah Daerah telah mengatur keterpaduan dan pengendalian Pembangunan Aplikasi SPBE oleh unit kerja/perangkat daerah yang menjalankan fungsi pengelolaan TIK di Instansi Pusat/Pemerintah Daerah. Selain itu, kebijakan internal Pembangunan Aplikasi SPBE direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal Pembangunan Aplikasi SPBE di Instansi Pusat/Pemerintah Daerah SPBE telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator4a.pdf, indikator4b.pdf, indikator4c.pdf, dan seterusnya.'),
+(42, 44, '1. Layanan Pusat Data adalah penyediaan penyimpanan aplikasi dan data.\r\n2. Layanan Pusat Data bertujuan untuk menjamin ketersediaan penyimpanan data bagi Instansi Pusat dan Pemerintah Daerah.\r\n3. Pusat Data Nasional adalah sekumpulan pusat data yang digunakan secara bersama dan bagi pakai oleh Instansi Pusat dan Pemerintah Daerah, dan saling terhubung yang terdiri atas pusat data yang diselenggarakan oleh Instansi Pusat/Pemerintah Daerah dengan memenuhi persyaratan pusat data atau pusat data yang dibangun khusus untuk digunakan secara bersama dan bagi pakai oleh Instansi Pusat dan Pemerintah Daerah.\r\n4. Kebijakan Layanan Pusat Data merupakan pengaturan mengenai layanan pusat data di Instansi Pusat dan Pemerintah Daerah yang bertujuan untuk memberikan panduan dalam pelaksanaan layanan pusat data untuk menghasilkan Layanan SPBE yang terpadu.\r\n5. Instansi Pusat dan Pemerintah Daerah menyusun kebijakan internal layanan pusat data mengacu pada pedoman layanan pusat data.', 'Penjelasan Level : \r\nLevel 1 : Konsep kebijakan internal terkait Layanan Pusat Data yang digunakan di Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal terkait Layanan Pusat Data yang digunakan di Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal terkait Layanan Pusat Data telah mengatur penggunaan Layanan Pusat Data untuk sebagian unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal terkait Layanan Pusat Data telah mengatur penggunaan Layanan Pusat Data untuk seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, kebijakan internal terkait Layanan Pusat Data yang digunakan di Instansi Pusat/Pemerintah Daerah telah mengatur interkoneksi Layanan Pusat Data dengan Pusat Data Nasional dan/atau mengatur penggunaan Layanan Pusat Data Nasional. Selain itu, kebijakan internal terkait penggunaan Layanan Pusat Data di Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal terkait Layanan Pusat Data yang digunakan di Instansi Pusat/Pemerintah Daerah SPBE telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator5a.pdf, indikator5b.pdf, indikator5c.pdf, dan seterusnya.'),
+(43, 45, '1. Jaringan Intra adalah jaringan tertutup yang menghubungkan antar simpul jaringan dalam suatu organisasi.\r\n2. Jaringan Intra Instansi Pusat dan Pemerintah Daerah merupakan Jaringan Intra yang diselenggarakan oleh Instansi Pusat dan Pemerintah Daerah untuk menghubungkan antar simpul jaringan dalam Instansi Pusat/Pemerintah Daerah, dengan Jaringan Intra Pemerintah dan/atau Jaringan Intra Instansi Pusat/Pemerintah Daerah lain.\r\n3. Penggunaan Jaringan Intra Instansi Pusat dan Pemerintah Daerah bertujuan untuk menjaga keamanan dalam melakukan pengiriman data dan informasi antar simpul jaringan dalam Instansi Pusat/Pemerintah Daerah.\r\n4. Penyelenggaraan Jaringan Intra Instansi Pusat/Pemerintah Daerah sebagaimana dimaksud, dapat menggunakan jaringan fisik yang dibangun sendiri oleh Instansi Pusat/Pemerintah Daerah dan/atau yang dibangun oleh penyedia jasa layanan jaringan.\r\n5. Kebijakan internal dalam hal ini mengatur pengoperasian jaringan intra Instansi Pusat/Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah mengatur Layanan Jaringan Intra untuk sebagian unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah mengatur Layanan Jaringan Intra untuk seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah mengatur interkoneksi Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah dengan Jaringan Intra Pemerintah dan/atau Jaringan Intra Instansi Pusat/Pemerintah Daerah lain. Selain itu, kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal terkait Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator6a.pdf, indikator6b.pdf, indikator6c.pdf, dan seterusnya.'),
+(44, 46, '1. Sistem Penghubung Layanan adalah perangkat integrasi/penghubung untuk melakukan pertukaran Layanan SPBE.\r\n2. Penggunaan Sistem Penghubung Layanan Pemerintah bertujuan untuk memudahkan dalam melakukan integrasi antar Layanan SPBE.\r\n3. Syarat sebuah Sistem Penghubung Layanan:\r\nTersedia jalur/bus (sistem koneksi bukan point-to-point);\r\nTersedia metadata repository; dan\r\nTersedia service directory.\r\n4. Kebijakan internal dalam hal ini mengatur penerapan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal terkait Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal terkait Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah telah mengatur penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah untuk sebagian unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal terkait Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah telah mengatur penggunaan Sistem Penghubung Layanan untuk seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, kebijakan internal terkaitPenggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah telah mengatur keterhubungan dengan Sistem Penghubung Layanan Pemerintah. Selain itu, kebijakan internal terkait Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal terkait Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator7a.pdf, indikator7b.pdf, indikator7c.pdf, dan seterusnya.'),
+(45, 47, '1. Manajemen Keamanan Informasi dilakukan melalui serangkaian proses yang meliputi penetapan ruang lingkup, penetapan penanggung jawab, perencanaan, dukungan pengoperasian, evaluasi kinerja, dan perbaikan berkelanjutan terhadap keamanan informasi dalam SPBE.\r\n2. Manajemen Keamanan Informasi bertujuan untuk menjamin keberlangsungan SPBE dengan meminimalkan dampak risiko keamanan informasi.\r\n3. Kebijakan internal dalam hal ini mengatur terkait penerapan Manajemen Keamanan Informasi pada Instansi Pusat/Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Manajemen Keamanan Informasi belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal terkait Manajemen Keamanan Informasi telah ditetapkan. Kondisi: Kebijakan internal terkait Manajemen Keamanan Informasi belum mengatur secara lengkap mengenai cakupan Manajemen Keamanan Informasi (penetapan ruang lingkup, penetapan penanggung jawab, perencanaan, dukungan pengoperasian, evaluasi kinerja, dan perbaikan berkelanjutan terhadap Keamanan Informasi).\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal terkait Manajemen Keamanan Informasi mengatur seluruh cakupan Manajemen Keamanan Informasi secara lengkap (penetapan ruang lingkup, penetapan penanggung jawab, perencanaan, dukungan pengoperasian, evaluasi kinerja, dan perbaikan berkelanjutan terhadap Keamanan Informasi).\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, dan kebijakan internal terkait Manajemen Keamanan Informasi telah mengatur penerapan untuk seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah. Selain itu, kebijakan internal terkait Manajemen Keamanan Informasi telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal terkait Manajemen Keamanan Informasi telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator8a.pdf, indikator8b.pdf, indikator8c.pdf, dan seterusnya.'),
+(46, 48, '1. Audit Teknologi Informasi dan Komunikasi (TIK) adalah proses yang sistematis untuk memperoleh dan mengevaluasi bukti secara objektif terhadap aset teknologi informasi dan komunikasi dengan tujuan untuk menetapkan tingkat kesesuaian antara teknologi informasi dan komunikasi dengan kriteria dan/atau standar yang telah ditetapkan.\r\n2. Audit TIK terdiri atas:\r\nAudit Infrastruktur SPBE;\r\nAudit Aplikasi SPBE; dan,\r\nAudit Keamanan SPBE.\r\n3. Audit Teknologi Informasi dan Komunikasi meliputi pemeriksaan hal pokok teknis pada:\r\nPenerapan tata kelola dan manajemen teknologi informasi dan komunikasi;\r\nFungsionalitas teknologi informasi dan komunikasi;\r\nKinerja teknologi informasi dan komunikasi yang dihasilkan; dan,\r\nAspek teknologi informasi dan komunikasi lainnya.\r\n4. Kebijakan internal dalam hal ini mengatur terkait penerapan Audit TIK pada Instansi Pusat/Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Audit TIK belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal Audit TIK telah ditetapkan. Kondisi: Kebijakan internal terkait Audit TIK hanya mengatur pelaksanaan sebagian Audit TIK (Audit Infrastruktur SPBE, Audit Aplikasi SPBE, dan Audit Keamanan SPBE).\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal terkait Audit TIK telah mengatur pelaksanaan seluruh Audit TIK (Audit Infrastruktur SPBE Audit Aplikasi SPBE, dan Audit Keamanan SPBE).\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kebijakan internal terkait Audit TIK telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal terkait Audit TIK telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator9a.pdf, indikator9b.pdf, indikator9c.pdf, dan seterusnya.'),
+(47, 49, '1. Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah adalah para pejabat dalam tim yang diberi tugas untuk mengendalikan, mengarahkan, dan mengevaluasi SPBE, termasuk didalamnya melaksanakan perumusan kebijakan dan penerapan SPBE di Instansi Pusat dan Pemerintah Daerah masing-masing.\r\n2. Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dapat disejajarkan dengan Tim Pengarah TIK, Komite Pengarah TIK, ataupun Steering Committee yang mempunyai tugas seperti dimaksud pada huruf a.\r\n3. Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dipimpin oleh seorang koordinator yang ditetapkan oleh pimpinan Instansi Pusat/Kepala Daerah.\r\n4. Kebijakan internal dalam hal ini mengatur terkait tugas dan fungsi Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Konsep kebijakan internal terkait Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kebijakan internal Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah ditetapkan. Kondisi: Kebijakan internal terkait Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah mencakup pengaturan tugas-tugas Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah yang mendukung penerapan SPBE pada sebagian unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kebijakan internal terkait Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah mencakup pengaturan tugas-tugas Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah yang mendukung penerapan SPBE pada seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, kebijakan internal terkait Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah yang mendukung penerapan SPBE antar Instansi Pusat, antar Pemerintah Daerah, dan/atau antar Instansi Pusat dan Pemerintah Daerah, dan kebijakan internal terkait Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi kebijakan internal terkait Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti dengan kebijakan baru.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator10a.pdf, indikator10b.pdf, indikator10c.pdf, dan seterusnya.'),
+(48, 50, '1. Arsitektur SPBE adalah kerangka dasar yang mendeskripsikan integrasi proses bisnis, data dan informasi, infrastruktur SPBE, aplikasi SPBE, dan keamanan SPBE untuk menghasilkan layanan SPBE yang terintegrasi.\r\n2. Arsitektur SPBE Instansi Pusat/Pemerintah Daerah merupakan Arsitektur SPBE yang diterapkan di Instansi Pusat/Pemerintah Daerah yang bertujuan untuk memberikan panduan dalam pelaksanaan integrasi Proses Bisnis, Data dan Informasi, Infrastruktur SPBE, Aplikasi SPBE, dan Keamanan SPBE untuk menghasilkan Layanan SPBE yang terpadu.\r\n3. Referensi Arsitektur dan Domain Arsitektur SPBE terdiri dari:\r\nDomain arsitektur Proses Bisnis;\r\nDomain arsitektur Data dan Informasi;\r\nDomain arsitektur Layanan;\r\nDomain arsitektur Aplikasi;\r\nDomain arsitektur Infrastruktur SPBE; dan,\r\nDomain arsitektur Keamanan SPBE.', 'Penjelasan Level :\r\nLevel 1 : Konsep dokumen Arsitektur SPBE belum atau telah tersedia.\r\nLevel 2 : Dokumen Arsitektur SPBE telah tersedia. Kondisi: Dokumen Arsitektur SPBE tidak/belum mencakup referensi dan domain Arsitektur SPBE Instansi Pusat/Pemerintah Daerah secara lengkap yaitu referensi dan domain arsitektur Proses Bisnis, Data dan Informasi, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, dan Layanan SPBE.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan dokumen Arsitektur SPBE telah mencakup seluruh referensi dan domain Arsitektur SPBE Instansi Pusat/Pemerintah Daerah yaitu referensi dan domain arsitektur Proses Bisnis, Data dan Informasi, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, dan Layanan SPBE.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan dokumen Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah berpedoman pada Arsitektur SPBE Nasional. Selain itu, dokumen Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah dilakukan reviu dan evaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan dokumen Arsitektur SPBE Instansi Pusat/Pemerintah Daerah telah dilakukan pemutakhiran sebagai tindak lanjut hasil reviu dan evaluasi.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator11a.pdf, indikator11b.pdf, indikator11c.pdf, dan seterusnya.'),
+(49, 51, '1. Peta Rencana SPBE adalah dokumen yang mendeskripsikan arah dan langkah penyiapan dan pelaksanaan SPBE yang terintegrasi.\r\n2. Peta Rencana SPBE memuat:\r\nTata Kelola SPBE;\r\nManajemen SPBE;\r\nLayanan SPBE;\r\nInfrastruktur SPBE;\r\nAplikasi SPBE;\r\nKeamanan SPBE; dan\r\nAudit TIK.', 'Penjelasan Level :\r\nLevel 1 : Konsep dokumen Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Dokumen Peta Rencana SPBE telah tersedia. Kondisi: dokumen Peta Rencana SPBE tidak/belum mencakup muatan Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah secara lengkap yaitu peta rencana Tata Kelola SPBE, Manajemen SPBE, Layanan SPBE, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, Audit Teknologi SPBE dan Audit TIK.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan dokumen Peta Rencana SPBE telah mencakup seluruh muatan Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah secara lengkap yaitu peta rencana Tata Kelola SPBE, Manajemen SPBE, Layanan SPBE, Infrastruktur SPBE, Aplikasi SPBE, Keamanan SPBE, Audit Teknologi SPBE dan Audit TIK.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan dokumen Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah diterapkan secara konsisten melalui rencana kerja dan anggaran 3 (tiga) tahun terakhir. Selain itu, dokumen Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah dilakukan reviu dan evaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan dokumen Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah telah dilakukan pemutakhiran sebagai tindak lanjut hasil reviu dan evaluasi.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator12a.pdf, indikator12b.pdf, indikator12c.pdf, dan seterusnya.'),
+(50, 52, '1. Rencana dan Anggaran SPBE adalah dokumen yang mendeskripsikan program, kegiatan dan pemanfaatan anggaran SPBE.\r\n2. Rencana dan Anggaran SPBE disusun sesuai dengan proses perencanaan dan penganggaran tahunan pemerintah.\r\n3. Rencana dan Anggaran SPBE Instansi Pusat/Pemerintah Daerah berpedoman pada Arsitektur SPBE Instansi Pusat/Pemerintah Daerah dan Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Rencana dan Anggaran SPBE belum atau telah tertuang dalam rencana kerja dan anggaran tahunan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Rencana dan Anggaran SPBE pada unit kerja/perangkat daerah tidak seluruhnya dikonsultasikan kepada unit pengelola TIK di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan seluruh Rencana dan Anggaran SPBE unit kerja/perangkat daerah telah dikonsultasikan kepada unit pengelola TIK di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi. Seluruh Rencana dan Anggaran SPBE Instansi Pusat/Pemerintah Daerah telah terpadu dan dapat dikendalikan oleh unit kerja/lembaga daerah yang menjalankan fungsi perencanaan dan penganggaran. Selain itu, Rencana dan Anggaran SPBE telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta Rencana dan Anggaran SPBE telah dilakukan perbaikan untuk tahun anggaran berikutnya sebagai tindak lanjut hasil reviu dan evaluasi.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator13a.pdf, indikator13b.pdf, indikator13c.pdf, dan seterusnya.'),
+(51, 53, '1. Proses Bisnis adalah dokumen yang mendeskripsikan hubungan kerja yang efektif dan efisien antar unit organisasi untuk menghasilkan kinerja sesuai dengan tujuan pendirian organisasi agar menghasikan keluaran yang bernilai tambah bagi pemangku kepentingan (PermenPANRB No 19 Tahun 2018).\r\n2. Penyusunan Proses Bisnis bertujuan untuk memberikan pedoman dalam penggunaan data dan informasi serta penerapan Aplikasi SPBE, Keamanan SPBE, dan Layanan SPBE.\r\n3. Instansi Pusat/Pemerintah Daerah menyusun Proses Bisnis yang selaras dengan Arsitektur SPBE Instansi Pusat/Pemerintah Daerah', 'Penjelasan Level :\r\nLevel 1 : Dokumen Proses Bisnis Instansi Pusat/Pemerintah belum atau telah tersedia. Kondisi: Dokumen Proses Bisnis Instansi Pusat/Pemeritah Daerah belum memenuhi standar.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan dokumen Proses Bisnis Instansi Pusat/Pemeritah Daerah telah memenuhi standar.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Proses Bisnis Instansi Pusat/Pemeritah Daerah telah dilakukan perbaikan sebagai bentuk inovasi Proses Bisnis untuk mewujudkan proses bisnis yang lebih efisien.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, Inovasi Proses bisnis telah diterapkan ke dalam sistem elektronik/sistem aplikasi, serta telah dilakukan reviu dan evaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan melakukan perbaikan Inovasi Proses Bisnis yang diterapkan ke dalam sistem elektronik/ sistem aplikasi sebagai tindak lanjut hasil reviu dan evaluasi.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator14a.pdf, indikator14b.pdf, indikator14c.pdf, dan seterusnya.'),
+(52, 54, '1. Aplikasi SPBE adalah satu atau sekumpulan program komputer dan prosedur yang dirancang untuk melakukan tugas atau fungsi Layanan SPBE.\r\n2. Pembangunan Aplikasi SPBE merupakan suatu proses perancangan aplikasi melalui siklus pembangunan aplikasi.\r\n3. Siklus Pembangunan Aplikasi terdiri dari:\r\nPerencanaan;\r\nAnalisis;\r\nDesain;\r\nImplementasi; dan,\r\nPemeliharaan.\r\nSiklus bisa menggunakan salah satu framework yang sudah ada seperti SDLC, RAD, Waterfall, Agile Development Cycle (SCRUM).', 'Penjelasan Level :\r\nLevel 1 : Proses pembangunan Aplikasi SPBE belum atau telah dilakukan secara adhoc (sewaktu-waktu, tidak terencana). Kondisi: Proses pembangunan Aplikasi SPBE belum memenuhi siklus pembangunan aplikasi.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan proses pembangunan Aplikasi SPBE telah dilakukan sesuai siklus pembangunan aplikasi.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan proses pembangunan aplikasi SPBE telah dikonsultasikan kepada unit kerja/perangkat daerah yang melaksanakan fungsi pengelolaan TIK di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4: Kriteria tingkat 3 telah terpenuhi dan Pembangunan Aplikasi SPBE Instansi Pusat/Pemerintah Daerah telah terpadu dan dapat dikendalikan oleh unit kerja/lembaga daerah yang menjalankan fungsi pengelolaan TIK di Instansi Pusat/Pemerintah Daerah. selain itu, Pembangunan Aplikasi SPBE direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Aplikasi SPBE telah dikembangkan secara optimal untuk meningkatkan efektivitas dan efisiensi terhadap perubahan lingkungan, teknologi, dan kebutuhan Instansi Pusat/Pemerintah Daerah sebagai tindak lanjut hasil reviu dan evaluasi.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator15a.pdf, indikator15b.pdf, indikator15c.pdf, dan seterusnya.'),
+(53, 55, '1. Pusat Data adalah fasilitas yang digunakan untuk penempatan sistem elektronik dan komponen terkait lainnya untuk keperluan penempatan, penyimpanan dan pengolahan data, dan pemulihan data baik yang dimiliki secara fisik dan non-fisik (cloud).\r\n2. Layanan Pusat Data adalah penyediaan penyimpanan aplikasi dan data.\r\n3. Layanan Pusat Data bertujuan untuk menjamin ketersediaan penyimpanan data bagi Instansi Pusat dan Pemerintah Daerah.\r\n4. Pusat Data Nasional adalah sekumpulan pusat data yang digunakan secara bersama dan bagi pakai oleh Instansi Pusat dan Pemerintah Daerah, dan saling terhubung yang terdiri atas pusat data yang diselenggarakan oleh Instansi Pusat/Pemerintah Daerah dengan memenuhi persyaratan pusat data atau pusat data yang dibangun khusus untuk digunakan secara bersama dan bagi pakai oleh Instansi Pusat dan Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Pusat Data belum atau telah tersedia digunakan oleh Instansi Pusat/Pemerintah Daerah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi. Kondisi: Layanan Pusat Data tidak/belum digunakan oleh seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Pusat Data telah digunakan oleh seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah. Selain itu, terdapat prosedur pengoperasian baku Layanan Pusat Data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan terdapat interkoneksi Layanan Pusat Data dengan Pusat Data Nasional/Pusat Data Instansi Pusat/Pusat Data Pemerintah Daerah lain dan/atau penggunaan Layanan Pusat Data Nasional. Selain itu, penggunaan Layanan Pusat Data di Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi penggunaan Layanan Pusat Data di Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti dengan melakukan perbaikan terhadap Layanan Pusat Data.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator16a.pdf, indikator16b.pdf, indikator16c.pdf, dan seterusnya.'),
+(54, 56, '1. Jaringan Intra adalah jaringan tertutup yang menghubungkan antar simpul jaringan dalam suatu organisasi.\r\n2. Jaringan Intra Instansi Pusat/Pemerintah Daerah merupakan Jaringan Intra yang diselenggarakan oleh Instansi Pusat/Pemerintah Daerah untuk menghubungkan antar simpul jaringan dalam Instansi Pusat/Pemerintah Daerah, dengan Jaringan Intra Pemerintah dan/atau Jaringan Intra Instansi Pusat/Pemerintah Daerah lain.\r\n3. Penggunaan Jaringan Intra Instansi Pusat/Pemerintah Daerah bertujuan untuk menjaga keamanan dalam melakukan pengiriman data dan informasi antar simpul jaringan dalam Instansi Pusat/Pemerintah Daerah.\r\n4. Penyelenggaraan Jaringan Intra Instansi Pusat/Pemerintah Daerah sebagaimana dimaksud, dapat menggunakan jaringan fisik yang dibangun sendiri oleh Instansi Pusat/Pemerintah Daerah dan/atau yang dibangun oleh penyedia jasa layanan jaringan.', 'Penjelasan Level :\r\nLevel 1 : Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi. Kondisi: Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah tidak/belum diterapkan di seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah diterapkan di seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan terdapat interkoneksi Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah dengan Jaringan Intra Pemerintah dan/atau Jaringan Intra Instansi Pusat/Pemerintah Daerah lain. Selain itu, Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti dengan melakukan perbaikan terhadap Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator17a.pdf, indikator17b.pdf, indikator17c.pdf, dan seterusnya.'),
+(60, 87, '1. Sistem Penghubung Layanan adalah perangkat integrasi/penghubung untuk melakukan pertukaran Layanan SPBE.\r\n2. Penggunaan Sistem Penghubung Layanan Pemerintah bertujuan untuk memudahkan dalam melakukan integrasi antar Layanan SPBE', 'Penjelasan Level :\r\nLevel 1 : Sistem penghubung layanan Instansi Pusat dan Pemerintah Daerah belum atau telah tersedia.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi. Kondisi: Sistem penghubung layanan Instansi Pusat dan Pemerintah Daerah tidak/belum diterapkan di seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan sistem penghubung layanan Instansi Pusat dan Pemerintah Daerah telah diterapkan di seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, sistem penghubung layanan Instansi Pusat dan Pemerintah Daerah telah terintegrasi dengan sistem penghubungan layanan pemerintah dan/atau sistem penghubung layanan Instansi Pusat/Pemerintah Daerah lain. Selain itu, sistem penghubung layanan Instansi Pusat/Pemerintah Daerah telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi sistem penghubung layanan Instansi Pusat dan Pemerintah Daerah telah ditindaklanjuti dengan melakukan perbaikan.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator18a.pdf, indikator18b.pdf, indikator18c.pdf, dan seterusnya.'),
+(61, 58, '1. Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah adalah para pejabat dalam tim yang diberi tugas untuk mengendalikan, mengarahkan, dan mengevaluasi SPBE, termasuk didalamnya melaksanakan perumusan kebijakan dan penerapan SPBE di Instansi Pusat dan Pemerintah Daerah masing-masing.\r\n2. Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dapat disejajarkan dengan Tim Pengarah TIK, Komite Pengarah TIK, ataupun Steering Committee yang mempunyai tugas seperti dimaksud pada huruf a.\r\n3. Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dipimpin oleh seorang koordinator yang ditetapkan oleh pimpinan Instansi Pusat/Kepala Daerah.', 'Penjelasan Level :\r\nLevel 1 : Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah belum atau telah terbentuk. Kondisi: Tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dilaksanakan sewaktu-waktu atau tanpa perencanaan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah dilaksanakan sesuai perencanaan. Kondisi: tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah tidak/belum dilaksanakan seluruhnya.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah dilaksanakan seluruhnya. Kondisi: program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah belum dikomunikasikan/dikoordinasikan kepada semua unit kerja/perangkat daerah terkait di Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 :Kriteria tingkat 3 telah terpenuhi dan program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah dikomunikasikan/dikoordinasikan kepada semua unit kerja/perangkat daerah terkait di Instansi Pusat/Pemerintah Daerah. Selain itu, tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah dilakukan reviu dan evaluasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan hasil reviu dan evaluasi tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah telah ditindaklanjuti melalui perbaikan tugas/program kerja Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dan pelaksanaannya.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator19a.pdf, indikator19b.pdf, indikator19c.pdf, dan seterusnya.'),
+(62, 59, '1. Kolaborasi SPBE merupakan wadah informal untuk pertukaran informasi dan peningkatan kapasitas pelaksanaan SPBE bagi Instansi Pusat, Pemerintah Daerah, perguruan tinggi, lembaga penelitian, pelaku usaha, dan masyarakat.\r\n2. Kolaborasi SPBE dapat dimanfaatkan untuk antara lain:\r\npenyampaian ide/gagasan SPBE;\r\npengembangan infrastruktur dan Aplikasi SPBE dari kontribusi komunitas TIK;\r\npeningkatan kompetensi teknis;\r\nperbaikan kualitas Layanan SPBE;\r\npenelitian dan kajian pengembangan SPBE; dan\r\npenyelesaian masalah untuk kepentingan bersama.\r\n3. Kolaborasi SPBE dapat dilakukan dalam bentuk pertemuan informal dan pertemuan virtual.', 'Penjelasan Level :\r\nLevel 1 : Kolaborasi antar unit kerja/perangkat daerah di Instansi Pusat/Perangkat Daerah dalam penerapan SPBE belum atau telah dilaksanakan. Kondisi: Kolaborasi antar unit kerja/perangkat daerah di Instansi Pusat/Perangkat Daerah dalam penerapan SPBE dilaksanakan sewaktu-waktu atau tanpa perencanaan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kolaborasi antar unit kerja/perangkat daerah di Instansi Pusat/Perangkat Daerah dalam penerapan SPBE telah dilaksanakan sesuai perencanaan. Kondisi: Kolaborasi antar unit kerja/perangkat daerah di Instansi Pusat/Perangkat Daerah dalam penerapan SPBE tidak dibentuk secara formal.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kolaborasi antar unit kerja/perangkat daerah di Instansi Pusat/Perangkat Daerah dalam penerapan SPBE telah dilaksanakan oleh tim yang dibentuk secara formal. Kondisi: Kolaborasi antar unit kerja/perangkat daerah dalam penerapan SPBE tidak/belum dilaksanakan pada seluruh unit kerja/perangkat daerah di Instansi Pusat/Perangkat Daerah (kolaborasi dibentuk berdasarkan adanya kegiatan bersama).\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kolaborasi antar unit kerja/perangkat daerah dalam penerapan SPBE telah dilaksanakan secara terpadu pada seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah yang dikoordinasikan oleh menteri/kepala lembaga/kepala daerah atau sekretaris kementerian/lembaga/pemerintah daerah. Selain itu, kolaborasi dalam penerapan SPBE telah dilakukan reviu dan evaluasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan hasil reviu dan evaluasi kolaborasi dalam penerapan SPBE telah ditindaklanjuti melalui perbaikan pelaksanaan kolaborasi dalam penerapan SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator20a.pdf, indikator20b.pdf, indikator20c.pdf, dan seterusnya.'),
+(63, 60, '1. Manajemen Risiko SPBE adalah pendekatan sistematis yang meliputi proses, pengukuran, struktur, dan budaya untuk menentukan tindakan terbaik terkait Risiko SPBE;\r\n2. Risiko SPBE adalah peluang terjadinya suatu peristiwa yang akan mempengaruhi keberhasilan terhadap pencapaian tujuan penerapan SPBE;\r\n3. Manajemen Risiko bertujuan untuk menjamin keberlangsungan SPBE dengan meminimalkan dampak risiko dalam SPBE;\r\n4. Instansi Pusat dan Pemerintah Daerah menerapkan manajemen risiko SPBE berdasarkan pedoman Manajemen Risiko SPBE.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Manajemen Risiko SPBE belum atau telah diterapkan. Kondisi: Kegiatan Manajemen Risiko SPBE diterapkan tanpa program kegiatan yang terarah dan terencana.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Manajemen Risiko SPBE diterapkan dengan program kegiatan yang terarah dan terencana. Kondisi: Penerapan Manajemen Risiko SPBE dilaksanakan tanpa mengacu pada pedoman manajemen risiko SPBE.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Manajemen Risiko SPBE telah dilaksanakan dengan mengacu pada pedoman manajemen risiko SPBE.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kebijakann strategis Manajemen Risiko SPBE telah ditetapkan oleh Komite Manajemen Risiko SPBE atau Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dan diterapkan ke seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah. Selain itu, penerapan Manajemen Risiko SPBE telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi Manajemen Risiko SPBE ditindaklanjuti melalui perbaikan penerapan Manajemen Risiko SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator21a.pdf, indikator21b.pdf, indikator21c.pdf, dan seterusnya.'),
+(64, 61, '1. Manajemen Keamanan Informasi dilakukan melalui serangkaian proses yang meliputi penetapan ruang lingkup, penetapan penanggung jawab, perencanaan, dukungan pengoperasian, evaluasi kinerja, dan perbaikan berkelanjutan terhadap Keamanan Informasi dalam SPBE.\r\n2. Manajemen Keamanan Informasi bertujuan untuk menjamin keberlangsungan SPBE dengan meminimalkan dampak risiko Keamanan Informasi.\r\n3. Penerapan Keamanan Informasi berlandaskan penjaminan kerahasiaan, keutuhan, ketersediaan, keaslian, dan kenirsangkalan (non-repudiation) sumber daya terkait data dan informasi, Infrastruktur SPBE, dan aplikasi.', 'Penjelasan Level :\r\nLevel 1 : Pengendalian Keamanan Informasi belum atau telah tersedia dalam tahap pembangunan.\r\nLevel 2 : Pengendalian Keamanan Informasi telah tersedia. Kondisi: Pengendalian Keamanan Informasi telah dilaksanakan pada sebagian unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan pengendalian Keamanan Informasi telah dilaksanakan pada seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah dengan berdasarkan Risiko SPBE.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan pengendalian Keamanan Informasi dilakukan melalui strategi Keamanan Informasi yang ditetapkan oleh Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah. Selain itu, pengendalian Keamanan Informasi telah dilakukan reviu dan evaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi pengendalian Keamanan Informasi ditindaklanjuti melalui perbaikan penerapan proses pengendalian Keamanan Informasi.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator22a.pdf, indikator22b.pdf, indikator22c.pdf, dan seterusnya.'),
+(65, 62, '1. Manajemen Data dilakukan melalui serangkaian proses pengelolaan arsitektur data, data induk, data referensi, basis data, kualitas data dan interoperabilitas data.\r\n2. Manajemen Data bertujuan untuk menjamin terwujudnya data yang akurat, mutakhir, terintegrasi, dan dapat diakses sebagai dasar perencanaan, pelaksanaan, evaluasi, dan pengendalian pembangunan nasional.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Manajemen Data belum atau telah diterapkan. Kondisi: Kegiatan Manajemen Data diterapkan tanpa program kegiatan yang terarah dan terencana.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Manajemen Data diterapkan dengan program kegiatan yang terarah dan terencana. Kondisi: Manajemen Data dilaksanakan tanpa mengacu pada pedoman Manajemen Data.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Manajemen Data telah dilaksanakan dengan mengacu pada pedoman Manajemen Data yang mencakup pengelolaan arsitektur data, data induk, data referensi, basis data, kualitas data, dan interoperabilitas data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Manajemen Data dilaksanakan melalui strategi pengelolaan data yang ditetapkan Forum Satu Data atau Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah dan diterapkan ke seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah. Selain itu, penerapan Manajemen Data telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi Manajemen Data ditindaklanjuti melalui perbaikan penerapan Manajemen Data.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator23a.pdf, indikator23b.pdf, indikator23c.pdf, dan seterusnya.'),
+(66, 63, '1. Manajemen aset teknologi informasi dan komunikasi dilakukan melalui serangkaian proses perencanaan, pengadaan, pengelolaan, dan penghapusan perangkat keras dan perangkat lunak yang digunakan dalam SPBE.\r\n2. Manajemen aset teknologi informasi dan komunikasi bertujuan untuk menjamin ketersediaan dan optimalisasi pemanfaatan aset teknologi informasi dan komunikasi dalam SPBE.\r\n3. Aset TIK mencakup perangkat lunak, perangkat keras, data dan informasi, infrastruktur, SDM, lisensi, data, SOP, outsource services, dan IT asset register.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Manajemen Aset TIK belum atau telah diterapkan. Kondisi: Kegiatan Manajemen Aset TIK diterapkan tanpa program kegiatan yang terarah dan terencana.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Manajemen Aset TIK diterapkan dengan program kegiatan yang terarah dan terencana. Kondisi: Manajemen Aset TIK dilaksanakan tanpa mengacu pada pedoman Manajemen Aset TIK yang mencakup proses perencanaan, pengadaan, pemanfaatan/penggunaan, dan penghapusan aset TIK.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Manajemen Aset TIK telah dilaksanakan dengan mengacu pada pedoman Manajemen Aset TIK yang mencakup proses perencanaan, pengadaan, pemanfaatan/penggunaan, dan penghapusan aset TIK.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, Manajemen Aset TIK dilaksanakan melalui strategi pengelolaan aset TIK oleh unit kerja/ perangkat daerah yang menjalankan fungsi pengelolaan TIK di Instansi Pusat/Pemerintah Daerah dan diterapkan ke seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah. Selain itu, penerapan Manajemen Aset TIK telah direviu dan dievaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi Manajemen Aset TIK ditindaklanjuti melalui perbaikan penerapan Manajemen Aset TIK.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator24a.pdf, indikator24b.pdf, indikator24c.pdf, dan seterusnya.');
+INSERT INTO `tb_detail_indikator` (`id_detail_indikator`, `idindikator_detail`, `penjelasan_indikator_list`, `penjelasan_indikator_level`, `penjelasan_indikator_tambahan`) VALUES
+(67, 64, '1. Manajemen Sumber Daya Manusia dilakukan melalui serangkaian proses perencanaan, pengembangan, pembinaan, dan pendayagunaan Sumber Daya Manusia dalam SPBE.\r\n2. Manajemen Sumber Daya Manusia bertujuan untuk menjamin keberlangsungan dan peningkatan mutu layanan dalam SPBE.\r\n3. Manajemen Sumber Daya Manusia (SDM) SPBE termasuk didalamnya kegiatan peningkatan kompetensi Sumber Daya Manusia SPBE dan promosi literasi SPBE.', 'Penjelasan Level :\r\nLevel 1 : Pemenuhan kompetensi Sumber Daya Manusia belum atau telah diupayakan. Kondisi: Pemenuhan kompetensi Sumber Daya Manusia SPBE dilakukan tanpa perencanaan Sumber Daya Manusia.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan pemenuhan kompetensi Sumber Daya Manusia SPBE dilakukan sesuai dengan perencanaan Sumber Daya Manusia. Kondisi: Kompetensi Sumber Daya Manusia SPBE tidak/belum terpenuhi seluruhnya yaitu kompetensi di bidang proses bisnis memerintahan, arsitektur SPBE, data dan informasi, keamanan SPBE, aplikasi SPBE, dan infrastruktur SPBE.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kompetensi Sumber Daya Manusia SPBE telah terpenuhi seluruhnya yaitu kompetensi di bidang proses bisnis memerintahan, arsitektur SPBE, data dan informasi, keamanan SPBE, aplikasi SPBE, dan infrastruktur SPBE.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, peningkatan dan penilaian kompetensi Sumber Daya Manusia SPBE telah dilakukan. Selain itu, pemenuhan kompetensi Sumber Daya Manusia SPBE telah dilakukan reviu dan evaluasi secara periodik.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi telah ditindaklanjuti melalui perbaikan perencanaan dan pemenuhan kompetensi Sumber Daya Manusia SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator25a.pdf, indikator25b.pdf, indikator25c.pdf, dan seterusnya.'),
+(68, 65, 'Manajemen Pengetahuan adalah proses yang dilakukan untuk mendokumentasi pengalaman dan pengetahuan dalam perencanaan, implementasi, dan evaluasi SPBE guna meningkatkan kualitas Layanan SPBE dan mendukung proses pengambilan keputusan dalam SPBE.', 'Penjelasan Level :\r\nLevel 1 : Manajemen Pengetahuan SPBE belum atau telah diterapkan. Kondisi: Manajemen Pengetahuan SPBE diterapkan tanpa perencanaan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan dilaksanakan dengan perencanaan. Kondisi: Manajemen Pengetahuan SPBE telah dilaksanakan tanpa pedoman di Instansi Pusat/Pemerintah Daerah.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi, Manajemen Pengetahuan SPBE dilaksanakan dengan mengacu pada pedoman di Instansi Pusat/Pemerintah Daerah dan Manajemen Pengetahuan SPBE diterapkan dengan menggunakan sistem aplikasi manajemen pengetahuan.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, semua unit kerja/perangkat daerah telah menerapkan Manajemen Pengetahuan SPBE dengan menggunakan sistem aplikasi manajemen pengetahuan yang terintegrasi serta telah dilakukan reviu dan evaluasi terhadap penerapan Manajemen Pengetahuan SPBE.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi terhadap penerapan Manajemen Pengetahuan SPBE telah ditindaklanjuti melalui perbaikan Manajemen Pengetahuan SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator26a.pdf, indikator26b.pdf, indikator26c.pdf, dan seterusnya.'),
+(69, 66, '1. Manajemen Perubahan dilakukan melalui serangkaian proses perencanaan, analisis, pengembangan, implementasi, pemantauan dan evaluasi terhadap perubahan SPBE.\r\n2. Manajemen Perubahan bertujuan untuk menjamin keberlangsungan dan meningkatkan kualitas Layanan SPBE melalui pengendalian perubahan yang terjadi dalam SPBE.\r\n3. Lingkup Manajemen Perubahan SPBE:\r\nPerubahan Aplikasi;\r\nPerubahan Perangkat Keras;\r\nPerubahan Perangkat Lunak;\r\nPerubahan Infrastruktur;\r\nPerubahan Proses Bisnis;\r\nPerubahan Lingkungan Organisasi;\r\nPerubahan Layanan;\r\nPerubahan Data;\r\nPerubahan Keamanan;\r\nPerubahan Arsitektur.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Manajemen Perubahan SPBE belum atau telah dilaksanakan. Kondisi: Kegiatan Manajemen Perubahan SPBE dilaksanakan tanpa perencanaan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Manajemen Perubahan SPBE dilaksanakan dengan perencanaan. Kondisi: Kegiatan Manajemen Perubahan SPBE tidak/belum dilaksanakan oleh seluruh unit kerja/perangkat daerah terkait di Instansi Pusat/Pemerintah Daerah dengan caranya masing-masing.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kegiatan Manajemen Perubahan SPBE dilaksanakan oleh seluruh unit kerja/perangkat daerah terkait di Instansi Pusat/Pemerintah Daerah sesuai pedoman Manajemen Perubahan.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kegiatan Manajemen Perubahan SPBE telah dilakukan reviu dan evaluasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi telah ditindaklanjuti melalui perbaikan Manajemen Perubahan SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator27a.pdf, indikator27b.pdf, indikator27c.pdf, dan seterusnya.'),
+(70, 67, '1. Manajemen Layanan merupakan serangkaian proses pelayanan kepada pengguna, pengoperasian layanan, dan pengelolaan Aplikasi SPBE agar Layanan SPBE dapat berjalan berkesinambungan dan berkualitas.\r\n2. Manajemen Layanan bertujuan untuk menjamin keberlangsungan dan meningkatkan kualitas Layanan SPBE kepada Pengguna SPBE.\r\n3. Penyelenggaraan Manajemen Layanan SPBE ditujukan untuk memberikan dukungan terhadap layanan publik berbasis elektronik dan layanan administrasi pemerintahan berbasis elektronik agar Layanan SPBE tersebut dapat berjalan secara berkesinambungan, berkualitas, responsif, dan adaptif.\r\n4. Penyelenggaraan Manajemen Layanan dapat diwujudkan dengan membangun portal pusat layanan untuk menjalankan proses:\r\npengelolaan keluhan, gangguan, masalah, permintaan, dan perubahan Layanan SPBE dari pengguna;\r\npendayagunaan dan pemeliharaan Infrastruktur SPBE dan Aplikasi SPBE; dan\r\npembangunan dan pengembangan aplikasi yang berpedoman pada metodologi pembangunan dan pengembangan aplikasi.', 'Penjelasan Level :\r\nLevel 1 : Manajemen Layanan SPBE belum atau telah dilaksanakan. Kondisi: Manajemen Layanan SPBE dilaksanakan tanpa perencanaan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Manajemen Layanan SPBE dilaksanakan dengan perencanaan. Kondisi: Manajemen Layanan SPBE tidak/belum dilaksanakan pada seluruh proses Manajemen Layanan SPBE yaitu Pelayanan Pengguna SPBE dan Pengoperasian Layanan SPBE.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Manajemen Layanan SPBE dilaksanakan pada seluruh proses Manajemen Layanan SPBE yaitu Pelayanan Pengguna SPBE dan Pengoperasian Layanan SPBE.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi, Manajemen Layanan SPBE telah diterapkan dengan menggunakan sistem aplikasi manajemen layanan, dan kegiatan Manajemen Layanan SPBE telah dilakukan reviu dan evaluasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi serta hasil reviu dan evaluasi telah ditindaklanjuti melalui perbaikan Manajemen Layanan SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator28a.pdf, indikator28b.pdf, indikator28c.pdf, dan seterusnya.'),
+(71, 68, '1. Audit Infrastruktur SPBE Instansi Pusat dan Pemerintah Daerah dilaksanakan berdasarkan standar dan tata cara pelaksanaan Audit Infrastruktur SPBE.\r\n2. Audit Infrastruktur SPBE meliputi pemeriksaan hal pokok teknis antara lain:\r\npenerapan tata kelola dan manajemen infrastruktur SPBE;\r\ninfrastruktur SPBE;\r\nkinerja infrastruktur SPBE yang dihasilkan; dan\r\naspek infrastruktur SPBE lainnya.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Audit Infrastruktur SPBE belum atau telah dilaksanakan. Kondisi: Kegiatan Audit Infrastruktur dilaksanakan tanpa perencanaan yang berkesinambungan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Audit Infrastruktur dilaksanakan sesuai dengan perencanaan yang berkesinambungan. Kondisi: Kegiatan Audit Infrastruktur dilaksanakan tanpa pedoman Audit Infrastruktur.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kegiatan Audit Infrastruktur dilaksanakan sesuai dengan pedoman Audit Infrastruktur. Kondisi: kegiatan Audit Infrastruktur dilaksanakan oleh auditor TIK/Sistem Informasi internal Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kegiatan Audit Infrastruktur dilaksanakan oleh auditor TIK/Sistem Informasi eksternal yang memiliki sertifikasi auditor TIK/Sistem Informasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan hasil audit Infrastruktur SPBE telah ditindaklanjuti melalui perbaikan penerapan Infrastruktur SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator29a.pdf, indikator29b.pdf, indikator29c.pdf, dan seterusnya.'),
+(72, 69, '1. Audit Aplikasi SPBE Instansi Pusat dan Pemerintah Daerah dilaksanakan berdasarkan standar dan tata cara pelaksanaan Audit Aplikasi SPBE.\r\n2. Audit Aplikasi SPBE terdiri atas:\r\nAudit Aplikasi Umum\r\nAudit Aplikasi Khusus\r\n3. Standar/pedoman audit dapat berupa standar internal Instansi Pusat/Pemerintah Daerah, standar/pedoman nasional, atau standar/pedoman internasional.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Audit Aplikasi SPBE belum atau telah dilaksanakan. Kondisi: Kegiatan Audit Aplikasi dilaksanakan tanpa perencanaan yang berkesinambungan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Audit Aplikasi dilaksanakan sesuai dengan perencanaan yang berkesinambungan. Kondisi: Kegiatan Audit Aplikasi dilaksanakan tanpa pedoman Audit Aplikasi SPBE.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kegiatan Audit Aplikasi dilaksanakan sesuai dengan pedoman Audit Aplikasi SPBE. Kondisi: kegiatan Audit Aplikasi dilaksanakan oleh auditor TIK/Sistem Informasi internal Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kegiatan Audit Aplikasi dilaksanakan oleh auditor TIK/Sistem Informasi eksternal yang memiliki sertifikasi auditor TIK/Sistem Informasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan hasil audit Aplikasi SPBE telah ditindaklanjuti melalui perbaikan penerapan Aplikasi SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator30a.pdf, indikator30b.pdf, indikator30c.pdf, dan seterusnya.'),
+(73, 70, '1. Audit Keamanan SPBE Instansi Pusat dan Pemerintah Daerah dilaksanakan berdasarkan standar dan tata cara pelaksanaan Audit Keamanan SPBE.\r\n2. Audit Keamanan SPBE terdiri atas:\r\nAudit Keamanan Aplikasi; dan\r\nAudit Keamanan Infrastruktur.\r\n3. Standar/pedoman audit dapat berupa standar internal Instansi Pusat/Pemerintah Daerah, standar/pedoman nasional, atau standar/pedoman internasional.', 'Penjelasan Level :\r\nLevel 1 : Kegiatan Audit Keamanan SPBE belum atau telah dilaksanakan. Kondisi: Kegiatan Audit Keamanan dilaksanakan tanpa perencanaan yang berkesinambungan.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan kegiatan Audit Keamanan dilaksanakan sesuai dengan perencanaan yang berkesinambungan. Kondisi: Kegiatan Audit Keamanan dilaksanakan tanpa pedoman Audit Keamanan.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan kegiatan Audit Keamanan dilaksanakan sesuai dengan pedoman Audit Keamanan. Kondisi: kegiatan Audit Keamanan dilaksanakan oleh auditor TIK/Sistem Keamanan Informasi internal Instansi Pusat/Pemerintah Daerah.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan kegiatan Audit Keamanan dilaksanakan oleh auditor TIK/Sistem Keamanan Informasi eksternal yang memiliki sertifikasi auditor TIK/Sistem Keamanan Informasi.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan hasil audit Keamanan SPBE telah ditindaklanjuti melalui perbaikan penerapan Keamanan SPBE.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator31a.pdf, indikator31b.pdf, indikator31c.pdf, dan seterusnya.'),
+(74, 71, '1. Perencanaan adalah serangkaian proses untuk menghasilkan pengelolaan perencanaan yang efektif, efisien, dan akuntabel.\r\n2. Layanan Perencanaan Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan perencanaan Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Perencanan Berbasis Elektronik hanya memberikan layanan informasi terkait perencanaan kegiatan pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Perencanan Berbasis Elektronik memberikan layanan interaksi terkait perencanaan kegiatan pemerintah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen perencanaan.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Perencanaan Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait perencanaan kegiatan pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Perencanaan Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya layanan penganggaran berbasis elektronik, layanan keuangan berbasis elektronik, layanan pengadaan berbasis elektronik, layanan perencanaan berbasis elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Perencanaan Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundangundangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator32a.pdf, indikator32b.pdf, indikator32c.pdf, dan seterusnya.'),
+(75, 72, '1. Penganggaran adalah serangkaian proses untuk menghasilkan pengelolaan penganggaran yang efektif, efisien, dan akuntabel.\r\n2. Layanan Penganggaran Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan penganggaran Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Penganggaran Berbasis Elektronik hanya memberikan layanan informasi terkait penganggaran kegiatan pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Penganggaran Berbasis Elektronik memberikan layanan interaksi terkait penganggaran kegiatan pemerintah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen penganggaran.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Penganggaran Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait penganggaran kegiatan pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Penganggaran Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya layanan perencanaan berbasis elektronik, layanan keuangan berbasis elektronik, layanan pengadaan berbasis elektronik, layanan penganggaran berbasis elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Penganggaran Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator33a.pdf, indikator33b.pdf, indikator33c.pdf, dan seterusnya.'),
+(76, 73, '1. Keuangan adalah serangkaian proses untuk menghasilkan pengelolaan keuangan yang efektif, efisien, dan akuntabel.\r\n2. Layanan Keuangan Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan keuangan Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Keuangan Berbasis Elektronik hanya memberikan layanan informasi terkait keuangan di Instansi Pusat/Pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Keuangan Berbasis Elektronik memberikan layanan interaksi terkait keuangan seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Keuangan Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait keuangan seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Keuangan Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Penganggaran Berbasis Elektronik, Layanan Pengadaan Berbasis Elektronik, Layanan Perencanaan Berbasis Elektronik, Layanan Keuangan Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Keuangan Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundangundangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator34a.pdf, indikator34b.pdf, indikator34c.pdf, dan seterusnya.'),
+(77, 74, '1. Pengadaan Barang/Jasa adalah serangkaian proses untuk menghasilkan pengelolaan Pengadaan barang/jasa yang efektif, efisien, dan akuntabel.\r\n2. Layanan Pengadaan Barang/Jasa Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan pengadaan barang/jasa Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Pengadaan Barang dan Jasa Berbasis Elektronik hanya memberikan layanan informasi terkait pengadaan barang dan jasa di Instansi Pusat/Pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Pengadaan Barang dan Jasa Berbasis Elektronik memberikan layanan interaksi terkait pengadaan barang dan jasa seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telaaKriteria tingkat 2 telah terpenuhi dan Layanan Pengadaan Barang dan Jasa Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait pengadaan barang dan jasa seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.h terpenuhi dan Layanan Keuangan Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait keuangan seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Pengadaan Barang dan Jasa Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Penganggaran Berbasis Elektronik, Layanan Perencanaan Berbasis Elektronik, Layanan Keuangan Berbasis Elektronik, Layanan Pengadaan Barang dan Jasa Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Pengadaan Barang dan Jasa Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator35a.pdf, indikator35.pdf, indikator35.pdf, dan seterusnya.'),
+(78, 75, '1. Kepegawaian adalah serangkaian proses untuk menghasilkan pengelolaan kepegawaian yang efektif, efisien, dan akuntabel.\r\n2. Layanan Kepegawaian Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan kepegawaian Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Kepegawaian Berbasis Elektronik hanya memberikan layanan informasi terkait kepegawaian.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Kepegawaian Berbasis Elektronik memberikan layanan interaksi terkait kepegawaian seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Kepegawaian Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait kepegawaian seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Kepegawaian Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Kinerja Berbasis Elektronik, Layanan Keuangan Berbasis Elektronik, Layanan Kepegawaian Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Kepegawaian Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundangundangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator36a.pdf, indikator36b.pdf, indikator36c.pdf, dan seterusnya.'),
+(79, 76, '1. Kearsipan adalah serangkaian proses untuk menghasilkan pengelolaan kearsipan yang efektif, efisien, dan akuntabel.\r\n2. Arsip terbagi 2, yaitu Arsip Dinamis dan Arsip Statis.\r\n3. Arsip dinamis merupakan dokumen/naskah dinas yang masih digunakan.\r\n4. Arsip statis merupakan dokumen/naskah dinas yang telah melewati masa retensinya.\r\n5. Layanan Kearsipan Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan kearsipan Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Kearsipan Dinamis Berbasis Elektronik hanya memberikan layanan informasi terkait kearsipan dinamis.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Kearsipan Dinamis Berbasis Elektronik memberikan layanan interaksi terkait kearsipan dinamis seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Kearsipan Dinamis Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait kearsipan dinamis seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Kearsipan Dinamis Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Pengadaan Barang dan Jasa Berbasis Elektronik, Layanan Kepegawaian Berbasis Elektronik, Layanan Kearsipan Dinamis Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Kearsipan Dinamis Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator37a.pdf, indikator37b.pdf, indikator37c.pdf, dan seterusnya.'),
+(80, 77, '1. Pengelolaan Barang Milik Negara/Daerah (BMN/BMD) adalah serangkaian proses untuk menghasilkan pengelolaan BMN yang efektif, efisien, dan akuntabel.\r\n2. Layanan Pengelolaan BMN/BMD Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan BMN Instansi Pusat dan/atau BMD Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Pengelolaan Barang Milik Negara/Daerah Berbasis Elektronik hanya memberikan layanan informasi terkait pengelolaan barang milik negara\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Pengelolaan Barang Milik Negara/Daerah Berbasis Elektronik memberikan layanan interaksi terkait pengelolaan barang milik negara/daerah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Pengelolaan Barang Milik Negara/Daerah Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait pengelolaan barang milik negara/daerah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Pengelolaan Barang Milik Negara/Daerah Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Penganggaran Berbasis Elektronik, Layanan Pengadaan Barang dan Jasa Berbasis Elektronik, Layanan Keuangan Berbasis Elektronik, Layanan Pengelolaan Barang Milik Negara/Daerah Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Pengelolaan Barang Milik Negara/Daerah Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator38a.pdf, indikator38b.pdf, indikator38c.pdf, dan seterusnya.'),
+(81, 78, '1. Pengawasan Internal adalah serangkaian proses untuk menghasilkan pengelolaan pengawasan internal yang efektif, efisien, dan akuntabel.\r\n2. Layanan Pengawasan Internal Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan Pengawasan Internal Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Pengawasan Internal Pemerintah Berbasis Elektronik hanya memberikan layanan informasi terkait pengawasan internal pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Pengawasan Internal Pemerintah Berbasis Elektronik memberikan layanan interaksi terkait pengawasan internal pemerintah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Pengawasan Internal Pemerintah Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait pengawasan internal pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Pengawasan Internal Pemerintah Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Kepegawaian Berbasis Elektronik, Layanan Akuntabilitas Kinerja Berbasis Elektronik, Layanan Pengawasan Internal Pemerintah Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Pengawasan Internal Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator39a.pdf, indikator39b.pdf, indikator39c.pdf, dan seterusnya.'),
+(82, 79, '1. Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah adalah serangkaian proses untuk menghasilkan pengelolaan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik hanya memberikan layanan informasi terkait akuntabilitas kinerja Instansi Pusat/Pemerintah Daerah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik memberikan layanan interaksi terkait akuntabilitas kinerja Instansi Pusat/Pemerintah Daerah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait akuntabilitas kinerja Instansi Pusat/Pemerintah Daerah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Penganggaran Berbasis Elektronik, Layanan Pengadaan Berbasis Elektronik, Layanan Perencanaan Berbasis Elektronik, Layanan Keuangan Berbasis Elektronik, Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Akuntabilitas Kinerja Instansi Pusat/Pemerintah Daerah Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator40a.pdf, indikator40b.pdf, indikator40c.pdf, dan seterusnya.'),
+(83, 85, '1. Layanan Publik Sektor adalah serangkaian proses untuk menghasilkan pengelolaan tugas dan fungsi sektoral Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Publik Sektor Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan Layanan Publik Sektoral Instansi Pusat/Pemerintah DaerahInstansi Pusat dan/atau Pemerintah Daerah.\r\n3. Layanan Publik Sektor yang dimaksud merupakan layanan sektoral selain pada indikator 32 â€“ 44.', 'Penjelasan Level : \r\nLevel 1 : Layanan Publik Sektoral Berbasis Elektronik hanya memberikan layanan informasi terkait Publik Sektoral kegiatan pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan interaksi terkait Publik Sektoral kegiatan pemerintah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen Layanan Publik Sektoral.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait Publik Sektoral kegiatan pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Publik Sektoral Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi dan kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator46a.pdf, indikator46b.pdf, indikator46c.pdf, dan seterusnya.'),
+(84, 80, '1. Kinerja Pegawai adalah serangkaian proses untuk menghasilkan pengelolaan kinerja pegawai Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Kinerja Pegawai Instansi Pusat/Pemerintah Daerah Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan kinerja pegawai di Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Kinerja Pegawai Berbasis Elektronik hanya memberikan layanan informasi terkait kinerja pegawai.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Kinerja Pegawai Berbasis Elektronik memberikan layanan interaksi terkait kinerja pegawai seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Kinerja Pegawai Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait kinerja pegawai seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Kinerja Pegawai Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Perencanaan Berbasis Elektronik, Layanan Akuntabilitas Berbasis Elektronik, Layanan Kinerja Pegawai Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Kinerja Pegawai Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator41a.pdf, indikator41b.pdf, indikator41c.pdf, dan seterusnya.'),
+(85, 81, '1. Pengaduan Pelayanan Publik adalah serangkaian proses untuk menghasilkan pengelolaan pengaduan pelayanan publik Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Pengaduan Pelayanan Publik Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan pengaduan pelayanan publik di Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Pengaduan Pelayanan Publik Berbasis Elektronik hanya memberikan layanan informasi terkait pengaduan pelayanan publik.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Pengaduan Pelayanan Publik Berbasis Elektronik memberikan layanan interaksi terkait pengaduan pelayanan publik seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Pengaduan Pelayanan Publik Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait pengaduan pelayanan publik seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Pengaduan Pelayanan Publik Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Kepegawaian Berbasis Elektronik, Layanan Pengaduan Pelayanan Publik Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Pengaduan Pelayanan Publik Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator42a.pdf, indikator42b.pdf, indikator42c.pdf, dan seterusnya.'),
+(86, 82, '1. Data Terbuka(Open Data) adalah serangkaian proses untuk menghasilkan pengelolaan data terbuka Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Data Terbuka merupakan sekumpulan data yang dikelola oleh Instansi Pusat/Pemerintah Daerah yang dapat di bagi pakai oleh Instansi Pusat/Pemerintah Daerah lain.\r\n3. Layanan Data Terbuka Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan data terbuka Instansi Pusat/Pemerintah Daerah Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level : \r\nLevel 1 :  Layanan Data Terbuka Berbasis Elektronik hanya memberikan layanan informasi terkait data terbuka.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Data Terbuka Berbasis Elektronik memberikan layanan interaksi terkait data terbuka seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Data Terbuka Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait data terbuka seperti otomasi pertukaran data, otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Data Terbuka Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Data Terbuka Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Data Terbuka Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundangundangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator43a.pdf, indikator43b.pdf, indikator43c.pdf, dan seterusnya.'),
+(87, 83, '1. Jaringan Dokumentasi dan Informasi Hukum adalah serangkaian proses untuk menghasilkan pengelolaan jaringan dokumentasi dan informasi hukum Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan jaringan dokumentasi dan informasi hukum Instansi Pusat/Pemerintah Daerah Instansi Pusat dan/atau Pemerintah Daerah.', 'Penjelasan Level :\r\nLevel 1 : Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik hanya memberikan layanan informasi terkait jaringan dokumentasi dan informasi hukum.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik memberikan layanan interaksi terkait jaringan dokumentasi dan informasi hukum seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait jaringan dokumentasi dan informasi hukum seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Jaringan Dokumentasi dan Informasi Hukum Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator44a.pdf, indikator44b.pdf, indikator44c.pdf, dan seterusnya.'),
+(88, 84, '1. Layanan Publik Sektor adalah serangkaian proses untuk menghasilkan pengelolaan tugas dan fungsi sektoral Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Publik Sektor Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan Layanan Publik Sektoral Instansi Pusat/Pemerintah DaerahInstansi Pusat dan/atau Pemerintah Daerah.\r\n3. Layanan Publik Sektor yang dimaksud merupakan layanan sektoral selain pada indikator 32 â€“ 44.', 'Penjelasan Level :\r\nLevel 1 : Layanan Publik Sektoral Berbasis Elektronik hanya memberikan layanan informasi terkait Publik Sektoral kegiatan pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan interaksi terkait Publik Sektoral kegiatan pemerintah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen Layanan Publik Sektoral.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait Publik Sektoral kegiatan pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Publik Sektoral Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi dan kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator45a.pdf, indikator45b.pdf, indikator45c.pdf, dan seterusnya.'),
+(89, 86, '1. Layanan Publik Sektor adalah serangkaian proses untuk menghasilkan pengelolaan tugas dan fungsi sektoral Instansi Pusat/Pemerintah Daerah yang efektif, efisien, dan akuntabel.\r\n2. Layanan Publik Sektor Berbasis Elektronik yang dimaksud merupakan keluaran yang dihasilkan 1 (satu) atau lebih aplikasi yang memberikan nilai manfaat dalam pengelolaan Layanan Publik Sektoral Instansi Pusat/Pemerintah DaerahInstansi Pusat dan/atau Pemerintah Daerah.\r\n3. Layanan Publik Sektor yang dimaksud merupakan layanan sektoral selain pada indikator 32 â€“ 44.', 'Penjelasan Level :\r\nLevel 1 : Layanan Publik Sektoral Berbasis Elektronik hanya memberikan layanan informasi terkait Publik Sektoral kegiatan pemerintah.\r\nLevel 2 : Kriteria tingkat 1 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan interaksi terkait Publik Sektoral kegiatan pemerintah seperti pencarian informasi, pengunggahan dan pengunduhan dokumen Layanan Publik Sektoral.\r\nLevel 3 : Kriteria tingkat 2 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan transaksi kepada pengguna terkait Publik Sektoral kegiatan pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.\r\nLevel 4 : Kriteria tingkat 3 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik memberikan layanan kolaborasi dengan layanan elektronik lain, misalnya Layanan Publik Sektoral Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain.\r\nLevel 5 : Kriteria tingkat 4 telah terpenuhi dan Layanan Publik Sektoral Berbasis Elektronik telah dilakukan perbaikan berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi dan kebutuhan Instansi Pusat/Pemerintah Daerah.', 'Data pendukung dapat berupa dokumen kebijakan, bukti kegiatan telah melakukan tugas sebagaimana dimaksud pada dokumen kebijakan, bukti evaluasi kebijakan, bukti permintaan perubahan kebijakan, dan bukti lainnya. Apabila lebih dari satu file, maka nama file ditambahkan huruf seperti indikator47a.pdf, indikator47b.pdf, indikator47c.pdf, dan seterusnya.');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_domain`
+-- Table structure for table `tb_domain`
 --
 
 CREATE TABLE `tb_domain` (
@@ -829,56 +883,56 @@ CREATE TABLE `tb_domain` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_domain`
+-- Dumping data for table `tb_domain`
 --
 
 INSERT INTO `tb_domain` (`id_domain`, `indeks`, `nama_domain`, `bobot_domain`, `urutan_domain`, `user_katindex`) VALUES
-(1, 1, 'Kebijakan SPBE', 17.00, 1, 1),
-(2, 1, 'Tata Kelola SPBE', 28.00, 2, 1),
-(3, 1, 'Layanan SPBE', 55.00, 3, 1),
-(4, 2, 'Dimensi Lingkungan (Smart Environment)', 0.16, 1, 2),
-(5, 2, 'Dimensi Mobilitas (Smart Mobility)', 0.11, 2, 2),
-(6, 2, 'Dimensi Pemerintahan (Smart Government)', 0.12, 3, 2),
-(7, 2, 'Dimensi Ekonomi (Smart Economy)', 0.12, 4, 2),
-(8, 2, 'Dimensi Masyarakat (Smart People)', 0.29, 5, 2),
-(9, 2, 'Dimensi Kualitas Hidup (Smart Living)', 0.20, 6, 2);
+(1, 1, 'Kebijakan SPBE', '17.00', 1, 1),
+(2, 1, 'Tata Kelola SPBE', '28.00', 2, 1),
+(4, 2, 'Dimensi Lingkungan (Smart Environment)', '0.16', 1, 2),
+(5, 2, 'Dimensi Mobilitas (Smart Mobility)', '0.11', 2, 2),
+(6, 2, 'Dimensi Pemerintahan (Smart Government)', '0.12', 3, 2),
+(7, 2, 'Dimensi Ekonomi (Smart Economy)', '0.12', 4, 2),
+(8, 2, 'Dimensi Masyarakat (Smart People)', '0.29', 5, 2),
+(9, 2, 'Dimensi Kualitas Hidup (Smart Living)', '0.20', 6, 2),
+(14, 1, 'Manajemen SPBE', '10.00', 3, 1),
+(15, 1, 'Layanan SPBE', '55.00', 4, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_domain_nilai`
+-- Table structure for table `tb_domain_nilai`
 --
 
 CREATE TABLE `tb_domain_nilai` (
   `id_domain_nilai` int(11) NOT NULL,
   `domain` varchar(100) NOT NULL,
   `nilai_domain` decimal(10,2) NOT NULL,
-  `tahun_domain` varchar(5) NOT NULL,
-  `indeks` int(11) NOT NULL
+  `indeks_nilai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_domain_nilai`
+-- Dumping data for table `tb_domain_nilai`
 --
 
-INSERT INTO `tb_domain_nilai` (`id_domain_nilai`, `domain`, `nilai_domain`, `tahun_domain`, `indeks`) VALUES
-(1, '1', 2.06, '2018', 1),
-(2, '2', 2.29, '2018', 1),
-(3, '3', 3.00, '2018', 1),
-(4, '4', 0.00, '2018', 2),
-(5, '5', 0.00, '2018', 2),
-(6, '6', 0.00, '2018', 2),
-(7, '7', 0.00, '2018', 2),
-(8, '8', 0.00, '2018', 2),
-(9, '9', 0.00, '2018', 2),
-(11, '1', 3.00, '2019', 1),
-(12, '2', 3.00, '2019', 1),
-(13, '3', 3.61, '2019', 1);
+INSERT INTO `tb_domain_nilai` (`id_domain_nilai`, `domain`, `nilai_domain`, `indeks_nilai`) VALUES
+(1, '1', '2.06', 1),
+(2, '2', '2.29', 1),
+(3, '3', '3.00', 1),
+(4, '4', '0.00', 2),
+(5, '5', '0.00', 2),
+(6, '6', '0.00', 2),
+(7, '7', '0.00', 2),
+(8, '8', '0.00', 2),
+(9, '9', '0.00', 2),
+(11, '1', '3.00', 1),
+(12, '2', '3.00', 1),
+(13, '3', '3.61', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_eksekutif_opd`
+-- Table structure for table `tb_eksekutif_opd`
 --
 
 CREATE TABLE `tb_eksekutif_opd` (
@@ -890,7 +944,7 @@ CREATE TABLE `tb_eksekutif_opd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_eksekutif_opd`
+-- Dumping data for table `tb_eksekutif_opd`
 --
 
 INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_harus_dipenuhi_opd`, `telah_miliki`, `belum_miliki`) VALUES
@@ -933,8 +987,6 @@ INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_h
 (37, 78, '1. Optimalisasi Penerapan dan Pengembangan Layanan Perijinan,  diintegrasikan dengan layanan SPBE lain. 2. Dilakukan monitoring dan evaluasi secara berkala untuk Layanan dan Kebijakannya, serta dibuatkan dokumentasi sebagai data pendukung.', 'Sistem Informasi Perijinan Online http://perijinan.denpasarkota.go.id. ;Proses integrasi dengan OSS (BKPM) dan Sicantik Cloud (Kemenkominfo). ;Berkolaborasi dengan BSSN menggunakan tanda tangan digital. Perwali No 39 Tahun 2019 tentang Penyelenggaraan Perizinan dan Non Perizinan', 'Hasil monitoring dan evaluasi terhadap layanan perijinan online'),
 (39, 1, '-	Kebijakan Tim Pengarah SPBE  memuat pengaturan tugas-tugas yang mendukung penerapan SPBE  yang terpadu pada semua unit kerja;\r\n-	Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala', 'SK Walikota Denpasar No. 188.45/1195/HK tentang Tim Pengarah SPBE', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
 (40, 2, '-	Kebijakan Proses Bisnis Integrasi  memuat pengaturan tersusunnya proses bisnis yang terintegrasi antar unit kerja;\r\n-	Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala kan', 'SK Walikota Denpasar Nomor 188.45/1689/HK/2019 tentang Peta Proses Bisnis Pemerintah Kota Denpasar', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
-(41, 141, '', '', ''),
-(42, 159, '', '', ''),
 (43, 3, '- Kebijakan Rencana Induk Blue Print eGov,  dengan memuat pengaturan tersusunnya rencana induk yang mencakup secara lengkap visi, misi, strategi, sasaran, arsitektur, dan peta rencana SPBE\r\n- Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala', 'SK Walikota Denpasar Nomor 188.45 / 1612 / HK / 2019 tentang Rencana Induk Pengembangan Teknologi Informasi Komunikasi Terpadu (Cetak biru eGovernment).', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
 (44, 4, '- Kebijakan Anggaran dan  Belanja TIK,  memuat pengaturan terkait penyelarasan dengan rencana induk SPBE, pengendalian rencana dan anggaran TIK yang terpadu di dalam Instansi Pusat/Pemerintah Daerah, dan mendukung penerapan SPBE yang terpadu\r\n- Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala', 'PERDA Kota Denpasar No 6 Tahun 2018 Tentang APBD Tahun Anggaran 2019', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
 (45, 5, '- Revisi Perwali eGov  atau Rencana Induk SPBE,  memuat pengaturan pengoperasian dan pemanfaatan pusat data bagi semua unit kerja\r\n- Kebijakan yang telah dibuat, dimonitoring pelaksanaannya dan dievaluasi secara berkala', 'Perwali No 35 Tahun 2014, Tentang Penyelenggaraan Sistem Elektronik (e-Government) di Lingkungan Pemerintah Kota Denpasar, Bab VI Pasal 20', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki.'),
@@ -955,12 +1007,18 @@ INSERT INTO `tb_eksekutif_opd` (`id_eksekutif_opd`, `idpenilaian`, `tahapan_yg_h
 (60, 140, '', 'Peraturan Walikota Denpasar Nomor 21 Tahun 2020 tentang Tambahan Penghasilan Kepada Pegawai Aparatur Sipil Negara', 'Hasil monitoring dan evaluasi terhadap kebijakan yang dimiliki'),
 (61, 154, '', 'Pemerintah Kota Denpasar memiliki aplikasi SIMAK DIHATI yang dapat diakses PNS untuk informasi data kepegawaian ( https://simpeg.denpasarkota.go.id )', 'Hasil monitoring dan evaluasi terhadap layanan manajemen kepegawaian'),
 (62, 158, '', 'Pemerintah Kota Denpasar memiliki sistem manajemen kinerja (e-Kinerja) yang digunakan oleh PNS', 'Hasil monitoring dan evaluasi terhadap layanan manajemen kinerja'),
-(63, 56, 'perencanaan \r\nanggaran\r\npelaksanaan', '', '');
+(63, 56, 'perencanaan \r\nanggaran\r\npelaksanaan', '', ''),
+(64, 163, '', '', ''),
+(65, 163, '', '', ''),
+(66, 163, '', '', ''),
+(67, 163, '-', '-', '-'),
+(68, 163, '-', '-', '-'),
+(69, 163, '1. Penerapan Layanan Pengadaan,  ditingkatkan menjadi layanan kolaborasi dimana layanan tersebut diintegrasikan dengan layanan SPBE lain. \r\n2. Dilakukan monitoring dan evaluasi secara berkala, serta dibuatkan dokumentasi sebagai data pendukung.', 'Pemerintah Kota Denpasar menggunakan SPSE dari LKPP dengan alamat website http://eproc.denpasarkota.go.id dan terintegrasi dari SIRUP ke EPROC.', 'Hasil monitoring dan evaluasi terhadap layanan pengadaan');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_evaluasi`
+-- Table structure for table `tb_evaluasi`
 --
 
 CREATE TABLE `tb_evaluasi` (
@@ -973,7 +1031,7 @@ CREATE TABLE `tb_evaluasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_evaluasi`
+-- Dumping data for table `tb_evaluasi`
 --
 
 INSERT INTO `tb_evaluasi` (`idevaluasi`, `tahun_evaluasi`, `idlevel`, `idindikator`, `idpertanyaan`, `penjelasan_evaluasi`) VALUES
@@ -1018,7 +1076,7 @@ INSERT INTO `tb_evaluasi` (`idevaluasi`, `tahun_evaluasi`, `idlevel`, `idindikat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_feedback`
+-- Table structure for table `tb_feedback`
 --
 
 CREATE TABLE `tb_feedback` (
@@ -1031,7 +1089,7 @@ CREATE TABLE `tb_feedback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_feedback`
+-- Dumping data for table `tb_feedback`
 --
 
 INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_feedback`, `userid_created`, `date_created`) VALUES
@@ -1256,12 +1314,312 @@ INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_f
 (232, 138, 'SK Walikota Denpasar Nomor 188.45/1589/HK/2019 Tentang Penetapan Pelaksanaan Sistem Informasi Perencanaan Pembangunan Daerah Berbasis Elektronik / E-Planning di Kota Denpasar', 'indikator10.pdf', 'bappeda', '2020-11-03 14:37:00'),
 (233, 149, 'Ringkasan APBD Menurut Organisasi dan Urusan Pemerintah Daerah Tahun Anggaran 2019', 'indikator21.pdf', 'bappeda', '2020-11-03 14:38:00'),
 (234, 155, 'Tampilan Website Denpasar Plan', 'indikator27.jpg', 'bappeda', '2020-11-03 14:40:00'),
-(235, 156, 'Modul Penggunaan Website Sistem Informasi Pengelola Keuangan dan Aset Daerah (SIPKD)', 'indikator28.pdf', 'bappeda', '2020-11-03 14:42:00');
+(235, 156, 'Modul Penggunaan Website Sistem Informasi Pengelola Keuangan dan Aset Daerah (SIPKD)', 'indikator28.pdf', 'bappeda', '2020-11-03 14:42:00'),
+(236, 161, 'Tampilan Pada Input Peraturan Baru', 'indikator33b.jpg', 'bagianhukum', '2020-11-17 08:55:00'),
+(237, 161, 'Tampilan Website JDIH (Jaringan Dokumentasi Informasi Hukum) Kota Denpasar', 'indikator33a.jpg', 'bagianhukum', '2020-11-17 08:55:00'),
+(246, 166, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator1aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 17:36:00'),
+(247, 166, 'Notulen Rapat Perwali SPBE', 'Indikator1bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:40:00'),
+(248, 166, 'Rapat Pembahasan Perwali SPBE', 'Indikator1cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:41:00'),
+(249, 166, 'Telahaan Staf Perwali SPBE', 'Indikator1dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:42:00'),
+(250, 166, 'Draft Revisi Perwali SPBE', 'Indikator1eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:43:00'),
+(251, 167, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator2aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 17:44:00'),
+(252, 167, 'Notulen Rapat Perwali SPBE', 'Indikator2bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:45:00'),
+(253, 167, 'Rapat Pembahasan Perwali SPBE', 'Indikator2cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:46:00'),
+(254, 167, 'Telahaan Staf Perwali SPBE', 'Indikator2dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:47:00'),
+(255, 167, 'Draft Revisi Perwali SPBE', 'Indikator2eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:47:00'),
+(256, 168, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator3aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 17:48:00'),
+(257, 168, 'Notulen Rapat Perwali SPBE', 'Indikator3bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:49:00'),
+(258, 168, 'Rapat Pembahasan Perwali SPBE', 'Indikator3cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:50:00'),
+(259, 168, 'Telahaan Staf Perwali SPBE', 'Indikator3dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:50:00'),
+(260, 168, 'Draft Revisi Perwali SPBE', 'Indikator3eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 17:51:00'),
+(261, 169, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator4aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 22:27:00'),
+(262, 169, 'Notulen Rapat Perwali SPBE', 'Indikator4bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:28:00'),
+(263, 169, 'Rapat Pembahasan Perwali SPBE', 'Indikator4cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:30:00'),
+(264, 169, 'Telahaan Staf Perwali SPBE', 'Indikator4dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:30:00'),
+(265, 169, 'Draft Revisi Perwali SPBE', 'Indikator4eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:31:00'),
+(266, 170, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator5aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 22:33:00'),
+(267, 170, 'Notulen Rapat Perwali SPBE', 'Indikator5bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:34:00'),
+(268, 170, 'Rapat Pembahasan Perwali SPBE', 'Indikator5cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:34:00'),
+(269, 170, 'Telahaan Staf Perwali SPBE', 'Indikator5dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:35:00'),
+(270, 170, 'Draft Revisi Perwali SPBE', 'Indikator5eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:36:00'),
+(271, 171, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator5aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 22:37:00'),
+(272, 171, 'Notulen Rapat Perwali SPBE', 'Indikator5bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:41:00'),
+(273, 171, 'Rapat Pembahasan Perwali SPBE', 'Indikator5cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:42:00'),
+(274, 171, 'Telahaan Staf Perwali SPBE', 'Indikator5dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:43:00'),
+(275, 171, 'Draft Revisi Perwali SPBE', 'Indikator5eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:43:00'),
+(276, 172, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator7aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 22:45:00'),
+(277, 172, 'Notulen Rapat Perwali SPBE', 'Indikator7bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:47:00'),
+(278, 172, 'Rapat Pembahasan Perwali SPBE', 'Indikator7cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:48:00'),
+(279, 172, 'Telahaan Staf Perwali SPBE', 'Indikator7dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:49:00'),
+(280, 172, 'Draft Revisi Perwali SPBE', 'Indikator7eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:50:00'),
+(281, 173, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator8aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 22:51:00'),
+(282, 173, 'Notulen Rapat Perwali SPBE', 'Indikator8bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:52:00'),
+(283, 173, 'Rapat Pembahasan Perwali SPBE', 'Indikator8cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:53:00'),
+(284, 173, 'Telahaan Staf Perwali SPBE', 'Indikator8dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:54:00'),
+(285, 173, 'Draft Revisi Perwali SPBE', 'Indikator8eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:54:00'),
+(286, 174, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator9aPerwaliNo35Th2014PenyelenggaraanSistemElepdf.pdf', 'adminspbe', '2021-08-22 22:57:00'),
+(287, 174, 'Notulen Rapat Perwali SPBE', 'Indikator9bNotulenRapatPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:58:00'),
+(288, 174, 'Rapat Pembahasan Perwali SPBE', 'Indikator9cRapatPembahasanPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 22:59:00'),
+(289, 174, 'Telahaan Staf Perwali SPBE', 'Indikator9dTelahaanStafPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 23:00:00'),
+(290, 174, 'Draft Revisi Perwali SPBE', 'Indikator9eDraftRevisiPerwaliSPBEpdf.pdf', 'adminspbe', '2021-08-22 23:00:00'),
+(291, 174, 'Draft SK Tim Audit SPBE 2021', 'Indikator9fDraftSKTimAuditSPBE2021pdf.pdf', 'adminspbe', '2021-08-22 23:01:00'),
+(292, 175, 'SK Tim Evaluator SPBE 2018', 'Indikator10aSKTimEvaluatorSPBE2018pdf.pdf', 'adminspbe', '2021-08-22 23:02:00'),
+(293, 175, 'SK Tim Pengarah SPBE 2019', 'Indikator10bSKTimPengarahSPBE2019pdf.pdf', 'adminspbe', '2021-08-22 23:03:00'),
+(294, 175, 'Draft SK Tim Asesor SPBE 2021', 'Indikator10cDraftSKTimAsesorSPBE2021pdf.pdf', 'adminspbe', '2021-08-22 23:03:00'),
+(295, 175, 'Surat Pengantar', 'Indikator10dSuratPengantarpdf.pdf', 'adminspbe', '2021-08-22 23:04:00'),
+(296, 176, 'Blueprint eGovernment Kota Denpasar', 'Indikator11aBlueprinteGovernmentKotaDenpasarpdf.pdf', 'adminspbe', '2021-08-22 23:05:00'),
+(297, 176, 'SK Blueprint', 'Indikator11bSKBlueprintpdf.pdf', 'adminspbe', '2021-08-22 23:06:00'),
+(298, 176, 'Draft Arsitektur SPBE Kota Denpasar 2021', 'Indikator11cDraftArsitekturSPBEKotaDenpasar2021pdf.pdf', 'adminspbe', '2021-08-22 23:08:00'),
+(300, 177, 'Blueprint eGovernment Kota Denpasar', 'Indikator12aBlueprinteGovernmentKotaDenpasarpdf.pdf', 'adminspbe', '2021-08-22 23:12:00'),
+(301, 177, 'SK Blueprint', 'Indikator12bSKBlueprintpdf.pdf', 'adminspbe', '2021-08-22 23:12:00'),
+(302, 177, 'Draft Arsitektur SPBE Kota Denpasar', 'Indikator12cHalaman21DraftArsitekturSPBEKotaDenpasarpdf.pdf', 'adminspbe', '2021-08-22 23:13:00'),
+(303, 179, 'Rapat Geoportal', 'Indikator13aRapatGeoportalpdf.pdf', 'adminspbe', '2021-08-22 23:15:00'),
+(304, 179, 'Draft SK Tim Koordinasi Forum Satu Data', 'Indikator13bDraftSKTimKoordinasiForumSatuDatapdf.pdf', 'adminspbe', '2021-08-22 23:16:00'),
+(305, 180, 'Rapat Geoportal', 'Indikator13aRapatGeoportalpdf.pdf', 'adminspbe', '2021-08-22 23:17:00'),
+(306, 180, 'Draft SK Tim Koordinasi Forum Satu Data', 'Indikator13bDraftSKTimKoordinasiForumSatuDatapdf.pdf', 'adminspbe', '2021-08-22 23:18:00'),
+(307, 181, 'SK Peta Proses Bisnis', 'Indikator14aSKPetaProsesBisnispdf.pdf', 'adminspbe', '2021-08-22 23:19:00'),
+(308, 181, 'Draft Arsitektur SPBE ', 'Indikator14bHal49DraftArsitekturSPBEpdf.pdf', 'adminspbe', '2021-08-22 23:21:00'),
+(309, 181, 'PETA PROSES BISNIS DAN EVALUASI INOVASI SIDAR', 'Inidkator14cPETAPROSESBISNISDANEVALUASIINOVASISIDARpdf.pdf', 'adminspbe', '2021-08-22 23:22:00'),
+(310, 182, 'SK Peta Proses Bisnis', 'Indikator14aSKPetaProsesBisnispdf.pdf', 'adminspbe', '2021-08-22 23:23:00'),
+(311, 182, 'Draft Arsitektur SPBE', 'Indikator14bHal49DraftArsitekturSPBEpdf.pdf', 'adminspbe', '2021-08-22 23:24:00'),
+(312, 182, 'PETA PROSES BISNIS DAN EVALUASI INOVASI SIDAR', 'Inidkator14cPETAPROSESBISNISDANEVALUASIINOVASISIDARpdf.pdf', 'adminspbe', '2021-08-22 23:24:00'),
+(313, 183, 'SK Peta Proses Bisnis', 'Indikator14aSKPetaProsesBisnispdf.pdf', 'adminspbe', '2021-08-22 23:25:00'),
+(314, 183, 'Draft Arsitektur SPBE', 'Indikator14bHal49DraftArsitekturSPBEpdf.pdf', 'adminspbe', '2021-08-22 23:26:00'),
+(315, 183, 'PETA PROSES BISNIS DAN EVALUASI INOVASI SIDAR', 'Inidkator14cPETAPROSESBISNISDANEVALUASIINOVASISIDARpdf.pdf', 'adminspbe', '2021-08-22 23:27:00'),
+(316, 184, 'Perwali No 35 Th 2014 Penyelenggaraan Sistem Elektronik', 'Indikator15aPerwaliNo35Th2014PenyelenggaraanSistemElpdf.pdf', 'adminspbe', '2021-08-22 23:29:00'),
+(317, 184, 'Standarisasi Pembangunan Sistem Informasi', 'Indikator15bStandarisasiPembangunanSistemInformasipdf.pdf', 'adminspbe', '2021-08-22 23:30:00'),
+(318, 184, 'SOP Pembangunan Sistem Informasi', 'Indikator15cSOPPembangunanSistemInformasipdf.pdf', 'adminspbe', '2021-08-22 23:31:00'),
+(319, 184, 'Contoh Spesifikasi Sistem Informasi', 'Indikator15dContohSpesifikasiSistemInformasipdf.pdf', 'adminspbe', '2021-08-22 23:32:00'),
+(320, 185, 'SOP Layanan Data Center', 'Indikator16aSOPLayananDataCenterpdf.pdf', 'adminspbe', '2021-08-22 23:34:00'),
+(321, 185, 'Permohonan Layanan VPS Ke Kemen Kominfo', 'Indikator16bPermohonanLayananVPSKeKemenKominfopdf.pdf', 'adminspbe', '2021-08-22 23:35:00'),
+(322, 185, 'Dokumen Kredensial dari Kemen Kominfo', 'Indikator16cDokumenKredensialdariKemenKominfopdf.pdf', 'adminspbe', '2021-08-22 23:36:00'),
+(323, 185, 'Evaluasi Unud 2017', 'Indikator16dEvaluasiUnud2017pdf.pdf', 'adminspbe', '2021-08-22 23:36:00'),
+(324, 185, 'Evaluasi Telkom 2020', 'Indikator16eEvaluasiTelkom2020pdf.pdf', 'adminspbe', '2021-08-22 23:37:00'),
+(325, 186, 'Topologi Jaringan', 'Indikator17aTopologiJaringanpdf.pdf', 'adminspbe', '2021-08-22 23:38:00'),
+(326, 186, 'Laporan Link VPN', 'Indikator17bLaporanLinkVPNpdf.pdf', 'adminspbe', '2021-08-22 23:38:00'),
+(327, 186, 'Laporan Monitoring Evaluasi Infrastruktur Jaringan', 'Indikator17cLaporanMonitoringEvaluasiInfrastrukturJarinpdf.pdf', 'adminspbe', '2021-08-22 23:39:00'),
+(328, 187, 'DPA Sistem Penghubung Layanan Pemerintah', 'Indikator18aDPASistemPenghubungLayananPemerintahpdf.pdf', 'adminspbe', '2021-08-22 23:40:00'),
+(329, 187, 'Laporan Integrasi Sistem Infromasi', 'Indikator18bLaporanIntegrasiSistemInfromasipdf.pdf', 'adminspbe', '2021-08-22 23:41:00'),
+(330, 188, 'SK Tim Evaluator SPBE 2018', 'Indikator19aSKTimEvaluatorSPBE2018pdf.pdf', 'adminspbe', '2021-08-22 23:43:00'),
+(331, 188, 'SK Tim Pengarah SPBE 2019', 'Indikator19bSKTimPengarahSPBE2019pdf.pdf', 'adminspbe', '2021-08-22 23:45:00'),
+(332, 188, 'Draft SK Tim Asesor SPBE 2021', 'Indikator19cDraftSKTimAsesorSPBE2021pdf.pdf', 'adminspbe', '2021-08-22 23:45:00'),
+(333, 189, 'Surat Keputusan ESewaka Dharma', 'Indikator20aSuratKeputusanESewakaDharmapdf.pdf', 'adminspbe', '2021-08-22 23:46:00'),
+(334, 189, 'Surat Edaran Pemanfaatan Aplikasi eSewakadarma', 'Indikator20bSuratEdaranPemanfaanAplikasieSewakadarmattpdf.pdf', 'adminspbe', '2021-08-22 23:48:00'),
+(335, 189, 'Notulen Rapat Pengembangan Aplikasi', 'Indikator20cNotulenRapatPengembanganAplikasipdf.pdf', 'adminspbe', '2021-08-22 23:48:00'),
+(336, 189, 'Notulen Sosialisasi eSewaka Dharma', 'Indikator20dNotulenSosialisasieSewakaDharmapdf.pdf', 'adminspbe', '2021-08-22 23:49:00'),
+(338, 190, 'Blueprint eGovernment Kota Denpasar', 'Indikator21bBlueprinteGovernmentKotaDenpasarpdf.pdf', 'adminspbe', '2021-08-23 00:41:00'),
+(339, 190, 'SK Walikota Petunjuk Penyelengaraan SPIP', 'Indikator21aSKWalikotaPetunjukPenyelengaraanSPIPpdf.pdf', 'adminspbe', '2021-08-23 00:42:00'),
+(340, 190, 'Alur DC Saat Aplikasi Tidak Dapat Akses', 'Indikator21cAlurDCSaatAplikasiTidakDapatAksespdf.pdf', 'adminspbe', '2021-08-23 00:42:00'),
+(341, 190, 'Alur DC Saat Listrik Padam', 'Indikator21dAlurDCSaatListrikPadampdf.pdf', 'adminspbe', '2021-08-23 00:43:00'),
+(342, 191, 'SK Walikota Petunjuk Penyelengaraan SPIP', 'Indikator21aSKWalikotaPetunjukPenyelengaraanSPIPpdf.pdf', 'adminspbe', '2021-08-23 00:44:00'),
+(343, 191, 'Blueprint eGovernment Kota Denpasar', 'Indikator21bBlueprinteGovernmentKotaDenpasarpdf.pdf', 'adminspbe', '2021-08-23 00:45:00'),
+(344, 191, 'Alur DC Saat Aplikasi Tidak Dapat Akses', 'Indikator21cAlurDCSaatAplikasiTidakDapatAksespdf.pdf', 'adminspbe', '2021-08-23 00:45:00'),
+(345, 191, 'Alur DC Saat Listrik Padam', 'Indikator21dAlurDCSaatListrikPadampdf.pdf', 'adminspbe', '2021-08-23 00:46:00'),
+(346, 192, 'Buku Standar Keamanan Informasi', 'Indikator22aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 00:47:00'),
+(347, 193, 'Perwali Kota Denpasar No 73 Th 2019', 'Indikator23aPerwaliKotaDenpasarNo73Th2019TentangSatpdf.pdf', 'adminspbe', '2021-08-23 00:49:00'),
+(348, 193, 'Draft SK Tim Koordinasi Forum Satu Data', 'Indikator23bDraftSKTimKoordinasiForumSatuDatapdf.pdf', 'adminspbe', '2021-08-23 00:50:00'),
+(349, 193, 'Undangan Rapat Satu Data', 'Indikator23cUndanganRapatSatuDatapdf.pdf', 'adminspbe', '2021-08-23 00:51:00'),
+(350, 193, 'Notulen Rapat Satu Data', 'Indikator23dNotulenRapatSatuDatapdf.pdf', 'adminspbe', '2021-08-23 00:51:00'),
+(351, 194, 'Tingkat 1 Laporan Kegiatan BIMTEK SIMDA BMD', 'Indikator24aTingkat1LaporanKegiatanBIMTEKSIMDABMDpdf.pdf', 'adminspbe', '2021-08-23 00:53:00'),
+(352, 194, 'Tingkat 2 RENJA BPKAD Tahun 2021', 'Indikator24bTingkat2RENJABPKADTahun2021pdf.pdf', 'adminspbe', '2021-08-23 00:54:00'),
+(353, 194, 'Tingkat 3 Screenshot Aplikasi SIMDA BMD', 'Indikator24cTingkat3ScreenshotAplikasiSIMDABMDpdf.pdf', 'adminspbe', '2021-08-23 00:58:00'),
+(354, 194, 'Tingkat 3 Manual Aplikasi SIPKD', 'Indikator24dTingkat3ManualAplikasiSIPKDPersediaanOperapdf.pdf', 'adminspbe', '2021-08-23 01:00:00'),
+(355, 194, 'Tingkat 4 Flowchat Integrasi SIPKD ASET', 'Indikator24eTingkat4FlowchatIntegrasiSIPKDASETpdf.pdf', 'adminspbe', '2021-08-23 01:00:00'),
+(356, 195, 'Analisis Kebutuhan Diklat', 'Indikator25aAnalisisKebutuhanDiklatpdf.pdf', 'adminspbe', '2021-08-23 01:04:00'),
+(357, 196, 'Buku Panduan Sistem Informasi Dokumentasi', 'Inidkator26BukuPanduanSistemInformasiDokumentasipdf.pdf', 'adminspbe', '2021-08-23 01:05:00'),
+(358, 197, 'Aplikasi Manajemen Perubahan', 'Indikator27AplikasiManajemenPerubahanpdf.pdf', 'adminspbe', '2021-08-23 01:06:00'),
+(359, 197, 'Perwali Budaya Kerja', 'Indikator27bPerwaliBudayaKerjapdf.pdf', 'adminspbe', '2021-08-23 01:07:00'),
+(360, 197, 'SK Penetapan Sang Sewakadarma Agen Perubahan', 'Indikator27cSKPenetapanSangSewakadarmaAgenPerubahanpdf.pdf', 'adminspbe', '2021-08-23 01:08:00'),
+(361, 198, 'SK TIM SIDARLING', 'Indikator28a-SK TIM SIDARLING.pdf', 'adminspbe', '2021-08-23 01:09:00'),
+(362, 198, 'Notulen Rapat Aplikasi Bank Sampah - Sidarling', 'Indikator28c-Notulen Rapat Aplikasi Bank Sampah - Sidarling.pdf', 'adminspbe', '2021-08-23 01:10:00'),
+(363, 198, 'Notulen rapat evaluasi sidarling integrasi dengan LPD', 'Indikator28d-Notulen rapat evaluasi sidarling integrasi dengan LPD.pdf', 'adminspbe', '2021-08-23 01:11:00'),
+(364, 198, 'Notulen Rapat Sidarling', 'Indikator28e-Notulen Rapat Sidarling.pdf', 'adminspbe', '2021-08-23 01:11:00'),
+(365, 198, 'INOVASI SIDARLING', 'Inidkator28b-INOVASI SIDARLING.pdf', 'adminspbe', '2021-08-23 01:12:00'),
+(366, 199, 'Buku Standar Keamanan Informasi', 'Indikator29aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 01:13:00'),
+(367, 199, 'Laporan Audit TIK 2019', 'Indikator29bLaporanAuditTIK2019pdf.pdf', 'adminspbe', '2021-08-23 01:14:00'),
+(368, 199, 'Laporan Audit TIK 2020', 'Indikator29cLaporanAuditTIK2020pdf.pdf', 'adminspbe', '2021-08-23 01:15:00'),
+(369, 199, 'Draft SK Tim Auditor SPBE 2021', 'Indikator29dDraftSKTimAuditorSPBE2021pdf.pdf', 'adminspbe', '2021-08-23 01:15:00'),
+(370, 200, 'Buku Standar Keamanan Informasi', 'Indikator29aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 01:16:00'),
+(371, 200, 'Laporan Audit TIK 2019', 'Indikator29bLaporanAuditTIK2019pdf.pdf', 'adminspbe', '2021-08-23 01:17:00'),
+(372, 200, 'Laporan Audit TIK 2020', 'Indikator29cLaporanAuditTIK2020pdf.pdf', 'adminspbe', '2021-08-23 01:18:00'),
+(373, 200, 'Draft SK Tim Auditor SPBE 2021', 'Indikator29dDraftSKTimAuditorSPBE2021pdf.pdf', 'adminspbe', '2021-08-23 01:18:00'),
+(374, 201, 'Buku Standar Keamanan Informasi', 'Indikator30aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 01:20:00'),
+(375, 201, 'Laporan Audit TIK 2019', 'Indikator30bLaporanAuditTIK2019pdf.pdf', 'adminspbe', '2021-08-23 01:20:00'),
+(376, 201, 'Laporan Audit TIK 2020', 'Indikator30cLaporanAuditTIK2020pdf.pdf', 'adminspbe', '2021-08-23 01:21:00'),
+(377, 201, 'Draft SK Tim Auditor SPBE 2021', 'Indikator30dDraftSKTimAuditorSPBE2021pdf.pdf', 'adminspbe', '2021-08-23 01:22:00'),
+(378, 201, 'Audit Aplikasi SPSE', 'Indikator30eAuditAplikasiSPSEpdf.pdf', 'adminspbe', '2021-08-23 01:23:00'),
+(379, 202, 'Buku Standar Keamanan Informasi', 'Indikator30aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 01:24:00'),
+(380, 202, 'Laporan Audit TIK 2019', 'Indikator30bLaporanAuditTIK2019pdf.pdf', 'adminspbe', '2021-08-23 01:25:00'),
+(381, 202, 'Laporan Audit TIK 2020', 'Indikator30cLaporanAuditTIK2020pdf.pdf', 'adminspbe', '2021-08-23 01:26:00'),
+(382, 202, 'Draft SK Tim Auditor SPBE 2021', 'Indikator30dDraftSKTimAuditorSPBE2021pdf.pdf', 'adminspbe', '2021-08-23 01:26:00'),
+(383, 202, 'Audit Aplikasi SPSE', 'Indikator30eAuditAplikasiSPSEpdf.pdf', 'adminspbe', '2021-08-23 01:28:00'),
+(384, 203, 'Buku Standar Keamanan Informasi', 'Indikator31aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 01:29:00'),
+(385, 203, 'Laporan Audit TIK 2019', 'Indikator31bLaporanAuditTIK2019pdf.pdf', 'adminspbe', '2021-08-23 01:30:00'),
+(386, 203, 'Laporan Audit TIK 2020', 'Indikator31cLaporanAuditTIK2020pdf.pdf', 'adminspbe', '2021-08-23 01:31:00'),
+(387, 203, 'Draft SK Tim Auditor SPBE 2021', 'Indikator31dDraftSKTimAuditorSPBE2021pdf.pdf', 'adminspbe', '2021-08-23 01:31:00'),
+(388, 204, 'Buku Standar Keamanan Informasi', 'Indikator31aBukuStandarKeamananInformasipdf.pdf', 'adminspbe', '2021-08-23 01:33:00'),
+(389, 204, 'Laporan Audit TIK 2019', 'Indikator31bLaporanAuditTIK2019pdf.pdf', 'adminspbe', '2021-08-23 01:35:00'),
+(390, 204, 'Laporan Audit TIK 2020', 'Indikator31cLaporanAuditTIK2020pdf.pdf', 'adminspbe', '2021-08-23 01:36:00'),
+(391, 204, 'Draft SK Tim Auditor SPBE 2021', 'Indikator31dDraftSKTimAuditorSPBE2021pdf.pdf', 'adminspbe', '2021-08-23 01:37:00'),
+(392, 205, 'Penjelasan Level', 'Indikator32aPenjelasanLevelpdf.pdf', 'adminspbe', '2021-08-23 01:38:00'),
+(393, 205, 'bukti dukung', 'Indikator32bbuktidukungpdf.pdf', 'adminspbe', '2021-08-23 01:38:00'),
+(394, 206, 'Tingkat 1 alur sipd', 'Indikator33aTingkat1alursipdpdf.pdf', 'adminspbe', '2021-08-23 01:40:00'),
+(395, 207, 'Tingkat 1 LAYANAN MANAJEMEN KEUANGAN', 'Indikator34aTingkat1LAYANANMANAJEMENKEUANGANpdf.pdf', 'adminspbe', '2021-08-23 01:44:00'),
+(396, 207, 'Tingkat 2 Manual Valid ANGGARAN SIPKD', 'Indikator34bTingkat2ManualValidANGGARANSIPKDR6pdf.pdf', 'adminspbe', '2021-08-23 01:45:00');
+INSERT INTO `tb_feedback` (`idfeedback`, `idpenilaian`, `ket_feedback`, `files_feedback`, `userid_created`, `date_created`) VALUES
+(397, 207, 'Tingkat 2 Manual Valid DATA MASTER SIPKD', 'Indikator34cTingkat2ManualValidDATAMASTERSIPKDR6pdf.pdf', 'adminspbe', '2021-08-23 01:47:00'),
+(398, 207, 'Tingkat 3 Manual Valid PENATA USAHAAN SIPKD', 'Indikator34dTingkat3ManualValidPENATAUSAHAANSIPKDR6pdf.pdf', 'adminspbe', '2021-08-23 01:48:00'),
+(399, 207, 'Tingkat 3 Manual Valid PERTANGGUNG JAWABAN SIPKD', 'Indikator34eTingkat3ManualValidPERTANGGUNGJAWABANSIPKDR6pdf.pdf', 'adminspbe', '2021-08-23 01:49:00'),
+(400, 208, 'Penjelasan Bukti Dukung SPBE Bagian BPBJ', 'Indikator35aPenjelasanBuktiDukungSPBEBagianBPBJpdf.pdf', 'adminspbe', '2021-08-23 01:51:00'),
+(401, 208, 'Bukti dukung Level 1', 'Bukti dukung Level 1.jpg', 'adminspbe', '2021-08-23 01:51:00'),
+(402, 208, 'Bukti dukung Level 2', 'Bukti dukung Level 2.jpg', 'adminspbe', '2021-08-23 01:52:00'),
+(403, 208, 'Bukti dukung Level 3', 'Bukti dukung Level 3.jpg', 'adminspbe', '2021-08-23 01:52:00'),
+(404, 208, 'Bukti dukung Level 4a', 'Bukti dukung Level 4a.jpg', 'adminspbe', '2021-08-23 01:52:00'),
+(405, 208, 'Bukti dukung Level 4b', 'Bukti dukung Level 4b.jpg', 'adminspbe', '2021-08-23 01:53:00'),
+(406, 208, 'Bukti dukung Level 5a', 'Bukti dukung Level 5a.jpg', 'adminspbe', '2021-08-23 01:53:00'),
+(407, 208, 'Bukti dukung Level 5b', 'Bukti dukung Level 5b.jpg', 'adminspbe', '2021-08-23 01:53:00'),
+(408, 209, 'Manual Book SIMAK DI HATI', 'Indikator36a-ManualBookSIMAKDIHATI.pdf', 'adminspbe', '2021-08-23 01:55:00'),
+(409, 209, 'SK Penetapan SIMAK DI HATI', 'Indikator36b-SKPenetapanSIMAKDIHATI.pdf', 'adminspbe', '2021-08-23 01:56:00'),
+(410, 209, 'SK Tim Efektif SIMAK DI HATI', 'Indikator36c-SKTimEfektifSIMAKDIHATI.pdf', 'adminspbe', '2021-08-23 01:57:00'),
+(411, 209, 'SK Tim Integrasi SIMAK DI HATI', 'Indikator36d-SKTimIntegrasiSIMAK DIHATI.pdf', 'adminspbe', '2021-08-23 01:58:00'),
+(412, 209, 'API', 'Indikator36f-API.pdf', 'adminspbe', '2021-08-23 01:58:00'),
+(413, 209, 'Undangan Rapat', 'Indikator36g-Undangan Rapat.pdf', 'adminspbe', '2021-08-23 01:58:00'),
+(414, 209, 'Notulen Rapat', 'Indikator36h-Notulen Rapat.pdf', 'adminspbe', '2021-08-23 01:59:00'),
+(415, 210, 'Aplikasi Surat Menyurat dan Arsip', 'Indikator37AplikasiSuratMenyuratdanArsippdf.pdf', 'adminspbe', '2021-08-23 02:00:00'),
+(416, 211, 'Tingkat 1 Screenshot Aplikasi SIMDA BMD', 'Indikator38aTingkat1ScreenshotAplikasiSIMDABMDpdf.pdf', 'adminspbe', '2021-08-23 02:01:00'),
+(417, 211, 'Tingkat 2 dan Tingkat 3 Manual Aplikasi SIPKD', 'Indikator38bTingkat2danTingkat3ManualAplikasiSIPKDPerpdf.pdf', 'adminspbe', '2021-08-23 02:03:00'),
+(418, 212, 'Aplikasi WBS', 'Indikator39bAplikasiWBSpdf.pdf', 'adminspbe', '2021-08-23 02:07:00'),
+(419, 213, 'Penjelasan Level', 'Indikator40aPenjelasanLevelpdf.pdf', 'adminspbe', '2021-08-23 02:08:00'),
+(420, 213, 'bukti dukung', 'Indikator40bbuktidukungpdf.pdf', 'adminspbe', '2021-08-23 02:09:00'),
+(421, 214, 'MANUAL BOOK APLIKASI E-KINERJA', 'Indikator41a-MANUALBOOKAPLIKASI E-KINERJA.pdf', 'adminspbe', '2021-08-23 09:54:00'),
+(422, 214, 'Screen shot Berjenjang Ekinerja', 'Indikator41c-ScreenshotBerjenjangEkinerja.pdf', 'adminspbe', '2021-08-23 09:56:00'),
+(423, 214, 'PERWALI No 21 Tahun 2020 tentang TPP', 'Indikator41d-PERWALINo21Tahun2020tentangTPP.pdf', 'adminspbe', '2021-08-23 09:57:00'),
+(424, 214, 'SK Tim TPP', 'Indikator41e-SKTimTPP.pdf', 'adminspbe', '2021-08-23 09:58:00'),
+(425, 214, 'SURAT UNDANGAN RAPAT TPP BERBASIS KINERJA', 'Indikator41f-SURAT UNDANGAN RAPAT TPP BERBASIS KINERJA.pdf', 'adminspbe', '2021-08-23 09:58:00'),
+(426, 214, 'NOTULEN RAPAT RENCANA TPP PEGAWAI', 'Indikator41g-NOTULEN RAPAT RENCANA TPP PEGAWAI.pdf', 'adminspbe', '2021-08-23 09:59:00'),
+(427, 214, 'Foto Kegiatan Rapat', 'Indikator41h-Foto Kegiatan Rapat.pdf', 'adminspbe', '2021-08-23 09:59:00'),
+(428, 215, 'SOP Pengaduan', 'Indikator42aSOPPengaduanpdf.pdf', 'adminspbe', '2021-08-23 10:00:00'),
+(429, 215, 'SK Walikota Pembentukan Tim Pengelolaan Pengaduan', 'Indikator42bSKWalikotaPembentukanTimPengelolaanPengadupdf.pdf', 'adminspbe', '2021-08-23 10:01:00'),
+(430, 215, 'Perwali Pengaduan', 'Indikator42cPerwaliPengaduanpdf.pdf', 'adminspbe', '2021-08-23 10:01:00'),
+(431, 215, 'screen shot layanan pengaduan', 'Indikator42dscreenshotlayananpengaduanpdf.pdf', 'adminspbe', '2021-08-23 10:02:00'),
+(432, 215, 'INTEGRASI BERBAGAI MEDIA PENGADUAN', 'Indikator42eINTEGRASIBERBAGAIMEDIAPENGADUANDANSP4NLAPpdf.pdf', 'adminspbe', '2021-08-23 10:13:00'),
+(433, 215, 'LAPORAN PRO DENPASAR 2020', 'Indikator42fLAPORANPRODENPASAR2020pdf.pdf', 'adminspbe', '2021-08-23 10:13:00'),
+(434, 215, 'LAPORAN PRO DENPASAR', 'Indikator42gLAPORANPRODENPASARtw1pdf.pdf', 'adminspbe', '2021-08-23 10:14:00'),
+(435, 216, 'SOP Pengaduan', 'Indikator42aSOPPengaduanpdf.pdf', 'adminspbe', '2021-08-23 10:15:00'),
+(436, 216, 'SK Walikota Pembentukan Tim Pengelolaan Pengaduan', 'Indikator42bSKWalikotaPembentukanTimPengelolaanPengadupdf.pdf', 'adminspbe', '2021-08-23 10:16:00'),
+(437, 216, 'Perwali Pengaduan', 'Indikator42cPerwaliPengaduanpdf.pdf', 'adminspbe', '2021-08-23 10:16:00'),
+(438, 216, 'screen shot layanan pengaduan', 'Indikator42dscreenshotlayananpengaduanpdf.pdf', 'adminspbe', '2021-08-23 10:17:00'),
+(439, 216, 'INTEGRASI BERBAGAI MEDIA PENGADUAN', 'Indikator42eINTEGRASIBERBAGAIMEDIAPENGADUANDANSP4NLAPpdf.pdf', 'adminspbe', '2021-08-23 10:17:00'),
+(440, 216, 'LAPORAN PRO DENPASAR 2020', 'Indikator42fLAPORANPRODENPASAR2020pdf.pdf', 'adminspbe', '2021-08-23 10:18:00'),
+(441, 216, 'LAPORAN PRO DENPASAR', 'Indikator42gLAPORANPRODENPASARtw1pdf.pdf', 'adminspbe', '2021-08-23 10:18:00'),
+(442, 217, 'SKP PID', 'Indikator43aSKPPIDpdf.pdf', 'adminspbe', '2021-08-23 10:19:00'),
+(443, 217, 'Perwali PPID', 'Indikator43bPerwaliPPIDpdf.pdf', 'adminspbe', '2021-08-23 10:20:00'),
+(444, 217, 'Website PPID', 'Indikator43cWebsitePPIDpdf.pdf', 'adminspbe', '2021-08-23 10:20:00'),
+(445, 217, 'SOP Fasilitasi Sengketa Informasi Publik', 'Indikator43-SOP Fasilitasi Sengketa Informasi Publik.pdf', 'adminspbe', '2021-08-23 10:20:00'),
+(446, 217, 'SOP Pelayanan Permohonan IP', 'Indikator43-SOP Pelayanan Permohonan IP.pdf', 'adminspbe', '2021-08-23 10:21:00'),
+(447, 217, 'SOP Pengajuan Keberatan Informasi Publik', 'Indikator43-SOP Pengajuan Keberatan Informasi Publik.pdf', 'adminspbe', '2021-08-23 10:21:00'),
+(448, 217, 'SOP Pengelolaan Website', 'Indikator43-SOP Pengelolaan Website.pdf', 'adminspbe', '2021-08-23 10:22:00'),
+(449, 217, 'SOP Penyusunan Daftar informasi Publik', 'Indikator43-SOP Penyusunan Daftar informasi Publik.pdf', 'adminspbe', '2021-08-23 10:22:00'),
+(450, 217, 'SOP PPID Utama dan PPID Pembantu', 'Indikator43-SOP PPID Utama dan PPID Pembantu.pdf', 'adminspbe', '2021-08-23 10:22:00'),
+(451, 217, 'SOP uji Konsekuensi Informasi Publik', 'Indikator43-SOP uji Konsekuensi Informasi Publik.pdf', 'adminspbe', '2021-08-23 10:23:00'),
+(452, 218, 'Form Login untuk Unduh', 'Form Login untuk Unduh.png', 'adminspbe', '2021-08-23 10:24:00'),
+(453, 218, 'Tampilan Menu Unduh', 'Tampilan Menu Unduh.png', 'adminspbe', '2021-08-23 10:24:00'),
+(454, 218, 'Dashboard', 'Dashboard.png', 'adminspbe', '2021-08-23 10:24:00'),
+(455, 218, 'Dashbord Produk Hukum', 'Dashbord Produk Hukum.png', 'adminspbe', '2021-08-23 10:24:00'),
+(456, 218, 'Form Unggah Tambah Peraturan', 'Form Unggah Tambah Peraturan.png', 'adminspbe', '2021-08-23 10:25:00'),
+(457, 218, 'Login', 'Login.png', 'adminspbe', '2021-08-23 10:25:00'),
+(458, 218, 'Beranda dan Fitur Pencarian JDIH', 'Beranda dan Fitur Pencarian JDIH.png', 'adminspbe', '2021-08-23 10:25:00'),
+(459, 218, 'Fitur pilah berdasarkan Tie Produk Hukum', 'Fitur pilah berdasarkan Tie Produk Hukum.png', 'adminspbe', '2021-08-23 10:25:00'),
+(460, 218, 'Hasil Pencarian', 'Hasil Pencarian.png', 'adminspbe', '2021-08-23 10:26:00'),
+(461, 219, 'Proses Bisnis EBPHTB', 'Indikator45a-Proses Bisnis EBPHTB.pdf', 'adminspbe', '2021-08-23 10:27:00'),
+(462, 219, 'Screenshot Aplikasi EBPHTB', 'Indikator45b-Screenshot Aplikasi EBPHTB.pdf', 'adminspbe', '2021-08-23 10:27:00'),
+(463, 219, 'Regulasi Kebijakan', 'Indikator45c-Regulasi Kebijakan.pdf', 'adminspbe', '2021-08-23 10:27:00'),
+(464, 219, 'Modul Penggunaan EBPHTB', 'Indikator45d-Modul Penggunaan EBPHTB.pdf', 'adminspbe', '2021-08-23 10:28:00'),
+(465, 219, 'Dokumen API', 'Indikator45e-Dokumen API.pdf', 'adminspbe', '2021-08-23 10:28:00'),
+(466, 219, 'Kolaborasi Integrasi BPHTB BPN', 'Indikator45f-Kolaborasi Integrasi BPHTB BPN.pdf', 'adminspbe', '2021-08-23 10:28:00'),
+(467, 219, 'Contoh Rekap Laporan Integrasi', 'Indikator45g-Contoh Rekap Laporan Integrasi.pdf', 'adminspbe', '2021-08-23 10:29:00'),
+(468, 219, 'PKS BAPENDA DG BPN 2018', 'Indikator45i-PKS BAPENDA DG BPN 2018.pdf', 'adminspbe', '2021-08-23 10:29:00'),
+(469, 220, 'Buku Panduan SI Bursa Kerja dan AK 1 Disnaker', 'Indikator46aBukuPanduanSIBursaKerjadanAK1DisnakerDepdf.pdf', 'adminspbe', '2021-08-23 10:31:00'),
+(470, 220, 'Buku Panduan Pengembangan Aplikasi Rekom Paspor', 'Indikator46bBukuPanduanPengembanganAplikasiRekomPasporpdf.pdf', 'adminspbe', '2021-08-23 10:31:00'),
+(471, 220, 'Buku Panduan Aplikasi Bursa Kerja Khusus', 'Indikator46cBukuPanduanAplikasiBursaKerjaKhususpdf.pdf', 'adminspbe', '2021-08-23 10:32:00'),
+(472, 220, 'Pembaharuan Sistem BKO Berbasis Mobile phone', 'Indikator46dPembaharuanSistemBKOBerbasisMobilephonepdf.pdf', 'adminspbe', '2021-08-23 10:32:00'),
+(473, 220, 'Rapat Pemanfaatan Akses Data Kependudukan', 'Indikator46eRapatPemanfaatanAksesDataKependudukanpdf.pdf', 'adminspbe', '2021-08-23 10:33:00'),
+(474, 220, 'Perjanjian Kerjasama Pemanfaatan NIK', 'Indikator46gPerjanjianKerjasamaPemanfaatanNIKpdf.pdf', 'adminspbe', '2021-08-23 10:43:00'),
+(475, 221, 'Checklist Server Harian', 'Checklist Server Harian.jpg', 'adminspbe', '2021-08-23 10:44:00'),
+(476, 221, 'Evaluasi implementasi OSS', 'Evaluasi implementasi OSS.pdf', 'adminspbe', '2021-08-23 10:44:00'),
+(477, 221, 'JDIH DPMPTSP', 'JDIH DPMPTSP.jpg', 'adminspbe', '2021-08-23 10:45:00'),
+(478, 221, 'OSS', 'OSS.jpg', 'adminspbe', '2021-08-23 10:45:00'),
+(479, 221, 'Pengaduan DPMPTSP lewat Prodenpasar', 'Pengaduan DPMPTSP lewat Prodenpasar.jpg', 'adminspbe', '2021-08-23 10:45:00'),
+(480, 221, 'Sicantik', 'Sicantik.jpg', 'adminspbe', '2021-08-23 10:45:00'),
+(481, 221, 'SIMBG', 'SIMBG.jpg', 'adminspbe', '2021-08-23 10:46:00'),
+(482, 221, 'SIMPANAS', 'SIMPANAS.jpg', 'adminspbe', '2021-08-23 10:46:00'),
+(483, 221, 'SIMTTD', 'SIMTTD.jpg', 'adminspbe', '2021-08-23 10:46:00'),
+(484, 221, 'SIPON', 'SIPON.jpg', 'adminspbe', '2021-08-23 10:47:00'),
+(485, 221, 'SK SPBE', 'SK SPBE.pdf', 'adminspbe', '2021-08-23 10:47:00'),
+(486, 166, 'Indikator1f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_8).pdf', 'Indikator1fPerwaliSPBENo28Tahun2021Pasal8pdf.pdf', 'adminspbe', '2021-09-27 15:14:00'),
+(487, 167, 'Indikator2f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_9).pdf', 'Indikator2fPerwaliSPBENo28Tahun2021Pasal9pdf.pdf', 'adminspbe', '2021-09-27 15:15:00'),
+(488, 168, 'Indikator3f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_25).pdf', 'Indikator3fPerwaliSPBENo28Tahun2021Pasal25pdf.pdf', 'adminspbe', '2021-09-27 15:17:00'),
+(489, 168, 'Indikator3g-Perwali_Kota_Denpasar_No_73_Th_2019_Satu_Data.pdf', 'Indikator3gPerwaliKotaDenpasarNo73Th2019SatuDatapdf.pdf', 'adminspbe', '2021-09-27 15:17:00'),
+(490, 169, 'Indikator4g-Surat_Konsultasi_Aplikasi.pdf', 'Indikator4gSuratKonsultasiAplikasipdf.pdf', 'adminspbe', '2021-09-27 15:19:00'),
+(491, 169, 'Indikator4f-Perwali_SPBE_No_28_Tahun_2021_(Bagian_Keenam).pdf', 'Indikator4fPerwaliSPBENo28Tahun2021BagianKeenampdf.pdf', 'adminspbe', '2021-09-27 15:19:00'),
+(492, 170, 'Indikator5f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_14).pdf', 'Indikator5fPerwaliSPBENo28Tahun2021Pasal14pdf.pdf', 'adminspbe', '2021-09-27 15:20:00'),
+(493, 170, 'Indikator5g-SOP_Layanan_Data_Center.pdf', 'Indikator5gSOPLayananDataCenterpdf.pdf', 'adminspbe', '2021-09-27 15:21:00'),
+(494, 171, 'indikator6f-Perwali_SPBE_No_28_Tahun_2021-(Pasal_17).pdf', 'indikator6fPerwaliSPBENo28Tahun2021Pasal17pdf.pdf', 'adminspbe', '2021-09-27 15:22:00'),
+(495, 172, 'Indikator7f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_19).pdf', 'Indikator7fPerwaliSPBENo28Tahun2021Pasal19pdf.pdf', 'adminspbe', '2021-09-27 15:24:00'),
+(496, 173, 'Indikator8f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_23-24).pdf', 'Indikator8fPerwaliSPBENo28Tahun2021Pasal2324pdf.pdf', 'adminspbe', '2021-09-27 15:25:00'),
+(497, 173, 'Indikator8g-Perwali_Pemanfaatan_Sertifikat_Elektronik_29_201.pdf', 'Indikator8gPerwaliPemanfaatanSertifikatElektronik29201pdf.pdf', 'adminspbe', '2021-09-27 15:26:00'),
+(498, 174, 'Indikator9g-Perwali_SPBE_No_28_Tahun_2021_(Pasal_32).pdf', 'Indikator9gPerwaliSPBENo28Tahun2021Pasal32pdf.pdf', 'adminspbe', '2021-09-27 15:27:00'),
+(499, 174, 'Indikator9h-SK_Tentang_Pembentukan_Tim_Asesor_Internal_dan_T.pdf\r\n', 'Indikator9hSKTentangPembentukanTimAsesorInternaldanTpdf.pdf', 'adminspbe', '2021-09-27 15:28:00'),
+(500, 175, 'Indikator10e-Perwali_SPBE_No_28_Tahun_2021_(Pasal20).pdf', 'Indikator10ePerwaliSPBENo28Tahun2021Pasal20pdf.pdf', 'adminspbe', '2021-09-27 15:29:00'),
+(501, 175, 'Indikator10f-SK_Tentang_Pembentukan_Tim_Asesor_Internal_dan_.pdf', 'Indikator10fSKTentangPembentukanTimAsesorInternaldanpdf.pdf', 'adminspbe', '2021-09-27 15:30:00'),
+(502, 176, 'Indikator11d-Surat_Permohonan_Pendampingan_Penyusunan.pdf ', 'Indikator11dSuratPermohonanPendampinganPenyusunanpdf.pdf', 'adminspbe', '2021-09-30 09:30:00'),
+(503, 177, 'Indikator12d-Surat_Permohonan_Pendampingan_Penyusunan.pdf', 'Indikator12dSuratPermohonanPendampinganPenyusunanpdf.pdf', 'adminspbe', '2021-09-30 09:34:00'),
+(504, 179, 'Indikator13c-Bukti_dukung_indikator.pdf', 'Indikator13cBuktidukungindikatorpdf.pdf', 'adminspbe', '2021-09-30 09:36:00'),
+(505, 179, 'Indikator13d-Bukti_dukung_indikator.pdf', 'Indikator13dBuktidukungindikatorpdf.pdf', 'adminspbe', '2021-09-30 09:37:00'),
+(506, 179, 'Indikator13e-Penjelasan_Bukti_Dukung.pdf', 'Indikator13ePenjelasanBuktiDukungpdf.pdf', 'adminspbe', '2021-09-30 09:38:00'),
+(507, 179, 'Indikator13f-Perwali_SPBE_No_28_Tahun_2021_(Pasal_10).pdf', 'Indikator13fPerwaliSPBENo28Tahun2021Pasal10pdf.pdf', 'adminspbe', '2021-09-30 09:39:00'),
+(508, 179, 'Indikator13g-Surat_Konsultasi_Aplikasi.pdf', 'Indikator13gSuratKonsultasiAplikasipdf.pdf', 'adminspbe', '2021-09-30 09:40:00'),
+(509, 180, 'Indikator14d-CATATAN_SPBE_INDIKATOR_14.pdf', 'Indikator14dCATATANSPBEINDIKATOR14pdf.pdf', 'adminspbe', '2021-09-30 09:41:00'),
+(510, 180, 'Indikator14e-Laporan_Hasil_Sosialisasi_Pelayanan_Publik_tahu.pdf', 'Indikator14eLaporanHasilSosialisasiPelayananPubliktahupdf.pdf', 'adminspbe', '2021-09-30 09:41:00'),
+(511, 180, 'Indikator14f-SK_Peta_Proses_Bisnis_Kota_Dps.pdf', 'Indikator14fSKPetaProsesBisnisKotaDpspdf.pdf', 'adminspbe', '2021-09-30 09:42:00'),
+(512, 180, 'Indikator14g-Surat_Evaluasi_Probis_dan_SOP.pdf', 'Indikator14gSuratEvaluasiProbisdanSOPpdf.pdf', 'adminspbe', '2021-09-30 09:42:00'),
+(513, 184, 'Indikator15f-Perwali_SPBE_No_28_Tahun_2021_(Bagian_Keenam).pdf', 'Indikator15fPerwaliSPBENo28Tahun2021BagianKeenampdf.pdf', 'adminspbe', '2021-09-30 09:44:00'),
+(514, 184, 'Indikator15g-SPEK_SOFTWARE.pdf', 'Indikator15gSPEKSOFTWAREpdf.pdf', 'adminspbe', '2021-09-30 09:44:00'),
+(515, 184, 'Indikator15h-Surat_Konsultasi_Aplikasi.pdf', 'Indikator15hSuratKonsultasiAplikasipdf.pdf', 'adminspbe', '2021-09-30 09:45:00'),
+(516, 185, 'Indikator16f-Salah_Satu_Permohonan_Hosting_Domain.pdf', 'Indikator16fSalahSatuPermohonanHostingDomainpdf.pdf', 'adminspbe', '2021-09-30 09:53:00'),
+(517, 186, 'Indikator17d-Laporan_Tindaklanjut_Evaluasi_Jaringan.pdf', 'Indikator17dLaporanTindaklanjutEvaluasiJaringanpdf.pdf', 'adminspbe', '2021-09-30 09:56:00'),
+(518, 186, 'Indikator17e-Laporan_Monitoring_Evaluasi_Infrastruktur_Jarin.pdf', 'Indikator17eLaporanMonitoringEvaluasiInfrastrukturJarinpdf.pdf', 'adminspbe', '2021-09-30 10:01:00'),
+(519, 188, 'Indikator19d-Perwali_SPBE_No_28_Tahun_2021_(Pasal20).pdf', 'Indikator19dPerwaliSPBENo28Tahun2021Pasal20pdf.pdf', 'adminspbe', '2021-09-30 10:03:00'),
+(520, 188, 'Indikator19e-SK_Tentang_Pembentukan_Tim_Asesor_Internal_dan_.pdf', 'Indikator19eSKTentangPembentukanTimAsesorInternaldanpdf.pdf', 'adminspbe', '2021-09-30 10:07:00'),
+(521, 188, 'Indikator19f-Hasil_Evaluasi_Mandiri_Asesor_Internal_SPBE_201.pdf', 'Indikator19fHasilEvaluasiMandiriAsesorInternalSPBE201pdf.pdf', 'adminspbe', '2021-09-30 10:08:00'),
+(522, 188, 'Indikator19g-Hasil_Evaluasi_SPBE_2019.pdf', 'Indikator19gHasilEvaluasiSPBE2019pdf.pdf', 'adminspbe', '2021-09-30 10:08:00'),
+(523, 188, 'Indikator19h-Evaluasi_Mandiri_Asesor_Internal_SPBE_2021.pdf', 'Indikator19hEvaluasiMandiriAsesorInternalSPBE2021pdf.pdf', 'adminspbe', '2021-09-30 10:09:00'),
+(524, 188, 'Indikator19i-Salah_satu_kegiatan_evaluasi_SPBE_2020.pdf', 'Indikator19iSalahsatukegiatanevaluasiSPBE2020pdf.pdf', 'adminspbe', '2021-09-30 10:10:00'),
+(525, 188, 'Indikator19j-Notulen_Rapat_Persiapan_Interviu_SPBE_2021.pdf', 'Indikator19jNotulenRapatPersiapanInterviuSPBE2021pdf.pdf', 'adminspbe', '2021-09-30 10:11:00'),
+(526, 189, 'Indikator20e-Tindaklanjut_Pengembangan_Aplikasi_eSewaka.pdf', 'Indikator20eTindaklanjutPengembanganAplikasieSewakapdf.pdf', 'adminspbe', '2021-09-30 10:11:00'),
+(527, 189, 'Indikator20f-Buku_Panduan_Pengembangan_Aplikasi_eSewaka.pdf', 'Indikator20fBukuPanduanPengembanganAplikasieSewakapdf.pdf', 'adminspbe', '2021-09-30 10:14:00'),
+(528, 193, 'Indikator23e-Review_dan_Tindak_lanjut_pengembangan_sistem_Ba.pdf', 'Indikator23eReviewdanTindaklanjutpengembangansistemBapdf.pdf', 'adminspbe', '2021-09-30 10:35:00'),
+(529, 198, 'Indikator28-Penjelasan_Data_Dukung_Tambahan_Indikator_28.pdf', 'Indikator28PenjelasanDataDukungTambahanIndikator28pdf.pdf', 'adminspbe', '2021-09-30 10:44:00'),
+(530, 199, 'Indikator29e-SK_Tentang_Pembentukan_Tim_Audit_Internal.pdf', 'Indikator29eSKTentangPembentukanTimAuditInternalpdf.pdf', 'adminspbe', '2021-09-30 10:57:00'),
+(531, 201, 'Indikator30f-SK_Tentang_Pembentukan_Tim_Audit_Internal.pdf', 'Indikator30fSKTentangPembentukanTimAuditInternalpdf.pdf', 'adminspbe', '2021-09-30 10:59:00'),
+(532, 203, 'Indikator31e-SK_Tentang_Pembentukan_Tim_Audit_Internal.pdf', 'Indikator31eSKTentangPembentukanTimAuditInternalpdf.pdf', 'adminspbe', '2021-09-30 12:46:00'),
+(533, 205, 'Indikator_32c-SIPD.pdf', 'Indikator32cSIPDpdf.pdf', 'adminspbe', '2021-09-30 12:47:00'),
+(534, 208, 'Indikator35c-Bukti_dukung_Level_5.pdf', 'Indikator35cBuktidukungLevel5pdf.pdf', 'adminspbe', '2021-09-30 12:48:00'),
+(535, 209, 'Indikator36b-Evaluasi_dan_KAK_Simpeg.pdf', 'Indikator36bEvaluasidanKAKSimpegpdf.pdf', 'adminspbe', '2021-09-30 12:54:00'),
+(536, 209, 'Indikator36c-Laporan_Perubahan_Simpeg.pdf', 'Indikator36cLaporanPerubahanSimpegpdf.pdf', 'adminspbe', '2021-09-30 12:59:00'),
+(537, 210, 'Indikator37b-Notulen_Rapat_Aplikasi_Pengelolaan_Surat.pdf', 'Indikator37bNotulenRapatAplikasiPengelolaanSuratpdf.pdf', 'adminspbe', '2021-09-30 13:09:00'),
+(538, 213, 'Indikator_40c-eSAKIP.pdf', 'Indikator40ceSAKIPpdf.pdf', 'adminspbe', '2021-09-30 13:14:00'),
+(539, 215, 'Indikator42h-SURAT_PERMOHONAN_INTEGRASI_SP4N_LAPOR.pdf', 'Indikator42hSURATPERMOHONANINTEGRASISP4NLAPORpdf.pdf', 'adminspbe', '2021-09-30 13:20:00'),
+(540, 220, 'Indikator46h-Penjelasan_Data_Dukung_Tambahan.pdf', 'Indikator46hPenjelasanDataDukungTambahanpdf.pdf', 'adminspbe', '2021-09-30 13:22:00'),
+(541, 220, 'Indikator46i-Hasil_evaluasi_berupa_ISO_9001_Tahun_2020.pdf', 'Indikator46iHasilevaluasiberupaISO9001Tahun2020pdf.pdf', 'adminspbe', '2021-09-30 13:22:00'),
+(542, 220, 'Indikator46j-Surat_audit_2021_menunggu_hasil_ISO_2021.pdf', 'Indikator46jSurataudit2021menungguhasilISO2021pdf.pdf', 'adminspbe', '2021-09-30 13:23:00'),
+(543, 223, 'Indikator47-Reviu_dan_Tindaklanjut_Aplikasi_Pusat.pdf', 'Indikator47ReviudanTindaklanjutAplikasiPusatpdf.pdf', 'adminspbe', '2021-09-30 13:24:00'),
+(544, 214, 'Indikator41-Tindaklanjut_Pengembangan_Integrasi.pdf', 'Indikator41TindaklanjutPengembanganIntegrasipdf.pdf', 'adminspbe', '2021-09-30 13:26:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_groupuser`
+-- Table structure for table `tb_groupuser`
 --
 
 CREATE TABLE `tb_groupuser` (
@@ -1271,7 +1629,7 @@ CREATE TABLE `tb_groupuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_groupuser`
+-- Dumping data for table `tb_groupuser`
 --
 
 INSERT INTO `tb_groupuser` (`id_groupuser`, `nama_groupuser`, `keterangan`) VALUES
@@ -1283,28 +1641,29 @@ INSERT INTO `tb_groupuser` (`id_groupuser`, `nama_groupuser`, `keterangan`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_inbis`
+-- Table structure for table `tb_inbis`
 --
 
 CREATE TABLE `tb_inbis` (
   `id_inbis` int(11) NOT NULL,
-  `nama_inbis` text NOT NULL
+  `nama_inbis` text NOT NULL,
+  `ket_inbis` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tb_inbis`
+-- Dumping data for table `tb_inbis`
 --
 
-INSERT INTO `tb_inbis` (`id_inbis`, `nama_inbis`) VALUES
-(1, 'BCIC'),
-(2, 'Inbis Primakara'),
-(3, 'Inbis Stiki'),
-(4, 'Inbis Stikom Bali');
+INSERT INTO `tb_inbis` (`id_inbis`, `nama_inbis`, `ket_inbis`) VALUES
+(1, 'BCIC', 'Bali Creative Industry Center'),
+(2, 'Inbis Primakara', 'STIMIK Primakara'),
+(3, 'Inbis Stiki', 'STMIK Sekolah Tinggi Ilmu Komputer INDONESIA (STIKI)'),
+(4, 'Inbis Stikom Bali', 'Institut Teknologi Dan Bisnis STIKOM Bali');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_indeks`
+-- Table structure for table `tb_indeks`
 --
 
 CREATE TABLE `tb_indeks` (
@@ -1315,7 +1674,7 @@ CREATE TABLE `tb_indeks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_indeks`
+-- Dumping data for table `tb_indeks`
 --
 
 INSERT INTO `tb_indeks` (`id_indeks`, `nama_indeks`, `urutan_indeks`, `user_katindex`) VALUES
@@ -1325,7 +1684,7 @@ INSERT INTO `tb_indeks` (`id_indeks`, `nama_indeks`, `urutan_indeks`, `user_kati
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_indeks_nilai`
+-- Table structure for table `tb_indeks_nilai`
 --
 
 CREATE TABLE `tb_indeks_nilai` (
@@ -1336,18 +1695,19 @@ CREATE TABLE `tb_indeks_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_indeks_nilai`
+-- Dumping data for table `tb_indeks_nilai`
 --
 
 INSERT INTO `tb_indeks_nilai` (`id_indeks_nilai`, `indeks`, `nilai_indeks`, `tahun_indeks`) VALUES
-(1, 1, 2.64, '2018'),
-(2, 2, 61.70, '2018'),
-(3, 1, 3.33, '2019');
+(1, 1, '2.64', '2018'),
+(2, 2, '61.70', '2018'),
+(3, 1, '3.33', '2019'),
+(4, 1, '0.00', '2021');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_indikator`
+-- Table structure for table `tb_indikator`
 --
 
 CREATE TABLE `tb_indikator` (
@@ -1356,56 +1716,104 @@ CREATE TABLE `tb_indikator` (
   `namaindikator` varchar(100) NOT NULL,
   `indikator` varchar(11) NOT NULL,
   `penjelasanindikator` int(11) DEFAULT NULL,
-  `bobot_indikator` decimal(10,1) NOT NULL
+  `bobot_indikator` decimal(10,1) NOT NULL,
+  `tahun_indikator` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_indikator`
+-- Dumping data for table `tb_indikator`
 --
 
-INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`, `bobot_indikator`) VALUES
-(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, 1.0),
-(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 2, 1.0),
-(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 3, 1.0),
-(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 4, 1.0),
-(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 5, 1.0),
-(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 6, 1.0),
-(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 7, 1.0),
-(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 8, 1.0),
-(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 9, 1.0),
-(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 10, 1.0),
-(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 11, 1.0),
-(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 12, 1.0),
-(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 13, 1.0),
-(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 14, 1.0),
-(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 15, 1.0),
-(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 16, 1.0),
-(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 17, 1.0),
-(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 18, 4.0),
-(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 19, 4.0),
-(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 20, 4.0),
-(21, 4, 'Anggaran dan Belanja TIK', '21', 21, 4.0),
-(22, 5, 'Pengoperasian Pusat Data', '22', 22, 4.0),
-(23, 5, 'Integrasi Sistem Aplikasi', '23', 23, 4.0),
-(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 24, 4.0),
-(25, 6, 'Layanan Naskah Dinas', '25', 25, 5.0),
-(26, 6, 'Layanan Manajemen Kepegawaian', '26', 26, 5.0),
-(27, 6, 'Layanan Manajemen Perencanaan', '27', 27, 5.0),
-(28, 6, 'Layanan Manajemen Penganggaran', '28', 28, 5.0),
-(29, 6, 'Layanan Manajemen Keuangan', '29', 29, 5.0),
-(30, 6, 'Layanan Manajemen Kinerja', '30', 30, 5.0),
-(31, 6, 'Layanan Pengadaan', '31', 31, 5.0),
-(32, 7, 'Layanan Pengaduan Publik', '32', 32, 3.3),
-(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 33, 3.3),
-(34, 7, 'Layanan Whistle-Blowing System', '34', 34, 3.3),
-(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 35, 3.3),
-(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 36, 3.3),
-(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 37, 3.3);
+INSERT INTO `tb_indikator` (`idindikator`, `idaspek`, `namaindikator`, `indikator`, `penjelasanindikator`, `bobot_indikator`, `tahun_indikator`) VALUES
+(1, 1, 'Kebijakan Internal Tim Pengarah SPBE Instansi Pemerintah', '1', 1, '1.0', '2018'),
+(2, 1, 'Kebijakan Internal Inovasi Proses Bisnis Terintegrasi', '2', 1, '1.0', '2018'),
+(3, 1, 'Kebijakan Internal Rencana Induk SPBE Instansi Pemerintah', '3', 1, '1.0', '2018'),
+(4, 1, 'Kebijakan Internal Anggaran dan Belanja TIK', '4', 1, '1.0', '2018'),
+(5, 1, 'Kebijakan Internal Pengoperasian Pusat Data', '5', 1, '1.0', '2018'),
+(6, 1, 'Kebijakan Internal Integrasi Sistem Aplikasi', '6', 1, '1.0', '2018'),
+(7, 1, 'Kebijakan Internal Penggunaan Aplikasi Umum Berbagi Pakai', '7', 1, '1.0', '2018'),
+(8, 2, 'Kebijakan Internal Layanan Naskah Dinas', '8', 1, '1.0', '2018'),
+(9, 2, 'Kebijakan Internal Layanan Manajemen Kepegawaian', '9', 1, '1.0', '2018'),
+(10, 2, 'Kebijakan Internal Layanan Manajemen Perencanaaan dan Penganggaran', '10', 1, '1.0', '2018'),
+(11, 2, 'Kebijakan Internal Layanan Manajemen Keuangan', '11', 1, '1.0', '2018'),
+(12, 2, 'Kebijakan Internal Layanan Manajemen Kinerja', '12', 1, '1.0', '2018'),
+(13, 2, 'Kebijakan Internal Layanan Pengadaan', '13', 1, '1.0', '2018'),
+(14, 2, 'Kebijakan Internal Layanan Pengaduan Publik', '14', 1, '1.0', '2018'),
+(15, 2, 'Kebijakan Internal Layanan Dokumentasi dan Informasi Hukum', '15', 1, '1.0', '2018'),
+(16, 2, 'Kebijakan Internal Layanan Whistle Blowing System (WBS)', '16', 1, '1.0', '2018'),
+(17, 2, 'Kebijakan Internal Layanan publik Instansi Pemerintah', '17', 1, '1.0', '2018'),
+(18, 3, 'Tim Pengarah SPBE Instansi Pemerintah', '18', 1, '4.0', '2018'),
+(19, 3, 'Inovasi Proses Bisnis Terintegrasi', '19', 1, '4.0', '2018'),
+(20, 4, 'Rencana  Induk   SPBE   Instansi Pemerintah', '20', 1, '4.0', '2018'),
+(21, 4, 'Anggaran dan Belanja TIK', '21', 1, '4.0', '2018'),
+(22, 5, 'Pengoperasian Pusat Data', '22', 1, '4.0', '2018'),
+(23, 5, 'Integrasi Sistem Aplikasi', '23', 1, '4.0', '2018'),
+(24, 5, 'Penggunaan Aplikasi Umum Berbagi Pakai', '24', 1, '4.0', '2018'),
+(25, 6, 'Layanan Naskah Dinas', '25', 1, '5.0', '2018'),
+(26, 6, 'Layanan Manajemen Kepegawaian', '26', 1, '5.0', '2018'),
+(27, 6, 'Layanan Manajemen Perencanaan', '27', 1, '5.0', '2018'),
+(28, 6, 'Layanan Manajemen Penganggaran', '28', 1, '5.0', '2018'),
+(29, 6, 'Layanan Manajemen Keuangan', '29', 1, '5.0', '2018'),
+(30, 6, 'Layanan Manajemen Kinerja', '30', 1, '5.0', '2018'),
+(31, 6, 'Layanan Pengadaan', '31', 1, '5.0', '2018'),
+(32, 7, 'Layanan Pengaduan Publik', '32', 1, '3.3', '2018'),
+(33, 7, 'Layanan Dokumentasi dan Informasi Hukum', '33', 1, '3.3', '2018'),
+(34, 7, 'Layanan Whistle-Blowing System', '34', 1, '3.3', '2018'),
+(35, 7, 'Layanan Publik Instansi Pemerintah', '35', 1, '3.3', '2018'),
+(36, 7, 'Layanan Publik Instansi Pemerintah', '35-2', 1, '3.3', '2018'),
+(37, 7, 'Layanan Publik Instansi Pemerintah', '35-3', 1, '3.3', '2018'),
+(40, 1, 'Kebijakan Internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah', '1', 1, '1.0', '2021'),
+(41, 1, 'Kebijakan Internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah', '2', 1, '1.0', '2021'),
+(42, 1, 'Kebijakan Internal Manajemen Data', '3', 1, '1.0', '2021'),
+(43, 1, 'Kebijakan Internal Pembangunan Aplikasi SPBE', '4', 1, '1.0', '2021'),
+(44, 1, 'Kebijakan Internal Layanan Pusat Data', '5', 1, '1.0', '2021'),
+(45, 1, 'Kebijakan Internal Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah', '6', 1, '1.0', '2021'),
+(46, 1, 'Kebijakan Internal Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah', '7', 1, '1.0', '2021'),
+(47, 1, 'Kebijakan Internal Manajemen Keamanan Informasi', '8', 1, '1.0', '2021'),
+(48, 1, 'Kebijakan Internal Audit TIK', '9', 1, '1.0', '2021'),
+(49, 1, 'Kebijakan Internal Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah', '10', 1, '1.0', '2021'),
+(50, 2, 'Arsitektur SPBE Instansi Pusat/Pemerintah Daerah', '11', 1, '1.0', '2021'),
+(51, 2, 'Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah', '12', 1, '1.0', '2021'),
+(52, 2, 'Rencana dan Anggaran SPBE', '13', 1, '1.0', '2021'),
+(53, 2, 'Inovasi Proses Bisnis SPBE', '14', 1, '1.0', '2021'),
+(54, 3, 'Pembangunan Aplikasi SPBE', '15', 1, '1.0', '2021'),
+(55, 3, 'Layanan Pusat Data', '16', 1, '1.0', '2021'),
+(56, 3, 'Layanan Jaringan Intra Instansi Pusat/Pemerintah Daerah', '17', 1, '1.0', '2021'),
+(58, 4, 'Tim Koordinasi SPBE Instansi Pusat/Pemerintah Daerah', '19', 1, '1.0', '2021'),
+(59, 4, 'Kolaborasi Penerapan SPBE', '20', 1, '1.0', '2021'),
+(60, 5, 'Penerapan Manajemen Risiko SPBE', '21', 1, '1.0', '2021'),
+(61, 5, 'Penerapan Manajemen Keamanan Informasi', '22', 1, '1.0', '2021'),
+(62, 5, 'Penerapan Manajemen Data', '23', 1, '1.0', '2021'),
+(63, 5, 'Penerapan Manajemen Aset TIK', '24', 1, '1.0', '2021'),
+(64, 5, 'Penerapan Kompetensi Sumber Daya Manusia', '25', 1, '1.0', '2021'),
+(65, 5, 'Penerapan Manajemen Pengetahuan', '26', 1, '1.0', '2021'),
+(66, 5, 'Penerapan Manajemen Perubahan', '27', 1, '1.0', '2021'),
+(67, 5, 'Penerapan Manajemen Layanan SPBE', '28', 1, '1.0', '2021'),
+(68, 27, 'Pelaksanaan Audit Infrastruktur SPBE', '29', 1, '1.0', '2021'),
+(69, 27, 'Pelaksanaan Audit Aplikasi SPBE', '30', 1, '1.0', '2021'),
+(70, 27, 'Pelaksanaan Audit Keamanan SPBE', '31', 1, '1.0', '2021'),
+(71, 28, 'Layanan Perencanaan', '32', 1, '1.0', '2021'),
+(72, 28, 'Layanan Penganggaran', '33', 1, '1.0', '2021'),
+(73, 28, 'Layanan Keuangan', '34', 1, '1.0', '2021'),
+(74, 28, 'Layanan Pengadaan Barang dan Jasa', '35', 1, '1.0', '2021'),
+(75, 28, 'Layanan Kepegawaian', '36', 1, '1.0', '2021'),
+(76, 28, 'Layanan Kearsipan Dinamis', '37', 1, '1.0', '2021'),
+(77, 28, 'Layanan Pengelolaan Barang Milik Negara / Daerah', '38', 1, '1.0', '2021'),
+(78, 28, 'Layanan Pengawasan Internal Pemerintah', '39', 1, '1.0', '2021'),
+(79, 28, 'Layanan Akuntabilitas Kinerja Organisasi', '40', 1, '1.0', '2021'),
+(80, 28, 'Layanan Kinerja Pegawai', '41', 1, '1.0', '2021'),
+(81, 29, 'Layanan Pengaduan Pelayanan Publik', '42', 1, '1.0', '2021'),
+(82, 29, 'Layanan Data Terbuka', '43', 1, '1.0', '2021'),
+(83, 29, 'Layanan Jaringan Dokumentasi dan Informasi Hukum (JDIH)', '44', 1, '1.0', '2021'),
+(84, 29, 'Layanan Publik Sektor 1', '45', 1, '1.0', '2021'),
+(85, 29, 'Layanan Publik Sektor 2', '46', 1, '1.0', '2021'),
+(86, 29, 'Layanan Publik Sektor 3', '47', 1, '1.0', '2021'),
+(87, 3, 'Penggunaan Sistem Penghubung Layanan Instansi Pusat/Pemerintah Daerah', '18', 1, '1.0', '2021');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_level`
+-- Table structure for table `tb_level`
 --
 
 CREATE TABLE `tb_level` (
@@ -1417,7 +1825,7 @@ CREATE TABLE `tb_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_level`
+-- Dumping data for table `tb_level`
 --
 
 INSERT INTO `tb_level` (`idlevel`, `idpertanyaan`, `namalevel`, `nilaimadiri`, `penjelasan_level`) VALUES
@@ -1642,12 +2050,18 @@ INSERT INTO `tb_level` (`idlevel`, `idpertanyaan`, `namalevel`, `nilaimadiri`, `
 (219, 37, 'level 2', 2, 'Sistem pelayanan publik menyediakan layanan interaksi.		\r\n'),
 (220, 37, 'level 3', 3, 'Sistem pelayanan publik menyediakan layanan transaksi.		\r\n'),
 (221, 37, 'level 4', 4, 'Sistem pelayanan publik menyediakan layanan kolaborasi.		\r\n'),
-(222, 37, 'level 5', 5, 'Sistem pelayanan publik menyediakan layanan optimalisasi.		\r\n');
+(222, 37, 'level 5', 5, 'Sistem pelayanan publik menyediakan layanan optimalisasi.		\r\n'),
+(223, 40, 'level 0', 0, 'Tidak terdapat kebijakan internal terkait Tim Pengarah SPBE.		\r\n'),
+(224, 40, 'level 1', 1, 'Konsep kebijakan internal terkait Arsitektur SPBE Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.'),
+(225, 40, 'level 2', 2, 'Kebijakan internal telah ditetapkan dan mencakup pengaturan tugas-tugas Tim Pengarah SPBE yang mendukung penerapan SPBE  pada sebagian unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.		\r\n'),
+(226, 40, 'level 3', 3, 'Kebijakan internal mencakup pengaturan tugas-tugas Tim Pengarah SPBE yang mendukung penerapan SPBE pada semua unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.		\r\n'),
+(227, 40, 'level 4', 4, 'Kebijakan internal mencakup pengaturan tugas-tugas Tim Pengarah SPBE yang mendukung penerapan SPBE antar Instansi Pusat, antar Pemerintah Daerah, atau antar Instansi Pusat dan Pemerintah Daerah.		'),
+(228, 40, 'level 5', 5, 'Kebijakan internal dipantau, dinilai, dan dievaluasi secara berkala terhadap perubahan lingkungan, teknologi, dan kebutuhan instansi.		');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_opd`
+-- Table structure for table `tb_opd`
 --
 
 CREATE TABLE `tb_opd` (
@@ -1657,7 +2071,7 @@ CREATE TABLE `tb_opd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_opd`
+-- Dumping data for table `tb_opd`
 --
 
 INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
@@ -1767,7 +2181,7 @@ INSERT INTO `tb_opd` (`idopd`, `namaopd`, `nama_pendek_opd`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_opdterkait`
+-- Table structure for table `tb_opdterkait`
 --
 
 CREATE TABLE `tb_opdterkait` (
@@ -1777,7 +2191,7 @@ CREATE TABLE `tb_opdterkait` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_opdterkait`
+-- Dumping data for table `tb_opdterkait`
 --
 
 INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
@@ -1894,12 +2308,69 @@ INSERT INTO `tb_opdterkait` (`idopdterkait`, `idopd`, `idpenilaian`) VALUES
 (114, '040101', 162),
 (115, '031601', 163),
 (116, '030901', 164),
-(117, '140018', 165);
+(117, '140018', 165),
+(118, '030801', 166),
+(119, '030801', 167),
+(120, '030801', 168),
+(121, '030801', 169),
+(122, '030801', 170),
+(123, '030801', 171),
+(124, '030801', 172),
+(125, '030801', 173),
+(126, '030801', 174),
+(127, '030801', 175),
+(128, '030801', 176),
+(129, '030801', 177),
+(131, '040201', 179),
+(132, '300005', 180),
+(133, '011301', 181),
+(134, '040201', 182),
+(135, '030801', 183),
+(136, '030801', 184),
+(137, '030801', 185),
+(138, '030801', 186),
+(139, '030801', 187),
+(140, '030801', 188),
+(141, '030801', 189),
+(142, '040101', 190),
+(143, '030801', 191),
+(144, '030801', 192),
+(145, '030801', 193),
+(146, '300005', 194),
+(147, '040301', 195),
+(148, '030801', 196),
+(149, '011301', 197),
+(150, '030801', 198),
+(151, '040101', 199),
+(152, '030801', 200),
+(153, '030801', 201),
+(154, '040101', 202),
+(155, '030801', 203),
+(156, '040101', 204),
+(157, '040201', 205),
+(158, '040201', 206),
+(159, '300005', 207),
+(160, '013301', 208),
+(161, '040301', 209),
+(162, '040701', 210),
+(163, '300005', 211),
+(164, '040101', 212),
+(165, '040201', 213),
+(166, '040301', 214),
+(167, '030801', 215),
+(168, '040101', 216),
+(169, '030801', 217),
+(170, '011201', 218),
+(171, '031601', 219),
+(172, '030901', 220),
+(175, '040301', 221),
+(176, '040301', 221),
+(177, '140018', 223);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_penilaian`
+-- Table structure for table `tb_penilaian`
 --
 
 CREATE TABLE `tb_penilaian` (
@@ -1914,7 +2385,7 @@ CREATE TABLE `tb_penilaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_penilaian`
+-- Dumping data for table `tb_penilaian`
 --
 
 INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaikematangan`, `penilaianmandiri`, `tindaklanjut`, `target_waktu`, `tahun_penilaian`) VALUES
@@ -2028,12 +2499,68 @@ INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaik
 (162, 34, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', '- Optimalisasi Penerapan dan Pengembangan Layanan WBS\r\n- Monev Berkala', '2021', '2020'),
 (163, 35, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', '- Optimalisasi Layanan Perpajakan dengan mengkolaborasikan dalam satu dashboard dan dapat diintegrasikan dengan layanan SPBE lain.\r\n- Membuat Kebijakan Internal Layanan Perpajakan yang dapat terintegrasi dengan SPBE lainnya\r\n- Monev Layanan dan Kebijakan secara Berkala', '2021', '2020'),
 (164, 36, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', '- Optimalisasi Penerapan dan Pengembangan Layanan Bursa Kerja\r\n- Revisi Kebijakan Internal Layanan Bursa Kerja Online serta dapat terintegrasi dengan SPBE lainnya\r\n- Monev Berkala', '2021', '2020'),
-(165, 37, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', '- Optimalisasi Penerpan dan Pengembangan Layanan Perijinan\r\n- Monev Berkala', '2021', '2020');
+(165, 37, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', '- Optimalisasi Penerpan dan Pengembangan Layanan Perijinan\r\n- Monev Berkala', '2021', '2020'),
+(166, 40, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(167, 41, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 1\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(168, 42, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(169, 43, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(170, 44, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(171, 45, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(172, 46, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(173, 47, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(174, 48, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKebijakan Internal Perwali Kota Denpasar No 35 Tahun 2014 Tentang Penyelenggaraan Sistem Elektronik di Lingkungan Pemerintah Kota Denpasar.\r\nPerwali No 35 Tahun 2014 telah dievaluasi dan direviu, saat ini dalam proses fasilitasi pada Biro Hukum Provinsi Bali.\r\nDraft Revisi Perwali Kota Denpasar tentang  Penyelenggaraan SPBE di Lingkungan Pemerintah Kota Denpasar.', '2022', '2021'),
+(175, 49, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nSK Walikota Nomor 188.45/621/HK/2018 tentang Tim Evaluator Internal SPBE di Lingkungan Pemkot Denpasar.\r\nDireviu dengan Kebijakan baru SK Walikota Nomor 188.45/ 1586 /HK/2019 tentang Perubahan Tim Pengarah SPBE.\r\nDireviu dengan Kebijakan Draft SK WALIKOTA tentang Tim Asesor Internal SPBE TAHUN 2021.', '2022', '2021'),
+(176, 50, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nPemerintah Kota Denpasar telah memiliki Dokumen Blueprint e-Government Kota Denpasar 2019-2023.\r\nDilakukan reviu dan evaluasi dengan menyusun Draft Arsitektur SPBE.', '2022', '2021'),
+(177, 51, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nPemerintah Kota Denpasar telah memiliki Dokumen Blueprint e-Government Kota Denpasar 2019-2023.\r\nDilakukan reviu dan evaluasi dengan menyusun Draft Peta Rencana SPBE.', '2022', '2021'),
+(179, 52, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nRencana dan Anggaran SPBE PD belum seluruhnya dikonsultasikan ke Dinas Kominfos\r\nSalah satunya PD Badan Perencanaan Pembangunan Daerah mengkonsultasikan rencana anggaran layanan SPBE Geoportal Satu Data ke Dinas Kominfos.\r\nDraft SK Tim Koordinasi Forum Satu Data.', '2022', '2021'),
+(180, 52, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nRencana dan Anggaran SPBE PD belum seluruhnya dikonsultasikan ke Dinas Kominfos\r\nSalah satunya PD Badan Perencanaan Pembangunan Daerah mengkonsultasikan rencana anggaran layanan SPBE Geoportal Satu Data ke Dinas Kominfos.\r\nDraft SK Tim Koordinasi Forum Satu Data.', '2022', '2021'),
+(181, 53, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nSK Peta Proses Bisnis Pemerintah Kota Denpasar.\r\nDraft Arsitektur SPBE tentang Proses Bisnis Halaman 49.\r\nSalah satu Proses Bisnis Layanan SPBE yaitu Layanan Sidarling SIDARLING - Sistem Informasi Sadar dan Peduli Lingkungan.', '2022', '2021'),
+(182, 53, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 4\r\nKeterangan : \r\nSK Peta Proses Bisnis Pemerintah Kota Denpasar.\r\nDraft Arsitektur SPBE tentang Proses Bisnis Halaman 49.\r\nSalah satu Proses Bisnis Layanan SPBE yaitu Layanan Sidarling SIDARLING - Sistem Informasi Sadar dan Peduli Lingkungan.', '2022', '2021'),
+(183, 53, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nSK Peta Proses Bisnis Pemerintah Kota Denpasar.\r\nDraft Arsitektur SPBE tentang Proses Bisnis Halaman 49.\r\nSalah satu Proses Bisnis Layanan SPBE yaitu Layanan Sidarling SIDARLING - Sistem Informasi Sadar dan Peduli Lingkungan.', '2022', '2021'),
+(184, 54, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nPerangkat Daerah telah mengkonsultasikan pembangunan aplikasi SPBE ke Dinas Kominfo. Terdapat Perwali, SOP, Standarisasi dan Contoh Spesifikasi Sistem Informasi. ', '2022', '2021'),
+(185, 55, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nLayanan Pusat Data telah digunakan oleh seluruh Perangkat Daerah.\r\nPemerintah Kota Denpasar memanfaatkan fasilitas Layanan Pusat Data Nasional dari Kementrian Kominfo.\r\nReviu dan evaluasi dilakukan secara berkala.', '2022', '2021'),
+(186, 56, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 5\r\nKeterangan :\r\n1.	Seluruh perangkat daerah saat ini sudah terkoneksi dengan jaringan fiber optik milik Pemkot Denpasar sampai di tingkat desa dan kelurahan.\r\n2.	Jaringan fiber yang ada menggunakan 12 core dan dropcore.\r\n3.	Total link yang terkoneksi sejumlah 65 titik dengan rincian 50 titik perangakt daerah, 5 titik desa dan 10 kelurahan.\r\n4.	Selain milik sendiri, juga terdapat fiber optic milik penyedia swasta yang digunakan dengan sistem sewa dan CSR.\r\n5.	Jaringan infrastruktur kota denpasar juga terkoneksi ke kementrian dalam negeri dengan sistem jaringan tertutup.\r\n6.	Seluruh perangkat daerah dapat mengakses data melalui jaringan yang ada.\r\n7.	Jaringan fiber optik yang ada digunakan untuk akses internet, aplikasi, dan server.\r\n8.	Setiap tahun dilakukan evaluasi dan peningkatan kapasitas dan perbaikan perangkat yang mengalami kerusakan.\r\n9.	Pengelolaan infrastruktur dilaksanakan terpusat di Diskominfo Denpasar, dimana Perangkat Daerah lain hanya menggunakan layanan tersebut.\r\n10.	Infrastruktur yang ada juga digunakan untuk menyediakan akses internet publik secara gratis di beberapa area publik.', '2022', '2021'),
+(187, 87, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nBeberapa sistem informasi layanan yang telah terintegrasi secara bertahap dan telah diterapkan di seluruh unit kerja/perangkat daerah di Instansi Pusat/Pemerintah Daerah.', '2022', '2021'),
+(188, 58, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nProgram kerja Tim Koordinasi SPBE Kota Denpasar telah dikoordinasikan ke semua perangkat daerah serta telah dilakukan reviu dan evaluasi.', '2022', '2021'),
+(189, 59, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nTerdapat beberapa Layanan SPBE yang diterapkan dengan kolaborasi antar Perangkat Daerah, salah satunya eSewaka Dharma https://esewakadharma.denpasarkota.go.id/\r\nAplikasi e-Sewaka Dharma bertujuan untuk mendekatkan pelayanan Desa/Kelurahan serta mengoptimalkan peran Kepala Lingkungan/Kepala Dusun dalam melayani masyarakat sehingga diharapkan mampu meminimalisir keramaian sebagai penerapan Social dan Physical Distancing di Kota Denpasar.\r\nMempermudah manajemen data administrasi Desa/Kelurahan, mempercepat pelayanan kepada masyararakat yang membutuhkan administrasi Desa/Kelurahan, serta memudahkan pelaporan untuk mengetahui kondisi terkini dari data administrasi Desa/Kelurahan. ', '2022', '2021'),
+(190, 60, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nPenerapan managemen resiko dilaksanakan tanpa mengacu pada pedoman manajemen resiko SPBE.\r\nSK Walikota tentang Penyelenggaraan SPIP.\r\nBlueprint eGovernment terkait resiko pada halaman 13 resiko pada implementasi TIK, halaman 74 cctv kawasan rawan bencana, halaman 93 kebijakan untuk mereduksi resiko.\r\nSalah manajemen resiko SPBE yaitu pada pengelolaan Data Center.', '2022', '2021'),
+(191, 60, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nPenerapan managemen resiko dilaksanakan tanpa mengacu pada pedoman manajemen resiko SPBE.\r\nSK Walikota tentang Penyelenggaraan SPIP.\r\nBlueprint eGovernment terkait resiko pada halaman 13 resiko pada implementasi TIK, halaman 74 cctv kawasan rawan bencana, halaman 93 kebijakan untuk mereduksi resiko.\r\nSalah manajemen resiko SPBE yaitu pada pengelolaan Data Center.', '2022', '2021'),
+(192, 61, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nPengendalian Keamanan Informasi dilakukan pada seluruh perangkat daerah berpedoman pada Standar Keamanan Informasi e-Government Kota Denapsar berdasarkan ISO 27001.', '2022', '2021'),
+(193, 62, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nManajemen Data dilaksanakan melalui Forum Satu Data yang diterapkan ke seluruh perangkat daerah', '2022', '2021'),
+(194, 63, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nManajemen Aset TIK dilaksanakan tanpa mengacu pada pedoman Manajemen Aset TIK yang mencakup proses perencanaan, pengadaan, pemanfaatan/penggunaan, dan penghapusan aset TIK.', '2022', '2021'),
+(195, 64, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nPerencanaan Pengembangan kompetensi SPBE telah disusun untuk sebagian sumberdaya SPBE yang telah tertuang pada Analisis Kebutuhan Diklat yang disusun tahun 2019. Untuk penyempurnaan perencanaan pengembangan kompetensi sedang dalam proses dikarenakan ada beberapa peraturan-peratuan baru yang perlu disesuaikan. Kegiatan pengembangan kompetensi belum dapat direalisasi karena mengalami refocussing anggaran terkait penanganan cepat covid-19.\r\nKompetensi SDM SPBE terdapat dalam Uraian Jabatan Dinas Komunikasi Informatika dan Statistik.', '2022', '2021'),
+(196, 65, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nSistem Informasi Dokumen Kota Denpasar atau disebut Sidok merupakan website yang terintegrasikan dengan website Pusat Data Kota Denpasar, diperuntukan untuk memanajemen dokumen di seluruh PD di Lingkungan Pemerintahan Kota Denpasar.', '2022', '2021'),
+(197, 66, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nSaat Pandemi Covid19 melanda, terdapat beberapa layanan yang mengalami perubahan dengan transformasi digital penerapan SPBE pada beberapa layanan publik maupun administrasi pemerintahan, diantaranya surat menyurat elektronik, absensi online dengan GPS, tanda tangan elektronik dan lainnya yang diimplementasikan pada seluruh Perangkat Daerah di lingkungan Pemerintah Kota Denpasar.\r\nPerwali Budaya Kerja di Lingkungan Pemerintah Kota Denpasar.\r\nSK Penetapan Sang Sewaka - Agen Perubahan.', '2022', '2021'),
+(198, 67, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nManajemen Layanan SPBE salah satunya pada Layanan Sidarling https://sidarling.denpasarkota.go.id/\r\n\r\nDinas Linkungan Hidup dan Kebersihan Kota Denpasar (DLHK Kota Denpasar) mengembangkan SIDARLING (Sistem Informasi Sadar dan Peduli Lingkungan), dimana sistem ini merupakan : Sistem Informasi atau Portal yang berhubungan dengan lingkungan hidup dan kebersihan Kota Denpasar, dan pemberian reward kepada masyarakat yang sadar dan peduli terhadap lingkungannya di Kota Denpasar. Portal yang menghubungkan antara pemerintah - dunia usaha (pengelolaan/daur ulang sampah) â€“ masyarakat peduli lingkungan. Portal yang mengintegrasikan seluruh aplikasi yang berhubungan dengan pengelolaan sampah dan yang terkait dengan hal tersebut.\r\n\r\nLayanan Sidarling direviu dan evaluasi secara berkala.', '2022', '2021'),
+(199, 68, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nKegiatan Audit Infrastruktur dilaksanakan sesuai pedoman ISO 27001\r\nKegiatan Audit TIK tahun 2019.\r\nKegiatan Audut TIK Tahun 2020.\r\nDraft SK Auditor Internal SPBE.', '2022', '2021'),
+(200, 68, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nKegiatan Audit Infrastruktur dilaksanakan sesuai pedoman ISO 27001\r\nKegiatan Audit TIK tahun 2019.\r\nKegiatan Audut TIK Tahun 2020.\r\nDraft SK Auditor Internal SPBE.', '2022', '2021'),
+(201, 69, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nKegiatan Audit Apliaksi dilaksanakan sesuai pedoman ISO 27001.\r\nKegiatan Audit TIK tahun 2019.\r\nKegiatan Audut TIK Tahun 2020.\r\nDraft SK Auditor Internal SPBE.\r\nKegiatan Audit TI Aplikasi SPSE.', '2022', '2021'),
+(202, 69, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nKegiatan Audit Apliaksi dilaksanakan sesuai pedoman ISO 27001.\r\nKegiatan Audit TIK tahun 2019.\r\nKegiatan Audut TIK Tahun 2020.\r\nDraft SK Auditor Internal SPBE.\r\nKegiatan Audit TI Aplikasi SPSE.', '2022', '2021'),
+(203, 70, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKegiatan Audit Keamanan Informasi dilaksanakan sesuai pedoman ISO 27001.\r\nKegiatan Audit TIK tahun 2019.\r\nKegiatan Audut TIK Tahun 2020.\r\nDraft SK Auditor Internal SPBE.', '2022', '2021'),
+(204, 70, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nKegiatan Audit Keamanan Informasi dilaksanakan sesuai pedoman ISO 27001.\r\nKegiatan Audit TIK tahun 2019.\r\nKegiatan Audut TIK Tahun 2020.\r\nDraft SK Auditor Internal SPBE.', '2022', '2021'),
+(205, 71, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nAplikasi SIPD (Sistem Informasi Pemerintah Daerah) adalah jaringan yang mengumpulakan data secara terpadu di daerah dan pusat dengan menggunakan teknologi informasi sebagai dukungan dalam perencanaan dan evaluasi daerah.\r\nTelah direviu terhadap aplikasi e-planning untuk mengintegrasikan perencanaan pembagunan daerah di kota Denpasar. ', '2022', '2021'),
+(206, 72, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nAplikasi SIPD adalah Aplikasi yang dikeluarkan oleh Kementrian Dalam Negeri yang sudah sesuai dengan Peremdagri 90 Tahun 2019 tentang klasifiksi, kodefikasi dan nomenklatur perencanaan Pembangunan dan Keuangan Daerah. https://denpasar.sipd.kemendagri.go.id\r\nUntuk mendapatkan informasi tentang Anggaran yang telah di input oleh masing - masing perangkat Daerah dapat di lihat pada menu Dokumen Anggaran / RKA.\r\nUntuk memvaliadasi data Penggaran di Aplikasi  SIPD hanya bisa menggunakan akun Kepala OPD. https://denpasar.sipd.kemendagri.go.id/', '2022', '2021'),
+(207, 73, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nUntuk menunjang pelayanan keuangan berbasis elektronik yang sebelumnya menggunakan SIPKD sekarang menggunakan Apikasi SIPD dengan Menu Penatusahaan Pengeluaran yang nantinya dapat membantu OPD dalam proses penginputan SPP, SPM dan SP2D. https://denpasar.sipd.kemendagri.go.id/siap\r\nProses Pengunduhan dokumen hanya dilakukan oleh user bendahara pengeluaran SKPD.pengunduhan dokumen ini melampirkan data excel yang sudah ada di Aplikasi SIPD.\r\nMenu Penatausahaan pengeluaran terdapat menu validasi yang berfungsi untuk menvalidasi Sub kegiatan Belanja, Pendapatan dan Pembiayaan.', '2022', '2021'),
+(208, 74, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 5\r\nKeterangan :\r\nLayanan pengadaan barang dan jasa memberikan layanan seperti transaksi basis data, validasi data, mekanisme  persetujuan, dan analitik data dapat di lihat pada https://eproc.denpasarkota.go.id/eproc4/ menu cari paket , lalu pilih paket yang diinginkan.\r\n\r\nKolaborasi dengan layanan elektronik lain, misalnya Layanan Penganggaran Berbasis Elektronik, Layanan Perencanaan Berbasis Elektronik, Layanan Keuangan Berbasis Elektronik, Layanan Pengadaan Barang dan Jasa Berbasis Elektronik Instansi Pusat/Pemerintah Daerah lain, dan/atau layanan SPBE Instansi Pusat/Pemerintah Daerah lain dapat dilihat pada https://eproc.denpasarkota.go.id/eproc4/ menu AMEL.\r\n\r\nperbaikan  berdasarkan hasil reviu dan evaluasi terhadap perubahan lingkungan, peraturan perundang-undangan, teknologi atau  kebutuhan Instansi Pusat/Pemerintah Daerah dapat dilihat pada perubahan Perpres 54/2010 Ke Perpres 16/2018', '2022', '2021'),
+(209, 75, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 5\r\nKeterangan : Sistem Simak Di Hati telah memberikan Layanan informasi secara online, memberikan layanan interaksi pencarian informasi kepegawaian, mengunggah/mengunduh dokumen kepegawaian, transaksi melakukan pengajuan perubahan data dan Validasi pengajuan oleh admin, melakukan pengajuan kenaikan pangkat, karpeg/karis/karsu, dan laporan2 kepegawaian yang menunjang dalam pengambilan kebijakan serta sudah terintegrasi dengan beberapa SPBE yang lain seperti dengan DIVOS (Denpasar Integrated Virtual Office System) https://divos.denpasarkota.go.id dan Karma Simanis (Sewakadarma Sistem Monitoring Administrasi Pembangunan) https://simonev.denpasarkota.go.id/', '2022', '2021'),
+(210, 76, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 4\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nLayanan Kearsipan Dinamis memberikan layanan surat menyurat dan arsip, berkolaborasi dengan data kepegawaian BKPSDM Kota Denpasar.', '2022', '2021'),
+(211, 77, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nAplikasi SIMDA BMD adalah Aplikasi yang dikeluarkan oleh Badan Pengawasan Keuangan dan Pembangunan Perwakilan Provinsi Bali. Aplikasi Dekstop yang diharuskan menginstal instaler di Dekstop masing-masing OPD (Local Network).\r\nMenu data Entry hanya bisa diakses oleh pengurus barang dan Admin  SIMDA untuk proses pengadaan Barang setiap tahun anggaran , tidak ada mengunggah dokumen  apapun dalam proses ini. Tipe data yang di input dibagi menjadi Tanah (KIB A), Peralatan dan Mesin (KIB B), Gedung dan Bangunan (KIB C), Jalan Irigasi dan Jaringan (KIB D), Aset Tetap Lainnya (KIB E), Konstruksi Dalam Pengerjaan (KIB E) dan Aset Tak Berwujud (aplikasi / Software).', '2022', '2021');
+INSERT INTO `tb_penilaian` (`idpenilaian`, `idindikator`, `rekomendasi`, `nilaikematangan`, `penilaianmandiri`, `tindaklanjut`, `target_waktu`, `tahun_penilaian`) VALUES
+(212, 78, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nLayanan Pengawasan Internal Pemerintah Berbasis Elektronik yaitu PRO Denpasar menu WBS yang khusus ditangani oleh Inspektorat, memberikan layanan transaksi kepada pengguna terkait pengawasan internal pemerintah seperti otomasi alur kerja, transaksi basis data, validasi data, mekanisme persetujuan, dan analitik data.', '2022', '2021'),
+(213, 79, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 3\r\nKeterangan :\r\nAplikasi e-sakip reviu merupakan aplikasi yang mengintegrasikan akuntabilitas kinerja seluruh perangkat daerah kota Denpasar dengan pusat.\r\nAplikasi e-sakip reviu merupakan aplikasi yang mengintegrasikan akuntabilitas kinerja seluruh perangkat daerah kota Denpasar dengan pusat. ', '2022', '2021'),
+(214, 80, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 5\r\nKeterangan :\r\nAplikasi E-kinerja merupakan aplikasi pengelolaan manajemen ASN berbasis kinerja  yang terangkum pada satu wadah memiliki beberapa menu diantaranya Absen, Kegiatan Harian, SKP, Surat, Respon, Input Cuti.\r\nBerkolaborasi dengan aplikasi Perilaku 360 dari BKN.\r\nAplikasi E-kinerja dan Aplikasi Simpeg dalam tahap integrasi. E-Kinerja telah direviu dan evaluasi untuk pengembangan dan dioptimalisasikan fungsinya.', '2022', '2021'),
+(215, 81, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nPengaduan Rakyat Online Kota Denpasar (PRODENPASAR) https://pengaduan.denpasarkota.go.id/ adalah aplikasi berbasis website yang melibatkan partisipasi publik dan bersifat dua arah, yang digunakan sebagai alat bantu untuk melakukan monitoring dan verifikasi capaian program pembangunan maupun pengaduan masyarakat terkait pelaksanaan program pembangunan di Kota Denpasar. PRODENPASAR dikembangkan oleh Dinas Komunikasi dan Informatika Kota Denpasar. PRO Denpasar berkolaborasi dengan SPAN Lapor. Dilakukan reviu dan evaluasi secara berkala.', '2022', '2021'),
+(216, 81, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 4\r\nKeterangan : Pengaduan Rakyat Online Kota Denpasar (PRODENPASAR) https://pengaduan.denpasarkota.go.id/ adalah aplikasi berbasis website yang melibatkan partisipasi publik dan bersifat dua arah, yang digunakan sebagai alat bantu untuk melakukan monitoring dan verifikasi capaian program pembangunan maupun pengaduan masyarakat terkait pelaksanaan program pembangunan di Kota Denpasar. PRODENPASAR dikembangkan oleh Dinas Komunikasi dan Informatika Kota Denpasar. PRO Denpasar berkolaborasi dengan SPAN Lapor. Dilakukan reviu dan evaluasi secara berkala.', '2022', '2021'),
+(217, 82, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 3\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nLahirnya Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik merupakan wujud dari proses demokratisasi yang berlangsung di Indonesia, serta tuntutan dari kehendak untuk mewujudkan tata kelola pemerintahan yang baik (good governance) melalui penerapan prinsip-prinsip akuntabilitas, transparansi dan supremasi hukum serta melibatkan partisipasi masyarakat dalam setiap proses kebijakan publik melalui website https://ppid.denpasarkota.go.id/', '2022', '2021'),
+(218, 83, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 2\r\nNilai kematangan pusat level : 2\r\nKeterangan :\r\nUntuk saat ini Layanan JDIH https://jdih.denpasarkota.go.id/ memberikan layanan interaksi terkait jaringan dokumentasi dan informasi hukum seperti pencarian informasi, pengunggahan dan pengunduhan dokumen.\r\n\r\nSedangkan untuk Layanan kami lainnya yang memberikan fitur tracing, approval, dan validasi dari awal pembuatan kebijakan masih dalam tahap pengembangan.', '2022', '2021'),
+(219, 84, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\ne-BPHTB (Elektronik Bea Perolehan Hak Atas Tanah Dan Bangunan) merupakan sistem pengelolaan BPHTB secara online yang berbasis web yang terintegrasi dengan aplikasi SIM PBB dan payment Bank, Notaris/PPAT dan Kantor BPN. Penggunaan e-BPHTB diharapkan membantu pelaksanaan dan meningkatkan kemudahan bagi wajib pajak dalam melakukan proses pendaftaran, pelaporan dan pembayaran BPHTB.', '2022', '2021'),
+(220, 85, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 4\r\nKeterangan :\r\nWebsite Bursa Kerja Denpasar (https://bursakerja.denpasarkota.go.id) merupakan website portal yang digunakan oleh masyrakat pencari kerja dan pelaku dunia usaha, untuk mencari dan berbagi informasi lowongan pekerjaan dan informasi terkini dunia kerja di Kota Denpasar.\r\nBursa Kerja Online telah terintegrasi dengan Data Kependudukan, Data PMI terdampak Covid19 pada Aplikasi eSewaka Dharma.\r\nBursa Kerja Online telah direviu dan dievaluasi secara berkala.', '2022', '2021'),
+(223, 86, 'Masih Menunggu Rekomendasi dari Kemenpan', '-', '-', 'Penilaian mandiri level : 5\r\nNilai kematangan pusat level : 4\r\nKeterangan  : ayanan Publik Perijinan di Kota Denpasar menggunakan Aplikasi Pusat dari BKPM https://oss.go.id.\r\n\r\nOSS / Sistem Pelayanan Perizinan Berusaha Terintegrasi Secara Elektronik. Kemudahan berusaha dalam berbagai skala turut didorong Pemerintah dengan reformasi struktural, termasuk dengan reformasi sistem perizinan. Penerapan Pelayanan Terpadu Satu Pintu (PTSP) dan Online Single Submission (OSS) diharapkan efektif mengurangi birokrasi dan mempermudah para pelaku usaha. Pemerintah sudah menjalankan Online Single Submission (OSS) sebagai sistem yang mengintegrasikan seluruh pelayanan perizinan berusaha yang menjadi kewenangan Menteri/Pimpinan Lembaga, Gubernur, atau Bupati/Walikota yang dilakukan secara elektronik. Melalui reformasi sistem perizinan, kita mendorong standardisasi menjadikan birokrasi perizinan di tingkat pusat dan daerah lebih mudah, lebih cepat, dan juga lebih terintegrasi.\r\n\r\nLayanan Publik Perijinan telah direviu dan evaluasi secara berkala.', '2022', '2021');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pertanyaan`
+-- Table structure for table `tb_pertanyaan`
 --
 
 CREATE TABLE `tb_pertanyaan` (
@@ -2043,7 +2570,7 @@ CREATE TABLE `tb_pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pertanyaan`
+-- Dumping data for table `tb_pertanyaan`
 --
 
 INSERT INTO `tb_pertanyaan` (`idpertanyaan`, `idindikator`, `pertanyaan`) VALUES
@@ -2088,7 +2615,7 @@ INSERT INTO `tb_pertanyaan` (`idpertanyaan`, `idindikator`, `pertanyaan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_tenant`
+-- Table structure for table `tb_tenant`
 --
 
 CREATE TABLE `tb_tenant` (
@@ -2100,33 +2627,33 @@ CREATE TABLE `tb_tenant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tb_tenant`
+-- Dumping data for table `tb_tenant`
 --
 
 INSERT INTO `tb_tenant` (`id_tenant`, `nama_tenant`, `nm_inbis`, `contact`, `ket_tenant`) VALUES
 (1, 'Asteroid', 2, '081529123648', ''),
-(2, 'Alih Gae', 2, '081999015508', ''),
+(2, 'Alih Gae', 2, '081999015508', 'Sebuah aplikasi dengan platform website untuk memudahkan pencari kerja'),
 (3, 'Teampal.co', 2, '082236666296', ''),
-(4, 'Bisloka', 2, '081338270676', ''),
-(5, 'Rapid Raid Games', 2, '083119610438', ''),
-(6, 'Griya MUA', 2, '082247555156', ''),
+(4, 'Bisloka', 2, '081338270676', 'Merupakan startup yang menawarkan cara mudah booking bus pariwisata.'),
+(5, 'Rapid Raid Games', 2, '083119610438', 'Merupakan startup dibidang game'),
+(6, 'Griya MUA', 2, '082247555156', 'Merupakan e-marketplace jasa makeup artist (MUA) berbasis mobile apps yang memudahkan para customer untuk mencari MUA yang sesuai dengan kriteria dan budget customer.'),
 (7, 'Bhinneka Coffe Been', 2, '081337575469', ''),
 (8, 'Tripto', 2, '083129608329', ''),
 (9, 'Pukucamper', 2, '081936236404', ''),
 (10, 'Montir Keliling', 2, '081292654654', ''),
-(11, 'Bali Organik Subak (BOS)', 2, '08113962727', ''),
-(12, 'Trolls', 4, '087762999652', ''),
-(13, 'Pasupati', 4, '085739205671', ''),
-(14, 'Agrito', 4, '082340914446', ''),
-(15, 'Jemari Channel', 4, '082266551795', ''),
-(16, 'Bukaloka', 4, '082342045085', ''),
-(17, 'Amacall', 4, '081558855159', ''),
-(18, 'GustPro', 3, '', ''),
-(19, 'Bali 3D Printer 2 in 1 ', 3, '', ''),
-(20, 'Bumbung Hijau Farm', 3, '', ''),
-(21, 'In-Suit', 3, '', ''),
-(22, 'Rezvac', 3, '', ''),
-(23, 'Pandana', 3, '', ''),
+(11, 'Bali Organik Subak (BOS)', 2, '08113962727', 'Bali Organik Subak adalah wadah bagi teman-teman PETANI MUDA KEREN untuk memasarkan produk hasil pertaniannya'),
+(12, 'Trolls', 4, '087762999652', 'Merupakan alat pengendali traktor melalui smartphone'),
+(13, 'Pasupati', 4, '085739205671', ' Merupakan aplikasi portal para seniman dengan penikmat dan pengguna jasa kesenian tradisional'),
+(14, 'Agrito', 4, '082340914446', 'Bergerak di bidang alat hidroponik terotomasi berbasis Internet of Things untuk membantu para petani'),
+(15, 'Jemari Channel', 4, '082266551795', 'Merupakan Aplikasi penyewaan dan penjualan fashion endek Bali'),
+(16, 'Bukaloka', 4, '082342045085', 'Merupakan aplikasi market place dan e-wallet pertama dan terbesar di Bali yang menyediakan beberapa paket tur, sewa mobil dan menjadi alat pembayaran SPP dan kebutuhan sehari-hari di lingkungan STIKOM Bali Grup.'),
+(17, 'Amacall', 4, '081558855159', 'Merupakan aplikasi Baby & Moms care'),
+(18, 'GustPro', 3, '', 'GustPro adalah salah satu tenant PPBT 2018 dengan inovasi berbasis teknologi. GuestPro merupakan sebuah perusahaan teknologi informasi berbasis di Ubud Bali, yang memberikan solusi sistem informasi bagi perusahaan-perusahaan tourism & hospitality Industry. '),
+(19, 'Bali 3D Printer 2 in 1 ', 3, '', 'Bali 3D Printer 2 in 1 merupakan sebuah printer 3 Dimensi yang dapat mencetak dengan hasil 3D. Selain itu 3D Printer 2 In 1 mempunyai fitur tambahan Laser Engraver dengan metode swap (penggantian) toolhead secara mudah. Dengan laser dengan kemampuan 500mW blue Laser, dapat mengambar pada material plastik, kayu, cardboard, kulit dan rubber.'),
+(20, 'Bumbung Hijau Farm', 3, '', 'Bumbung Hijau Farm merupakan salah tenant PPBT 2019 dalam bidang pangan dengan nama produk Benih Kentang Bersertifikat. Benih kentang yang diproduksi Bumbung Hijau Farm merupakan satau-satunya benih kentang yang bersertifikat di Nusa Tenggara Barat.'),
+(21, 'In-Suit', 3, '', 'In-Suit adalah tenant CPPBT 2019 dengan judul In-Suit (Intelligent Suit and Assistive Technology) sebuah system yang menggabungkan teknologi wearable kecerdasan buatan, dan aplikasi awan yang dipergunakan untuk pasien lanjut usia guna mendeteksi insiden jatuh dan memanggil pertologan (ambulan/dokter) secara otomatis.'),
+(22, 'Rezvac', 3, '', 'Rezvac adalah sebuah online booking & payment system yang siap membantu pemilik usaha tour & activities untuk mempermudah dalam mengembangkan bisnis tour & activities khususnya masalah manajemen reservasi dan pembayaran. Dengan menggunakan online payment method.'),
+(23, 'Pandana', 3, '', 'Pandana merupakan perangkat lunak yang siap menyesuaikan dengan kebutuhan koperasi yang anda miliki (Staf Keuangan Virtual). Ada tiga fitur unggulan Pandana yaitu Aplikasi Mobile untuk Kolektor sehingga data tabungan baik setoran maupun penarikan oleh nasabah di lokasi dapat secara realtime terintegrasi dengan server dan dapat diakses langsung di kantor koperasi.'),
 (24, 'Byte Dream', 1, 'Eka : 085737624399', ''),
 (25, 'Ganesh Studio', 1, 'Doni : +62 812-3762-499', ''),
 (26, 'Imajilogi', 1, 'Septian : 08989733118', ''),
@@ -2173,7 +2700,7 @@ INSERT INTO `tb_tenant` (`id_tenant`, `nama_tenant`, `nm_inbis`, `contact`, `ket
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -2189,7 +2716,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_user`
+-- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`, `groupuser`, `grupindeks`, `is_active`) VALUES
@@ -2197,18 +2724,21 @@ INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`
 ('198404062009031006', 'Dewa Ngakan Ketut Rama Sanjaya', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '03080103', 3, 3, 1),
 ('Adbang', 'Bagian Administrasi Pembangunan', 'e48c3b0ddced61f8d9fb9a4e7c5f0751', '', '012001', '', 2, 1, 1),
 ('adminapps', 'Admin Aplikasi', '21232f297a57a5a743894a0e4a801fc3', '', '0', '', 1, 3, 1),
+('admininbis', 'Administrator Inbis', '21232f297a57a5a743894a0e4a801fc3', '', '0', '0', 1, 4, 1),
 ('adminspbe', 'Admin SPBE', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '0', '', 1, 1, 1),
 ('agungpriambada', 'Agung Priambada', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
 ('anggita', 'Ni Luh Made Anggita Damayanti', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
+('Arsip', 'Dinas Perpustakaan dan Kearsipan', '67967d398176bc99b9094689d1fe5062', '', '040701', '-', 2, 1, 1),
 ('bagianhukum', 'Bagian Hukum', 'd1ec53636aeea280330aa7e329b2becc', '', '011201', '', 2, 1, 1),
 ('bagianorganisasi', 'Bagian Organisasi', '76c113f6e2473bf70163708158b82fc8', '', '011301', '0', 2, 1, 1),
 ('bagianpengadaan', 'Bagian Pengadaan Barang dan Jasa', 'e4e86adfc9728e8135651a4fa1c2fbad', '', '013301', '', 2, 1, 1),
 ('Bapenda', 'Badan Pendapatan Daerah', 'ef7574f54684ae860d71040a6ba899ea', 'pendapatandenpasar@gmail.com', '031601', '', 2, 1, 1),
 ('bappeda', 'bappeda', 'cdb5073f441bd9969de925b630957e20', 'sekrebappedadps.08@gmail.com', '040201', '0', 2, 1, 1),
 ('bkpsdm', 'bkpsdm', '015def04364a92c60c568078f52bbabd', '', '040301', '0', 2, 1, 1),
-('bpkad', 'BPKAD', '4d9335495d0c52e9587d0a438781f76b', '', '300005', '', 2, 1, 1),
+('bpkad', 'BPKAD', '7957093083bb9408f77ffa031e9b230a', '', '300005', '', 2, 1, 1),
 ('disnaker', 'Dinas Tenaga Kerja dan Sertifikasi Kompetensi', 'dacf5c981232c96bd66a40120f42cffe', '', '030901', '', 2, 1, 1),
 ('DKIS', 'Dinas Komunikasi Informatika dan Statistik', '49b4d56538513749ef194c4783fb5e43', '', '030801', '0', 2, 1, 1),
+('dpskota', 'Denpasar Kota', '305fa9f4e23c08dbda2094624cceab08', 'smartcitydenpasar@gmail.com', '0', '0', 1, 0, 1),
 ('dukcapil', 'Dinas Kependudukan dan Pencatatan Sipil', '82ff51b31791266a375e874eda11dc4e', '', '030601', '', 2, 1, 1),
 ('Inspektorat', 'Inspektorat', '515a1d422b848c53b406b6ec592be6a0', '', '040101', '', 2, 1, 1),
 ('krisna', 'Dewa Ayu Krisna', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1),
@@ -2222,7 +2752,7 @@ INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`
 ('Pimpinan_hukum', 'Bagian Hukum Setda Kota Denpasar', '011d10ad3167248d207c5e5b77a8cd32', '', '011201', '', 4, 1, 1),
 ('Pimpinan_inspektorat', 'Inspektorat', 'dbfd35a0b4ec29080895ba9dd847decc', '', '040101', '', 4, 1, 1),
 ('Pimpinan_organisasi', 'Bagian Organisasi', '337557cf00dc968c47c2e84ce50b9830', '', '011301', '', 4, 1, 1),
-('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', 'f027d1abaf8083e67dee6e6e38857d24', '', '013301', '', 4, 1, 1),
+('Pimpinan_pengadaan', 'Bagian Pengadaan Barang dan Jasa', '29d2da7ac11cb93b9332f2e0b8fb3cc4', '', '013301', '', 4, 1, 1),
 ('Pimpinan_perijinan', 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu', '83db2b74ed0a1a4567c1532ebc01ebe0', '', '140018', '', 4, 1, 1),
 ('putuokky', 'Okky Maheswara', 'dc2f4ef676263fe9dde73a9ae6299258', 'okkymahes@gmail.com', '0', '', 1, 0, 1),
 ('veriandriawan', 'Dewa Very Andriawan', 'dc2f4ef676263fe9dde73a9ae6299258', '', '030801', '', 3, 3, 1);
@@ -2232,404 +2762,404 @@ INSERT INTO `tb_user` (`userid`, `nama_user`, `password`, `email`, `opd`, `opdb`
 --
 
 --
--- Indeks untuk tabel `aplikasi`
+-- Indexes for table `aplikasi`
 --
 ALTER TABLE `aplikasi`
   ADD PRIMARY KEY (`id_app`);
 
 --
--- Indeks untuk tabel `detail_aplikasi`
+-- Indexes for table `detail_aplikasi`
 --
 ALTER TABLE `detail_aplikasi`
   ADD PRIMARY KEY (`id_detail_aplikasi`);
 
 --
--- Indeks untuk tabel `kategori_aplikasi`
+-- Indexes for table `kategori_aplikasi`
 --
 ALTER TABLE `kategori_aplikasi`
   ADD PRIMARY KEY (`id_kat_aplikasi`);
 
 --
--- Indeks untuk tabel `kategori_database`
+-- Indexes for table `kategori_database`
 --
 ALTER TABLE `kategori_database`
   ADD PRIMARY KEY (`id_kat_database`);
 
 --
--- Indeks untuk tabel `kategori_lok_server`
+-- Indexes for table `kategori_lok_server`
 --
 ALTER TABLE `kategori_lok_server`
   ADD PRIMARY KEY (`id_lok_server`);
 
 --
--- Indeks untuk tabel `kategori_media`
+-- Indexes for table `kategori_media`
 --
 ALTER TABLE `kategori_media`
   ADD PRIMARY KEY (`id_media`);
 
 --
--- Indeks untuk tabel `klasifikasi_aplikasi`
+-- Indexes for table `klasifikasi_aplikasi`
 --
 ALTER TABLE `klasifikasi_aplikasi`
   ADD PRIMARY KEY (`id_klasifikasi_app`);
 
 --
--- Indeks untuk tabel `tbl_jenis_laporan`
+-- Indexes for table `tbl_jenis_laporan`
 --
 ALTER TABLE `tbl_jenis_laporan`
   ADD PRIMARY KEY (`id_jenis_laporan`);
 
 --
--- Indeks untuk tabel `tbl_kategori_monev`
+-- Indexes for table `tbl_kategori_monev`
 --
 ALTER TABLE `tbl_kategori_monev`
   ADD PRIMARY KEY (`id_kat_monev`);
 
 --
--- Indeks untuk tabel `tbl_lapormasalah`
+-- Indexes for table `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_lapormasalah`
   ADD PRIMARY KEY (`id_lapormasalah`);
 
 --
--- Indeks untuk tabel `tbl_monev_app`
+-- Indexes for table `tbl_monev_app`
 --
 ALTER TABLE `tbl_monev_app`
   ADD PRIMARY KEY (`id_monev_app`);
 
 --
--- Indeks untuk tabel `tbl_respon_tl`
+-- Indexes for table `tbl_respon_tl`
 --
 ALTER TABLE `tbl_respon_tl`
   ADD PRIMARY KEY (`id_respon_tl`);
 
 --
--- Indeks untuk tabel `tbl_user_katindex`
+-- Indexes for table `tbl_user_katindex`
 --
 ALTER TABLE `tbl_user_katindex`
   ADD PRIMARY KEY (`id_user_katindex`);
 
 --
--- Indeks untuk tabel `tb_aspek`
+-- Indexes for table `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
   ADD PRIMARY KEY (`id_aspek`);
 
 --
--- Indeks untuk tabel `tb_aspek_nilai`
+-- Indexes for table `tb_aspek_nilai`
 --
 ALTER TABLE `tb_aspek_nilai`
   ADD PRIMARY KEY (`id_aspek_nilai`);
 
 --
--- Indeks untuk tabel `tb_datapendukung`
+-- Indexes for table `tb_datapendukung`
 --
 ALTER TABLE `tb_datapendukung`
   ADD PRIMARY KEY (`iddata`);
 
 --
--- Indeks untuk tabel `tb_detail_indikator`
+-- Indexes for table `tb_detail_indikator`
 --
 ALTER TABLE `tb_detail_indikator`
   ADD PRIMARY KEY (`id_detail_indikator`);
 
 --
--- Indeks untuk tabel `tb_domain`
+-- Indexes for table `tb_domain`
 --
 ALTER TABLE `tb_domain`
   ADD PRIMARY KEY (`id_domain`);
 
 --
--- Indeks untuk tabel `tb_domain_nilai`
+-- Indexes for table `tb_domain_nilai`
 --
 ALTER TABLE `tb_domain_nilai`
   ADD PRIMARY KEY (`id_domain_nilai`);
 
 --
--- Indeks untuk tabel `tb_eksekutif_opd`
+-- Indexes for table `tb_eksekutif_opd`
 --
 ALTER TABLE `tb_eksekutif_opd`
   ADD PRIMARY KEY (`id_eksekutif_opd`);
 
 --
--- Indeks untuk tabel `tb_evaluasi`
+-- Indexes for table `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
   ADD PRIMARY KEY (`idevaluasi`);
 
 --
--- Indeks untuk tabel `tb_feedback`
+-- Indexes for table `tb_feedback`
 --
 ALTER TABLE `tb_feedback`
   ADD PRIMARY KEY (`idfeedback`);
 
 --
--- Indeks untuk tabel `tb_groupuser`
+-- Indexes for table `tb_groupuser`
 --
 ALTER TABLE `tb_groupuser`
   ADD PRIMARY KEY (`id_groupuser`);
 
 --
--- Indeks untuk tabel `tb_inbis`
+-- Indexes for table `tb_inbis`
 --
 ALTER TABLE `tb_inbis`
   ADD PRIMARY KEY (`id_inbis`);
 
 --
--- Indeks untuk tabel `tb_indeks`
+-- Indexes for table `tb_indeks`
 --
 ALTER TABLE `tb_indeks`
   ADD PRIMARY KEY (`id_indeks`);
 
 --
--- Indeks untuk tabel `tb_indeks_nilai`
+-- Indexes for table `tb_indeks_nilai`
 --
 ALTER TABLE `tb_indeks_nilai`
   ADD PRIMARY KEY (`id_indeks_nilai`);
 
 --
--- Indeks untuk tabel `tb_indikator`
+-- Indexes for table `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
   ADD PRIMARY KEY (`idindikator`);
 
 --
--- Indeks untuk tabel `tb_level`
+-- Indexes for table `tb_level`
 --
 ALTER TABLE `tb_level`
   ADD PRIMARY KEY (`idlevel`);
 
 --
--- Indeks untuk tabel `tb_opd`
+-- Indexes for table `tb_opd`
 --
 ALTER TABLE `tb_opd`
   ADD PRIMARY KEY (`idopd`);
 
 --
--- Indeks untuk tabel `tb_opdterkait`
+-- Indexes for table `tb_opdterkait`
 --
 ALTER TABLE `tb_opdterkait`
   ADD PRIMARY KEY (`idopdterkait`);
 
 --
--- Indeks untuk tabel `tb_penilaian`
+-- Indexes for table `tb_penilaian`
 --
 ALTER TABLE `tb_penilaian`
   ADD PRIMARY KEY (`idpenilaian`);
 
 --
--- Indeks untuk tabel `tb_pertanyaan`
+-- Indexes for table `tb_pertanyaan`
 --
 ALTER TABLE `tb_pertanyaan`
   ADD PRIMARY KEY (`idpertanyaan`);
 
 --
--- Indeks untuk tabel `tb_tenant`
+-- Indexes for table `tb_tenant`
 --
 ALTER TABLE `tb_tenant`
   ADD PRIMARY KEY (`id_tenant`);
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`userid`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `aplikasi`
+-- AUTO_INCREMENT for table `aplikasi`
 --
 ALTER TABLE `aplikasi`
-  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_aplikasi`
+-- AUTO_INCREMENT for table `detail_aplikasi`
 --
 ALTER TABLE `detail_aplikasi`
   MODIFY `id_detail_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_aplikasi`
+-- AUTO_INCREMENT for table `kategori_aplikasi`
 --
 ALTER TABLE `kategori_aplikasi`
   MODIFY `id_kat_aplikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_database`
+-- AUTO_INCREMENT for table `kategori_database`
 --
 ALTER TABLE `kategori_database`
   MODIFY `id_kat_database` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_lok_server`
+-- AUTO_INCREMENT for table `kategori_lok_server`
 --
 ALTER TABLE `kategori_lok_server`
   MODIFY `id_lok_server` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_media`
+-- AUTO_INCREMENT for table `kategori_media`
 --
 ALTER TABLE `kategori_media`
   MODIFY `id_media` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `klasifikasi_aplikasi`
+-- AUTO_INCREMENT for table `klasifikasi_aplikasi`
 --
 ALTER TABLE `klasifikasi_aplikasi`
   MODIFY `id_klasifikasi_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_jenis_laporan`
+-- AUTO_INCREMENT for table `tbl_jenis_laporan`
 --
 ALTER TABLE `tbl_jenis_laporan`
   MODIFY `id_jenis_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kategori_monev`
+-- AUTO_INCREMENT for table `tbl_kategori_monev`
 --
 ALTER TABLE `tbl_kategori_monev`
   MODIFY `id_kat_monev` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_lapormasalah`
+-- AUTO_INCREMENT for table `tbl_lapormasalah`
 --
 ALTER TABLE `tbl_lapormasalah`
   MODIFY `id_lapormasalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_monev_app`
+-- AUTO_INCREMENT for table `tbl_monev_app`
 --
 ALTER TABLE `tbl_monev_app`
   MODIFY `id_monev_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_respon_tl`
+-- AUTO_INCREMENT for table `tbl_respon_tl`
 --
 ALTER TABLE `tbl_respon_tl`
   MODIFY `id_respon_tl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_user_katindex`
+-- AUTO_INCREMENT for table `tbl_user_katindex`
 --
 ALTER TABLE `tbl_user_katindex`
-  MODIFY `id_user_katindex` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user_katindex` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_aspek`
+-- AUTO_INCREMENT for table `tb_aspek`
 --
 ALTER TABLE `tb_aspek`
-  MODIFY `id_aspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_aspek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_aspek_nilai`
+-- AUTO_INCREMENT for table `tb_aspek_nilai`
 --
 ALTER TABLE `tb_aspek_nilai`
   MODIFY `id_aspek_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_datapendukung`
+-- AUTO_INCREMENT for table `tb_datapendukung`
 --
 ALTER TABLE `tb_datapendukung`
   MODIFY `iddata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_detail_indikator`
+-- AUTO_INCREMENT for table `tb_detail_indikator`
 --
 ALTER TABLE `tb_detail_indikator`
-  MODIFY `id_detail_indikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_detail_indikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_domain`
+-- AUTO_INCREMENT for table `tb_domain`
 --
 ALTER TABLE `tb_domain`
-  MODIFY `id_domain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_domain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_domain_nilai`
+-- AUTO_INCREMENT for table `tb_domain_nilai`
 --
 ALTER TABLE `tb_domain_nilai`
   MODIFY `id_domain_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_eksekutif_opd`
+-- AUTO_INCREMENT for table `tb_eksekutif_opd`
 --
 ALTER TABLE `tb_eksekutif_opd`
-  MODIFY `id_eksekutif_opd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_eksekutif_opd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_evaluasi`
+-- AUTO_INCREMENT for table `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
   MODIFY `idevaluasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_feedback`
+-- AUTO_INCREMENT for table `tb_feedback`
 --
 ALTER TABLE `tb_feedback`
-  MODIFY `idfeedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
+  MODIFY `idfeedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=545;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_groupuser`
+-- AUTO_INCREMENT for table `tb_groupuser`
 --
 ALTER TABLE `tb_groupuser`
-  MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_groupuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_inbis`
+-- AUTO_INCREMENT for table `tb_inbis`
 --
 ALTER TABLE `tb_inbis`
   MODIFY `id_inbis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_indeks`
+-- AUTO_INCREMENT for table `tb_indeks`
 --
 ALTER TABLE `tb_indeks`
   MODIFY `id_indeks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_indeks_nilai`
+-- AUTO_INCREMENT for table `tb_indeks_nilai`
 --
 ALTER TABLE `tb_indeks_nilai`
-  MODIFY `id_indeks_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_indeks_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_indikator`
+-- AUTO_INCREMENT for table `tb_indikator`
 --
 ALTER TABLE `tb_indikator`
-  MODIFY `idindikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idindikator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_level`
+-- AUTO_INCREMENT for table `tb_level`
 --
 ALTER TABLE `tb_level`
-  MODIFY `idlevel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `idlevel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_opdterkait`
+-- AUTO_INCREMENT for table `tb_opdterkait`
 --
 ALTER TABLE `tb_opdterkait`
-  MODIFY `idopdterkait` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `idopdterkait` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_penilaian`
+-- AUTO_INCREMENT for table `tb_penilaian`
 --
 ALTER TABLE `tb_penilaian`
-  MODIFY `idpenilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `idpenilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pertanyaan`
+-- AUTO_INCREMENT for table `tb_pertanyaan`
 --
 ALTER TABLE `tb_pertanyaan`
-  MODIFY `idpertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idpertanyaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_tenant`
+-- AUTO_INCREMENT for table `tb_tenant`
 --
 ALTER TABLE `tb_tenant`
-  MODIFY `id_tenant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id_tenant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
