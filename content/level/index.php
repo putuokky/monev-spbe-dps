@@ -9,7 +9,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formedit.php';
 } else {
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -56,6 +56,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Nilai Mandiri</th>
                     <th>Indikator</th>
                     <th>Penjelasan Level</th>
+                    <th>Tahun Level</th>
                 </thead>
                 <tfoot>
                   <tr>
@@ -66,28 +67,32 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Nilai Mandiri</th>
                     <th>Indikator</th>
                     <th>Penjelasan Level</th>
+                    <th>Tahun Level</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
 
-                    $sql = "SELECT * FROM tb_level a 
-                  LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan
-                  LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator";
-                    $result = mysqli_query($conn, $sql);
+                  $sql = "SELECT * FROM tb_level a 
+                          LEFT JOIN tb_pertanyaan b ON a.idpertanyaan = b.idpertanyaan
+                          LEFT JOIN tb_indikator c ON b.idindikator = c.idindikator";
+                  $sql = $sql . " ORDER BY a.tahun_level DESC, b.idindikator ASC";
 
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['idlevel'];
-                        $namalevel = $row['namalevel'];
-                        $nilaimadiri = $row['nilaimadiri'];
-                        $pertanyaan = $row['pertanyaan'];
-                        $penjelasan_level = $row['penjelasan_level'];
-                        $indikator = $row['indikator'];
-                        $namaindikator = $row['namaindikator'];
-                        ?>
+                  $result = mysqli_query($conn, $sql);
+
+                  if (mysqli_num_rows($result) > 0) {
+                    $no = 1;
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $id = $row['idlevel'];
+                      $namalevel = $row['namalevel'];
+                      $nilaimadiri = $row['nilaimadiri'];
+                      $pertanyaan = $row['pertanyaan'];
+                      $penjelasan_level = $row['penjelasan_level'];
+                      $indikator = $row['indikator'];
+                      $namaindikator = $row['namaindikator'];
+                      $tahun_level = $row['tahun_level'];
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -110,13 +115,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         <td><?= $nilaimadiri; ?></td>
                         <td><?= "Indikator " . $indikator . " : " . $namaindikator; ?></td>
                         <td><?= $penjelasan_level; ?></td>
+                        <td><?= $tahun_level; ?></td>
                       </tr>
                   <?php
-                        $no++;
-                      }
+                      $no++;
                     }
-                    mysqli_close($conn);
-                    ?>
+                  }
+                  mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

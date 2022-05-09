@@ -11,6 +11,10 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'detail-domain.php';
 } else if (isset($_GET['act']) && $_GET['act'] == "tambahnilai") {
   include 'tambah-nilai.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "ubahnilai") {
+  include 'edit-nilai.php';
+} else if (isset($_GET['act']) && $_GET['act'] == "hapusnilai") {
+  include 'delete-nilai.php';
 } else {
 
 

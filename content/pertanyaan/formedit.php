@@ -11,13 +11,15 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 if (isset($_POST['update'])) {
   $namaindikator  = $_POST['namaindikator'];
   $pertanyaan    = $_POST['pertanyaan'];
+  $thntanya    = $_POST['thntanya'];
 
   $res = true;
 
   if ($res) {
     $sql = "UPDATE tb_pertanyaan 
         SET idindikator = '$namaindikator',
-        pertanyaan = '$pertanyaan'
+        pertanyaan = '$pertanyaan',
+        tahun_pertanyaan = '$thntanya'
         WHERE idpertanyaan = '$id'";
 
     if (mysqli_query($conn, $sql)) {
@@ -89,6 +91,22 @@ $data = mysqli_fetch_assoc($resUbah);
                 <label for="pertanyaan" class="col-md-2 col-form-label">Pertanyaan</label>
                 <div class="col-md-10">
                   <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="3" placeholder="Enter Pertanyaan"><?= $data['pertanyaan']; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="thntanya" class="col-md-2 col-form-label">Tahun Pertanyaan</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="thntanya" name="thntanya">
+                    <option value="0">-</option>
+                    <?php
+                    for ($i = 2017; $i <= $thnnow; $i++) {
+                      if ($data['tahun_pertanyaan'] == $i) { ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <div class="form-group">

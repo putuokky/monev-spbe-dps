@@ -113,11 +113,11 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
                       <tr>
                         <td><?= $no; ?></td>
                         <td>
-                          <a class="btn btn-warning" title="Edit" href="#"><i class="fas fa-fw fa-edit"></i></a>
-                          <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#"><i class="fas fa-fw fa-trash-alt"></i></a>
+                          <a class="btn btn-warning" title="Edit" href="?page=domain&act=ubahnilai&id=<?= $id; ?>"><i class="fas fa-fw fa-edit"></i></a>
+                          <a class="btn btn-danger" title="Hapus" href="" data-toggle="modal" data-target="#modalHapus-<?= $id; ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
 
                           <!-- Modal Hapus -->
-                          <?php include 'modal_hapus.php'; ?>
+                          <?php include 'modal_hapus-nilai.php'; ?>
                           <!-- Modal Hapus -->
 
                         </td>
@@ -144,4 +144,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 
 </div>
 
-<!-- <?php } ?> -->
+<?php
+                }
+                // }
+?>

@@ -9,7 +9,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
   include 'formedit.php';
 } else {
 
-  ?>
+?>
 
 
   <!-- agar menu sidebar saat di klik active -->
@@ -53,6 +53,7 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Nama Indikator</th>
                     <th>Pertanyaan</th>
+                    <th>Tahun</th>
                 </thead>
                 <tfoot>
                   <tr>
@@ -60,24 +61,27 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                     <th>Action</th>
                     <th>Nama Indikator</th>
                     <th>Pertanyaan</th>
+                    <th>Tahun</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
 
-                    $sql = "SELECT * FROM tb_pertanyaan a 
+                  $sql = "SELECT * FROM tb_pertanyaan a 
                         LEFT JOIN tb_indikator b ON a.idindikator = b.idindikator";
-                    $result = mysqli_query($conn, $sql);
+                  $sql = $sql . " ORDER BY a.tahun_pertanyaan DESC, b.idindikator ASC";
+                  $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                      $no = 1;
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['idpertanyaan'];
-                        $pertanyaan = $row['pertanyaan'];
-                        $indikator = $row['indikator'];
-                        $namaindikator = $row['namaindikator'];
-                        ?>
+                  if (mysqli_num_rows($result) > 0) {
+                    $no = 1;
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $id = $row['idpertanyaan'];
+                      $pertanyaan = $row['pertanyaan'];
+                      $indikator = $row['indikator'];
+                      $namaindikator = $row['namaindikator'];
+                      $tahun = $row['tahun_pertanyaan'];
+                  ?>
 
                       <tr>
                         <td><?= $no; ?></td>
@@ -97,13 +101,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                         </td>
                         <td><?= "Indikator " . $indikator . " : " . $namaindikator; ?></td>
                         <td><?= $pertanyaan; ?></td>
+                        <td><?= $tahun; ?></td>
                       </tr>
                   <?php
-                        $no++;
-                      }
+                      $no++;
                     }
-                    mysqli_close($conn);
-                    ?>
+                  }
+                  mysqli_close($conn);
+                  ?>
                 </tbody>
               </table>
             </div>

@@ -13,6 +13,7 @@ if (isset($_POST['update'])) {
   $namalevel       = $_POST['namalevel'];
   $nilaimandiri    = $_POST['nilaimandiri'];
   $penjelasanlevel = $_POST['penjelasanlevel'];
+  $thnlevel        = $_POST['thnlevel'];
 
   $res = true;
 
@@ -21,7 +22,8 @@ if (isset($_POST['update'])) {
         SET idpertanyaan = '$namapertanyaan',
         namalevel = '$namalevel',
         penjelasan_level = '$penjelasanlevel',
-        nilaimadiri = '$nilaimandiri'
+        nilaimadiri = '$nilaimandiri',
+        tahun_level = '$thnlevel'
         WHERE idlevel = '$id'";
 
     if (mysqli_query($conn, $sql)) {
@@ -81,9 +83,9 @@ $data = mysqli_fetch_assoc($resUbah);
                     $resPertanyaan = mysqli_query($conn, $sqlPertanyaan);
                     while ($rowPertanyaan = mysqli_fetch_assoc($resPertanyaan)) {
                       if ($rowPertanyaan['idpertanyaan'] == $data['idpertanyaan']) { ?>
-                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>" selected><?= $rowPertanyaan['pertanyaan']; ?></option>
+                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>" selected><?= $rowPertanyaan['pertanyaan']; ?> (<?= $rowPertanyaan['tahun_pertanyaan']; ?>)</option>
                       <?php } else { ?>
-                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>"><?= $rowPertanyaan['pertanyaan']; ?></option>
+                        <option value="<?= $rowPertanyaan['idpertanyaan']; ?>"><?= $rowPertanyaan['pertanyaan']; ?> (<?= $rowPertanyaan['tahun_pertanyaan']; ?>)</option>
                       <?php } ?>
                     <?php } ?>
                   </select>
@@ -92,19 +94,35 @@ $data = mysqli_fetch_assoc($resUbah);
               <div class="form-group row">
                 <label for="namalevel" class="col-md-2 col-form-label">Nama Level</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="namalevel" id="namalevel" placeholder="Enter Nama Level" autocomplete="off" value="<?= $data['namalevel']; ?>">
+                  <input type="text" class="form-control col-3" name="namalevel" id="namalevel" placeholder="Enter Nama Level" autocomplete="off" value="<?= $data['namalevel']; ?>">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="nilaimandiri" class="col-md-2 col-form-label">Nilai Mandiri</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" name="nilaimandiri" id="nilaimandiri" placeholder="Enter Nilai Mandiri" autocomplete="off" value="<?= $data['nilaimadiri']; ?>">
+                  <input type="text" class="form-control col-2" name="nilaimandiri" id="nilaimandiri" placeholder="Enter Nilai Mandiri" autocomplete="off" value="<?= $data['nilaimadiri']; ?>">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="penjelasanlevel" class="col-md-2 col-form-label">Penjelasan Level</label>
                 <div class="col-md-10">
                   <textarea class="form-control" id="penjelasanlevel" name="penjelasanlevel" rows="3" placeholder="Enter Penjelasan Level"><?= $data['penjelasan_level']; ?></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="thnlevel" class="col-md-2 col-form-label">Tahun Level</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="thnlevel" name="thnlevel">
+                    <option value="0">-</option>
+                    <?php
+                    for ($i = 2017; $i <= $thnnow; $i++) {
+                      if ($data['tahun_level'] == $i) { ?>
+                        <option value="<?= $i; ?>" selected><?= $i; ?></option>
+                      <?php } else { ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <div class="form-group">

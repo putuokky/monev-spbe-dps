@@ -180,8 +180,14 @@ if (isset($_GET['act']) && $_GET['act'] == "hapus") {
                               echo '-';
                             }
                             ?></td>
-                        <td><?php if (!empty($nilaimadiri)) {
-                              echo $nilaimadiri;
+                        <td><?php
+                            $sqlNilaiMandiri = "SELECT * FROM tb_level
+                                    WHERE idlevel = '$penilaianmandiri'";
+                            $resultNilaiMandiri = mysqli_query($conn, $sqlNilaiMandiri);
+                            $rowNilaiMandiri = mysqli_fetch_assoc($resultNilaiMandiri);
+
+                            if ($nilaikematangan != '-') {
+                              echo $rowNilaiMandiri['nilaimadiri'];
                             } else {
                               echo '-';
                             }

@@ -37,7 +37,7 @@
               ?>
                   <option value="<?= $thnindeks; ?>"><?= $thnindeks; ?></option>
               <?php }
-              } ?>
+              }  ?>
             </select>
           </div>
           <div class="col-lg-1">

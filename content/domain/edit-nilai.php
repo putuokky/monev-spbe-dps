@@ -32,6 +32,11 @@ if (isset($_POST['input'])) {
   }
 }
 
+// query menampilkan data dengan id
+$sqlUbah = "SELECT * FROM tb_indeks_nilai WHERE tb_indeks_nilai = '$id'";
+$resUbah = mysqli_query($conn, $sqlUbah);
+$data = mysqli_fetch_assoc($resUbah);
+
 ?>
 
 <!-- agar menu sidebar saat di klik active -->
@@ -78,8 +83,12 @@ if (isset($_POST['input'])) {
                       LEFT JOIN tb_indeks b ON b.id_indeks = a.indeks";
                     }
                     $resIndeks = mysqli_query($conn, $sqlIndeks);
-                    while ($rowIndeks = mysqli_fetch_assoc($resIndeks)) { ?>
-                      <option value="<?= $rowIndeks['id_indeks_nilai']; ?>"><?= $rowIndeks['nama_indeks']; ?> (<?= $rowIndeks['tahun_indeks']; ?>)</option>
+                    while ($rowIndeks = mysqli_fetch_assoc($resIndeks)) {
+                      if ($data['id_indeks_nilai'] == $rowIndeks['id_indeks_nilai']) { ?>
+                        <option value="<?= $rowIndeks['id_indeks_nilai']; ?>" selected><?= $rowIndeks['nama_indeks']; ?> (<?= $rowIndeks['tahun_indeks']; ?>)</option>
+                      <?php } else { ?>
+                        <option value="<?= $rowIndeks['id_indeks_nilai']; ?>"><?= $rowIndeks['nama_indeks']; ?> (<?= $rowIndeks['tahun_indeks']; ?>)</option>
+                      <?php } ?>
                     <?php } ?>
                   </select>
                 </div>

@@ -3,12 +3,13 @@
 if (isset($_POST['input'])) {
   $namaindikator  = $_POST['namaindikator'];
   $pertanyaan    = $_POST['pertanyaan'];
+  $thntanya    = $_POST['thntanya'];
 
   $res = true;
 
   if ($res) {
-    $sql = "INSERT INTO tb_pertanyaan (idindikator, pertanyaan)
-      VALUES ('$namaindikator', '$pertanyaan')";
+    $sql = "INSERT INTO tb_pertanyaan (idindikator, pertanyaan, tahun_pertanyaan)
+      VALUES ('$namaindikator', '$pertanyaan', '$thntanya')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script type="text/javascript">
@@ -69,6 +70,18 @@ if (isset($_POST['input'])) {
                 <label for="pertanyaan" class="col-md-2 col-form-label">Pertanyaan</label>
                 <div class="col-md-10">
                   <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="3" placeholder="Enter Pertanyaan"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="thntanya" class="col-md-2 col-form-label">Tahun Pertanyaan</label>
+                <div class="col-md-2">
+                  <select class="form-control" id="thntanya" name="thntanya">
+                    <option value="0">-</option>
+                    <?php
+                    for ($i = 2017; $i <= $thnnow; $i++) { ?>
+                      <option value="<?= $i; ?>"><?= $i; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
               <div class="form-group">
